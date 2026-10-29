@@ -1,0 +1,78 @@
+.links {
+  color: var(--section-contact-fg);
+}
+
+.row {
+  position: relative;
+}
+
+.line {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--section-contact-fg) 14%, transparent);
+  pointer-events: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 5.5rem;
+  padding-block: 1rem;
+  transition: color 180ms ease;
+}
+
+.link:hover {
+  color: #97703c;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--section-contact-accent);
+  outline-offset: 6px;
+}
+
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+}
+
+.typed {
+  clip-path: inset(0);
+}
+
+.value {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+.typingHost {
+  position: relative;
+}
+
+.typingOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cursor:not([hidden]) {
+  display: inline-block;
+  width: 0.45em;
+  height: 1em;
+  margin-inline-start: 0.12em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: cursor-blink 500ms steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+

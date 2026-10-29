@@ -1,0 +1,191 @@
+/* Local copies from /public/fonts — used ONLY when Google Fonts is blocked.
+   Family names stay distinct so Google's "Baskervville" / "Manrope" keep priority.
+   Always use the stack (or var(--font-baskervville) / var(--font-manrope)):
+     font-family: "Baskervville", "Baskervville Local", serif;
+     font-family: "Manrope", "Manrope Local", sans-serif;
+*/
+
+@font-face {
+  font-family: "Labkhand Persian Menu";
+  src:
+    url("/fonts/farsi/labkhand/wof2/Labkhand-NoEn-SemiBold.woff2") format("woff2"),
+    url("/fonts/farsi/labkhand/wof2/Labkhand-NoEn-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Baskervville Local";
+  src: url("/fonts/Baskervville-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope Local";
+  src: url("/fonts/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.baskervville-yegan {
+  font-family: "Baskervville", "Baskervville Local", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.manrope-yegan {
+  font-family: "Manrope", "Manrope Local", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IRANYekanX Persian Numerals";
+  src: url("/fonts/farsi/numerical/Woff/IRANYekanXFaNum-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANYekanX Persian Body";
+  src:
+    url("/fonts/farsi/yekan/woff2/IRANYekanX-Regular.woff2") format("woff2"),
+    url("/fonts/farsi/yekan/woff/IRANYekanX-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Labkhand Persian Heading";
+  src:
+    url("/fonts/farsi/labkhand/wof2/Labkhand-NoEn-Medium.woff2") format("woff2"),
+    url("/fonts/farsi/labkhand/wof2/Labkhand-NoEn-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Labkhand Persian Numerals";
+  src:
+    url("/fonts/farsi/labkhand/numerical/Labkhand-FaNum-Medium.woff2") format("woff2"),
+    url("/fonts/farsi/labkhand/numerical/Labkhand-FaNum-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX Persian Tooltip";
+  src:
+    url("/fonts/farsi/yekan/woff2/IRANYekanX-Medium.woff2") format("woff2"),
+    url("/fonts/farsi/yekan/woff/IRANYekanX-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Labkhand Persian Numerals Light";
+  src:
+    url("/fonts/farsi/labkhand/numerical/Labkhand-FaNum-Light.woff2") format("woff2"),
+    url("/fonts/farsi/labkhand/numerical/Labkhand-FaNum-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

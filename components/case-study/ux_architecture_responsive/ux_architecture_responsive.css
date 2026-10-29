@@ -1,0 +1,283 @@
+/* Source mirror — live styles live in app/globals.css under
+   .third-section-responsive / .folder-alert-dialog.
+   Keep this file in sync when editing mobile UX Architecture folders.
+*/
+
+.third-section-responsive {
+  --ux-folder-bg: transparent;
+  --ux-folder-fg: #1d3557;
+  --ux-folder-muted: rgb(29 53 87 / 0.85);
+  --ux-folder-v1: #e8e0d2;
+  --ux-folder-v1-hover: #ddd3c0;
+  --ux-folder-v2: #cfd8e6;
+  --ux-folder-v2-hover: #bdc9db;
+  --ux-folder-v3: #d9c4a0;
+  --ux-folder-v3-hover: #cdb089;
+  --ux-folder-accent: #c99140;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--ux-folder-bg);
+  color: var(--ux-folder-fg);
+}
+
+.third-section-responsive .ux-arch-header {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  padding: 0.15rem 0.25rem 0.75rem;
+  text-align: center;
+}
+
+.third-section-responsive .ux-arch-title {
+  margin: 0;
+  font-family: var(--font-baskervville), "Baskervville", serif;
+  font-size: clamp(1.85rem, 7vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1d3557;
+  text-transform: none;
+}
+
+.third-section-responsive .ux-arch-intro {
+  margin: 0.65rem auto 0;
+  max-width: 36rem;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ux-folder-muted);
+  text-transform: none;
+}
+
+.third-section-responsive .folders {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.third-section-responsive .row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.third-section-responsive .folder {
+  position: relative;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  margin-bottom: -0.45rem;
+  border: none;
+  padding: 0;
+  background: transparent;
+  text-align: start;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #1d3557;
+}
+
+.third-section-responsive .folder-preview {
+  display: none;
+}
+
+.third-section-responsive .folder-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 250ms ease;
+}
+
+.third-section-responsive .folder:hover .folder-wrapper,
+.third-section-responsive .folder:focus-visible .folder-wrapper {
+  transform: scale(1.015);
+}
+
+.third-section-responsive .folder-index {
+  position: relative;
+  width: 38%;
+  padding: 0.7em 0.85em;
+}
+
+.third-section-responsive .folder-index::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 99%;
+  height: 101%;
+  aspect-ratio: 1;
+  clip-path: polygon(0 0, 25% 0, 100% 100%, 0% 100%);
+}
+
+.third-section-responsive .folder-index p {
+  margin: 0;
+  font-family: var(--font-baskervville), "Baskervville", serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #1d3557;
+  text-transform: none;
+}
+
+.third-section-responsive .folder-name {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding: 0.15rem 1.35rem 1.35rem;
+}
+
+.third-section-responsive .folder-name h1 {
+  position: static;
+  margin: 0;
+  max-width: 16rem;
+  font-family: var(--font-baskervville), "Baskervville", serif;
+  font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #1d3557;
+  text-transform: none;
+}
+
+.third-section-responsive .folder-index,
+.third-section-responsive .folder-index::after,
+.third-section-responsive .folder-name {
+  transition:
+    background-color 250ms ease,
+    color 250ms ease;
+}
+
+.third-section-responsive .folder.variant-1 .folder-index,
+.third-section-responsive .folder.variant-1 .folder-index::after,
+.third-section-responsive .folder.variant-1 .folder-name {
+  background-color: var(--ux-folder-v1);
+}
+
+.third-section-responsive .folder.variant-2 .folder-index,
+.third-section-responsive .folder.variant-2 .folder-index::after,
+.third-section-responsive .folder.variant-2 .folder-name {
+  background-color: var(--ux-folder-v2);
+}
+
+.third-section-responsive .folder.variant-3 .folder-index,
+.third-section-responsive .folder.variant-3 .folder-index::after,
+.third-section-responsive .folder.variant-3 .folder-name {
+  background-color: var(--ux-folder-v3);
+}
+
+.third-section-responsive .folder.variant-1:hover .folder-index,
+.third-section-responsive .folder.variant-1:hover .folder-index::after,
+.third-section-responsive .folder.variant-1:hover .folder-name {
+  background-color: var(--ux-folder-v1-hover);
+}
+
+.third-section-responsive .folder.variant-2:hover .folder-index,
+.third-section-responsive .folder.variant-2:hover .folder-index::after,
+.third-section-responsive .folder.variant-2:hover .folder-name {
+  background-color: var(--ux-folder-v2-hover);
+}
+
+.third-section-responsive .folder.variant-3:hover .folder-index,
+.third-section-responsive .folder.variant-3:hover .folder-index::after,
+.third-section-responsive .folder.variant-3:hover .folder-name {
+  background-color: var(--ux-folder-v3-hover);
+}
+
+.folder-alert-dialog {
+  background-color: #fcf8f2 !important;
+  color: #1d3557 !important;
+  border: 1px solid rgb(29 53 87 / 0.14) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 18px 50px rgba(17, 29, 74, 0.12) !important;
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  gap: 1rem !important;
+  padding: 1.35rem !important;
+  max-width: calc(100% - 2rem) !important;
+}
+
+.folder-alert-dialog [data-slot="alert-dialog-title"],
+.folder-alert-dialog h2 {
+  font-family: var(--font-baskervville), "Baskervville", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #1d3557;
+  text-transform: none;
+}
+
+.folder-alert-dialog [data-slot="alert-dialog-description"],
+.folder-alert-dialog p {
+  font-family: var(--font-manrope), "Manrope", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgb(29 53 87 / 0.82);
+  text-transform: none;
+  text-align: start;
+}
+
+.folder-alert-dialog [data-slot="alert-dialog-footer"],
+.folder-alert-dialog > div:last-child {
+  display: flex;
+  gap: 0.65rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.folder-alert-dialog__cancel,
+.folder-alert-dialog__action {
+  font-family: var(--font-manrope), "Manrope", sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: -0.01em;
+  border-radius: 0.45rem !important;
+  padding: 0.55rem 0.95rem !important;
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.folder-alert-dialog__cancel {
+  background: transparent !important;
+  color: #1d3557 !important;
+  border: 1px solid rgb(29 53 87 / 0.22) !important;
+}
+
+.folder-alert-dialog__cancel:hover {
+  background: rgb(29 53 87 / 0.06) !important;
+}
+
+.folder-alert-dialog__action {
+  background: #1d3557 !important;
+  color: #fcf8f2 !important;
+  border: 1px solid #1d3557 !important;
+}
+
+.folder-alert-dialog__action:hover {
+  background: #173b70 !important;
+  border-color: #173b70 !important;
+}

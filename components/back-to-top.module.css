@@ -1,0 +1,87 @@
+.button {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid rgb(29 53 87 / 0.1);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1d3557;
+  box-shadow: 0 8px 22px rgba(17, 29, 74, 0.08);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease, visibility 220ms;
+}
+
+.button[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.button svg { width: 18px; height: 18px; }
+
+.tooltip {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  padding: 6px 10px;
+  border: 1px solid rgb(29 53 87 / 0.1);
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1d3557;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
+}
+
+:global(button:hover) .tooltip,
+:global(button:focus-visible) .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (min-width: 769px) {
+  .button[data-visible="true"]:hover {
+    box-shadow: 0 10px 26px rgba(17, 29, 74, 0.12);
+    background: #fcf8f2;
+    border-color: rgb(29 53 87 / 0.18);
+    transform: scale(1.06);
+  }
+}
+
+.button[data-visible="true"]:active { transform: scale(0.98); }
+.button:focus-visible { outline: 2px solid rgb(29 53 87 / 0.35); outline-offset: 3px; }
+
+@media (max-width: 768px) {
+  .button {
+    width: 44px;
+    height: 44px;
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .button svg { width: 18px; height: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button, .tooltip { transition: none; }
+  .button[data-visible="true"]:hover,
+  .button[data-visible="true"]:active { transform: none; }
+}

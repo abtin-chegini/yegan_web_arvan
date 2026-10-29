@@ -1,0 +1,494 @@
+{
+  "Nav": {
+    "home": "Home",
+    "about": "About Me",
+    "portfolio": "Portfolio",
+    "contact": "Contact Me",
+    "menu": "MENU",
+    "open": "Open menu",
+    "close": "Close menu",
+    "hello": "Hello, I’m Yeganeh.",
+    "bio": "I craft thoughtful digital experiences through design, front-end execution, and meaningful interaction.",
+    "role": "Product Designer & Front-End Developer"
+  },
+  "Hero": {
+    "name": "Yeganeh Heshmat",
+    "role": "Front-End Developer & Product Designer",
+    "developer": "Front-End Developer",
+    "designer": "& Product Designer"
+  },
+  "Contact": {
+    "title": "Have a product worth building?",
+    "description": "Let’s turn complex ideas into clear, scalable digital experiences.",
+    "LinkedIn": "LinkedIn",
+    "Email Address": "Email Address",
+    "Phone Number": "Phone Number"
+  },
+  "About": {
+    "title": "About Me",
+    "intro": "I’m a creative and detail-oriented professional with a passion for building meaningful digital experiences. I enjoy turning ideas into user-friendly solutions and constantly seek to learn, grow, and make a positive impact through my work.",
+    "education": "Education",
+    "languages": "Languages",
+    "experience": "Experience",
+    "work": "View selected work",
+    "responsibilities": "What I worked on",
+    "Persian": "Persian",
+    "English": "English",
+    "Turkish": "Turkish",
+    "French": "French",
+    "Bachelor’s degree": "Bachelor’s degree",
+    "Master’s degree": "Master’s degree",
+    "Undergraduate education": "Undergraduate education",
+    "Postgraduate education": "Postgraduate education"
+  },
+  "SelectedWork": {
+    "tealnexTitle": "Tealnex",
+    "tealnexKicker": "B2C Architecture & Renovation / Company",
+    "tealnexDescription": "Designed the UX/UI, defined the interaction design and micro-interactions, and delivered the front-end implementation.",
+    "tealtileTitle": "TealTile",
+    "tealtileKicker": "B2C Tile Retail & Installation / Shop",
+    "tealtileDescription": "My role covered the full digital experience, from website design and UX/UI design to front-end implementation.",
+    "bilit4uTitle": "Bilit4U",
+    "bilit4uKicker": "B2B & B2C Tourism / Booking Platform",
+    "bilit4uDescription": "I designed and built the front end of a ticket booking platform — from UX/UI and interaction design through to a clear, responsive reservation flow.",
+    "viewCaseStudy": "View Case Study"
+  },
+  "Home": {
+    "aboutTitle": "I create digital experiences where clarity, design, and execution come together.",
+    "aboutIntro": "I’m a Product Designer and Front-End Developer with over 5 years of experience turning ideas into scalable digital products. I work at the intersection of business, design, and engineering, helping teams shape product strategy, understand users, define clear experiences, and bring refined interfaces to life through front-end implementation. My work goes beyond visuals. I focus on building products that are user-centered, business-driven, technically feasible, and ready for real-world execution.",
+    "motto": "Elegant ideas, beautifully built",
+    "valuesTitle": "Guided by what truly matters",
+    "readMore": "Read More",
+    "readLess": "Read Less",
+    "processTitle": "What I Do",
+    "processIntro": "I work across strategy, design, and development — helping teams move from early ideas to refined digital products with clarity and care.",
+    "skillsTitle": "My Approach",
+    "skillsIntro": "A thoughtful, human-centered process that turns complexity into clear, scalable digital products — from strategy and design to front-end implementation.",
+    "workTitle": "SELECTED WORK",
+    "workIntro": "Digital experiences, thoughtfully built.",
+    "features0label": "Focused on scalable digital products",
+    "features0title": "Authenticity",
+    "features0shortDescription": "I believe in honest work and building real connections.",
+    "features0detail": "Authenticity means staying true to my values, being transparent in my work, and building genuine relationships. I believe that real impact comes from honesty, openness, and a deep respect for the people I work with.",
+    "features1label": "Focused on scalable digital products",
+    "features1title": "Growth",
+    "features1shortDescription": "I embrace change as a path to a better, more meaningful future.",
+    "features1detail": "Growth is a continuous practice of learning, refining craft, and adapting with intention. I stay curious, welcome feedback, and turn challenges into clearer, stronger product decisions.",
+    "features2label": "Focused on scalable digital products",
+    "features2title": "Impact",
+    "features2shortDescription": "I aim to create work that brings real value and positive change.",
+    "features2detail": "Impact means designing experiences that help people move with clarity and confidence. I focus on outcomes that serve users, support business goals, and hold up in real-world use.",
+    "features3label": "Focused on scalable digital products",
+    "features3title": "Balance",
+    "features3shortDescription": "I value a sustainable rhythm where work and life support each other.",
+    "features3detail": "Balance keeps creativity and craft sustainable. I work with focus and care, while protecting the space needed for clear thinking, thoughtful collaboration, and long-term quality.",
+    "approach0title": "Understand",
+    "approach0description": "I start by listening carefully — uncovering goals, constraints, and what truly matters.",
+    "approach1title": "Define",
+    "approach1description": "I shape clarity from complexity, turning insights into a focused direction.",
+    "approach2title": "Design",
+    "approach2description": "I craft thoughtful experiences that feel intuitive, intentional, and refined.",
+    "approach3title": "Develop",
+    "approach3description": "I stay close through build — aligning design and implementation with care.",
+    "approach4title": "Deliver",
+    "approach4description": "I refine until it feels right — polished, purposeful, and ready to land.",
+    "service0title": "Product Strategy",
+    "service0description": "I partner on discovery and strategy to align business goals, understand the market landscape, and define the right path forward.",
+    "service0shortDescription": "Aligning business goals with the right product path forward.",
+    "service1title": "Experience Design",
+    "service1description": "I design intuitive experiences that are grounded in user needs, structured with clarity, and built to scale across complex digital products.",
+    "service1shortDescription": "Intuitive experiences grounded in user needs and clarity.",
+    "service2title": "Development",
+    "service2description": "I collaborate closely with engineering to ensure smooth handoff, front-end alignment, and successful product implementation.",
+    "service2shortDescription": "Smooth handoff, front-end alignment, and successful implementation.",
+    "serviceItem0": "Product discovery",
+    "serviceItem1": "Business alignment",
+    "serviceItem2": "Competitive analysis",
+    "serviceItem3": "Product direction",
+    "serviceItem4": "User experience",
+    "serviceItem5": "Information architecture",
+    "serviceItem6": "Interaction design",
+    "serviceItem7": "Design systems",
+    "serviceItem8": "Engineering collaboration",
+    "serviceItem9": "Front-End awareness",
+    "serviceItem10": "Product implementation",
+    "serviceItem11": "Design handoff",
+    "focusAreas": "Focus areas: {areas}"
+  },
+  "Metadata": {
+    "title": "Yeganeh Heshmat | Product Designer & Front-End Developer",
+    "description": "Explore Yeganeh Heshmat’s portfolio of product design, UX/UI design, and front-end development, featuring responsive websites and detailed project case studies."
+  },
+  "Images": {
+    "logo": "Yeganeh Heshmat logo",
+    "home": "Yeganeh Heshmat home",
+    "portrait": "Portrait of Yeganeh Heshmat, product designer and front-end developer",
+    "projects": {
+      "bilit4u": {
+        "preview": "Bilit4U ticket booking platform interface",
+        "product": "Bilit4U ticket booking platform interface",
+        "design": {
+          "0": "Hero search evolution — early vs refined",
+          "1": "Booking flow evolution — early vs refined",
+          "2": "Results and filters evolution — early vs refined",
+          "3": "Seat selection evolution — early vs refined"
+        },
+        "ux": {
+          "0": "Bilit4U unified search experience",
+          "1": "Bilit4U results, filters and service selection",
+          "2": "Bilit4U seat selection and booking completion"
+        }
+      },
+      "tealnex": {
+        "preview": "Tealnex architecture and renovation website interface",
+        "product": "Tealnex architecture and renovation website interface",
+        "design": {
+          "0": "Tealnex design evolution — frame 1",
+          "1": "Tealnex design evolution — frame 2",
+          "2": "Tealnex design evolution — frame 3",
+          "3": "Tealnex design evolution — frame 4"
+        },
+        "ux": {
+          "0": "Tealnex UX architecture diagram — section 1",
+          "1": "Tealnex UX architecture diagram — section 2",
+          "2": "Tealnex UX architecture diagram — section 3"
+        }
+      },
+      "tealtile": {
+        "preview": "TealTile tile retail and installation website interface",
+        "product": "TealTile tile retail and installation website interface",
+        "design": {
+          "0": "TealTile design evolution — frame 4",
+          "1": "TealTile design evolution — frame 3",
+          "2": "TealTile design evolution — frame 2",
+          "3": "TealTile design evolution — frame 1"
+        },
+        "ux": {
+          "0": "TealTile UX architecture diagram — section 1",
+          "1": "TealTile UX architecture diagram — section 2",
+          "2": "TealTile UX architecture diagram — section 3"
+        }
+      }
+    }
+  },
+  "CaseStudies": {
+    "challengesTitle": "Challenges",
+    "projects": {
+      "bilit4u": {
+        "scopeDialog": {
+          "title": "Scope of Work",
+          "items": {
+            "research": "UX Research & Analysis",
+            "flows": "User Flows & Journey Mapping",
+            "ui": "UI Design & Prototyping",
+            "booking": "Ticket Search, Seat Selection & Booking Flow Design",
+            "development": "Front-End Development & API Integration",
+            "responsive": "Responsive Design & RTL Support",
+            "interaction": "Interactive Animations & Form Validation"
+          }
+        },
+        "industryDialog": {
+          "title": "Industry | Travel & Tourism",
+          "items": {
+            "bus": "Bus Ticket Booking",
+            "flight": "Domestic & International Flight Booking",
+            "train": "Train Ticket Booking",
+            "hotel": "Hotel & Accommodation Reservations",
+            "taxi": "Intercity Taxi Booking",
+            "tour": "Travel & Tour Reservations"
+          }
+        },
+        "roleDialog": {
+          "title": "My Role in the Project",
+          "items": {
+            "ux": {
+              "title": "UX Design",
+              "body": "Analyzed user needs and designed booking scenarios and user journeys."
+            },
+            "ui": {
+              "title": "UI Design",
+              "body": "Designed interfaces, components, and visual elements with a focus on simplicity and consistency."
+            },
+            "wireframes": {
+              "title": "Wireframing & Prototyping",
+              "body": "Created page structures and interactive prototypes to refine the user experience."
+            },
+            "interaction": {
+              "title": "Interaction Design",
+              "body": "Designed component behaviors, animations, and visual feedback throughout the booking process."
+            },
+            "development": {
+              "title": "Front-End Development",
+              "body": "Implemented user interfaces, managed application state, and integrated multiple APIs."
+            },
+            "responsive": {
+              "title": "Responsive Design",
+              "body": "Optimized layouts and interactions for a seamless experience across mobile, tablet, and desktop devices."
+            }
+          }
+        },
+        "techArchitecture": {
+          "tailwind": {
+            "description": "Builds a consistent, responsive UI with flexible styling across the entire booking process.",
+            "detailsTitle": "Why I Chose Tailwind CSS for This Project",
+            "reasons": {
+              "development": {
+                "title": "Rapid UI Development",
+                "body": "Leveraged Tailwind's utility-first approach and predefined classes to build user interfaces faster while minimizing the need for extensive custom CSS."
+              },
+              "responsive": {
+                "title": "Responsive Design",
+                "body": "Efficiently implemented flexible and responsive layouts across mobile, tablet, and desktop devices using Tailwind's responsive utilities and breakpoints."
+              },
+              "consistency": {
+                "title": "Consistency & Maintainability",
+                "body": "Maintained consistent colors, spacing, typography, and visual elements throughout the application, making the design system easier to scale, update, and maintain."
+              }
+            }
+          },
+          "zod": {
+            "description": "Validates passenger forms and booking data for accuracy and security before payment.",
+            "detailsTitle": "Why I Chose Zod for This Project",
+            "reasons": {
+              "forms": {
+                "title": "Client-Side Form Validation",
+                "body": "Implemented structured and consistent validation across multiple forms, particularly for travel searches, passenger information, and ticket booking processes."
+              },
+              "rules": {
+                "title": "Custom Validation & Regular Expressions",
+                "body": "Easily defined custom validation rules and regular expressions to accurately validate user inputs while keeping the code clean, readable, and maintainable."
+              },
+              "types": {
+                "title": "Lightweight & Type-Safe Architecture",
+                "body": "Leveraged the newer, optimized version of Zod to reduce validation-related code overhead and take advantage of TypeScript type inference for improved data consistency and reliability."
+              }
+            }
+          },
+          "dexie": {
+            "description": "Stores booking drafts and city suggestions locally for a smoother experience on slow connections.",
+            "detailsTitle": "Why I Chose Dexie.js for This Project",
+            "reasons": {
+              "history": {
+                "title": "Travel History",
+                "body": "Stored users' previous travel dates and searches to provide faster, more relevant suggestions on future visits."
+              },
+              "filters": {
+                "title": "Filter Persistence",
+                "body": "Preserved selected filters and user preferences to automatically restore them and deliver a more personalized booking experience."
+              },
+              "storage": {
+                "title": "Local Data Storage",
+                "body": "Leveraged IndexedDB for fast, persistent browser-side data storage and retrieval, reducing unnecessary server requests."
+              }
+            }
+          },
+          "zustand": {
+            "description": "Simplifies state management for passenger details, seat selection, and booking steps.",
+            "detailsTitle": "Why I Chose Zustand for This Project",
+            "reasons": {
+              "state": {
+                "title": "Simple & Lightweight State Management",
+                "body": "Used a lightweight and flexible state management solution to efficiently handle UI states across the application with minimal boilerplate and complexity."
+              },
+              "booking": {
+                "title": "Booking Flow State Management",
+                "body": "Managed and shared essential booking data, including selected trips, seat selections, and passenger information, across multiple components and booking steps."
+              },
+              "performance": {
+                "title": "Optimized Performance & Minimal Re-renders",
+                "body": "Leveraged selective state subscriptions to efficiently update components, minimize unnecessary re-renders, and maintain a smooth and responsive user experience."
+              }
+            }
+          },
+          "lottie": {
+            "description": "Enhances user interactions with smooth animations, intuitive feedback, and engaging visual guidance.",
+            "detailsTitle": "Why I Chose LottieFiles for This Project",
+            "reasons": {
+              "animations": {
+                "title": "Interactive Animations",
+                "body": "Used lightweight, interactive animations to enhance the website's visual appeal and create a more dynamic user experience."
+              },
+              "onboarding": {
+                "title": "User Onboarding & Tour",
+                "body": "Implemented animated visual guides and interactive tours to help users quickly understand the platform's features and booking process."
+              },
+              "forms": {
+                "title": "Form Interaction & Engagement",
+                "body": "Integrated interactive animations into forms to make them more engaging, provide visual feedback, and create a smoother user experience."
+              }
+            }
+          },
+          "tanstack": {
+            "description": "Smart caching of travel data, filters, and seat availability for faster performance and fewer API requests.",
+            "detailsTitle": "Why I Chose TanStack Query for This Project",
+            "reasons": {
+              "apis": {
+                "title": "Multiple API Management",
+                "body": "Simplified fetching and managing data from multiple APIs, including buses, flights, and other travel services, through a structured and maintainable approach."
+              },
+              "caching": {
+                "title": "Client-Side Caching",
+                "body": "Leveraged intelligent client-side caching to reduce redundant API requests, improve performance, and deliver a faster user experience."
+              },
+              "filtering": {
+                "title": "Optimized Data Management & Filtering",
+                "body": "Utilized features such as Query Keys and efficient request state management to streamline data updates and filtering, offering more advanced capabilities than using Axios alone."
+              }
+            }
+          }
+        },
+        "title": "Designing a Clearer Booking Experience",
+        "description": "A booking and ticketing platform for searching, comparing, and purchasing tickets with less friction. I led UX/UI, interaction design, and front-end work to turn a complex reservation flow into a clear, polished experience.",
+        "meta": {
+          "role": {
+            "title": "Role",
+            "body": "UX/UI Design · Interaction Design · Front-End Development"
+          },
+          "industry": {
+            "title": "Industry",
+            "body": "Booking · Ticketing · Reservation"
+          },
+          "platform": {
+            "title": "Platform",
+            "body": "Responsive Website"
+          },
+          "scope": {
+            "title": "Scope",
+            "body": "Interface Design · Micro-interactions · Front-End Build"
+          }
+        },
+        "challenges": {
+          "direction": {
+            "title": "Evolving Product Direction",
+            "description": "Translating early wireframes into a refined interface while maintaining consistency between design decisions and the final product."
+          },
+          "search": {
+            "title": "Dynamic Search Experience",
+            "description": "A focused travel search flow combining origin, destination and date selection into a clear interactive booking experience."
+          },
+          "cities": {
+            "title": "Bilingual City Suggestions",
+            "description": "A contextual city search experience with destination suggestions designed to support both Persian and English user journeys."
+          },
+          "seats": {
+            "title": "Interactive Seat Selection",
+            "description": "A dynamic bus seat selector supporting multiple seat states, passenger categories, availability and immediate visual feedback."
+          },
+          "results": {
+            "title": "Real-Time Ticket Results",
+            "description": "Live ticket results displaying departure time, pricing, seat availability and actionable booking controls."
+          },
+          "hierarchy": {
+            "title": "Responsive Information Hierarchy",
+            "description": "Organizing a dense booking experience while keeping filters, dates, ticket information and actions visually easy to scan."
+          }
+        }
+      },
+      "tealnex": {
+        "title": "Building a Clearer Architecture Experience",
+        "description": "A digital presence for architecture and renovation — helping clients explore services, projects, and next steps with clarity. UX/UI and front-end work focused on a polished, trustworthy brand experience.",
+        "meta": {
+          "role": {
+            "title": "Role",
+            "body": "UX/UI Design · Interaction Design · Front-End Development"
+          },
+          "industry": {
+            "title": "Industry",
+            "body": "Architecture · Renovation · Construction"
+          },
+          "platform": {
+            "title": "Platform",
+            "body": "Responsive Website"
+          },
+          "scope": {
+            "title": "Scope",
+            "body": "Interface Design · Brand Experience · Front-End Build"
+          }
+        },
+        "challenges": {
+          "services": {
+            "title": "Clarifying Complex Services",
+            "description": "Organizing architecture, renovation and construction services into a clear structure so visitors can understand the offering and find the right support."
+          },
+          "projects": {
+            "title": "Showcasing Projects with Purpose",
+            "description": "Presenting image-rich projects with a consistent visual hierarchy that balances architectural storytelling with practical project information."
+          },
+          "enquiries": {
+            "title": "Turning Interest into Enquiries",
+            "description": "Connecting service and project exploration to clear contact opportunities, helping prospective clients take the next step with confidence."
+          },
+          "responsive": {
+            "title": "A Consistent Responsive Experience",
+            "description": "Adapting large architectural imagery, navigation and content across screen sizes while preserving readability and a refined brand experience."
+          }
+        }
+      },
+      "tealtile": {
+        "title": "Designing a Clearer Retail Experience",
+        "description": "A tile retail and installation shop experience — browsing products, understanding services, and connecting with the brand. UX/UI and front-end work shaped a clear, material-forward digital presence.",
+        "meta": {
+          "role": {
+            "title": "Role",
+            "body": "UX/UI Design · Interaction Design · Front-End Development"
+          },
+          "industry": {
+            "title": "Industry",
+            "body": "Tile Retail · Installation · Home Improvement"
+          },
+          "platform": {
+            "title": "Platform",
+            "body": "Responsive Website"
+          },
+          "scope": {
+            "title": "Scope",
+            "body": "Interface Design · Brand Experience · Front-End Build"
+          }
+        },
+        "challenges": {
+          "discovery": {
+            "title": "Simplifying Product Discovery",
+            "description": "Organizing tile collections, finishes and formats into a clear browsing experience so customers can find materials that suit their space."
+          },
+          "planning": {
+            "title": "Connecting Inspiration to Planning",
+            "description": "Helping customers move from visual inspiration to practical decisions with clear product information and guidance for their project."
+          },
+          "installation": {
+            "title": "Making Installation Services Clear",
+            "description": "Bringing retail and installation services together in one consistent journey, with clear next steps for requesting support and moving a project forward."
+          },
+          "responsive": {
+            "title": "A Consistent Responsive Experience",
+            "description": "Adapting image-rich collections, product details and service enquiries across screen sizes while keeping the experience clear and easy to navigate."
+          }
+        }
+      }
+    }
+  },
+  "Tooltips": {
+    "english": "language English",
+    "persian": "زبان فارسی",
+    "previousCard": "Previous card",
+    "nextCard": "Next card",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "backToTop": "back to top",
+    "goTo": "Go to {section}",
+    "sections": {
+      "home": "Home",
+      "about": "About",
+      "process": "What I Do",
+      "skills": "My Approach",
+      "portfolio": "Portfolio",
+      "contact": "Contact",
+      "footer": "Footer",
+      "overview": "Overview",
+      "challenge": "Challenges",
+      "approach": "Process",
+      "design": "Design",
+      "development": "UX Architecture",
+      "outcome": "Tech Stack"
+    }
+  }
+}
