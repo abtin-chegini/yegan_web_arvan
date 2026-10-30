@@ -38,11 +38,11 @@ type ServiceCard = {
 export const processServices: ServiceCard[] = [
   {
     mobileIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Product_Strategy_icon_mobile.png",
+      "https://cdn.yeganehheshmat.com/homepage/Product_Strategy_icon_mobile.png",
     tabletIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Product_Strategy_icon_tablet.png",
+      "https://cdn.yeganehheshmat.com/homepage/Product_Strategy_icon_tablet.png",
     desktopIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Product_Strategy_icon_new.png",
+      "https://cdn.yeganehheshmat.com/homepage/Product_Strategy_icon_new.png",
     title: "Product Strategy",
     description:
       "I partner on discovery and strategy to align business goals, understand the market landscape, and define the right path forward.",
@@ -57,11 +57,11 @@ export const processServices: ServiceCard[] = [
   },
   {
     mobileIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Experience_Design_icon_mobile.png",
+      "https://cdn.yeganehheshmat.com/homepage/Experience_Design_icon_mobile.png",
     tabletIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Experience_Design_icon_tablet.png",
+      "https://cdn.yeganehheshmat.com/homepage/Experience_Design_icon_tablet.png",
     desktopIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Experience_Design_icon_new.png",
+      "https://cdn.yeganehheshmat.com/homepage/Experience_Design_icon_new.png",
     title: "Experience Design",
     description:
       "I design intuitive experiences that are grounded in user needs, structured with clarity, and built to scale across complex digital products.",
@@ -76,11 +76,11 @@ export const processServices: ServiceCard[] = [
   },
   {
     mobileIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Development_icon_mobile.png",
+      "https://cdn.yeganehheshmat.com/homepage/Development_icon_mobile.png",
     tabletIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Development_icon_tablet.png",
+      "https://cdn.yeganehheshmat.com/homepage/Development_icon_tablet.png",
     desktopIcon:
-      "https://ik.imagekit.io/s7yz964lq/assets/Development_icon_new.png",
+      "https://cdn.yeganehheshmat.com/homepage/Development_icon_new.png",
     title: "Development",
     description:
       "I collaborate closely with engineering to ensure smooth handoff, front-end alignment, and successful product implementation.",

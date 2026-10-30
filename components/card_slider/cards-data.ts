@@ -15,7 +15,7 @@ export const sliderCards: SliderCard[] = [
     kicker: "B2B & B2C Tourism / Booking Platform",
     description:
       "I designed and built the front end of a ticket booking platform — from UX/UI and interaction design through to a clear, responsive reservation flow.",
-    image: "https://ik.imagekit.io/s7yz964lq/assets/inside_card.png",
+    image: "https://cdn.yeganehheshmat.com/homepage/inside_card.png",
     alt: "Bilit4U project",
     href: "/projects/bilit4u",
   },
@@ -26,7 +26,7 @@ export const sliderCards: SliderCard[] = [
     description:
       "Designed the UX/UI, defined the interaction design and micro-interactions, and delivered the front-end implementation.",
     image:
-      "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex.png?updatedAt=1787241819644",
+      "https://cdn.yeganehheshmat.com/homepage/tealnex_card.png",
     alt: "Tealnex Homes project",
     href: "/projects/tealnex",
   },
@@ -37,7 +37,7 @@ export const sliderCards: SliderCard[] = [
     description:
       "My role covered the full digital experience, from website design and UX/UI design to front-end implementation.",
     image:
-      "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile.png?updatedAt=1787241902254",
+      "https://cdn.yeganehheshmat.com/homepage/tealtile_card.png",
     alt: "TealTile project",
     href: "/projects/tealtile",
   },
