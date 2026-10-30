@@ -1,11 +1,14 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 
 import { PORTFOLIO_CARDS } from "@/components/portfolio_cards/portfolio-cards-data";
 import StrokeHoverCard from "@/components/stroke_hover/stroke_hover";
 
 export default function CardsSectionMobile() {
+	const locale = useLocale();
+	const t = useTranslations("SelectedWork");
 	const router = useRouter();
 
 	return (
@@ -47,7 +50,8 @@ export default function CardsSectionMobile() {
 				>
 					<StrokeHoverCard
 						title={card.title}
-						description={card.description}
+						description={locale === "fa" ? card.descriptionFa ?? card.description : card.description}
+						linkLabel={t("viewCaseStudy")}
 						image={card.mobileImage}
 						href={card.href}
 						lineColor={card.lineColor}

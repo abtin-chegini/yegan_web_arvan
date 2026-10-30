@@ -5,6 +5,7 @@ export type PortfolioCardData = {
 	mobileImage: string;
 	title: string;
 	description: string;
+	descriptionFa?: string;
 	href: string;
 	lineColor: string;
 };
@@ -20,6 +21,8 @@ export const PORTFOLIO_CARDS: PortfolioCardData[] = [
 		title: "Bilit4u",
 		description:
 			"Ticketing platform design and product experience for seamless event discovery.",
+		descriptionFa:
+			"طراحی پلتفرم فروش بلیت، تجربه کاربری محصول و توسعه فرانت‌اند برای کشف آسان رویدادها و خرید بی‌دردسر بلیت.",
 		href: "/projects/bilit4u",
 		lineColor: "#2D4D8B",
 	},
@@ -33,6 +36,8 @@ export const PORTFOLIO_CARDS: PortfolioCardData[] = [
 		title: "Tealnex",
 		description:
 			"Brand and digital presence for a modern teal-forward product company.",
+		descriptionFa:
+			"طراحی رابط و تجربه کاربری و توسعه فرانت‌اند برای معرفی محصولات و خدمات دیجیتال Tealnex.",
 		href: "/projects/tealnex",
 		lineColor: "#FFC640",
 	},
@@ -46,6 +51,8 @@ export const PORTFOLIO_CARDS: PortfolioCardData[] = [
 		title: "Tealtile",
 		description:
 			"Visual identity and interface system built around craft and material.",
+		descriptionFa:
+			"طراحی هویت برند، حضور دیجیتال و توسعه فرانت‌اند برای یک شرکت مدرن محصول‌محور با محوریت رنگ فیروزه‌ای.",
 		href: "/projects/tealtile",
 		lineColor: "#7EB8D4",
 	},

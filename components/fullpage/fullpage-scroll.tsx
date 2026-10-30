@@ -210,7 +210,7 @@ export function FullpageScroll({
                   ["--section-muted" as string]: section.muted,
                 }}
               >
-                <div className="absolute inset-0 -z-10 overflow-hidden bg-[#FCF6EF]">
+                <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">
                   <SectionBackground
                     section={section}
                     priority={index === 0}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +12,8 @@ const POSITIONS = [20, 50, 80];
 const ROTATIONS = [-12, 0, 12];
 
 export default function CardsSection() {
+	const locale = useLocale();
+	const t = useTranslations("SelectedWork");
 	const container = useRef<HTMLDivElement>(null);
 	const cardsSectionRef = useRef<HTMLElement>(null);
 	const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -103,7 +106,8 @@ export default function CardsSection() {
 						frontImage={card.frontImage}
 						backImage={card.backImage}
 						title={card.title}
-						description={card.description}
+						description={locale === "fa" ? card.descriptionFa ?? card.description : card.description}
+						linkLabel={t("viewCaseStudy")}
 						href={card.href}
 						lineColor={card.lineColor}
 						ref={(el) => {

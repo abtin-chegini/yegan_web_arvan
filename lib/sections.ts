@@ -156,6 +156,35 @@ const HOME_IMAGES = responsiveImageSchema.parse({
   xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Hero/XS_360_HOMEPAGE_sec1.jpg?updatedAt=1792657240898",
 });
 
+const HOME_EN_CDN = "https://cdn.yeganehheshmat.com/backgrounds/En/Homepage";
+const HOME_FA_CDN = "https://cdn.yeganehheshmat.com/backgrounds/fa/Homepage";
+
+/** SEC1 Persian artwork at each supplied viewport width. */
+export const HOME_IMAGES_FA = responsiveImageSchema.parse({
+  fullHd: `${HOME_FA_CDN}/sec1_HOMEPAGE_1920_HD_FULL_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/sec1_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/sec1_HOMEPAGE_1440_STANDARD_DESKTOP_FA.jpg`,
+  xl: `${HOME_FA_CDN}/sec1_HOMEPAGE_1280_DESKTOP_XL_FA.jpg`,
+  lg: `${HOME_FA_CDN}/sec1_HOMEPAGE_1024_LAPTOP_LG_FA.jpg`,
+  md: `${HOME_FA_CDN}/sec1_HOMEPAGE_768_TABLET_MD_FA.jpg`,
+  mobile: `${HOME_FA_CDN}/sec1_HOMEPAGE_390_STANDARD_MOBILE_FA.jpg`,
+  sm: `${HOME_FA_CDN}/sec1_HOMEPAGE_390_STANDARD_MOBILE_FA.jpg`,
+  xs: `${HOME_FA_CDN}/sec1_HOMEPAGE_360_XS_FA.jpg`,
+});
+
+/** SEC1 English artwork at the supplied viewport widths. */
+export const HOME_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${HOME_EN_CDN}/sec1_HOMEPAGE_360_XS_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/sec1_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/sec1_HOMEPAGE_1440_STANDARD_DESKTOP_EN.jpg`,
+  xl: `${HOME_EN_CDN}/sec1_HOMEPAGE_1280_DESKTOP_XL_EN.jpg`,
+  lg: `${HOME_EN_CDN}/sec1_HOMEPAGE_1024_LAPTOP_LG_EN.jpg`,
+  md: `${HOME_EN_CDN}/sec1_HOMEPAGE_768_TABLET_MD_EN.jpg`,
+  sm: `${HOME_EN_CDN}/sec1_HOMEPAGE_640_SM_EN.jpg`,
+  mobile: `${HOME_EN_CDN}/sec1_HOMEPAGE_390_STANDARD_MOBILE_EN.jpg`,
+  xs: `${HOME_EN_CDN}/sec1_HOMEPAGE_360_XS_EN.jpg`,
+});
+
 /** SEC2 Brand Value — replace tablet/desktop artwork; preserve mobile fallbacks. */
 const ABOUT_IMAGES = responsiveImageSchema.parse({
   ...sectionImages(2, [
@@ -173,6 +202,28 @@ const ABOUT_IMAGES = responsiveImageSchema.parse({
   xl: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/brand_value_2/XL_DESKTOP_1280_HOMEPAGE_sec2.jpg?updatedAt=1792657440631",
   lg: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/brand_value_2/LG_LAPTOP_1024_HOMEPAGE_sec2.jpg?updatedAt=1792657440808",
   md: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/brand_value_2/MD_TABLET_768_HOMEPAGE_sec2.jpg?updatedAt=1792657440302",
+});
+
+/** SEC2 English artwork; retain existing images below the tablet breakpoint. */
+export const ABOUT_IMAGES_EN = responsiveImageSchema.parse({
+  ...ABOUT_IMAGES,
+  fullHd: `${HOME_EN_CDN}/sec2_HOMEPAGE_1920_HD_FULL_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/sec2_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/sec2_HOMEPAGE_1440_STANDARD_DESKTOP_EN.jpg`,
+  xl: `${HOME_EN_CDN}/sec2_HOMEPAGE_1280_DESKTOP_XL_EN.jpg`,
+  lg: `${HOME_EN_CDN}/sec2_HOMEPAGE_1024_LAPTOP_LG_EN.jpg`,
+  md: `${HOME_EN_CDN}/sec2_HOMEPAGE_768_TABLET_MD_EN.jpg`,
+});
+
+/** SEC2 Persian artwork; retain existing mobile images. */
+export const ABOUT_IMAGES_FA = responsiveImageSchema.parse({
+  ...ABOUT_IMAGES,
+  fullHd: `${HOME_FA_CDN}/sec2_HOMEPAGE_1920_HD_FULL_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/sec2_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/sec2_HOMEPAGE_1440_STANDARD_DESKTOP_FA.jpg`,
+  xl: `${HOME_FA_CDN}/sec2_HOMEPAGE_1280_DESKTOP_XL_FA.jpg`,
+  lg: `${HOME_FA_CDN}/sec2_HOMEPAGE_1024_LAPTOP_LG_FA.jpg`,
+  md: `${HOME_FA_CDN}/sec2_HOMEPAGE_768_TABLET_MD_FA.jpg`,
 });
 
 /** SEC3 What I Do — replace tablet/desktop artwork; preserve mobile fallbacks. */
@@ -193,6 +244,28 @@ const PROCESS_IMAGES = responsiveImageSchema.parse({
   md: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/WhatIdo_3/MD_TABLET_768_HOMEPAGE_sec3.jpg?updatedAt=1792657588301",
 });
 
+/** SEC3 English artwork; retain existing images below the tablet breakpoint. */
+export const PROCESS_IMAGES_EN = responsiveImageSchema.parse({
+  ...PROCESS_IMAGES,
+  fullHd: `${HOME_EN_CDN}/sec3_HOMEPAGE_1920_HD_FULL_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/sec3_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/sec3_HOMEPAGE_1440_STANDARD_DESKTOP_EN.jpg`,
+  xl: `${HOME_EN_CDN}/sec3_HOMEPAGE_1280_DESKTOP_XL_EN.jpg`,
+  lg: `${HOME_EN_CDN}/sec3_HOMEPAGE_1024_LAPTOP_LG_EN.jpg`,
+  md: `${HOME_EN_CDN}/sec3_HOMEPAGE_768_TABLET_MD_EN.jpg`,
+});
+
+/** SEC3 Persian artwork; retain existing images below the tablet breakpoint. */
+export const PROCESS_IMAGES_FA = responsiveImageSchema.parse({
+  ...PROCESS_IMAGES,
+  fullHd: `${HOME_FA_CDN}/sec3_HOMEPAGE_1920_HD_FULL_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/sec3_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/sec3_HOMEPAGE_1440_STANDARD_DESKTOP_FA.jpg`,
+  xl: `${HOME_FA_CDN}/sec3_HOMEPAGE_1280_DESKTOP_XL_FA.jpg`,
+  lg: `${HOME_FA_CDN}/sec3_HOMEPAGE_1024_LAPTOP_LG_FA.jpg`,
+  md: `${HOME_FA_CDN}/sec3_HOMEPAGE_768_TABLET_MD_FA.jpg`,
+});
+
 /** SEC4 My Approach — replace tablet/desktop artwork; preserve mobile images. */
 const SKILLS_IMAGES = responsiveImageSchema.parse({
   ...sectionImages(4, ALL_SIZES),
@@ -207,6 +280,53 @@ const SKILLS_IMAGES = responsiveImageSchema.parse({
   md: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Approach/MD_TABLET_768_HOMEPAGE_sec4.jpg?updatedAt=1792657862680",
 });
 
+/** SEC4 English artwork; retain existing images below the tablet breakpoint. */
+export const SKILLS_IMAGES_EN = responsiveImageSchema.parse({
+  ...SKILLS_IMAGES,
+  fullHd: `${HOME_EN_CDN}/sec4_HOMEPAGE_1920_FULL_HD_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/sec4_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/sec4_HOMEPAGE_1440_DESKTOP_STANDARD_EN.jpg`,
+  xl: `${HOME_EN_CDN}/sec4_HOMEPAGE_1280_XL_DESKTOP_EN.jpg`,
+  lg: `${HOME_EN_CDN}/sec4_HOMEPAGE_1024_LG_LAPTOP_EN.jpg`,
+  md: `${HOME_EN_CDN}/sec4_HOMEPAGE_768_MD_TABLET_EN.jpg`,
+});
+
+/** SEC4 Persian artwork; retain existing images below the tablet breakpoint. */
+export const SKILLS_IMAGES_FA = responsiveImageSchema.parse({
+  ...SKILLS_IMAGES,
+  fullHd: `${HOME_FA_CDN}/sec4_HOMEPAGE_1920_FULL_HD_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/sec4_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/sec4_HOMEPAGE_1440_DESKTOP_STANDARD_FA.jpg`,
+  xl: `${HOME_FA_CDN}/sec4_HOMEPAGE_1280_XL_DESKTOP_FA.jpg`,
+  lg: `${HOME_FA_CDN}/sec4_HOMEPAGE_1024_LG_LAPTOP_FA.jpg`,
+  md: `${HOME_FA_CDN}/sec4_HOMEPAGE_768_MD_TABLET_FA.jpg`,
+});
+
+/** SEC5 English artwork; retain existing images below the tablet breakpoint. */
+export const PORTFOLIO_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${HOME_EN_CDN}/sec5_HOMEPAGE_1920_FULLHD_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/sec5_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/sec5_HOMEPAGE_1440_DESKTOP_STANDARD_EN.jpg`,
+  xl: `${HOME_EN_CDN}/sec5_HOMEPAGE_1280_XL_DESKTOP_EN.jpg`,
+  lg: `${HOME_EN_CDN}/sec5_HOMEPAGE_1024_LG_LAPTOP_EN.jpg`,
+  md: `${HOME_EN_CDN}/sec5_HOMEPAGE_768_MD_TABLET_EN.jpg`,
+  sm: `${CDN}/related_works_5.jpg`,
+  mobile: `${CDN}/related_works_9.jpg`,
+  xs: `${CDN}/related_works_9.jpg`,
+});
+
+/** SEC5 Persian artwork; retain existing mobile and XS images. */
+export const PORTFOLIO_IMAGES_FA = responsiveImageSchema.parse({
+  ...PORTFOLIO_IMAGES_EN,
+  fullHd: `${HOME_FA_CDN}/sec5_HOMEPAGE_1920_FULLHD_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/sec5_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/sec5_HOMEPAGE_1440_DESKTOP_STANDARD_FA.jpg`,
+  xl: `${HOME_FA_CDN}/sec5_HOMEPAGE_1280_XL_DESKTOP_FA.jpg`,
+  lg: `${HOME_FA_CDN}/sec5_HOMEPAGE_1024_LG_LAPTOP_FA.jpg`,
+  md: `${HOME_FA_CDN}/sec5_HOMEPAGE_768_MD_TABLET_FA.jpg`,
+  sm: `${HOME_FA_CDN}/sec5_HOMEPAGE_640_SM_FA.jpg`,
+});
+
 /** Shared footer artwork at each viewport breakpoint. */
 const CONTACT_IMAGES = responsiveImageSchema.parse({
   fullHd: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Footer/FULL_HD_1920_HOMEPAGE_FOOTER.jpg?updatedAt=1792657842029",
@@ -218,6 +338,32 @@ const CONTACT_IMAGES = responsiveImageSchema.parse({
   sm: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Footer/SM_640_HOMEPAGE_FOOTER.jpg?updatedAt=1792657840538",
   mobile: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Footer/MOBILE_STANDARD_390_footer.jpg",
   xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Footer/XS_360_footer.jpg",
+});
+
+/** English homepage footer artwork at every supplied viewport width. */
+export const CONTACT_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${HOME_EN_CDN}/FOOTER_HOMEPAGE_1920_FULLHD_EN.jpg`,
+  "2xl": `${HOME_EN_CDN}/FOOTER_HOMEPAGE_1536_2XL_EN.jpg`,
+  desktopWide: `${HOME_EN_CDN}/FOOTER_HOMEPAGE_1440_DESKTOP_STANDARD_EN.jpg`,
+  xl: `${HOME_EN_CDN}/FOOTER_HOMEPAGE_1280_XL_DESKTOP_EN.jpg`,
+  lg: `${HOME_EN_CDN}/FOOTER_HOMEPAGE_1024_LG_LAPTOP_EN.jpg`,
+  md: `${HOME_EN_CDN}/FOOTER_HOMEPAGE_768_MD_TABLET_EN.jpg`,
+  sm: `${HOME_EN_CDN}/SEC7_HOMEPAGE_390_MOBILE_STANDARD_EN-1.jpg`,
+  mobile: `${HOME_EN_CDN}/SEC7_HOMEPAGE_390_MOBILE_STANDARD_EN.jpg`,
+  xs: `${HOME_EN_CDN}/SEC7_HOMEPAGE_360_XS_EN.jpg`,
+});
+
+/** Persian homepage footer artwork at every supplied viewport width. */
+export const CONTACT_IMAGES_FA = responsiveImageSchema.parse({
+  fullHd: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_1920_FULLHD_FA.jpg`,
+  "2xl": `${HOME_FA_CDN}/FOOTER_HOMEPAGE_1536_2XL_FA.jpg`,
+  desktopWide: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_1440_DESKTOP_STANDARD_FA.jpg`,
+  xl: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_1280_XL_DESKTOP_FA.jpg`,
+  lg: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_1024_LG_LAPTOP_FA.jpg`,
+  md: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_768_MD_TABLET_FA.jpg`,
+  mobile: `${HOME_FA_CDN}/SEC7_HOMEPAGE_390_MOBILE_STANDARD_FA-1.jpg`,
+  sm: `${HOME_FA_CDN}/FOOTER_HOMEPAGE_640_SM_FA.jpg`,
+  xs: `${HOME_FA_CDN}/SEC7_HOMEPAGE_360_XS_FA.jpg`,
 });
 
 export const sectionSchema = z.object({

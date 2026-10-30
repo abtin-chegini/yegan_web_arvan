@@ -44,7 +44,7 @@ export function SectionBackground({
       <img
         src={images.xs}
         alt=""
-        className={`absolute inset-0 h-full w-full ${fitClass}${section.id === "home" ? " min-[768px]:object-fill" : ""}`}
+        className={`absolute inset-0 h-full w-full ${fitClass}${section.id === "home" && section.objectFit === "none" ? " min-[768px]:object-fill" : ""}`}
         style={{ objectPosition: section.objectPosition }}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
