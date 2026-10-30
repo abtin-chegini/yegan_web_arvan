@@ -46,6 +46,73 @@ export const caseStudySchema = z.object({
 export type CaseStudy = z.infer<typeof caseStudySchema>;
 
 /** Shared section 1 artwork for Bilit4U, TealTile, and Tealnex. */
+const CASE_STUDY_EN_CDN = "https://cdn.yeganehheshmat.com/backgrounds/En/casestudy";
+
+export const CASE_STUDY_SEC1_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_EN_CDN}/SEC1_FULL_HD_1920_portfolio_EN.jpg`,
+  "2xl": `${CASE_STUDY_EN_CDN}/SEC1_2XL_1536_portfolio_EN.jpg`,
+  desktopWide: `${CASE_STUDY_EN_CDN}/SEC1_DESKTOP_STANDARD_1440_portfolio_EN.jpg`,
+  xl: `${CASE_STUDY_EN_CDN}/SEC1_XL_DESKTOP_1280_portfolio_EN.jpg`,
+  lg: `${CASE_STUDY_EN_CDN}/SEC1_LG_LAPTOP_1024_portfolio_EN.jpg`,
+  md: `${CASE_STUDY_EN_CDN}/SEC1_MD_TABLET_768_portfolio_EN.jpg`,
+  sm: `${CASE_STUDY_EN_CDN}/SEC1_SM_640_portfolio_EN.jpg`,
+  mobile: `${CASE_STUDY_EN_CDN}/SEC1_SM_640_portfolio_EN.jpg`,
+  xs: `${CASE_STUDY_EN_CDN}/SEC1_XS_360_portfolio_EN.jpg`,
+});
+
+/** Shared English section 3 artwork for every case study. */
+export const CASE_STUDY_SEC3_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_EN_CDN}/SEC3_FULL_HD_1920_portfolio_EN.jpg`,
+  "2xl": `${CASE_STUDY_EN_CDN}/SEC3_2XL_1536_portfolio_EN.jpg`,
+  desktopWide: `${CASE_STUDY_EN_CDN}/SEC3_DESKTOP_STANDARD_1440_portfolio_EN.jpg`,
+  xl: `${CASE_STUDY_EN_CDN}/SEC3_XL_DESKTOP_1280_portfolio_EN.jpg`,
+  lg: `${CASE_STUDY_EN_CDN}/SEC3_LG_LAPTOP_1024_portfolio_EN.jpg`,
+  md: `${CASE_STUDY_EN_CDN}/SEC3_MD_TABLET_768_portfolio_EN.jpg`,
+  sm: `${CASE_STUDY_EN_CDN}/SEC3_SM_640_portfolio_EN.jpg`,
+  mobile: `${CASE_STUDY_EN_CDN}/SEC3_MOBILE_STANDARD_390_portfolio_EN.jpg`,
+  xs: `${CASE_STUDY_EN_CDN}/SEC3_XS_360_portfolio_EN.jpg`,
+});
+
+/** Shared English section 4 artwork for every case study. */
+export const CASE_STUDY_SEC4_IMAGES_EN = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_1920_HD_FULL_EN.jpg`,
+  "2xl": `${CASE_STUDY_EN_CDN}/SEC4_portfolio_1536_2XL_EN.jpg`,
+  desktopWide: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_1440_STANDARD_DESKTOP_EN.jpg`,
+  xl: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_1280_DESKTOP_XL_EN.jpg`,
+  lg: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_1024_LAPTOP_LG_EN.jpg`,
+  md: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_768_TABLET_MD_EN.jpg`,
+  sm: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_640_SM_EN.jpg`,
+  mobile: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_390_STANDARD_MOBILE_EN.jpg`,
+  xs: `${CASE_STUDY_EN_CDN}/SEC4_portfolio_360_XS_EN.jpg`,
+});
+
+/** Project-specific English section 5 artwork at every viewport width. */
+function englishSection5Images(
+  project: "bilit4u" | "tealtile" | "tealnex",
+  prefix: "SEC5" | "SEC5_TT" | "SEC5_TN",
+): ResponsiveImages {
+  const image = (size: string) =>
+    `${CASE_STUDY_EN_CDN}/${prefix}_${size}_portfolio_${project}_EN.jpg`;
+
+  return responsiveImageSchema.parse({
+    fullHd: image("FULL_HD_1920"),
+    "2xl": image("2XL_1536"),
+    desktopWide: image("DESKTOP_STANDARD_1440"),
+    xl: image("XL_DESKTOP_1280"),
+    lg: image("LG_LAPTOP_1024"),
+    md: image("MD_TABLET_768"),
+    sm: image("SM_640"),
+    mobile: image("MOBILE_STANDARD_390"),
+    xs: image("XS_360"),
+  });
+}
+
+export const CASE_STUDY_SEC5_IMAGES_EN: Record<string, ResponsiveImages> = {
+  bilit4u: englishSection5Images("bilit4u", "SEC5"),
+  tealtile: englishSection5Images("tealtile", "SEC5_TT"),
+  tealnex: englishSection5Images("tealnex", "SEC5_TN"),
+};
+
 const CASE_STUDY_SEC1_IMAGES = responsiveImageSchema.parse({
 	fullHd: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/icon_set/FULL_HD_1920_portfolio_SEC1.jpg?updatedAt=1792658004514",
 	"2xl": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/icon_set/2XL_1536_portfolio_SEC1.jpg?updatedAt=1792658002581",
@@ -157,6 +224,16 @@ const CASE_STUDY_SEC6_DESKTOP_IMAGES = buildResponsiveImages({
   "xl": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/frontend_architecture/XL_DESKTOP_1280_portfolio_SEC6.jpg?updatedAt=1792658836433",
   "lg": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/frontend_architecture/LG_LAPTOP_1024_portfolio_SEC6.jpg?updatedAt=1792658836420",
   "md": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/frontend_architecture/MD_TABLET_768_portfolio_SEC6.jpg?updatedAt=1792658909858",
+});
+
+/** Shared English section 6 artwork, rendered from tablet widths upward. */
+export const CASE_STUDY_SEC6_IMAGES_EN = buildResponsiveImages({
+  fullHd: `${CASE_STUDY_EN_CDN}/SEC6_FULL_HD_1920_portfolio_EN.jpg`,
+  "2xl": `${CASE_STUDY_EN_CDN}/SEC6_2XL_1536_portfolio_EN.jpg`,
+  desktopWide: `${CASE_STUDY_EN_CDN}/SEC6_DESKTOP_STANDARD_1440_portfolio_EN.jpg`,
+  xl: `${CASE_STUDY_EN_CDN}/SEC6_XL_DESKTOP_1280_portfolio_EN.jpg`,
+  lg: `${CASE_STUDY_EN_CDN}/SEC6_LG_LAPTOP_1024_portfolio_EN-1.jpg`,
+  md: `${CASE_STUDY_EN_CDN}/SEC6_LG_LAPTOP_1024_portfolio_EN.jpg`,
 });
 
 const PLACEHOLDER_BG = "#FCF6EF";

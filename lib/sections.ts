@@ -392,7 +392,7 @@ export const sections = sectionSchema.array().parse([
     images: HOME_IMAGES,
     foreground: "var(--section-home-fg)",
     muted: "var(--section-home-muted)",
-    objectFit: "none",
+    objectFit: "cover",
     objectPosition: "center top",
   },
   {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import {
   Children,
@@ -20,7 +21,11 @@ import { FooterSection } from "@/components/sections/footer-section";
 import { cn } from "@/lib/utils";
 import type { CaseStudySection } from "@/lib/case-studies";
 import { NAV_ROUTES } from "@/lib/nav-routes";
-import { sections as siteSections } from "@/lib/sections";
+import {
+  CONTACT_IMAGES_EN,
+  CONTACT_IMAGES_FA,
+  sections as siteSections,
+} from "@/lib/sections";
 
 type CaseStudyScrollProps = {
   sections: CaseStudySection[];
@@ -44,6 +49,13 @@ export function CaseStudyScroll({
   indicatorLabels,
   children,
 }: CaseStudyScrollProps) {
+  const locale = useLocale();
+  const footerImages = locale === "fa" ? CONTACT_IMAGES_FA : CONTACT_IMAGES_EN;
+  const localizedContactSection = {
+    ...contactSection,
+    image: footerImages.fullHd,
+    images: footerImages,
+  };
   const router = useRouter();
   const contentSlides = Children.toArray(children);
   const slides = [...contentSlides, <FooterSection key="site-footer" />];
@@ -221,7 +233,7 @@ export function CaseStudyScroll({
             >
               <div className="absolute inset-0 -z-10 overflow-hidden bg-[#FCF6EF]">
                 {isFooter ? (
-                  <SectionBackground section={contactSection} />
+                  <SectionBackground section={localizedContactSection} />
                 ) : (
                   <ResponsiveBackground
                     images={section!.images}

@@ -57,49 +57,49 @@ export function HomePage() {
           ...section,
           image: HOME_IMAGES_EN.fullHd,
           images: HOME_IMAGES_EN,
-          objectFit: "fill" as const,
+          objectFit: "cover" as const,
         }
       : locale === "en" && section.id === "about"
         ? {
             ...section,
             image: ABOUT_IMAGES_EN.fullHd,
             images: ABOUT_IMAGES_EN,
-            objectFit: "fill" as const,
+            objectFit: "cover" as const,
           }
         : locale === "en" && section.id === "process"
           ? {
               ...section,
               image: PROCESS_IMAGES_EN.fullHd,
               images: PROCESS_IMAGES_EN,
-              objectFit: "fill" as const,
+              objectFit: "cover" as const,
             }
           : locale === "en" && section.id === "skills"
             ? {
                 ...section,
                 image: SKILLS_IMAGES_EN.fullHd,
                 images: SKILLS_IMAGES_EN,
-                objectFit: "fill" as const,
+                objectFit: "cover" as const,
               }
             : locale === "en" && section.id === "portfolio"
               ? {
                   ...section,
                   image: PORTFOLIO_IMAGES_EN.fullHd,
                   images: PORTFOLIO_IMAGES_EN,
-                  objectFit: "fill" as const,
+                  objectFit: "cover" as const,
                 }
               : locale === "en" && section.id === "contact"
                 ? {
                     ...section,
                     image: CONTACT_IMAGES_EN.fullHd,
                     images: CONTACT_IMAGES_EN,
-                    objectFit: "fill" as const,
+                    objectFit: "cover" as const,
                   }
                 : locale === "fa" && section.id === "home"
                   ? {
                       ...section,
                       image: HOME_IMAGES_EN.fullHd,
                       images: HOME_IMAGES_EN,
-                      objectFit: "fill" as const,
+                      objectFit: "cover" as const,
                     }
                   : locale === "fa" && section.id === "about"
                     ? {
