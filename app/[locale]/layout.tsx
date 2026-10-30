@@ -6,6 +6,9 @@ import {NextIntlClientProvider, hasLocale} from "next-intl";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {routing} from "@/i18n/routing";
+import { SiteFooterProvider } from "@/components/site-footer";
+import { FooterSection } from "@/components/sections/footer-section";
+import { CONTACT_IMAGES_EN, CONTACT_IMAGES_FA, sections } from "@/lib/sections";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -74,6 +77,13 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages({locale});
+  const footerImages = locale === "fa" ? CONTACT_IMAGES_FA : CONTACT_IMAGES_EN;
+  const footerSection = {
+    ...sections.find((section) => section.id === "contact")!,
+    image: footerImages.fullHd,
+    images: footerImages,
+    objectFit: "cover" as const,
+  };
 
   return (
     <html
@@ -81,7 +91,13 @@ export default async function LocaleLayout({
       dir={locale === "fa" ? "rtl" : "ltr"}
       className={`${geistMono.variable} ${manrope.variable} ${baskervville.variable} h-full antialiased`}
     >
-      <body className="h-full overflow-hidden"><NextIntlClientProvider locale={locale} messages={messages}>{children}</NextIntlClientProvider></body>
+      <body className="h-full overflow-hidden">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <SiteFooterProvider section={footerSection} content={<FooterSection />}>
+            {children}
+          </SiteFooterProvider>
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

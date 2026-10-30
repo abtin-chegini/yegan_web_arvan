@@ -1,6 +1,5 @@
 "use client";
 
-import { useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import {
   Children,
@@ -17,15 +16,11 @@ import { PageIndicator } from "@/components/fullpage/page-indicator";
 import { SectionBackground } from "@/components/fullpage/section-background";
 import { BackToTop } from "@/components/back-to-top";
 import { Navbar } from "@/components/navbar";
-import { FooterSection } from "@/components/sections/footer-section";
+import { SiteFooter as FooterSection, useSiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 import type { CaseStudySection } from "@/lib/case-studies";
 import { NAV_ROUTES } from "@/lib/nav-routes";
-import {
-  CONTACT_IMAGES_EN,
-  CONTACT_IMAGES_FA,
-  sections as siteSections,
-} from "@/lib/sections";
+
 
 type CaseStudyScrollProps = {
   sections: CaseStudySection[];
@@ -37,7 +32,6 @@ const TRANSITION_MS = 900;
 const WHEEL_THRESHOLD = 40;
 const TOUCH_THRESHOLD = 36;
 
-const contactSection = siteSections.find((section) => section.id === "contact")!;
 
 const FOOTER_META = {
   id: "footer",
@@ -49,13 +43,7 @@ export function CaseStudyScroll({
   indicatorLabels,
   children,
 }: CaseStudyScrollProps) {
-  const locale = useLocale();
-  const footerImages = locale === "fa" ? CONTACT_IMAGES_FA : CONTACT_IMAGES_EN;
-  const localizedContactSection = {
-    ...contactSection,
-    image: footerImages.fullHd,
-    images: footerImages,
-  };
+  const { section: contactSection } = useSiteFooter();
   const router = useRouter();
   const contentSlides = Children.toArray(children);
   const slides = [...contentSlides, <FooterSection key="site-footer" />];
@@ -218,6 +206,7 @@ export function CaseStudyScroll({
               data-active={index === activeIndex}
               className={cn(
                 "relative flex h-dvh w-full flex-col justify-center overflow-hidden px-5 pt-20 pb-12 sm:px-10 sm:pt-24 sm:pb-14",
+                isFooter && "lg:px-16 md:pt-28 lg:pt-32",
                 index === activeIndex &&
                   !isAnimating &&
                   "case-study-section-active",
@@ -231,9 +220,9 @@ export function CaseStudyScroll({
                   : undefined
               }
             >
-              <div className="absolute inset-0 -z-10 overflow-hidden bg-[#FCF6EF]">
+              <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">
                 {isFooter ? (
-                  <SectionBackground section={localizedContactSection} />
+                  <SectionBackground section={contactSection} />
                 ) : (
                   <ResponsiveBackground
                     images={section!.images}

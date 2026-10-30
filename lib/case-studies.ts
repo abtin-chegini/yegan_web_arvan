@@ -47,6 +47,33 @@ export type CaseStudy = z.infer<typeof caseStudySchema>;
 
 /** Shared section 1 artwork for Bilit4U, TealTile, and Tealnex. */
 const CASE_STUDY_EN_CDN = "https://cdn.yeganehheshmat.com/backgrounds/En/casestudy";
+const CASE_STUDY_FA_CDN = "https://cdn.yeganehheshmat.com/backgrounds/fa/CaseStudy";
+
+/** Shared Persian section 1 artwork for every case study. */
+export const CASE_STUDY_SEC1_IMAGES_FA = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_FA_CDN}/SEC1_FULL_HD_1920_portfolio_FA.jpg`,
+  "2xl": `${CASE_STUDY_FA_CDN}/SEC1_2XL_1536_portfolio_FA.jpg`,
+  desktopWide: `${CASE_STUDY_FA_CDN}/SEC1_DESKTOP_STANDARD_1440_portfolio_FA.jpg`,
+  xl: `${CASE_STUDY_FA_CDN}/SEC1_XL_DESKTOP_1280_portfolio_FA.jpg`,
+  lg: `${CASE_STUDY_FA_CDN}/SEC1_LG_LAPTOP_1024_portfolio_FA.jpg`,
+  md: `${CASE_STUDY_FA_CDN}/SEC1_MD_TABLET_768_portfolio_FA.jpg`,
+  mobile: `${CASE_STUDY_FA_CDN}/SEC1_MOBILE_STANDARD_390_portfolio_FA.jpg`,
+  sm: `${CASE_STUDY_FA_CDN}/SEC1_SM_640_portfolio_FA.jpg`,
+  xs: `${CASE_STUDY_FA_CDN}/SEC1_XS_360_portfolio_FA.jpg`,
+});
+
+/** Shared Persian section 3 artwork for every case study. */
+export const CASE_STUDY_SEC3_IMAGES_FA = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_FA_CDN}/SEC3_FULL_HD_1920_portfolio_FA.jpg`,
+  "2xl": `${CASE_STUDY_FA_CDN}/SEC3_2XL_1536_portfolio_FA.jpg`,
+  desktopWide: `${CASE_STUDY_FA_CDN}/SEC3_DESKTOP_STANDARD_1440_portfolio_FA.jpg`,
+  xl: `${CASE_STUDY_FA_CDN}/SEC3_XL_DESKTOP_1280_portfolio_FA.jpg`,
+  lg: `${CASE_STUDY_FA_CDN}/SEC3_LG_LAPTOP_1024_portfolio_FA.jpg`,
+  md: `${CASE_STUDY_FA_CDN}/SEC3_MD_TABLET_768_portfolio_FA.jpg`,
+  mobile: `${CASE_STUDY_FA_CDN}/SEC3_MOBILE_STANDARD_390_portfolio_FA.jpg`,
+  sm: `${CASE_STUDY_FA_CDN}/SEC3_SM_640_portfolio_FA.jpg`,
+  xs: `${CASE_STUDY_FA_CDN}/SEC3_XS_360_portfolio_FA.jpg`,
+});
 
 export const CASE_STUDY_SEC1_IMAGES_EN = responsiveImageSchema.parse({
   fullHd: `${CASE_STUDY_EN_CDN}/SEC1_FULL_HD_1920_portfolio_EN.jpg`,
@@ -71,6 +98,19 @@ export const CASE_STUDY_SEC3_IMAGES_EN = responsiveImageSchema.parse({
   sm: `${CASE_STUDY_EN_CDN}/SEC3_SM_640_portfolio_EN.jpg`,
   mobile: `${CASE_STUDY_EN_CDN}/SEC3_MOBILE_STANDARD_390_portfolio_EN.jpg`,
   xs: `${CASE_STUDY_EN_CDN}/SEC3_XS_360_portfolio_EN.jpg`,
+});
+
+/** Shared Persian section 4 artwork for every case study. */
+export const CASE_STUDY_SEC4_IMAGES_FA = responsiveImageSchema.parse({
+  fullHd: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_1920_HD_FULL_FA.jpg`,
+  "2xl": `${CASE_STUDY_FA_CDN}/SEC4_portfolio_1536_2XL_FA.jpg`,
+  desktopWide: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_1440_STANDARD_DESKTOP_FA.jpg`,
+  xl: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_1280_DESKTOP_XL_FA.jpg`,
+  lg: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_1024_LAPTOP_LG_FA.jpg`,
+  md: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_768_TABLET_MD_FA.jpg`,
+  mobile: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_390_STANDARD_MOBILE_FA.jpg`,
+  sm: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_640_SM_FA.jpg`,
+  xs: `${CASE_STUDY_FA_CDN}/SEC4_portfolio_360_XS_FA.jpg`,
 });
 
 /** Shared English section 4 artwork for every case study. */
@@ -152,43 +192,13 @@ const CASE_STUDY_SEC4_IMAGES = responsiveImageSchema.parse({
 });
 
 /** Bilit4U — section 5 art-directed backgrounds */
-const BILIT4U_SEC5_IMAGES = responsiveImageSchema.parse({
-  fullHd: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/FULL_HD_1920_portfolio_SEC5.jpg?updatedAt=1792658658543",
-  "2xl": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/2XL_1536_portfolio_SEC5.jpg?updatedAt=1792658658173",
-  desktopWide: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/DESKTOP_STANDARD_1440_portfolio_SEC5.jpg?updatedAt=1792658658113",
-  xl: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/XL_DESKTOP_1280_portfolio_SEC5.jpg?updatedAt=1792658658343",
-  lg: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/LG_LAPTOP_1024_portfolio_SEC5.jpg?updatedAt=1792658658014",
-  md: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/MD_TABLET_768_portfolio_SEC5.jpg?updatedAt=1792658658266",
-  sm: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/SM_640_portfolio_SEC5.jpg?updatedAt=1792658658253",
-  mobile: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/MOBILE_STANDARD_390_portfolio_SEC5.jpg?updatedAt=1792658658099",
-  xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/bilit4u/XS_360_portfolio_SEC5.jpg?updatedAt=1792658657916",
-});
+const BILIT4U_SEC5_IMAGES = CASE_STUDY_SEC5_IMAGES_EN.bilit4u;
 
 /** TealTile — section 5 UX Architecture backgrounds, exclusive to this project. */
-const TEALTILE_SEC5_IMAGES = responsiveImageSchema.parse({
-  fullHd: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/FULL_HD_1920_portfolio_SEC5_TT.jpg?updatedAt=1792658706519",
-  "2xl": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/2XL_1536_portfolio_SEC5_TT.jpg?updatedAt=1792658706443",
-  desktopWide: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/DESKTOP_STANDARD_1440_portfolio_SEC5_TT.jpg?updatedAt=1792658706293",
-  xl: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/XL_DESKTOP_1280_portfolio_SEC5_TT.jpg?updatedAt=1792658706287",
-  lg: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/LG_LAPTOP_1024_portfolio_SEC5_TT.jpg?updatedAt=1792658706206",
-  md: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/MD_TABLET_768_portfolio_SEC5_TT.jpg?updatedAt=1792658706198",
-  sm: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/SM_640_portfolio_SEC5_TT.jpg?updatedAt=1792658706322",
-  mobile: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/MOBILE_STANDARD_390_portfolio_SEC5_TT.jpg?updatedAt=1792658706371",
-  xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealtile/XS_360_portfolio_SEC5_TT.jpg?updatedAt=1792658706412",
-});
+const TEALTILE_SEC5_IMAGES = CASE_STUDY_SEC5_IMAGES_EN.tealtile;
 
 /** Tealnex — section 5 UX Architecture backgrounds, exclusive to this project. */
-const TEALNEX_SEC5_IMAGES = responsiveImageSchema.parse({
-  fullHd: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/FULL_HD_1920_portfolio_SEC5_TN.jpg?updatedAt=1792658684758",
-  "2xl": "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/2XL_1536_portfolio_SEC5_TN.jpg?updatedAt=1792658684462",
-  desktopWide: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/DESKTOP_STANDARD_1440_portfolio_SEC5_TN.jpg?updatedAt=1792658684365",
-  xl: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/XL_DESKTOP_1280_portfolio_SEC5_TN.jpg?updatedAt=1792658684568",
-  lg: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/LG_LAPTOP_1024_portfolio_SEC5_TN.jpg?updatedAt=1792658684256",
-  md: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/MD_TABLET_768_portfolio_SEC5_TN.jpg?updatedAt=1792658684241",
-  sm: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/SM_640_portfolio_SEC5_TN.jpg?updatedAt=1792658684449",
-  mobile: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/MOBILE_STANDARD_390_portfolio_SEC5_TN.jpg?updatedAt=1792658684298",
-  xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/caseStudy/ux_architecture/tealnex/XS_360_portfolio_SEC5_TN.jpg?updatedAt=1792658684371",
-});
+const TEALNEX_SEC5_IMAGES = CASE_STUDY_SEC5_IMAGES_EN.tealnex;
 
 /** Bilit4U — section 6 art-directed backgrounds */
 const BILIT4U_SEC6_IMAGES = buildResponsiveImages({
@@ -234,6 +244,16 @@ export const CASE_STUDY_SEC6_IMAGES_EN = buildResponsiveImages({
   xl: `${CASE_STUDY_EN_CDN}/SEC6_XL_DESKTOP_1280_portfolio_EN.jpg`,
   lg: `${CASE_STUDY_EN_CDN}/SEC6_LG_LAPTOP_1024_portfolio_EN-1.jpg`,
   md: `${CASE_STUDY_EN_CDN}/SEC6_LG_LAPTOP_1024_portfolio_EN.jpg`,
+});
+
+/** Shared Persian section 6 artwork, rendered from tablet widths upward. */
+export const CASE_STUDY_SEC6_IMAGES_FA = buildResponsiveImages({
+  fullHd: `${CASE_STUDY_FA_CDN}/SEC6_FULL_HD_1920_portfolio_FA.jpg`,
+  "2xl": `${CASE_STUDY_FA_CDN}/SEC6_2XL_1536_portfolio_FA.jpg`,
+  desktopWide: `${CASE_STUDY_FA_CDN}/SEC6_DESKTOP_STANDARD_1440_portfolio_FA.jpg`,
+  xl: `${CASE_STUDY_FA_CDN}/SEC6_XL_DESKTOP_1280_portfolio_FA.jpg`,
+  lg: `${CASE_STUDY_FA_CDN}/SEC6_LG_LAPTOP_1024_portfolio_FA.jpg`,
+  md: `${CASE_STUDY_FA_CDN}/SEC6_LG_LAPTOP_1024_portfolio_FA-1.jpg`,
 });
 
 const PLACEHOLDER_BG = "#FCF6EF";

@@ -14,15 +14,14 @@ import { PageIndicator } from "@/components/fullpage/page-indicator";
 import { SectionBackground } from "@/components/fullpage/section-background";
 import { BackToTop } from "@/components/back-to-top";
 import { Navbar } from "@/components/navbar";
-import { FooterSection } from "@/components/sections/footer-section";
+import { SiteFooter as FooterSection, useSiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
-import { sections, type Section, type SectionId } from "@/lib/sections";
+import { type Section, type SectionId } from "@/lib/sections";
 
 const TRANSITION_MS = 900;
 const WHEEL_THRESHOLD = 40;
 const TOUCH_THRESHOLD = 36;
 
-const contactSection = sections.find((section) => section.id === "contact")!;
 
 type SitePageScrollProps = {
   activeNavId: SectionId;
@@ -51,6 +50,7 @@ export function SitePageScroll({
   showPageIndicator = true,
   showScrollHint = false,
 }: SitePageScrollProps) {
+  const { section: contactSection } = useSiteFooter();
   const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -82,7 +82,7 @@ export function SitePageScroll({
         navId: "contact" as SectionId,
       },
     ];
-  }, [activeNavId, children, mainId, mainLabel, mainSection, withFooter]);
+  }, [activeNavId, children, mainId, mainLabel, mainSection, withFooter, contactSection]);
 
   const goTo = useCallback(
     (next: number, behavior: ScrollBehavior = "smooth") => {
@@ -241,7 +241,7 @@ export function SitePageScroll({
             }}
           >
             {showMainBackground || index > 0 ? (
-              <div className="absolute inset-0 -z-10 overflow-hidden bg-[#FCF6EF]">
+              <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">
                 <SectionBackground
                   section={slide.section}
                   priority={index === 0}

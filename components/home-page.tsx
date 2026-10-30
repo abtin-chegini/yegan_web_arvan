@@ -7,7 +7,7 @@ import { FullpageScroll } from "@/components/fullpage/fullpage-scroll";
 import { Preloader } from "@/components/preloader/preloader";
 import { AboutSection } from "@/components/sections/about-section";
 import { AboutSectionMobile } from "@/components/sections/about-section-mobile";
-import { FooterSection } from "@/components/sections/footer-section";
+import { SiteFooter as FooterSection, useSiteFooter } from "@/components/site-footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { HeroSectionMobile } from "@/components/sections/hero-section-mobile";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
@@ -17,8 +17,6 @@ import { SkillsSection } from "@/components/sections/skills-section";
 import {
   ABOUT_IMAGES_EN,
   ABOUT_IMAGES_FA,
-  CONTACT_IMAGES_EN,
-  CONTACT_IMAGES_FA,
   HOME_IMAGES_EN,
   PORTFOLIO_IMAGES_EN,
   PORTFOLIO_IMAGES_FA,
@@ -31,6 +29,7 @@ import {
 
 export function HomePage() {
   const locale = useLocale();
+  const { section: footerSection } = useSiteFooter();
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [showPreloader, setShowPreloader] = useState(true);
   const [introReady, setIntroReady] = useState(false);
@@ -88,12 +87,7 @@ export function HomePage() {
                   objectFit: "cover" as const,
                 }
               : locale === "en" && section.id === "contact"
-                ? {
-                    ...section,
-                    image: CONTACT_IMAGES_EN.fullHd,
-                    images: CONTACT_IMAGES_EN,
-                    objectFit: "cover" as const,
-                  }
+                ? footerSection
                 : locale === "fa" && section.id === "home"
                   ? {
                       ...section,
@@ -128,11 +122,7 @@ export function HomePage() {
                               images: PORTFOLIO_IMAGES_FA,
                             }
                           : locale === "fa" && section.id === "contact"
-                            ? {
-                                ...section,
-                                image: CONTACT_IMAGES_FA.fullHd,
-                                images: CONTACT_IMAGES_FA,
-                              }
+                            ? footerSection
                             : section,
   );
 

@@ -44,7 +44,7 @@ export function AboutSectionMobile() {
 								<div className="flex flex-row items-start gap-3">
 									{/* eslint-disable-next-line @next/next/no-img-element */}
 									<img
-										src={feature.icon}
+										src={feature.mobileIcon ?? feature.icon}
 										alt=""
 										width={52}
 										height={52}

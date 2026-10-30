@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export type AboutFeature = {
   id: string;
   icon: string;
+  mobileIcon?: string;
   /** Desktop card text (unchanged presentation) */
   label: string;
   /** Mobile accordion title */
@@ -20,7 +21,7 @@ export type AboutFeature = {
 export const aboutFeatures: AboutFeature[] = [
   {
     id: "authenticity",
-    icon: "https://ik.imagekit.io/s7yz964lq/assets/sec2_icon1.png",
+    icon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon1.svg",
     label: "Focused on scalable digital products",
     title: "Authenticity",
     shortDescription:
@@ -30,7 +31,8 @@ export const aboutFeatures: AboutFeature[] = [
   },
   {
     id: "growth",
-    icon: "https://ik.imagekit.io/s7yz964lq/assets/sec2_icon2.png",
+    icon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon2.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon2.png",
     label: "Focused on scalable digital products",
     title: "Growth",
     shortDescription:
@@ -40,7 +42,8 @@ export const aboutFeatures: AboutFeature[] = [
   },
   {
     id: "impact",
-    icon: "https://ik.imagekit.io/s7yz964lq/assets/sec2_icon4.png",
+    icon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon3.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon3.png",
     label: "Focused on scalable digital products",
     title: "Impact",
     shortDescription:
@@ -50,7 +53,8 @@ export const aboutFeatures: AboutFeature[] = [
   },
   {
     id: "balance",
-    icon: "https://ik.imagekit.io/s7yz964lq/assets/sec2_icon3.png",
+    icon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon4.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/homepage/sec2_icon4.png",
     label: "Focused on scalable digital products",
     title: "Balance",
     shortDescription:

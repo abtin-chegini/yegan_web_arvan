@@ -4,12 +4,11 @@ import {useTranslations} from "next-intl";
 
 import { FooterSection } from "@/components/sections/footer-section";
 import { SitePageScroll } from "@/components/site-page/site-page-scroll";
-import { sections } from "@/lib/sections";
-
-const contactSection = sections.find((section) => section.id === "contact")!;
+import { useSiteFooter } from "@/components/site-footer";
 
 export function ContactPageView() {
  const t = useTranslations("Nav");
+ const { section: contactSection } = useSiteFooter();
   return (
     <SitePageScroll
       activeNavId="contact"
