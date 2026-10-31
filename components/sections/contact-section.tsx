@@ -1,53 +1,30 @@
 "use client";
 
 import {useTranslations} from "next-intl";
-import { ArrowUpRight, Mail, Phone, type LucideIcon } from "lucide-react";
-import type { SVGProps } from "react";
+import { ArrowUpRight } from "lucide-react";
 import styles from "./contact-links.module.css";
 import { useContactAnimation } from "./use-contact-animation";
-
-function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      {...props}
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
-    </svg>
-  );
-}
 
 export const contactRows: {
   label: string;
   value: string;
   href: string;
-  Icon: LucideIcon | typeof LinkedInIcon;
+  icon: string;
+  mobileIcon: string;
 }[] = [
   {
     label: "LinkedIn",
     value: "Yeganeh Heshmat",
     href: "https://www.linkedin.com/in/yeganeh-heshmat-784300229",
-    Icon: LinkedInIcon,
+    icon: "https://cdn.yeganehheshmat.com/icons/social/linkdin_icon.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/icons/social/linkdin_icon.png",
   },
   {
     label: "Email Address",
     value: "Yeganeh.Heshmat@gmail.com",
     href: "mailto:Yeganeh.Heshmat@gmail.com",
-    Icon: Mail,
-  },
-  {
-    label: "Phone Number",
-    value: "+98 910 66 49 039",
-    href: "tel:+989106649039",
-    Icon: Phone,
+    icon: "https://cdn.yeganehheshmat.com/icons/social/email_icon.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/icons/social/email_icon.png",
   },
 ];
 
@@ -85,7 +62,11 @@ export function ContactLinks() {
             className={styles.link}
           >
             <span data-contact-icon className={styles.icon} aria-hidden="true">
-              <row.Icon className="h-5 w-5" />
+              <picture>
+                <source media="(min-width: 768px)" srcSet={row.icon} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={row.mobileIcon} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
+              </picture>
             </span>
             <span className="min-w-0 flex-1 font-sans">
               <span data-contact-write className={`${styles.typed} block text-sm font-medium leading-6`}>
