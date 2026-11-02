@@ -9,6 +9,7 @@ export const CASE_STUDY_BLANK_MEDIA = "#E8E0D4";
 
 export type CaseStudyMetaCard = {
   dialogTitle?: string;
+  dialogDescription?: string;
   dialogItems?: { title?: string; body: string }[];
   href?: string;
   id: string;

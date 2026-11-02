@@ -121,11 +121,16 @@ export function CaseStudyOverview({ content }: CaseStudyOverviewProps) {
             transition={{ duration: 0.25 }}
           >
             {selectedCard.dialogItems ? (
+              <div className="min-w-0 flex-1">
+                {selectedCard.dialogDescription && (
+                  <p className="pt-2 font-sans text-sm leading-7">{selectedCard.dialogDescription}</p>
+                )}
               <ul className="min-w-0 flex-1 list-disc space-y-3 ps-5 pt-2 font-sans text-sm leading-7">
                 {selectedCard.dialogItems.map((item) => (
                   <li key={item.title ?? item.body}>{item.title && <strong className="font-semibold">{item.title}: </strong>}{item.body}</li>
                 ))}
               </ul>
+              </div>
             ) : <p className="min-w-0 pt-2 font-sans text-sm leading-7">{selectedCard.body}</p>}
           </motion.div>
         )}

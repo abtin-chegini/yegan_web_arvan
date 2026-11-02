@@ -42,17 +42,30 @@ function CaseStudySectionContent({
           dialogItems: ["ux", "ui", "wireframes", "interaction", "development", "responsive"].map((id) => ({
             title: t(`roleDialog.items.${id}.title`), body: t(`roleDialog.items.${id}.body`),
           })),
+        } : study.slug === "tealtile" && locale === "fa" && card.id === "role" ? {
+          dialogItems: ["discovery", "search", "preview", "installation", "responsive", "interaction"].map((id) => ({
+            body: t(`roleDialog.items.${id}`),
+          })),
+        } : study.slug === "tealtile" && locale === "fa" && card.id === "industry" ? {
+          dialogDescription: t("meta.industry.body"),
+          dialogItems: ["discovery", "suppliers", "preview", "installers", "services"].map((id) => ({
+            body: t(`industryDialog.items.${id}`),
+          })),
         } : study.slug === "bilit4u" && card.id === "industry" ? {
           dialogTitle: t("industryDialog.title"),
           dialogItems: ["bus", "flight", "train", "hotel", "taxi", "tour"].map((id) => ({
             body: t(`industryDialog.items.${id}`),
+          })),
+        } : study.slug === "tealtile" && locale === "fa" && card.id === "scope" ? {
+          dialogItems: ["platform", "pages", "search", "preview", "installation", "responsive"].map((id) => ({
+            body: t(`scopeDialog.items.${id}`),
           })),
         } : study.slug === "bilit4u" && card.id === "scope" ? {
           dialogTitle: t("scopeDialog.title"),
           dialogItems: ["research", "flows", "ui", "booking", "development", "responsive", "interaction"].map((id) => ({
             body: t(`scopeDialog.items.${id}`),
           })),
-        } : {}), title: t(`meta.${card.id}.title`), body: study.slug === "bilit4u" && card.id === "platform" ? "https://bilit4u.com" : t(`meta.${card.id}.body`), ...(study.slug === "bilit4u" && card.id === "platform" ? {href: "https://bilit4u.com"} : {})})),
+        } : {}), title: t(`meta.${card.id}.title`), body: ["bilit4u", "tealtile"].includes(study.slug) && card.id === "platform" ? `https://${study.slug}.com` : t(`meta.${card.id}.body`), ...(["bilit4u", "tealtile"].includes(study.slug) && card.id === "platform" ? {href: `https://${study.slug}.com`} : {})})),
       }} />;
     }
     if (sectionIndex === 1) {
@@ -62,14 +75,14 @@ function CaseStudySectionContent({
     if (sectionIndex === 3) {
       return (
         <BeforeAfterSlider
-          centerHeader={locale === "fa" && study.slug === "bilit4u"}
+          centerHeader={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug)}
           slides={content.design.slides.map((slide, index) => ({
             image: slide.image,
             imageMobile: slide.imageMobile ?? undefined,
             alt: images(`projects.${study.slug}.design.${index}`),
           }))}
-          title={locale === "fa" && study.slug === "bilit4u" ? t("design.title") : content.design.title}
-          description={locale === "fa" && study.slug === "bilit4u" ? t("design.description") : content.design.description}
+          title={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug) ? t("design.title") : content.design.title}
+          description={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug) ? t("design.description") : content.design.description}
         />
       );
     }
