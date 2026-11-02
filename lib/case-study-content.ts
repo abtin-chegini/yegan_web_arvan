@@ -87,6 +87,8 @@ export type CaseStudyTechSlide = {
   color: string;
   /** Technology logo URL */
   logo: string;
+  logoTablet?: string;
+  logoMobile?: string;
   /** Short why-we-used-it copy (shown in the card) */
   description: string;
 };
@@ -225,15 +227,33 @@ function commonMetaCards(bodies: {
 }
 
 const TECH_STACK_HEADING = "Frontend Architecture";
-const TECH_LOGO_BASE =
-  "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/logo";
+
+const STACK_ICON_BASE = "https://cdn.yeganehheshmat.com/icons/stacks";
+
+function stackLogo(name: string): Pick<CaseStudyTechSlide, "logo" | "logoMobile"> {
+  return {
+    logo: `${STACK_ICON_BASE}/${name}_icon_size_1.svg`,
+    logoMobile: `${STACK_ICON_BASE}/${name}_icon_size_2.png`,
+  };
+}
+
+export const TECH_STACK_LOGOS = {
+  nextjs: stackLogo("Nextjs"),
+  zustand: stackLogo("zustand"),
+  zod: stackLogo("zod"),
+  tanstack: stackLogo("TanStack"),
+  tailwind: stackLogo("tailwind"),
+  react: stackLogo("React"),
+  lottie: stackLogo("LottieFiles"),
+  framer: stackLogo("framer"),
+};
 
 const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
   {
     id: "nextjs",
     title: "Next.js",
     color: "#E8D5C4",
-    logo: `${TECH_LOGO_BASE}/Next.js.svg?updatedAt=1788106925308`,
+    ...TECH_STACK_LOGOS.nextjs,
     description:
       "Powers the booking app with App Router, fast page loads, and SEO-ready search flows across every step of the journey.",
   },
@@ -241,7 +261,7 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "tanstack",
     title: "TanStack Query",
     color: "#D4E0EA",
-    logo: `${TECH_LOGO_BASE}/TanStack_Query.svg?updatedAt=1788106941896`,
+    ...TECH_STACK_LOGOS.tanstack,
     description:
       "Smart caching of travel data, filters, and seat availability for faster performance and fewer API requests.",
   },
@@ -249,7 +269,7 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "zustand",
     title: "Zustand",
     color: "#D8E5D3",
-    logo: `${TECH_LOGO_BASE}/Zod.svg?updatedAt=1788106944581`,
+    ...TECH_STACK_LOGOS.zustand,
     description:
       "Simplifies state management for passenger details, seat selection, and booking steps.",
   },
@@ -257,7 +277,7 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "tailwind",
     title: "Tailwind CSS",
     color: "#EAD9C8",
-    logo: `${TECH_LOGO_BASE}/Tailwind_CSS.svg?updatedAt=1788107019827`,
+    ...TECH_STACK_LOGOS.tailwind,
     description:
       "Builds a consistent, responsive UI with flexible styling across the entire booking process.",
   },
@@ -265,7 +285,7 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "zod",
     title: "Zod",
     color: "#D6D0E3",
-    logo: `${TECH_LOGO_BASE}/Zustand.svg?updatedAt=1788107063645`,
+    ...TECH_STACK_LOGOS.zod,
     description:
       "Validates passenger forms and booking data for accuracy and security before payment.",
   },
@@ -273,7 +293,9 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "dexie",
     title: "Dexie",
     color: "#E5DCC8",
-    logo: `${TECH_LOGO_BASE}/Dexie.svg?updatedAt=1788106973005`,
+    logo: "https://cdn.yeganehheshmat.com/icons/stacks/Dexie_icon_size_1.svg",
+    logoTablet: "https://cdn.yeganehheshmat.com/icons/stacks/Dexie_icon_size_2.svg",
+    logoMobile: "https://cdn.yeganehheshmat.com/icons/stacks/Dexie_icon_size_2.png",
     description:
       "Stores booking drafts and city suggestions locally for a smoother experience on slow connections.",
   },
@@ -281,7 +303,7 @@ const TECH_STACK_SLIDES: CaseStudyTechSlide[] = [
     id: "lottie",
     title: "Lottie",
     color: "#C9D8E0",
-    logo: `${TECH_LOGO_BASE}/Lottie.svg?updatedAt=1788106990176`,
+    ...TECH_STACK_LOGOS.lottie,
     description:
       "Enhances user interactions with smooth animations, intuitive feedback, and engaging visual guidance.",
   },

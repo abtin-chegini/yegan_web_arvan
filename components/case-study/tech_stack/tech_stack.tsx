@@ -12,6 +12,17 @@ import Dialog from "@/components/ui/smoothui/dialog";
 
 import type { CaseStudyTechSlide, CaseStudyTechContent } from "@/lib/case-study-content";
 
+function TechLogo({ slide, className }: { slide: CaseStudyTechSlide; className: string }) {
+  return (
+    <picture className="contents">
+      {slide.logoMobile && <source media="(max-width: 767px)" srcSet={slide.logoMobile} />}
+      {slide.logoTablet && <source media="(max-width: 1023px)" srcSet={slide.logoTablet} />}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={slide.logo} alt="" className={className} data-tech={slide.id} draggable={false} decoding="async" />
+    </picture>
+  );
+}
+
 const SLIDE_WIDTH = 200;
 const SLIDE_HEIGHT = 275;
 const SLIDE_GAP = 100;
@@ -237,14 +248,7 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
         >
           <div className="tech-stack-slider__blank">
             <div className="tech-stack-slider__content">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={slide.logo}
-                alt=""
-                className="tech-stack-slider__logo"
-                draggable={false}
-                decoding="async"
-              />
+              <TechLogo slide={slide} className="tech-stack-slider__logo" />
               <p className="tech-stack-slider__desc">{slide.description}</p>
               <button
                 type="button"
@@ -305,8 +309,7 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
             animate="visible"
             variants={{ hidden: {}, visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.1 } } }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={selectedSlide.logo} alt="" className="h-14 w-24 object-contain" />
+            <TechLogo slide={selectedSlide} className="h-14 w-24 object-contain" />
             {selectedSlide.detailsTitle && <h3 className="font-sans text-lg font-medium leading-relaxed">{selectedSlide.detailsTitle}</h3>}
             {selectedSlide.detailItems && (
               <ul className="space-y-5">
