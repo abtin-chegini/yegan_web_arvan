@@ -87,8 +87,19 @@ function CaseStudySectionContent({
       );
     }
     if (sectionIndex === 4) {
-      return <CaseStudyUxArchitecture content={{...content.uxArchitecture,
-        ...(locale === "fa" && study.slug === "bilit4u" ? {title: t("uxArchitecture.title"), intro: t("uxArchitecture.intro")} : {}), items: content.uxArchitecture.items.map((item, index) => ({...item, ...(locale === "fa" && study.slug === "bilit4u" ? {title: t(`uxArchitecture.items.${item.id}.title`), description: t(`uxArchitecture.items.${item.id}.description`)} : {}), imageAlt: images(`projects.${study.slug}.ux.${index}`)}))}} />;
+      const localizeUx = locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug);
+      return <CaseStudyUxArchitecture content={{
+        ...content.uxArchitecture,
+        ...(localizeUx ? {title: t("uxArchitecture.title"), intro: t("uxArchitecture.intro")} : {}),
+        items: content.uxArchitecture.items.map((item, index) => ({
+          ...item,
+          ...(localizeUx && t.has(`uxArchitecture.items.${item.id}.title`) ? {
+            title: t(`uxArchitecture.items.${item.id}.title`),
+            description: t(`uxArchitecture.items.${item.id}.description`),
+          } : {}),
+          imageAlt: images(`projects.${study.slug}.ux.${index}`),
+        })),
+      }} />;
     }
     if (sectionIndex === 5) {
       return <CaseStudyTechStack content={study.slug === "bilit4u" ? {
