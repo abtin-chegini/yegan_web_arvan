@@ -143,7 +143,27 @@ function CaseStudySectionContent({
         slides: content.techStack.slides.map((slide) => {
           const reasonIds = slide.id === "tailwind"
             ? ["responsive", "consistency", "efficiency", "maintainability", "optimization"]
-            : slide.id === "nextjs" ? ["scalability", "routing", "performance", "seo", "ecosystem"] : null;
+            : slide.id === "nextjs" ? ["scalability", "routing", "performance", "seo", "ecosystem"]
+            : slide.id === "zustand" ? ["interactive", "architecture", "updates", "maintenance", "scalability"]
+            : slide.id === "threejs" ? ["visualization", "rendering", "exploration", "materials", "extensibility"]
+            : slide.id === "pdfjs" ? ["catalog", "viewing", "navigation", "preview", "integration"] : null;
+          if (!reasonIds) return slide;
+          const prefix = `techArchitecture.${slide.id}`;
+          return {
+            ...slide,
+            ...(locale === "fa" ? {description: t(`${prefix}.description`)} : {}),
+            detailItems: reasonIds.map((id) => ({
+              title: t(`${prefix}.reasons.${id}.title`),
+              body: t(`${prefix}.reasons.${id}.body`),
+            })),
+          };
+        }),
+      } : study.slug === "tealtile" ? {
+        ...content.techStack,
+        slides: content.techStack.slides.map((slide) => {
+          const reasonIds = slide.id === "nextjs"
+            ? ["scalability", "routing", "performance", "seo", "ecosystem"]
+            : slide.id === "zustand" ? ["cart", "centralized", "realtime", "updates", "scalability"] : null;
           if (!reasonIds) return slide;
           const prefix = `techArchitecture.${slide.id}`;
           return {

@@ -244,6 +244,7 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
         <div
           key={slide.id}
           className="tech-stack-slider__slide"
+          data-tech={slide.id}
           ref={(el) => {
             slideRefs.current[index] = el;
           }}

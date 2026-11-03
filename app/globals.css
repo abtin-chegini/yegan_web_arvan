@@ -2938,3 +2938,17 @@ html[lang="fa"] .third-section-responsive .folder-tab-number {
   font-family: "Labkhand Persian Numerals", Tahoma, sans-serif;
   font-weight: 500;
 }
+
+.tech-stack-slider .tech-stack-slider__logo:is([data-tech="threejs"], [data-tech="pdfjs"]) {
+  transform: scale(2);
+  transform-origin: center;
+}
+
+/* Keep the Zustand description and details button close together. */
+.tech-stack-slider__slide--active[data-tech="zustand"] .tech-stack-slider__details {
+  margin-top: -0.75rem;
+}
+
+.tech-stack-slider--mobile .tech-stack-slider__slide--active[data-tech="zustand"] .tech-stack-slider__details {
+  margin-top: 0;
+}

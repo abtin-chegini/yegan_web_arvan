@@ -433,6 +433,78 @@
                 "body": "Tailwind CSS generates styles based on the utility classes used throughout the project, helping minimize unnecessary CSS in production builds. This contributes to maintaining efficient stylesheet delivery, which is particularly valuable for a visually rich architectural website like TealNex."
               }
             }
+          },
+          "zustand": {
+            "reasons": {
+              "interactive": {
+                "title": "Interactive State Management",
+                "body": "I used Zustand to manage shared states across TealNex's interactive components. It enables efficient management of features such as project filtering, consultation request form steps, and temporary interface states. This approach helps maintain organized, predictable, and consistent interactions between different components throughout the website."
+              },
+              "architecture": {
+                "title": "Lightweight & Modular Architecture",
+                "body": "Zustand's lightweight and straightforward architecture allows application states to be organized into independent, reusable stores. This approach reduces dependencies between components, prevents unnecessary complexity, and helps maintain a clean and well-structured codebase across different sections of TealNex."
+              },
+              "updates": {
+                "title": "Efficient Component Updates",
+                "body": "Zustand supports selective state subscriptions, allowing React components to update only when their relevant data changes. This capability helps minimize unnecessary re-renders and maintain smooth interface performance, particularly in dynamic and interactive sections of the website."
+              },
+              "maintenance": {
+                "title": "Debugging & Maintainability",
+                "body": "Centralizing shared application states through Zustand makes data flow between components more transparent and manageable. This structure simplifies debugging, testing interactive behaviors, and maintaining the codebase while reducing the risk of unexpected issues when implementing changes across different website features."
+              },
+              "scalability": {
+                "title": "Scalability & Flexibility",
+                "body": "Zustand's flexible architecture supports the gradual expansion of TealNex's interactive functionality. As new features are introduced, such as advanced project filtering, multi-step forms, and interactive 3D visualization controls, additional state management requirements can be integrated without requiring significant modifications to the existing front-end architecture."
+              }
+            }
+          },
+          "threejs": {
+            "reasons": {
+              "visualization": {
+                "title": "3D Visualization",
+                "body": "I integrated Three.js into TealNex to develop an interactive feature intended to present user-uploaded 2D images as a simplified three-dimensional representation of an interior space. The objective is to help users better understand the spatial characteristics of a room before beginning an architectural or renovation project."
+              },
+              "rendering": {
+                "title": "Web-Based 3D Rendering",
+                "body": "Three.js enables three-dimensional scenes to be rendered directly in the browser through WebGL. This approach allows users to explore initial room visualizations without installing specialized architectural modeling software or relying on external applications."
+              },
+              "exploration": {
+                "title": "Interactive Exploration",
+                "body": "Three.js provides camera controls, rotation, and zoom capabilities that enable users to examine a virtual environment from different perspectives. These interactions offer a more immersive way to evaluate interior spaces compared with conventional static images."
+              },
+              "materials": {
+                "title": "Materials & Textures",
+                "body": "The library provides tools for managing surface materials, lighting, and image-based textures within 3D scenes. These capabilities are particularly useful for representing walls, flooring, and other interior elements while creating a more detailed visual interpretation of architectural spaces."
+              },
+              "extensibility": {
+                "title": "Flexibility & Extensibility",
+                "body": "The flexible architecture of Three.js supports the gradual development of TealNex's 3D visualization feature. Starting with simplified room representations, the functionality can evolve to include more detailed geometry, improved rendering quality, and advanced interactive capabilities."
+              }
+            }
+          },
+          "pdfjs": {
+            "reasons": {
+              "catalog": {
+                "title": "Digital Catalog",
+                "body": "I used PDF.js to develop a digital architectural catalog for TealNex, designed to organize and present architectural concepts, floor plans, and design inspirations in a compact and accessible format. The goal is to provide users with a convenient way to explore design references directly through the website."
+              },
+              "viewing": {
+                "title": "In-Browser Viewing",
+                "body": "PDF.js enables PDF documents to be rendered directly within web browsers, eliminating the need for users to download files or install additional software. This creates a more seamless browsing experience while keeping architectural catalogs integrated into the website."
+              },
+              "navigation": {
+                "title": "Page Navigation & Zoom",
+                "body": "PDF.js provides the foundation for implementing page navigation and zoom controls, allowing users to move between catalog pages and examine architectural drawings in greater detail. These capabilities are particularly valuable when reviewing floor plans, layouts, and complex design elements."
+              },
+              "preview": {
+                "title": "Visual Preview",
+                "body": "The library supports rendering PDF pages at different resolutions, enabling the creation of page thumbnails and visual previews. This functionality helps users navigate architectural catalogs more efficiently and identify relevant designs without opening each page individually."
+              },
+              "integration": {
+                "title": "Integration & Extensibility",
+                "body": "The flexibility of PDF.js allows the development of a customized document viewer that aligns with TealNex's visual identity. Its extensible architecture also supports future improvements, including enhanced navigation, additional interactive controls, and more sophisticated catalog browsing experiences."
+              }
+            }
           }
         },
         "title": "Building a Clearer Architecture Experience",
@@ -475,6 +547,56 @@
         }
       },
       "tealtile": {
+        "techArchitecture": {
+          "nextjs": {
+            "reasons": {
+              "scalability": {
+                "title": "Scalability",
+                "body": "I used Next.js to develop TileTail's front-end architecture, establishing a flexible and scalable foundation for the platform's tile sales, installation services, and design-related features. This architecture supports the gradual expansion of product catalogs, service pages, and interactive functionality without requiring significant modifications to the website's underlying structure."
+              },
+              "routing": {
+                "title": "Structured Routing",
+                "body": "Next.js provides a file-based routing system that simplifies the organization and management of different website sections. This approach allows product listings, tile categories, installation services, design collections, and company information to be structured independently. It also supports clear navigation paths, helping users move efficiently between products and services while maintaining an organized and maintainable application structure."
+              },
+              "performance": {
+                "title": "Performance Optimization",
+                "body": "Next.js supports multiple rendering strategies, including Server-Side Rendering and Static Site Generation, providing flexibility in how website content is delivered. These capabilities are particularly valuable for TileTail, where product photography, tile textures, and interior design examples play an essential role in the browsing experience. Appropriate rendering strategies can improve content delivery, reduce loading times, and provide smoother navigation across product and service pages."
+              },
+              "seo": {
+                "title": "Search Engine Optimization (SEO)",
+                "body": "Next.js offers rendering capabilities and metadata management features that establish a strong technical foundation for search engine optimization. These features support the discoverability and indexing of tile products, product categories, installation services, and design-related content. By organizing pages and metadata effectively, the website can improve its visibility in search results and make relevant products and services more accessible to potential customers."
+              },
+              "ecosystem": {
+                "title": "Ecosystem & Maintainability",
+                "body": "The extensive React and Next.js ecosystems, comprehensive documentation, and active developer communities simplify long-term development and maintenance. The component-based architecture promotes reusable interface elements across product listings, service pages, and interactive features. This approach helps maintain consistent implementation patterns while making it easier to troubleshoot issues, introduce new functionality, and adapt the platform to evolving business requirements."
+              }
+            }
+          },
+          "zustand": {
+            "reasons": {
+              "cart": {
+                "title": "Shopping Cart State Management",
+                "body": "I used Zustand to manage shared application states across TileTail's shopping cart functionality. This includes handling selected products, product quantities, and changes to shopping cart contents. Users can add tiles to their cart, adjust quantities, or remove items while immediately seeing the results of their actions. Zustand's lightweight architecture helps maintain predictable and responsive interactions throughout the purchasing experience."
+              },
+              "centralized": {
+                "title": "Centralized State Management",
+                "body": "Zustand allows shared shopping cart information to be organized into independent, reusable stores. This approach helps synchronize data across product cards, product detail pages, shopping cart indicators, and order review sections. By maintaining shared state in a centralized structure, the application reduces unnecessary data passing between components and helps ensure consistent cart information throughout different sections of the store."
+              },
+              "realtime": {
+                "title": "Real-Time State Updates",
+                "body": "Zustand enables immediate updates to application state, allowing relevant interface components to reflect changes without requiring a full page reload. When users add products, modify quantities, or remove items, displayed information such as cart item counts and calculated totals can update automatically. This capability creates a more interactive shopping experience and provides users with immediate feedback during the purchasing process."
+              },
+              "updates": {
+                "title": "Efficient Component Updates",
+                "body": "Zustand supports selective state subscriptions, allowing React components to update only when the data they depend on changes. This reduces unnecessary re-renders and helps maintain smooth interface performance across product listings, shopping cart components, and other interactive elements. Such optimization is particularly valuable for TileTail, where visually rich product catalogs and frequent shopping cart interactions are essential parts of the user experience."
+              },
+              "scalability": {
+                "title": "Scalability & Maintainability",
+                "body": "Zustand's lightweight and modular architecture supports the gradual expansion of TileTail's shopping functionality. Additional requirements, such as managing product variations, advanced filtering, multi-step checkout processes, and other interactive shopping features, can be introduced without significantly restructuring the existing front-end application. Centralized state management also simplifies debugging, testing, and maintaining application behavior over time."
+              }
+            }
+          }
+        },
         "title": "Designing a Clearer Retail Experience",
         "description": "A tile retail and installation shop experience — browsing products, understanding services, and connecting with the brand. UX/UI and front-end work shaped a clear, material-forward digital presence.",
         "meta": {
