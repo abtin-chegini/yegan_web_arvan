@@ -63,17 +63,18 @@ export function ProcessSectionMobile() {
 		(next: number, dir: number) => {
 			if (next < 0 || next > lastIndex || next === activeIndex) return;
 			setIsExpanded(false);
-			setDirection(dir);
+			setDirection(isPersian ? -dir : dir);
 			setActiveIndex(next);
 		},
-		[activeIndex, lastIndex],
+		[activeIndex, lastIndex, isPersian],
 	);
 
 	const goPrev = () => goTo(activeIndex - 1, -1);
 	const goNext = () => goTo(activeIndex + 1, 1);
 
 	const onDragEnd = (_: unknown, info: PanInfo) => {
-		const { offset, velocity } = info;
+		const offset = { x: info.offset.x * (isPersian ? -1 : 1) };
+		const velocity = { x: info.velocity.x * (isPersian ? -1 : 1) };
 		if (offset.x < -SWIPE_OFFSET || velocity.x < -SWIPE_VELOCITY) {
 			goNext();
 			return;
@@ -245,7 +246,7 @@ export function ProcessSectionMobile() {
 					>
 						<button
 							type="button"
-							aria-label="Previous service"
+							aria-label={isPersian ? "خدمت قبلی" : "Previous service"}
 							disabled={!canPrev}
 							onClick={goPrev}
 							className={cn(
@@ -258,7 +259,7 @@ export function ProcessSectionMobile() {
 								!canPrev && "pointer-events-none opacity-35",
 							)}
 						>
-							<ChevronLeft className="size-5" strokeWidth={1.75} />
+							{isPersian ? <ChevronRight className="size-5" strokeWidth={1.75} /> : <ChevronLeft className="size-5" strokeWidth={1.75} />}
 						</button>
 
 						<div
@@ -295,7 +296,7 @@ export function ProcessSectionMobile() {
 
 						<button
 							type="button"
-							aria-label="Next service"
+							aria-label={isPersian ? "خدمت بعدی" : "Next service"}
 							disabled={!canNext}
 							onClick={goNext}
 							className={cn(
@@ -308,7 +309,7 @@ export function ProcessSectionMobile() {
 								!canNext && "pointer-events-none opacity-35",
 							)}
 						>
-							<ChevronRight className="size-5" strokeWidth={1.75} />
+							{isPersian ? <ChevronLeft className="size-5" strokeWidth={1.75} /> : <ChevronRight className="size-5" strokeWidth={1.75} />}
 						</button>
 					</nav>
 				</div>

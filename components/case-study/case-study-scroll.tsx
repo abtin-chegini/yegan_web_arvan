@@ -25,6 +25,7 @@ import { NAV_ROUTES } from "@/lib/nav-routes";
 type CaseStudyScrollProps = {
   sections: CaseStudySection[];
   indicatorLabels?: Record<string, string>;
+  studySlug?: string;
   children: ReactNode;
 };
 
@@ -41,6 +42,7 @@ const FOOTER_META = {
 export function CaseStudyScroll({
   sections,
   indicatorLabels,
+  studySlug,
   children,
 }: CaseStudyScrollProps) {
   const { section: contactSection } = useSiteFooter();
@@ -178,6 +180,7 @@ export function CaseStudyScroll({
   return (
     <div
       ref={rootRef}
+      data-case-study={studySlug}
       className="relative h-dvh w-full overflow-hidden touch-pan-y"
     >
       <BackToTop activeIndex={activeIndex} onBackToTop={goTo} scrollRoot={rootRef} />

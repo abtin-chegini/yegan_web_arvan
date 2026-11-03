@@ -13,6 +13,9 @@ import Dialog from "@/components/ui/smoothui/dialog";
 import type { CaseStudyTechSlide, CaseStudyTechContent } from "@/lib/case-study-content";
 
 function TechLogo({ slide, className }: { slide: CaseStudyTechSlide; className: string }) {
+  if (!slide.logo) {
+    return <span className={className} data-tech={slide.id} style={{display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", fontWeight: 500}} dir="ltr">{slide.title}</span>;
+  }
   return (
     <picture className="contents">
       {slide.logoMobile && <source media="(max-width: 767px)" srcSet={slide.logoMobile} />}

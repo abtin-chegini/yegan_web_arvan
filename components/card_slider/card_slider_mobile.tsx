@@ -1,6 +1,6 @@
 "use client";
 
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 import gsap from "gsap";
 import arrowStyles from "@/components/back-to-top.module.css";
@@ -16,6 +16,7 @@ import {
 import { SliderCardContent } from "@/components/card_slider/slider-card-content";
 
 export function CardSliderMobile() {
+  const isRtl = useLocale() === "fa";
   const tooltips = useTranslations("Tooltips");
   const images = useTranslations("Images");
   const work = useTranslations("SelectedWork");
@@ -174,7 +175,7 @@ export function CardSliderMobile() {
             className="card-slider-nav-btn"
             aria-label={tooltips("previousCard")}
           >
-            <ChevronLeft strokeWidth={1.75} />
+            {isRtl ? <ChevronRight strokeWidth={1.75} /> : <ChevronLeft strokeWidth={1.75} />}
             <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("previousCard")}</span>
           </button>
           <span ref={titleRef} className="card-slider-nav-title">
@@ -186,7 +187,7 @@ export function CardSliderMobile() {
             className="card-slider-nav-btn"
             aria-label={tooltips("nextCard")}
           >
-            <ChevronRight strokeWidth={1.75} />
+            {isRtl ? <ChevronLeft strokeWidth={1.75} /> : <ChevronRight strokeWidth={1.75} />}
             <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("nextCard")}</span>
           </button>
         </div>

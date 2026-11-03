@@ -42,9 +42,17 @@ function CaseStudySectionContent({
           dialogItems: ["ux", "ui", "wireframes", "interaction", "development", "responsive"].map((id) => ({
             title: t(`roleDialog.items.${id}.title`), body: t(`roleDialog.items.${id}.body`),
           })),
+        } : study.slug === "tealnex" && locale === "fa" && card.id === "role" ? {
+          dialogItems: ["ux", "ui", "animation", "comparison", "preview", "search"].map((id) => ({
+            body: t(`roleDialog.items.${id}`),
+          })),
         } : study.slug === "tealtile" && locale === "fa" && card.id === "role" ? {
           dialogItems: ["discovery", "search", "preview", "installation", "responsive", "interaction"].map((id) => ({
             body: t(`roleDialog.items.${id}`),
+          })),
+        } : study.slug === "tealnex" && locale === "fa" && card.id === "industry" ? {
+          dialogItems: ["digital", "interiors", "preview", "renovation", "comparison", "local"].map((id) => ({
+            body: t(`industryDialog.items.${id}`),
           })),
         } : study.slug === "tealtile" && locale === "fa" && card.id === "industry" ? {
           dialogDescription: t("meta.industry.body"),
@@ -56,6 +64,10 @@ function CaseStudySectionContent({
           dialogItems: ["bus", "flight", "train", "hotel", "taxi", "tour"].map((id) => ({
             body: t(`industryDialog.items.${id}`),
           })),
+        } : study.slug === "tealnex" && locale === "fa" && card.id === "scope" ? {
+          dialogItems: ["website", "pages", "animation", "comparison", "preview", "search"].map((id) => ({
+            body: t(`scopeDialog.items.${id}`),
+          })),
         } : study.slug === "tealtile" && locale === "fa" && card.id === "scope" ? {
           dialogItems: ["platform", "pages", "search", "preview", "installation", "responsive"].map((id) => ({
             body: t(`scopeDialog.items.${id}`),
@@ -65,31 +77,32 @@ function CaseStudySectionContent({
           dialogItems: ["research", "flows", "ui", "booking", "development", "responsive", "interaction"].map((id) => ({
             body: t(`scopeDialog.items.${id}`),
           })),
-        } : {}), title: t(`meta.${card.id}.title`), body: ["bilit4u", "tealtile"].includes(study.slug) && card.id === "platform" ? `https://${study.slug}.com` : t(`meta.${card.id}.body`), ...(["bilit4u", "tealtile"].includes(study.slug) && card.id === "platform" ? {href: `https://${study.slug}.com`} : {})})),
+        } : {}), title: t(`meta.${card.id}.title`), body: ["bilit4u", "tealtile", "tealnex"].includes(study.slug) && card.id === "platform" ? `https://${study.slug}.com${study.slug === "tealnex" ? "/" : ""}` : t(`meta.${card.id}.body`), ...(["bilit4u", "tealtile", "tealnex"].includes(study.slug) && card.id === "platform" ? {href: `https://${study.slug}.com${study.slug === "tealnex" ? "/" : ""}`} : {})})),
       }} />;
     }
     if (sectionIndex === 1) {
       return <CaseStudyBreakdown content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
     }
-    if (sectionIndex === 2) return <CaseStudyProcess />;
+    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u"} />;
     if (sectionIndex === 3) {
       return (
         <BeforeAfterSlider
-          centerHeader={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug)}
+          centerHeader={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug)}
           slides={content.design.slides.map((slide, index) => ({
             image: slide.image,
             imageMobile: slide.imageMobile ?? undefined,
             alt: images(`projects.${study.slug}.design.${index}`),
           }))}
-          title={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug) ? t("design.title") : content.design.title}
-          description={locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug) ? t("design.description") : content.design.description}
+          title={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug) ? t("design.title") : content.design.title}
+          description={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug) ? t("design.description") : content.design.description}
         />
       );
     }
     if (sectionIndex === 4) {
-      const localizeUx = locale === "fa" && ["bilit4u", "tealtile"].includes(study.slug);
+      const localizeUx = locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug);
       return <CaseStudyUxArchitecture content={{
         ...content.uxArchitecture,
+        ...(locale === "fa" && study.slug === "bilit4u" ? {mobileTabTitles: Object.fromEntries(["search", "results", "seats"].map((id) => [id, t(`uxArchitecture.items.${id}.mobileTitle`)]))} : {}),
         ...(localizeUx ? {title: t("uxArchitecture.title"), intro: t("uxArchitecture.intro")} : {}),
         items: content.uxArchitecture.items.map((item, index) => ({
           ...item,
@@ -119,6 +132,23 @@ function CaseStudySectionContent({
             ...slide,
             description: t(`${prefix}.description`),
             detailsTitle: t(`${prefix}.detailsTitle`),
+            detailItems: reasonIds.map((id) => ({
+              title: t(`${prefix}.reasons.${id}.title`),
+              body: t(`${prefix}.reasons.${id}.body`),
+            })),
+          };
+        }),
+      } : study.slug === "tealnex" ? {
+        ...content.techStack,
+        slides: content.techStack.slides.map((slide) => {
+          const reasonIds = slide.id === "tailwind"
+            ? ["responsive", "consistency", "efficiency", "maintainability", "optimization"]
+            : slide.id === "nextjs" ? ["scalability", "routing", "performance", "seo", "ecosystem"] : null;
+          if (!reasonIds) return slide;
+          const prefix = `techArchitecture.${slide.id}`;
+          return {
+            ...slide,
+            ...(locale === "fa" ? {description: t(`${prefix}.description`)} : {}),
             detailItems: reasonIds.map((id) => ({
               title: t(`${prefix}.reasons.${id}.title`),
               body: t(`${prefix}.reasons.${id}.body`),
@@ -166,7 +196,7 @@ export function CaseStudyPageView({ study }: CaseStudyPageProps) {
     ? { design: t("projects.bilit4u.design.tooltip") }
     : undefined;
   return (
-    <CaseStudyScroll sections={study.sections} indicatorLabels={indicatorLabels}>
+    <CaseStudyScroll studySlug={study.slug} sections={study.sections} indicatorLabels={indicatorLabels}>
       {study.sections.map((section, index) => (
         <CaseStudySectionContent
           key={section.id}

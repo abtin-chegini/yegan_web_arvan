@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useLocale } from "next-intl";
 
 import {
   AlertDialog,
@@ -12,6 +13,7 @@ import type { CaseStudyUxContent } from "@/lib/case-study-content";
 type FolderItem = {
   index: string;
   name: string;
+  tabTitle?: string;
   variant: `variant-${1 | 2 | 3}`;
   imageExpanded?: string;
   uxTitle: string;
@@ -29,10 +31,12 @@ type UxArchitectureResponsiveProps = {
 export default function UxArchitectureResponsive({
   content,
 }: UxArchitectureResponsiveProps) {
+  const locale = useLocale();
   const folders = useMemo<FolderItem[]>(
     () =>
       content.items.slice(0, 3).map((item, index) => ({
         index: String(index + 1).padStart(2, "0"),
+        tabTitle: content.mobileTabTitles?.[item.id],
         name: content.title ? item.title : SHORT_NAMES[index] ?? item.title,
         variant: `variant-${(index + 1) as 1 | 2 | 3}`,
         imageExpanded: item.imageExpanded,
@@ -40,7 +44,7 @@ export default function UxArchitectureResponsive({
         imageAlt: item.imageAlt,
         uxDescription: item.description,
       })),
-    [content.items, content.title],
+    [content.items, content.title, content.mobileTabTitles],
   );
 
   const [selectedFolder, setSelectedFolder] = useState<FolderItem | null>(null);
@@ -73,12 +77,15 @@ export default function UxArchitectureResponsive({
               onClick={() => handleFolderClick(folder)}
             >
               <div className="folder-wrapper">
-                <div className="folder-index">
-                  <p>{folder.index}</p>
+                <div className={`folder-index${folder.tabTitle ? " folder-index--titled" : ""}`}>
+                  <p>{folder.tabTitle ? <>
+                    <span className="folder-tab-number">{new Intl.NumberFormat(locale, {useGrouping: false}).format(Number(folder.index))}</span>
+                    <span>{folder.tabTitle}</span>
+                  </> : folder.index}</p>
                 </div>
 
                 <div className="folder-name">
-                  <h1>{folder.name}</h1>
+                  {!folder.tabTitle && <h1>{folder.name}</h1>}
                 </div>
               </div>
             </button>

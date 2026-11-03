@@ -498,6 +498,7 @@ function MobileTimelineStep({
 }) {
   const locale = useLocale();
   const localizedItem = useLocalizedStep(item);
+  const t = useTranslations("CaseStudies.processSteps");
   return (
     <motion.li
       className="relative flex gap-3 sm:gap-3.5"
@@ -543,7 +544,8 @@ function MobileTimelineStep({
               className="mt-1.5 font-sans text-[0.75rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.8rem] sm:leading-[1.6]"
               variants={mobileDescVariants}
             >
-              {localizedItem.description}
+              <span className="process-description-full">{localizedItem.description}</span>
+              {locale === "fa" && <span className="process-description-short">{t(`${item.number}.mobileDescription`)}</span>}
             </motion.p>
           </div>
         </div>
@@ -639,7 +641,7 @@ const subscribeToMount = () => () => {};
 const getMountedSnapshot = () => true;
 const getServerMountedSnapshot = () => false;
 
-export function CaseStudyProcess() {
+export function CaseStudyProcess({ compactMobile = false }: { compactMobile?: boolean }) {
   const locale = useLocale();
   const t = useTranslations("CaseStudies");
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -661,14 +663,15 @@ export function CaseStudyProcess() {
           {locale === "fa" ? t("processTitle") : "The Process"}
         </h2>
         <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : "max-w-md")}>
-          {locale === "fa" ? t("processDescription") : INTRO}
+          <span className="process-description-full">{locale === "fa" ? t("processDescription") : INTRO}</span>
+          {locale === "fa" && <span className="process-description-short">{t("processMobileDescription")}</span>}
         </p>
       </header>
 
       {/* xs / sm — vertical timeline (md+ hidden) */}
       <div
-        className="mt-5 min-h-0 flex-1 overflow-y-auto overscroll-contain pe-1 md:hidden"
-        data-no-section-swipe
+        className="process-mobile-timeline mt-5 min-h-0 flex-1 overflow-y-auto overscroll-contain pe-1 md:hidden"
+        data-no-section-swipe={compactMobile && locale === "fa" ? undefined : true}
       >
         <MobileTimeline
           active={Boolean(mounted && active)}

@@ -72,6 +72,7 @@ export type CaseStudyUxItem = {
 };
 
 export type CaseStudyUxContent = {
+  mobileTabTitles?: Record<string, string>;
   title?: string;
   intro: string;
   items: CaseStudyUxItem[];
@@ -490,7 +491,21 @@ const tealnexContent: CaseStudyContent = {
       };
     }),
   },
-  techStack: TECH_STACK_CONTENT,
+  techStack: {
+    heading: TECH_STACK_HEADING,
+    slides: [
+      {id: "nextjs", title: "Next.js", color: "#E8D5C4", ...TECH_STACK_LOGOS.nextjs,
+        description: "Structures the website with reusable pages and fast navigation across services and projects."},
+      {id: "tailwind", title: "Tailwind CSS", color: "#EAD9C8", ...TECH_STACK_LOGOS.tailwind,
+        description: "Creates consistent styling and responsive layouts across mobile and desktop."},
+      {id: "threejs", title: "Three.js", color: "#D4E0EA", logo: "",
+        description: "Renders interactive 3D previews of interior spaces."},
+      {id: "pdfjs", title: "PDF.js", color: "#D6D0E3", logo: "",
+        description: "Displays PDF documents directly within the website."},
+      {id: "zustand", title: "Zustand", color: "#D8E5D3", ...TECH_STACK_LOGOS.zustand,
+        description: "Manages shared interface state across interactive features."},
+    ],
+  },
 };
 
 const tealtileContent: CaseStudyContent = {

@@ -385,6 +385,56 @@
         }
       },
       "tealnex": {
+        "techArchitecture": {
+          "nextjs": {
+            "reasons": {
+              "scalability": {
+                "title": "Scalability",
+                "body": "I chose Next.js for TealNex because its scalable architecture supports the gradual expansion of the website. New sections, including architectural services, project portfolios, and interactive features, can be introduced without requiring significant changes to the underlying application structure."
+              },
+              "routing": {
+                "title": "Structured Routing",
+                "body": "Next.js provides a file-based routing system that simplifies the organization of different website sections. This approach helps maintain a clear and manageable structure across service pages, architectural projects, renovation portfolios, and other content."
+              },
+              "performance": {
+                "title": "Performance Optimization",
+                "body": "Next.js supports server-side rendering and static page generation, providing flexible strategies for delivering website content efficiently. These capabilities are particularly valuable for TealNex, where architectural photography and visual presentations play an essential role in the user experience."
+              },
+              "seo": {
+                "title": "Search Engine Optimization (SEO)",
+                "body": "Next.js offers flexible rendering strategies and metadata management capabilities that support search engine optimization. This provides a strong technical foundation for improving the discoverability of architectural services, completed projects, and other website content."
+              },
+              "ecosystem": {
+                "title": "Ecosystem & Maintainability",
+                "body": "The extensive React and Next.js ecosystems, active developer communities, and comprehensive documentation simplify long-term maintenance. These advantages also facilitate troubleshooting, implementing new features, and keeping the website aligned with evolving technical requirements."
+              }
+            }
+          },
+          "tailwind": {
+            "reasons": {
+              "responsive": {
+                "title": "Responsive Design",
+                "body": "I used Tailwind CSS to develop a responsive interface for TealNex, ensuring that architectural galleries, service pages, and contact forms adapt effectively to different screen sizes. This approach helps deliver a consistent browsing experience across mobile devices, tablets, and desktop computers."
+              },
+              "consistency": {
+                "title": "Design Consistency",
+                "body": "Tailwind CSS provides a structured styling system for maintaining consistent colors, spacing, typography, and visual properties throughout the website. This consistency helps preserve TealNex's visual identity while establishing a cohesive appearance across different pages and interface components."
+              },
+              "efficiency": {
+                "title": "Development Efficiency",
+                "body": "Tailwind CSS follows a utility-first approach that accelerates interface development by reducing the need for extensive custom CSS. This makes it easier to implement layouts, refine visual details, and introduce design adjustments throughout the development process."
+              },
+              "maintainability": {
+                "title": "Flexibility & Maintainability",
+                "body": "Tailwind CSS supports the development of reusable components and flexible interface layouts. This approach simplifies the gradual expansion of the website while keeping design patterns consistent and reducing the complexity of long-term styling maintenance."
+              },
+              "optimization": {
+                "title": "CSS Optimization",
+                "body": "Tailwind CSS generates styles based on the utility classes used throughout the project, helping minimize unnecessary CSS in production builds. This contributes to maintaining efficient stylesheet delivery, which is particularly valuable for a visually rich architectural website like TealNex."
+              }
+            }
+          }
+        },
         "title": "Building a Clearer Architecture Experience",
         "description": "A digital presence for architecture and renovation — helping clients explore services, projects, and next steps with clarity. UX/UI and front-end work focused on a polished, trustworthy brand experience.",
         "meta": {
