@@ -108,76 +108,76 @@ export type CaseStudyContent = {
 };
 
 const BILIT4U_ROLE_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size1.png?updatedAt=1792483961004",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size2.png?updatedAt=1792483960692",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size3.png?updatedAt=1792483959942",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size3.svg?updatedAt=1792483962007",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size3.svg?updatedAt=1792483962007",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size1.png?updatedAt=1792483961004",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size2.png?updatedAt=1792483960692",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size3.png?updatedAt=1792483959942",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size3.svg?updatedAt=1792483962007",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size3.svg?updatedAt=1792483962007",
 });
 
 const BILIT4U_INDUSTRY_ICONS = buildResponsiveImages({
   "2xl":
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size4.png?updatedAt=1792420025274",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size4.png?updatedAt=1792420025274",
   desktopWide:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size4.png?updatedAt=1792420025274",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size4.png?updatedAt=1792420025274",
   xl:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size4.png?updatedAt=1792420025274",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size4.png?updatedAt=1792420025274",
   lg:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size1.png?updatedAt=1792420025693",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size1.png?updatedAt=1792420025693",
   md:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size3.png?updatedAt=1792420025400",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size3.png?updatedAt=1792420025400",
   sm:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size2.svg?updatedAt=1792420026809",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size2.svg?updatedAt=1792420026809",
   xs:
-    "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/icon_sec1/new_icon/industry_bilit4u_size2.png?updatedAt=1792420025490",
+    "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/industry_bilit4u_size2.png?updatedAt=1792420025490",
 });
 
 const COMMON_PLATFORM_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/platform_size1.png?updatedAt=1792483960974",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/platform_size2.png?updatedAt=1792483960699",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/platform_size3.png?updatedAt=1792483960150",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/platform_size4.png?updatedAt=1792483959800",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/platform_size4.png?updatedAt=1792483959800",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/common/platform_size1.png?updatedAt=1792483960974",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/common/platform_size2.png?updatedAt=1792483960699",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/common/platform_size3.png?updatedAt=1792483960150",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/common/platform_size4.png?updatedAt=1792483959800",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/common/platform_size4.png?updatedAt=1792483959800",
 });
 
 const BILIT4U_SCOPE_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size1.png?updatedAt=1792483960982",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size2.png?updatedAt=1792483960826",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size4.png?updatedAt=1792483960080",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size4.png?updatedAt=1792483960080",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size4.png?updatedAt=1792483960080",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size1.png?updatedAt=1792483960982",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size2.png?updatedAt=1792483960826",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size4.png?updatedAt=1792483960080",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size4.png?updatedAt=1792483960080",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size4.png?updatedAt=1792483960080",
 });
 
 const COMMON_ROLE_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size1.png?updatedAt=1792483961004",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size2.png?updatedAt=1792483960692",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size3.png?updatedAt=1792483959942",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size4.png?updatedAt=1792483960237",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/role_size4.png?updatedAt=1792483960237",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size1.png?updatedAt=1792483961004",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size2.png?updatedAt=1792483960692",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size3.png?updatedAt=1792483959942",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size4.png?updatedAt=1792483960237",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/common/role_size4.png?updatedAt=1792483960237",
 });
 
 const COMMON_SCOPE_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size1.png?updatedAt=1792483960982",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size2.png?updatedAt=1792483960826",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size2.png?updatedAt=1792483960826",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size2.png?updatedAt=1792483960826",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/common_icons/Scope_size2.png?updatedAt=1792483960826",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size1.png?updatedAt=1792483960982",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size2.png?updatedAt=1792483960826",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size2.png?updatedAt=1792483960826",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size2.png?updatedAt=1792483960826",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/common/Scope_size2.png?updatedAt=1792483960826",
 });
 
 const TEALNEX_INDUSTRY_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex/industry_tealnex_size1.png",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex/industry_tealnex_size4.png",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex/industry_tealnex_size2.png",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex/industry_tealnex_size3.png",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex/industry_tealnex_size3.png",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/industry_tealnex_size1.png",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/industry_tealnex_size4.png",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/industry_tealnex_size2.png",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/industry_tealnex_size3.png",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/industry_tealnex_size3.png",
 });
 
 const TEALTILE_INDUSTRY_ICONS = buildResponsiveImages({
-  xl: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/icon_set/industry_tealtile_size1.png?updatedAt=1792489763550",
-  lg: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/icon_set/industry_tealtile_size2.png?updatedAt=1792489763224",
-  md: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/icon_set/industry_tealtile_size3.png?updatedAt=1792489763145",
-  sm: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/icon_set/industry_tealtile_size4.png?updatedAt=1792489762957",
-  xs: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/icon_set/industry_tealtile_size4.png?updatedAt=1792489762957",
+  xl: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/industry_tealtile_size1.png?updatedAt=1792489763550",
+  lg: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/industry_tealtile_size2.png?updatedAt=1792489763224",
+  md: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/industry_tealtile_size3.png?updatedAt=1792489763145",
+  sm: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/industry_tealtile_size4.png?updatedAt=1792489762957",
+  xs: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/industry_tealtile_size4.png?updatedAt=1792489762957",
 });
 
 const DESIGN_INTRO =
@@ -356,23 +356,23 @@ const bilit4uContent: CaseStudyContent = {
     description: DESIGN_INTRO,
     slides: [
       {
-        image: "/image/BA1.jpg",
-        imageMobile: "/image/BA1_mobile.jpg",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA1.jpg",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA1_mobile.jpg",
         alt: "Hero search evolution — early vs refined",
       },
       {
-        image: "/image/BA2.jpg",
-        imageMobile: "/image/BA2_mobile.jpg",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA2.jpg",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA2_mobile.jpg",
         alt: "Booking flow evolution — early vs refined",
       },
       {
-        image: "/image/BA3.jpg",
-        imageMobile: "/image/BA3_mobile.jpg",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA3.jpg",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA3_mobile.jpg",
         alt: "Results and filters evolution — early vs refined",
       },
       {
-        image: "/image/BA4.jpg",
-        imageMobile: "/image/BA4_mobile.jpg",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA4.jpg",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/BA4_mobile.jpg",
         alt: "Seat selection evolution — early vs refined",
       },
     ],
@@ -382,30 +382,30 @@ const bilit4uContent: CaseStudyContent = {
     items: [
       {
         id: "search",
-        imageExpanded: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/bilit4u_ux_architecture1_b.png",
+        imageExpanded: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/bilit4u_ux_architecture1_b.png",
         title: "Unified Search Experience",
         description:
           "Users start with a unified search on the homepage, choose a service, enter their route and date, and get real-time city suggestions in Persian or English before moving to the results page.",
         image:
-          "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/search.png",
+          "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/search.png",
       },
       {
         id: "results",
-        imageExpanded: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/bilit4u_ux_architecture3_b.png",
+        imageExpanded: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/bilit4u_ux_architecture3_b.png",
         title: "Results, Filters & Service Selection",
         description:
           "Users review available services, compare options by time, company, amenities, and price, then use filters to choose the best result and continue the booking flow.",
         image:
-          "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/plp.png",
+          "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/plp.png",
       },
       {
         id: "seats",
-        imageExpanded: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/bilit4u_ux_architecture3_b.png",
+        imageExpanded: "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/bilit4u_ux_architecture3_b.png",
         title: "Interactive Seat Selection & Booking Completion",
         description:
           "Users choose a seat based on live availability and gender rules, enter passenger details, complete payment, and receive the final booking receipt.",
         image:
-          "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/seat.png",
+          "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/seat.png",
       },
     ],
   },
@@ -426,7 +426,7 @@ const tealnexContent: CaseStudyContent = {
     }, TEALNEX_INDUSTRY_ICONS),
   },
   breakdown: {
-    productImage: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_architecture.webp?updatedAt=1792583747139",
+    productImage: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_architecture.webp?updatedAt=1792583747139",
     productImageAlt: "Tealnex architecture and renovation website experience",
     // Draft challenges — replace with final case-study copy.
     challenges: [
@@ -457,23 +457,23 @@ const tealnexContent: CaseStudyContent = {
     description: DESIGN_INTRO,
     slides: [
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA1.jpg?updatedAt=1792491390356",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA1_mobile.jpg?updatedAt=1792491390952",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA1.jpg?updatedAt=1792491390356",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA1_mobile.jpg?updatedAt=1792491390952",
         alt: "Tealnex design evolution — frame 1",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA2.jpg?updatedAt=1792491391421",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA2_mobile.jpg?updatedAt=1792491391133",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA2.jpg?updatedAt=1792491391421",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA2_mobile.jpg?updatedAt=1792491391133",
         alt: "Tealnex design evolution — frame 2",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA3.jpg?updatedAt=1792491391256",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA3_mobile.jpg?updatedAt=1792491391340",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA3.jpg?updatedAt=1792491391256",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA3_mobile.jpg?updatedAt=1792491391340",
         alt: "Tealnex design evolution — frame 3",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA4.jpg?updatedAt=1792491390907",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_BA4_mobile.jpg?updatedAt=1792491391083",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA4.jpg?updatedAt=1792491390907",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_BA4_mobile.jpg?updatedAt=1792491391083",
         alt: "Tealnex design evolution — frame 4",
       },
     ],
@@ -482,7 +482,7 @@ const tealnexContent: CaseStudyContent = {
     intro: UX_INTRO,
     items: blankUxItems().map((item, index) => {
       const imageNumber = [2, 1, 3][index];
-      const imageBase = `https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealnex/tealnex_ux_architecture${imageNumber}`;
+      const imageBase = `https://cdn.yeganehheshmat.com/caseStudy/tealnex/tealnex_ux_architecture${imageNumber}`;
       return {
         ...item,
         image: `${imageBase}.png`,
@@ -525,7 +525,7 @@ const tealtileContent: CaseStudyContent = {
     }, TEALTILE_INDUSTRY_ICONS),
   },
   breakdown: {
-    productImage: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_architecture.webp",
+    productImage: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_architecture.webp",
     productImageAlt: "Tealtile website architecture and product experience",
     // Draft challenges — replace with final case-study copy.
     challenges: [
@@ -556,23 +556,23 @@ const tealtileContent: CaseStudyContent = {
     description: DESIGN_INTRO,
     slides: [
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA4.jpg?updatedAt=1792491295199",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA4_mobile.jpg?updatedAt=1792491295204",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA4.jpg?updatedAt=1792491295199",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA4_mobile.jpg?updatedAt=1792491295204",
         alt: "Tealtile design evolution — frame 4",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA3.jpg?updatedAt=1792491295192",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA3_mobile.jpg?updatedAt=1792491295197",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA3.jpg?updatedAt=1792491295192",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA3_mobile.jpg?updatedAt=1792491295197",
         alt: "Tealtile design evolution — frame 3",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA2.jpg?updatedAt=1792491295187",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA2_mobile.jpg?updatedAt=1792491295299",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA2.jpg?updatedAt=1792491295187",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA2_mobile.jpg?updatedAt=1792491295299",
         alt: "Tealtile design evolution — frame 2",
       },
       {
-        image: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA1.jpg?updatedAt=1792491321404",
-        imageMobile: "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_BA1_mobile.jpg?updatedAt=1792491295273",
+        image: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA1.jpg?updatedAt=1792491321404",
+        imageMobile: "https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_BA1_mobile.jpg?updatedAt=1792491295273",
         alt: "Tealtile design evolution — frame 1",
       },
     ],
@@ -581,7 +581,7 @@ const tealtileContent: CaseStudyContent = {
     intro: UX_INTRO,
     items: blankUxItems().map((item, index) => {
       const imageNumber = [1, 2, 3][index];
-      const imageBase = `https://ik.imagekit.io/s7yz964lq/assets/casestudy/Tealtile/tealtile_ux_architecture${imageNumber}`;
+      const imageBase = `https://cdn.yeganehheshmat.com/caseStudy/tealtile/tealtile_ux_architecture${imageNumber}`;
       return {
         ...item,
         image: `${imageBase}.png`,

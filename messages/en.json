@@ -548,6 +548,106 @@
       },
       "tealtile": {
         "techArchitecture": {
+          "dexie": {
+            "description": "Stores and manages local data to preserve shopping cart information and user selections across sessions",
+            "reasons": {
+              "storage": {
+                "title": "Local Data Storage",
+                "body": "I used Dexie.js to manage persistent client-side data within TileTail's front-end architecture. By providing a simplified interface for IndexedDB, Dexie.js enables the browser to store information such as recently viewed products, temporary user selections, and data associated with the purchasing process. This approach helps preserve useful information locally while reducing the need for repeated network requests during certain interactions."
+              },
+              "persistence": {
+                "title": "Shopping Data Persistence",
+                "body": "Dexie.js provides a reliable foundation for storing temporary shopping information, including selected tile products, quantities, and certain order preferences. When integrated with Zustand, it can help preserve relevant shopping cart information across page reloads and returning visits. In this architecture, Zustand manages active application state, while Dexie.js handles persistent browser storage, allowing the shopping experience to remain more consistent across sessions."
+              },
+              "offline": {
+                "title": "Fast Access & Offline Support",
+                "body": "Using IndexedDB through Dexie.js allows previously stored data to be retrieved directly from the browser without requiring additional server requests. This capability improves access to locally available product information and previous user selections while supporting limited functionality during temporary network interruptions. However, current pricing, product availability, and affiliate information still require synchronization with their respective servers or external APIs."
+              },
+              "structured": {
+                "title": "Structured Data Management",
+                "body": "Dexie.js provides structured database management through tables, indexes, and query capabilities built on IndexedDB. These features help organize locally stored product information, tile attributes, and temporary order data. Separating storage logic from interface components also makes the codebase easier to maintain and provides a more predictable approach to managing browser-side information across different shopping features."
+              },
+              "integration": {
+                "title": "Integration & Extensibility",
+                "body": "Dexie.js can operate alongside Zustand and TanStack Query as part of TileTail's front-end architecture. Zustand manages interactive application states, TanStack Query handles server data fetching and API caching, and Dexie.js provides persistent local storage. This separation of responsibilities supports future functionality such as saving unfinished orders, preserving user preferences, and restoring locally stored information when customers return to the website."
+              }
+            }
+          },
+          "zod": {
+            "description": "Validates form inputs and service request data with consistent rules.",
+            "reasons": {
+              "purchase": {
+                "title": "Purchase Form Validation",
+                "body": "I used Zod to validate user input across TileTail's purchasing and checkout forms. The library enables the definition of structured validation rules for required fields, data types, and input formats. By checking submitted information against these rules, the application can identify incomplete or invalid entries before processing a purchase request. This approach helps reduce input errors and creates a more reliable and organized checkout experience."
+              },
+              "installers": {
+                "title": "Installer Form Validation",
+                "body": "In addition to selling tiles, TileTail provides installation-related services that require collecting and managing information from installers. I used Zod to validate data entered into installer registration and information forms, including personal details, contact information, and other required fields. Consistent validation rules help ensure that installer information follows the expected structure while reducing the likelihood of incomplete or incorrectly formatted submissions."
+              },
+              "profile": {
+                "title": "Address & Profile Validation",
+                "body": "I used Zod to manage validation across address registration, contact information, and user profile forms. The library allows required fields, input formats, and other constraints to be defined consistently throughout the application. Accurate validation is particularly important when customers provide delivery addresses for tile orders or location information for installation services. This approach helps maintain more consistent user information across different sections of the platform."
+              },
+              "schemas": {
+                "title": "Schema-Based Validation & Type Safety",
+                "body": "Zod provides a schema-based approach that allows validation rules to be defined centrally and reused across multiple forms and components. Its integration with TypeScript also enables types to be inferred directly from validation schemas, reducing inconsistencies between data structures and validation requirements. For TileTail, which contains numerous forms related to purchasing, installation services, and account management, this architecture helps maintain a cleaner, more predictable, and easier-to-maintain codebase."
+              },
+              "errors": {
+                "title": "Error Handling & User Experience",
+                "body": "Zod enables structured validation errors that can be used to provide clear feedback when users enter incorrect or incomplete information. This allows customers and installers to identify and correct mistakes before submitting forms. By improving the clarity of validation messages and reducing unsuccessful submissions, the application creates a smoother and more predictable experience. Centralized validation schemas also simplify future updates to form requirements and reduce the complexity of maintaining validation logic across the website."
+              }
+            }
+          },
+          "pdfjs": {
+            "description": "Displays PDF documents directly within the website.",
+            "reasons": {
+              "invoices": {
+                "title": "Purchase Invoice Viewing",
+                "body": "I used PDF.js to develop the front-end document viewing functionality for TileTail's purchase invoices. After a customer completes an order, the backend generates the corresponding invoice as a PDF document. PDF.js allows this document to be rendered directly within the website, enabling users to review purchased products, order details, and invoice amounts without installing additional software or relying on external PDF viewing applications."
+              },
+              "integration": {
+                "title": "Invoice System Integration",
+                "body": "TileTail separates invoice generation from document presentation, with the backend responsible for creating and issuing invoices and PDF.js handling their rendering within the front-end interface. This separation allows both systems to evolve independently while maintaining a consistent user experience. Customers can access their generated invoices through the relevant order sections, creating a seamless connection between purchasing, order management, and financial document viewing."
+              },
+              "catalog": {
+                "title": "Product Catalog Viewing",
+                "body": "I used PDF.js to display digital catalogs associated with tile and ceramic products. Some products include PDF catalogs containing visual references, technical specifications, dimensions, color variations, and additional product information. Rendering these documents directly within TileTail allows customers to explore product details before making purchasing decisions. This functionality is particularly useful for tile collections that require closer examination of materials, finishes, and technical characteristics."
+              },
+              "affiliate": {
+                "title": "Affiliate Catalog Integration",
+                "body": "Since TileTail supports an Affiliate Marketing model, part of its product information is retrieved from external suppliers and retail partners through APIs. When these providers supply PDF catalogs or catalog URLs, PDF.js enables the documents to be presented within TileTail's interface. This integration allows customers to review additional information about externally listed products before being redirected to the supplier's website, creating a more informative and consistent product discovery experience."
+              },
+              "viewing": {
+                "title": "Interactive Viewing & User Experience",
+                "body": "PDF.js provides the foundation for rendering PDF pages, navigating multi-page documents, and implementing interactive controls such as zooming and page selection. These capabilities support the development of a customized document viewer aligned with TileTail's visual identity. The same viewing infrastructure can serve both purchase invoices and product catalogs while supporting future improvements such as page thumbnails, enhanced navigation controls, and more convenient document exploration."
+              }
+            }
+          },
+          "tanstack": {
+            "description": "Manages fetching and caching for product listings, filters, and store information.",
+            "reasons": {
+              "products": {
+                "title": "Product Data Fetching & Management",
+                "body": "I used TanStack Query to manage product information retrieved from multiple APIs within TileTail's shopping platform. In addition to selling its own products, TileTail supports an Affiliate Marketing model that allows products from external retailers and suppliers to be displayed alongside its internal catalog. TanStack Query provides a structured approach to requesting, retrieving, and managing this external product data, simplifying the integration of multiple data sources into the website."
+              },
+              "caching": {
+                "title": "Caching & Request Optimization",
+                "body": "TanStack Query provides caching mechanisms that temporarily store product information retrieved from external retailer APIs. This reduces redundant network requests when users navigate between product categories, revisit previously viewed sections, or return to product listings. By reusing cached data when appropriate, the application can improve browsing performance, reduce unnecessary API traffic, and provide faster access to product information across TileTail's catalog."
+              },
+              "synchronization": {
+                "title": "Data Synchronization & Background Refetching",
+                "body": "TanStack Query supports configurable data freshness policies and background refetching, helping the application maintain more up-to-date information from affiliate partners. This is particularly important because external product details, including prices, availability, and specifications, may change over time. By defining appropriate synchronization and refetching strategies, TileTail can keep displayed product information better aligned with external sources while reducing the need for manual page refreshes."
+              },
+              "states": {
+                "title": "Loading States & Error Handling",
+                "body": "TanStack Query provides structured mechanisms for managing loading, success, and error states associated with API requests. These features make it possible to display appropriate loading indicators, handle unavailable data, and implement retry strategies when external services experience temporary failures. Since TileTail retrieves affiliate product information from multiple independent providers, reliable request-state management helps maintain a consistent browsing experience even when individual APIs encounter connectivity or availability issues."
+              },
+              "affiliate": {
+                "title": "Affiliate Marketing Integration",
+                "body": "I used TanStack Query to manage product information received from affiliate partners and integrate it into TileTail's product browsing experience. Users can explore product images and essential details from external retailers alongside TileTail's own inventory. When an affiliate product is selected, the website's navigation logic redirects users to the corresponding product page on the supplier's website, while TileTail's own products follow the internal purchasing process. This architecture expands the available product selection without requiring the business to maintain inventory for every listed item."
+              }
+            }
+          },
           "tailwind": {
             "description": "Creates consistent styling and responsive layouts across mobile and desktop.",
             "reasons": {

@@ -304,3 +304,7 @@
 .tech-stack-slider--mobile .tech-stack-slider__slide--active[data-tech="zustand"] .tech-stack-slider__details {
   margin-top: 0;
 }
+
+[data-study="tealtile"][data-locale="fa"] .tech-stack-slider__slide--active[data-tech="pdfjs"] .tech-stack-slider__desc {
+  margin-top: 2.5rem;
+}

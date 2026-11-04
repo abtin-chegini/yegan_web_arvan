@@ -115,7 +115,7 @@ function CaseStudySectionContent({
       }} />;
     }
     if (sectionIndex === 5) {
-      return <CaseStudyTechStack content={study.slug === "bilit4u" ? {
+      return <CaseStudyTechStack studySlug={study.slug} content={study.slug === "bilit4u" ? {
         ...content.techStack,
         heading: locale === "fa" ? t("techArchitecture.heading") : content.techStack.heading,
         slides: content.techStack.slides.map((slide) => {
@@ -161,7 +161,15 @@ function CaseStudySectionContent({
       } : study.slug === "tealtile" ? {
         ...content.techStack,
         slides: content.techStack.slides.map((slide) => {
-          const reasonIds = slide.id === "tailwind"
+          const reasonIds = slide.id === "dexie"
+            ? ["storage", "persistence", "offline", "structured", "integration"]
+            : slide.id === "zod"
+            ? ["purchase", "installers", "profile", "schemas", "errors"]
+            : slide.id === "pdfjs"
+            ? ["invoices", "integration", "catalog", "affiliate", "viewing"]
+            : slide.id === "tanstack"
+            ? ["products", "caching", "synchronization", "states", "affiliate"]
+            : slide.id === "tailwind"
             ? ["responsive", "consistency", "efficiency", "maintainability", "optimization"]
             : slide.id === "nextjs"
             ? ["scalability", "routing", "performance", "seo", "ecosystem"]
@@ -170,7 +178,7 @@ function CaseStudySectionContent({
           const prefix = `techArchitecture.${slide.id}`;
           return {
             ...slide,
-            ...(locale === "fa" || slide.id === "tailwind" ? {description: t(`${prefix}.description`)} : {}),
+            ...(locale === "fa" || ["tailwind", "tanstack", "pdfjs", "zod", "dexie"].includes(slide.id) ? {description: t(`${prefix}.description`)} : {}),
             detailItems: reasonIds.map((id) => ({
               title: t(`${prefix}.reasons.${id}.title`),
               body: t(`${prefix}.reasons.${id}.body`),

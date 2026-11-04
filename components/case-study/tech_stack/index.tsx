@@ -1,5 +1,7 @@
 "use client";
 
+import { useLocale } from "next-intl";
+
 import type { CaseStudyTechContent } from "@/lib/case-study-content";
 
 import TechStack from "./tech_stack";
@@ -7,19 +9,21 @@ import TechStackResponsive from "./tech_stack_responsive";
 
 export type CaseStudyTechStackProps = {
   content: CaseStudyTechContent;
+  studySlug?: string;
 };
 
 /**
  * Shared Tech Stack section.
  * Mobile: tech_stack_responsive. Desktop (md+): tech_stack.
  */
-export function CaseStudyTechStack({ content }: CaseStudyTechStackProps) {
+export function CaseStudyTechStack({ content, studySlug }: CaseStudyTechStackProps) {
+  const locale = useLocale();
   return (
     <>
-      <div className="h-full min-h-0 w-full md:hidden">
+      <div data-study={studySlug} data-locale={locale} className="h-full min-h-0 w-full md:hidden">
         <TechStackResponsive content={content} />
       </div>
-      <div className="hidden h-full min-h-0 w-full md:block">
+      <div data-study={studySlug} data-locale={locale} className="hidden h-full min-h-0 w-full md:block">
         <TechStack content={content} />
       </div>
     </>
