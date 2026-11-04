@@ -3,11 +3,7 @@
 import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
 
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-} from "@/components/ui/smoothui/dialog";
+import Dialog from "@/components/ui/smoothui/dialog";
 import type { CaseStudyUxContent } from "@/lib/case-study-content";
 
 type FolderItem = {
@@ -93,33 +89,17 @@ export default function UxArchitectureResponsive({
         </div>
       </div>
 
-      <AlertDialog
+      <Dialog
         open={dialogOpen}
         onOpenChange={handleOpenChange}
-        title={
-          selectedFolder
-            ? `${selectedFolder.index} · ${selectedFolder.uxTitle}`
-            : ""
-        }
-        description={selectedFolder?.uxDescription}
-        className="folder-alert-dialog"
-        footer={
-          <>
-            <AlertDialogCancel
-              className="folder-alert-dialog__cancel"
-              onClick={() => handleOpenChange(false)}
-            >
-              Close
-            </AlertDialogCancel>
-            <AlertDialogAction
-              className="folder-alert-dialog__action"
-              onClick={() => handleOpenChange(false)}
-            >
-              Got it
-            </AlertDialogAction>
-          </>
-        }
+        title={selectedFolder?.uxTitle}
+        className="max-h-[80dvh] overflow-y-auto text-[#1d3557] sm:max-w-2xl"
       >
+        {selectedFolder && (
+          <p className="min-w-0 pt-2 text-start font-sans text-sm leading-7" dir={locale === "fa" ? "rtl" : "ltr"}>
+            {selectedFolder.uxDescription}
+          </p>
+        )}
         {selectedFolder?.imageExpanded && (
           <div className="max-h-[55dvh] overflow-auto rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -130,7 +110,7 @@ export default function UxArchitectureResponsive({
             />
           </div>
         )}
-      </AlertDialog>
+      </Dialog>
     </section>
   );
 }

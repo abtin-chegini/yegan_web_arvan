@@ -16,8 +16,8 @@ export const contactRows: {
     label: "LinkedIn",
     value: "Yeganeh Heshmat",
     href: "https://www.linkedin.com/in/yeganeh-heshmat-784300229",
-    icon: "https://cdn.yeganehheshmat.com/icons/social/linkdin_icon.svg",
-    mobileIcon: "https://cdn.yeganehheshmat.com/icons/social/linkdin_icon.png",
+    icon: "https://cdn.yeganehheshmat.com/icons/social/linkedin_icon.svg",
+    mobileIcon: "https://cdn.yeganehheshmat.com/icons/social/linkedin_icon.png",
   },
   {
     label: "Email Address",

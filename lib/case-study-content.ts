@@ -349,7 +349,7 @@ const bilit4uContent: CaseStudyContent = {
   },
   breakdown: {
     productImage:
-      "https://ik.imagekit.io/s7yz964lq/assets/casestudy/Bilit4u/webp/browser-ui-transparent.png",
+      "https://cdn.yeganehheshmat.com/caseStudy/bilit4u/bilit4u_challenge.jpg",
   },
   design: {
     title: "Evolution of the designs",

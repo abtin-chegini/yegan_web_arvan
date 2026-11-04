@@ -79,21 +79,21 @@ export function AboutSection() {
         </p>
       </div>
 
-      <div className="fullpage-reveal grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5 lg:grid-cols-4">
+      <div className={isPersian ? "fullpage-reveal grid w-fit max-w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4" : "fullpage-reveal grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5 lg:grid-cols-4"}>
         {aboutFeatures.map((feature, index) => (
           <Card
             key={feature.icon}
             size="sm"
             className="border border-[var(--section-about-fg)]/[0.08] bg-[var(--section-about-card)] py-0 shadow-none ring-0"
           >
-            <CardContent className="flex items-center gap-3 px-3 py-3 text-start">
+            <CardContent className={isPersian ? "flex items-center gap-2.5 px-3.5 py-2.5 text-start" : "flex items-center gap-3 px-3 py-3 text-start"}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={feature.icon}
                 alt=""
                 width={56}
                 height={56}
-                className="size-12 shrink-0 object-contain sm:size-14"
+                className={isPersian ? "size-11 shrink-0 object-contain sm:size-12" : "size-12 shrink-0 object-contain sm:size-14"}
               />
               <p className="font-sans text-[0.75rem] font-normal leading-snug text-[var(--section-about-fg)] sm:text-[0.8rem]">
                 {t(`features${index}label`)}

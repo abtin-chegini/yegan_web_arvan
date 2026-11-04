@@ -83,7 +83,7 @@ function CaseStudySectionContent({
     if (sectionIndex === 1) {
       return <CaseStudyBreakdown content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
     }
-    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u"} />;
+    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u"} mobileDescription={study.slug === "tealtile" && locale === "fa" ? t("processMobileDescription") : undefined} />;
     if (sectionIndex === 3) {
       return (
         <BeforeAfterSlider

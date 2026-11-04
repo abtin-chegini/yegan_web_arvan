@@ -1,6 +1,6 @@
 "use client";
 
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -14,6 +14,7 @@ const ACCORDION_EASE = [0.22, 1, 0.36, 1] as const;
 
 export function AboutSectionMobile() {
  const t = useTranslations("Home");
+ const isPersian = useLocale() === "fa";
 	const [activeCardId, setActiveCardId] = useState<string | null>(null);
 	const reduceMotion = useReducedMotion();
 	const reactId = useId();
@@ -28,7 +29,7 @@ export function AboutSectionMobile() {
 				{t("valuesTitle")}
 			</h2>
 
-			<div className="fullpage-reveal flex w-full flex-col gap-2.5">
+			<div className={cn("fullpage-reveal flex w-full flex-col gap-2.5", isPersian && "mx-auto max-w-[23rem]")}>
 				{aboutFeatures.map((feature, index) => {
 					const isOpen = activeCardId === feature.id;
 					const panelId = `${reactId}-${feature.id}-panel`;
@@ -67,7 +68,7 @@ export function AboutSectionMobile() {
 											aria-controls={panelId}
 											onClick={() => toggleCard(feature.id)}
 											className={cn(
-												"mt-2 flex w-full items-center justify-between gap-2",
+												isPersian ? "mt-2 inline-flex w-fit items-center gap-2" : "mt-2 flex w-full items-center justify-between gap-2",
 												"text-start font-sans text-[0.72rem] font-medium tracking-[0.01em]",
 												"text-[var(--section-about-gold)]",
 												"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--section-about-fg)]",

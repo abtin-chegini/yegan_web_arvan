@@ -641,7 +641,7 @@ const subscribeToMount = () => () => {};
 const getMountedSnapshot = () => true;
 const getServerMountedSnapshot = () => false;
 
-export function CaseStudyProcess({ compactMobile = false }: { compactMobile?: boolean }) {
+export function CaseStudyProcess({ compactMobile = false, mobileDescription }: { compactMobile?: boolean; mobileDescription?: string }) {
   const locale = useLocale();
   const t = useTranslations("CaseStudies");
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -663,8 +663,17 @@ export function CaseStudyProcess({ compactMobile = false }: { compactMobile?: bo
           {locale === "fa" ? t("processTitle") : "The Process"}
         </h2>
         <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : "max-w-md")}>
-          <span className="process-description-full">{locale === "fa" ? t("processDescription") : INTRO}</span>
-          {locale === "fa" && <span className="process-description-short">{t("processMobileDescription")}</span>}
+          {mobileDescription ? (
+            <>
+              <span className="md:hidden">{mobileDescription}</span>
+              <span className="hidden md:inline">{locale === "fa" ? t("processDescription") : INTRO}</span>
+            </>
+          ) : (
+            <>
+              <span className="process-description-full">{locale === "fa" ? t("processDescription") : INTRO}</span>
+              {locale === "fa" && <span className="process-description-short">{t("processMobileDescription")}</span>}
+            </>
+          )}
         </p>
       </header>
 

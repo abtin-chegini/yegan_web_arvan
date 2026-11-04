@@ -304,6 +304,7 @@ function MobileAnnotationList({
   open: boolean;
   reduceMotion: boolean | null;
 }) {
+  const locale = useLocale();
   const instant = Boolean(reduceMotion);
   const listId = useId();
   const [openId, setOpenId] = useState<string | null>(null);
@@ -333,6 +334,7 @@ function MobileAnnotationList({
 
   return (
     <ul
+      dir={locale === "fa" ? "rtl" : "ltr"}
       className="mt-3 flex w-full flex-col gap-1 sm:mt-4"
       onPointerLeave={scheduleClose}
     >
@@ -365,7 +367,7 @@ function MobileAnnotationList({
               aria-expanded={isOpen}
               aria-controls={panelId}
               className={cn(
-                "flex w-full items-center gap-2.5 py-2 text-left outline-none transition-colors",
+                "flex w-full items-center gap-2.5 py-2 text-start outline-none transition-colors",
                 "focus-visible:ring-2 focus-visible:ring-[#C99140]/40",
                 isOpen ? "bg-[#111D4A]/04" : "bg-transparent",
               )}
