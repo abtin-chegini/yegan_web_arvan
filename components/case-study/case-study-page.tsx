@@ -161,14 +161,16 @@ function CaseStudySectionContent({
       } : study.slug === "tealtile" ? {
         ...content.techStack,
         slides: content.techStack.slides.map((slide) => {
-          const reasonIds = slide.id === "nextjs"
+          const reasonIds = slide.id === "tailwind"
+            ? ["responsive", "consistency", "efficiency", "maintainability", "optimization"]
+            : slide.id === "nextjs"
             ? ["scalability", "routing", "performance", "seo", "ecosystem"]
             : slide.id === "zustand" ? ["cart", "centralized", "realtime", "updates", "scalability"] : null;
           if (!reasonIds) return slide;
           const prefix = `techArchitecture.${slide.id}`;
           return {
             ...slide,
-            ...(locale === "fa" ? {description: t(`${prefix}.description`)} : {}),
+            ...(locale === "fa" || slide.id === "tailwind" ? {description: t(`${prefix}.description`)} : {}),
             detailItems: reasonIds.map((id) => ({
               title: t(`${prefix}.reasons.${id}.title`),
               body: t(`${prefix}.reasons.${id}.body`),

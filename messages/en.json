@@ -548,6 +548,31 @@
       },
       "tealtile": {
         "techArchitecture": {
+          "tailwind": {
+            "description": "Creates consistent styling and responsive layouts across mobile and desktop.",
+            "reasons": {
+              "responsive": {
+                "title": "Responsive Design",
+                "body": "I used Tailwind CSS to develop TileTail's responsive user interface, ensuring that product listings, tile categories, shopping cart components, checkout forms, and installation service pages adapt effectively to different screen sizes. This approach allows product grids, images, navigation elements, and interactive components to adjust across mobile devices, tablets, and desktop computers. The result is a more consistent and accessible shopping experience across different devices."
+              },
+              "consistency": {
+                "title": "Design Consistency",
+                "body": "Tailwind CSS provides a structured styling system for maintaining consistent colors, spacing, typography, sizing, and visual patterns throughout TileTail. Shared interface elements, including product cards, purchase buttons, forms, shopping cart components, and service sections, follow a cohesive design language. This consistency helps preserve the platform's visual identity while providing users with familiar and predictable interactions as they navigate between different shopping and service experiences."
+              },
+              "efficiency": {
+                "title": "Development Efficiency",
+                "body": "Tailwind CSS follows a utility-first approach that accelerates interface development by reducing the need for extensive custom CSS. This is particularly valuable when building TileTail's diverse sections, including product catalogs, tile detail pages, checkout forms, user profiles, and installation service interfaces. Utility classes make it easier to implement layouts, refine spacing, adjust visual elements, and introduce design changes efficiently throughout the development process."
+              },
+              "maintainability": {
+                "title": "Flexibility & Maintainability",
+                "body": "Tailwind CSS supports reusable components and flexible interface layouts while helping maintain consistent styling patterns across the application. This approach is particularly useful for TileTail, where both internally sold products and affiliate products can share common presentation components. It also simplifies the development of additional product categories, new service pages, and evolving shopping features without introducing unnecessary styling complexity or compromising visual consistency."
+              },
+              "optimization": {
+                "title": "CSS Optimization",
+                "body": "Tailwind CSS generates styles based on the utility classes used throughout the project, helping minimize unnecessary CSS in production builds. This contributes to more efficient stylesheet delivery and better control over front-end asset sizes. For TileTail, a visually rich e-commerce platform featuring extensive tile photography, product catalogs, and interactive shopping components, optimized styling complements other performance improvements and supports a smoother browsing experience"
+              }
+            }
+          },
           "nextjs": {
             "reasons": {
               "scalability": {
