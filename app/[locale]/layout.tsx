@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Baskervville, Geist_Mono, Manrope } from "next/font/google";
 
 import "../globals.css";
@@ -7,6 +7,7 @@ import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {routing} from "@/i18n/routing";
 import { SiteFooterProvider } from "@/components/site-footer";
+import { MobileBottomNavigation } from "@/components/mobile-bottom-navigation";
 import { FooterSection } from "@/components/sections/footer-section";
 import { CONTACT_IMAGES_EN, CONTACT_IMAGES_FA, sections } from "@/lib/sections";
 
@@ -14,6 +15,12 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 const manrope = Manrope({
   variable: "--font-manrope-optimized",
@@ -95,6 +102,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SiteFooterProvider section={footerSection} content={<FooterSection />}>
             {children}
+            <MobileBottomNavigation />
           </SiteFooterProvider>
         </NextIntlClientProvider>
       </body>

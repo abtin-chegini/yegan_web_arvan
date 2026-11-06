@@ -5,6 +5,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --mobile-bottom-navigation-height: calc(80px + env(safe-area-inset-bottom, 0px));
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

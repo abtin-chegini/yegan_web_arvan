@@ -80,6 +80,12 @@
   .button svg { width: 18px; height: 18px; }
 }
 
+@media (max-width: 767px) {
+  .button {
+    bottom: calc(16px + var(--mobile-bottom-navigation-height));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .button, .tooltip { transition: none; }
   .button[data-visible="true"]:hover,

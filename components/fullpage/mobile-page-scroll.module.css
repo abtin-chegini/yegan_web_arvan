@@ -1,7 +1,10 @@
 /* These overrides are scoped to the non-homepage mobile container only. */
 .page { position: relative; width: 100%; }
 .content { width: 100%; }
-.section { min-height: 100svh; }
+.section {
+  min-height: 100svh;
+  padding-bottom: calc(3rem + var(--mobile-bottom-navigation-height));
+}
 .sectionContent {
   position: relative;
   z-index: 10;

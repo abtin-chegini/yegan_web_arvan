@@ -8,7 +8,6 @@ import { useRouter } from "@/i18n/navigation";
 import { useCallback, useContext } from "react";
 
 import FancyNavbar from "@/components/fancyNavbar/fancynavbar";
-import { ResponsiveNavbar } from "@/components/Navbar_portable/ResponsiveNavbar";
 import { FullpageContext } from "@/components/fullpage/fullpage-context";
 import { isNavRouteId, NAV_ROUTES } from "@/lib/nav-routes";
 import { sections, type SectionId } from "@/lib/sections";
@@ -83,15 +82,7 @@ export function Navbar({
               decoding="async"
             />
           </button>
-          <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <ResponsiveNavbar
-            className="pointer-events-auto shrink-0"
-            onNavigate={goToId}
-            activeId={activeId}
-            foreground={foreground}
-          />
-          </div>
         </div>
       </header>
 

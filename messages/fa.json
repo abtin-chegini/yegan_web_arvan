@@ -1,4 +1,11 @@
 {
+  "MobileNavigation": {
+    "label": "ناوبری اصلی",
+    "home": "خانه",
+    "projects": "پروژه‌ها",
+    "about": "درباره",
+    "contact": "تماس"
+  },
   "Nav": {
     "home": "خانه",
     "about": "درباره من",
@@ -956,6 +963,7 @@
     }
   },
   "Tooltips": {
+    "language": "زبان",
     "english": "English language",
     "persian": "زبان فارسی",
     "previousCard": "کارت قبلی",
