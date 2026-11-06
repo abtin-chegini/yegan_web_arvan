@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useLocale } from "next-intl";
 
+import { MobileScroll } from "@/components/fullpage/mobile-scroll";
 import { FullpageScroll } from "@/components/fullpage/fullpage-scroll";
 import { Preloader } from "@/components/preloader/preloader";
 import { AboutSection } from "@/components/sections/about-section";
@@ -128,8 +129,21 @@ export function HomePage() {
 
   const visibleSections =
     isMobile === true
-      ? localizedSections.filter((section) => section.id !== "skills")
+      ? localizedSections
+          .filter((section) => section.id !== "skills")
+          .map((section) =>
+            section.id === "portfolio"
+              ? {
+                  ...section,
+                  image: undefined,
+                  images: undefined,
+                  solidBackground: "#FCF7F1",
+                }
+              : section,
+          )
       : localizedSections;
+
+  const ScrollContainer = isMobile === true ? MobileScroll : FullpageScroll;
 
   return (
     <>
@@ -140,7 +154,7 @@ export function HomePage() {
         />
       ) : null}
 
-      <FullpageScroll sections={visibleSections}>
+      <ScrollContainer sections={visibleSections}>
         {isMobile === true ? (
           <HeroSectionMobile introReady={introReady} />
         ) : (
@@ -151,7 +165,7 @@ export function HomePage() {
         {isMobile !== true ? <SkillsSection /> : null}
         <PortfolioSection />
         <FooterSection />
-      </FullpageScroll>
+      </ScrollContainer>
     </>
   );
 }

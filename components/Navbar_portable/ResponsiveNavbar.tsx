@@ -102,6 +102,7 @@ export function ResponsiveNavbar({
   const images = useTranslations("Images");
   const locale = useLocale();
   const fullpage = useContext(FullpageContext);
+  const setScrollPaused = fullpage?.setScrollPaused;
   const [isOpen, setIsOpen] = useState(false);
 
   const activeId =
@@ -124,12 +125,16 @@ export function ResponsiveNavbar({
 
   useEffect(() => {
     if (!isOpen) return;
+    if (setScrollPaused) {
+      setScrollPaused(true);
+      return () => setScrollPaused(false);
+    }
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [isOpen]);
+  }, [isOpen, setScrollPaused]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {

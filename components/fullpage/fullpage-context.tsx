@@ -8,6 +8,8 @@ export type FullpageContextValue = {
   activeIndex: number;
   goTo: (index: number) => void;
   goToId: (id: SectionId) => void;
+  /** Continuous mobile scrolling can pause the page while its menu is open. */
+  setScrollPaused?: (paused: boolean) => void;
 };
 
 export const FullpageContext = createContext<FullpageContextValue | null>(null);

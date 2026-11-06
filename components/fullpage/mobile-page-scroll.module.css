@@ -1,0 +1,76 @@
+/* These overrides are scoped to the non-homepage mobile container only. */
+.page { position: relative; width: 100%; }
+.content { width: 100%; }
+.section { min-height: 100svh; }
+.sectionContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+.sectionContent > :global(.h-full) { height: auto; flex: 1; }
+.fixedUi > header { padding-top: env(safe-area-inset-top, 0px); }
+
+/* Content that previously scrolled inside a locked slide now joins the page. */
+.content [data-page-scroll],
+.content :global(.process-mobile-timeline) {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
+
+.content :global(.portfolio-slide-mobile) > div {
+  flex: none;
+  overflow: visible;
+}
+.content :global(.portfolio-cards-mobile) { height: auto; }
+.content :global(.portfolio-cards-mobile__item) {
+  flex: none;
+  height: clamp(6.5rem, 22svh, 11.25rem);
+}
+
+.content :global(.third-section-responsive) {
+  height: auto;
+  overflow: visible;
+  flex: 1;
+}
+
+/* Section 4's cards are absolutely positioned. Their percentage-height track
+   needs a definite frame now that the section itself has natural height. */
+.content :global(.bas) {
+  height: auto;
+  min-height: calc(100svh - 8rem);
+  overflow: visible;
+}
+.content :global(.bas__carousel) {
+  flex: 1 0 auto;
+  justify-content: center;
+}
+.content :global(.bas__carousel-stage) {
+  flex: 0 0 auto;
+  height: calc(var(--bas-slide-size) * 1.5 + 2rem);
+}
+.content :global(.bas__controls) {
+  position: relative;
+  inset: auto;
+  transform: none;
+  flex-shrink: 0;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* The GSAP arc uses absolute slides and measures its canvas. Preserve that
+   canvas while allowing the surrounding section to grow independently. */
+.content :global(.tech-stack-slider--mobile) {
+  height: max(34rem, calc(100svh - 8rem));
+  flex: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content :global(.fullpage-reveal) { transform: none; transition: none; }
+}

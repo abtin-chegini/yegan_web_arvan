@@ -10,6 +10,8 @@ import {
   type ReactNode,
 } from "react";
 
+import { MobilePageScroll, type MobilePageSlide } from "@/components/fullpage/mobile-page-scroll";
+import { useMobileViewport } from "@/lib/use-mobile-viewport";
 import { PageIndicator } from "@/components/fullpage/page-indicator";
 import { SectionBackground } from "@/components/fullpage/section-background";
 import { BackToTop } from "@/components/back-to-top";
@@ -39,7 +41,38 @@ type SitePageScrollProps = {
   showScrollHint?: boolean;
 };
 
-export function SitePageScroll({
+export function SitePageScroll(props: SitePageScrollProps) {
+  const isMobile = useMobileViewport();
+  return isMobile ? <MobileSitePageScroll {...props} /> : <DesktopSitePageScroll {...props} />;
+}
+
+function MobileSitePageScroll({
+  activeNavId, mainId, mainLabel, mainSection, children,
+  withFooter = true, showMainBackground = true, showScrollHint = false,
+}: SitePageScrollProps) {
+  const { section: contactSection } = useSiteFooter();
+  const slides: MobilePageSlide[] = [{
+    id: mainId,
+    label: mainLabel,
+    navId: activeNavId,
+    foreground: mainSection.foreground,
+    muted: mainSection.muted,
+    content: children,
+    background: showMainBackground ? <SectionBackground section={mainSection} priority /> : undefined,
+  }];
+  if (withFooter) slides.push({
+    id: "footer",
+    label: "Footer",
+    navId: "contact",
+    foreground: contactSection.foreground,
+    muted: contactSection.muted,
+    content: <FooterSection />,
+    background: <SectionBackground section={contactSection} />,
+  });
+  return <MobilePageScroll slides={slides} showScrollHint={showScrollHint} />;
+}
+
+function DesktopSitePageScroll({
   activeNavId,
   mainId,
   mainLabel,
@@ -106,7 +139,7 @@ export function SitePageScroll({
   );
 
   useEffect(() => {
-    if (slides.length <= 1) return;
+    if (window.matchMedia("(max-width: 767px)").matches || slides.length <= 1) return;
 
     const isInteractiveTarget = (target: EventTarget | null) => {
       if (!(target instanceof Element)) return false;

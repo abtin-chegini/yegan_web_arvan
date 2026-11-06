@@ -79,6 +79,10 @@ export function FullpageScroll({
   }, [slides.length]);
 
   useEffect(() => {
+    // The homepage selects its mobile container after hydration. Never attach
+    // fullpage interception during that initial mobile render.
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const isFormFieldFocused = () => {
       const el = document.activeElement;
       if (!el) return false;

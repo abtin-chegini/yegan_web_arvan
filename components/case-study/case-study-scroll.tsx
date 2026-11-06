@@ -11,6 +11,8 @@ import {
   type ReactNode,
 } from "react";
 
+import { MobilePageScroll, type MobilePageSlide } from "@/components/fullpage/mobile-page-scroll";
+import { useMobileViewport } from "@/lib/use-mobile-viewport";
 import { ResponsiveBackground } from "@/components/case-study/responsive-background";
 import { PageIndicator } from "@/components/fullpage/page-indicator";
 import { SectionBackground } from "@/components/fullpage/section-background";
@@ -39,7 +41,43 @@ const FOOTER_META = {
   label: "Footer",
 } as const;
 
-export function CaseStudyScroll({
+export function CaseStudyScroll(props: CaseStudyScrollProps) {
+  const isMobile = useMobileViewport();
+  return isMobile ? <MobileCaseStudyScroll {...props} /> : <DesktopCaseStudyScroll {...props} />;
+}
+
+function MobileCaseStudyScroll({ sections, studySlug, children }: CaseStudyScrollProps) {
+  const { section: contactSection } = useSiteFooter();
+  const content = Children.toArray(children);
+  const slides: MobilePageSlide[] = sections.map((section, index) => ({
+    id: section.id,
+    label: section.label,
+    navId: "portfolio",
+    foreground: "#1d3557",
+    content: content[index],
+    background: <ResponsiveBackground
+      images={section.images}
+      desktopImages={section.desktopImages}
+      objectFit={section.objectFit}
+      objectPosition={section.objectPosition}
+      backgroundScale={section.backgroundScale}
+      solidBackground={section.solidBackground}
+      priority={index === 0}
+    />,
+  }));
+  slides.push({
+    id: FOOTER_META.id,
+    label: FOOTER_META.label,
+    navId: "contact",
+    foreground: contactSection.foreground,
+    muted: contactSection.muted,
+    content: <FooterSection />,
+    background: <SectionBackground section={contactSection} />,
+  });
+  return <MobilePageScroll slides={slides} studySlug={studySlug} />;
+}
+
+function DesktopCaseStudyScroll({
   sections,
   indicatorLabels,
   studySlug,
@@ -97,6 +135,8 @@ export function CaseStudyScroll({
   }, [slides.length]);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const isInteractiveTarget = (target: EventTarget | null) => {
       if (!(target instanceof Element)) return false;
       return Boolean(
