@@ -1,4 +1,8 @@
 {
+  "MobileLanguageSwitcher": {
+    "english": "انگلیسی",
+    "persian": "فارسی"
+  },
   "MobileNavigation": {
     "label": "ناوبری اصلی",
     "home": "خانه",

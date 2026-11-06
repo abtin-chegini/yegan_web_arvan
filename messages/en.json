@@ -1,4 +1,8 @@
 {
+  "MobileLanguageSwitcher": {
+    "english": "ENGLISH",
+    "persian": "PERSIAN"
+  },
   "MobileNavigation": {
     "label": "Main navigation",
     "home": "Home",
