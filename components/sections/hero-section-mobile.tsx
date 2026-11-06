@@ -7,7 +7,6 @@ import CustomEase from "gsap/CustomEase";
 import { SplitText } from "gsap/SplitText";
 import { useEffect, useRef } from "react";
 
-import { useFullpage } from "@/components/fullpage/fullpage-context";
 
 gsap.registerPlugin(SplitText, CustomEase);
 
@@ -23,7 +22,6 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
   const rootRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const { goTo } = useFullpage();
 
   useEffect(() => {
     if (!introReady) return;
@@ -90,7 +88,7 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
     <>
       <div
         ref={rootRef}
-        className="hero-caption hero-caption-mobile absolute top-[200px] left-1/2 w-fit -translate-x-1/2 items-start text-start"
+        className="hero-caption hero-caption-mobile relative w-full items-start text-start"
         style={{ opacity: introReady ? undefined : 0 }}
       >
         <h1 ref={titleRef} className="hero-caption-title">
@@ -103,21 +101,6 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
         </p>
       </div>
 
-      <button
-        type="button"
-        aria-label="Scroll to next section"
-        onClick={() => goTo(1)}
-        className="hero-scroll-hint"
-        style={{ opacity: introReady ? 1 : 0 }}
-      >
-        <span className="hero-scroll-hint-frame" aria-hidden>
-          <span className="hero-scroll-hint-wheel" />
-        </span>
-        <span className="hero-scroll-hint-chevrons" aria-hidden>
-          <span />
-          <span />
-        </span>
-      </button>
     </>
   );
 }

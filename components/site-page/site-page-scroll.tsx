@@ -48,7 +48,7 @@ export function SitePageScroll(props: SitePageScrollProps) {
 
 function MobileSitePageScroll({
   activeNavId, mainId, mainLabel, mainSection, children,
-  withFooter = true, showMainBackground = true, showScrollHint = false,
+  withFooter = true, showMainBackground = true,
 }: SitePageScrollProps) {
   const { section: contactSection } = useSiteFooter();
   const slides: MobilePageSlide[] = [{
@@ -69,7 +69,7 @@ function MobileSitePageScroll({
     content: <FooterSection />,
     background: <SectionBackground section={contactSection} />,
   });
-  return <MobilePageScroll slides={slides} showScrollHint={showScrollHint} />;
+  return <MobilePageScroll slides={slides} />;
 }
 
 function DesktopSitePageScroll({

@@ -26,11 +26,10 @@ export type MobilePageSlide = {
 type MobilePageScrollProps = {
   slides: MobilePageSlide[];
   studySlug?: string;
-  showScrollHint?: boolean;
 };
 
 /** Shared mobile scroll owner for routed pages; the working homepage stays separate. */
-export function MobilePageScroll({ slides, studySlug, showScrollHint = false }: MobilePageScrollProps) {
+export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const smootherRef = useRef<ScrollSmoother | null>(null);
@@ -243,14 +242,8 @@ export function MobilePageScroll({ slides, studySlug, showScrollHint = false }: 
                 className={cn(styles.section, "relative flex w-full flex-col justify-center px-5 pt-20 pb-12 sm:px-10 sm:pt-24 sm:pb-14")}
                 style={{ color: slide.foreground, ["--section-muted" as string]: slide.muted }}
               >
-                {slide.background && <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">{slide.id === "footer" && slide.background}</div>}
+                {slide.background && <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">{(slide.id === "footer" || slide.id === "contact") && slide.background}</div>}
                 <div className={styles.sectionContent}>{slide.content}</div>
-                {showScrollHint && index === 0 && slides.length > 1 && (
-                  <button type="button" aria-label="Scroll to next section" onClick={() => goTo(1)} className="hero-scroll-hint">
-                    <span className="hero-scroll-hint-frame" aria-hidden><span className="hero-scroll-hint-wheel" /></span>
-                    <span className="hero-scroll-hint-chevrons" aria-hidden><span /><span /></span>
-                  </button>
-                )}
               </section>
             ))}
           </div>

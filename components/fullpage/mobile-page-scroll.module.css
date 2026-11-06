@@ -2,8 +2,14 @@
 .page { position: relative; width: 100%; }
 .content { width: 100%; }
 .section {
-  min-height: 100svh;
-  padding-bottom: calc(3rem + var(--mobile-bottom-navigation-height));
+  min-height: 0;
+  padding-block: 1.5rem;
+}
+.section:first-child {
+  padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+}
+.section:last-child {
+  padding-bottom: calc(2rem + var(--mobile-bottom-navigation-height));
 }
 .sectionContent {
   position: relative;
@@ -47,7 +53,7 @@
    needs a definite frame now that the section itself has natural height. */
 .content :global(.bas) {
   height: auto;
-  min-height: calc(100svh - 8rem);
+  min-height: 0;
   overflow: visible;
 }
 .content :global(.bas__carousel) {
@@ -70,7 +76,7 @@
 /* The GSAP arc uses absolute slides and measures its canvas. Preserve that
    canvas while allowing the surrounding section to grow independently. */
 .content :global(.tech-stack-slider--mobile) {
-  height: max(34rem, calc(100svh - 8rem));
+  height: 34rem;
   flex: none;
 }
 

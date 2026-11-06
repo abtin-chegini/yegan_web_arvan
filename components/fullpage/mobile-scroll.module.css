@@ -4,8 +4,16 @@
 }
 
 .section {
-  min-height: 100svh;
-  padding-bottom: calc(3rem + var(--mobile-bottom-navigation-height));
+  min-height: 0;
+  padding-block: 1.5rem;
+}
+
+.section:first-child {
+  padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+}
+
+.section:last-child {
+  padding-bottom: calc(2rem + var(--mobile-bottom-navigation-height));
 }
 
 .sectionContent {
@@ -18,10 +26,9 @@
   justify-content: center;
 }
 
-/* The hero and card stack contain absolute artwork. Give those frames a
-   minimum size without limiting how tall any section's content can grow. */
+/* Keep a little breathing room around the hero without a full-screen frame. */
 .section[id="home"] .sectionContent {
-  min-height: max(100svh, 28rem);
+  padding-block: 2rem;
 }
 
 .section[id="portfolio"] .sectionContent > header {
@@ -31,7 +38,7 @@
 
 .section[id="portfolio"] :global(.card-slider-mobile) {
   flex: none;
-  height: max(36rem, calc(100svh - 13rem));
+  height: 36rem;
 }
 
 .fixedUi > header {

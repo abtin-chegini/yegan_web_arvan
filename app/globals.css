@@ -847,6 +847,24 @@ p .line {
   opacity: 1;
 }
 
+@media (max-width: 767px) {
+  /* Animated mobile cards use z-index 40; keep controls and tips above them. */
+  .card-slider-mobile .card-slider-nav {
+    z-index: 50;
+  }
+
+  .card-slider-mobile .card-slider-nav-btn [data-tooltip],
+  .tech-stack-slider--mobile .tech-stack-slider__nav-btn [data-tooltip] {
+    z-index: 1;
+  }
+
+  .card-slider-mobile .card-slider-nav-btn:first-child [data-tooltip],
+  .tech-stack-slider--mobile .tech-stack-slider__nav-btn:first-child [data-tooltip] {
+    left: 0;
+    right: auto;
+  }
+}
+
 /* Mobile stack: larger image on top, compact copy (2-line description) */
 .card-slider-mobile .sticky-cards .card {
   width: calc(100% - 2rem);
@@ -1049,6 +1067,10 @@ html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
 }
 
 @media (max-width: 767px) {
+  .hero-scroll-hint {
+    display: none;
+  }
+
   #about picture {
     display: none;
   }
