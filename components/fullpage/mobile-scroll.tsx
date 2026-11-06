@@ -207,7 +207,7 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
                 style={{ color: section.foreground, ["--section-muted" as string]: section.muted }}
               >
                 <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">
-                  <SectionBackground section={section} priority={index === 0} />
+                  {section.id === "contact" && <SectionBackground section={section} />}
                 </div>
                 <div className={styles.sectionContent}>{child}</div>
               </section>
