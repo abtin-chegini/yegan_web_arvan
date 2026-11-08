@@ -4,31 +4,61 @@
 }
 
 .section {
-  min-height: 0;
-  padding-block: 1.5rem;
+  min-height: 100svh;
+  padding-block: 64px;
+}
+
+/* One shared gap, without stacking padding from adjacent sections. */
+.section + .section {
+  margin-top: 64px;
+}
+
+/* Start the second section's title at the end of the hero artwork. */
+.section[id="home"] + .section[id="about"] {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.section[id="about"] {
+  min-height: max(0px, calc(100svh - 200px));
+}
+
+/* Sections 3 and 4 start directly at the previous section's bottom edge. */
+:global(#mobile-homepage-typography) .section[id="process"],
+:global(#mobile-homepage-typography) .section[id="portfolio"] {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .section:first-child {
-  padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+  padding-top: calc(64px + env(safe-area-inset-top, 0px));
 }
 
 .section:last-child {
-  padding-bottom: calc(2rem + var(--mobile-bottom-navigation-height));
+  padding-bottom: calc(64px + var(--mobile-bottom-navigation-height));
 }
 
 .sectionContent {
   position: relative;
   z-index: 10;
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-/* Keep a little breathing room around the hero without a full-screen frame. */
+.sectionContent > :global(.h-full) {
+  height: auto;
+  flex: none;
+}
+
 .section[id="home"] .sectionContent {
-  padding-block: 2rem;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 20px;
 }
 
 .section[id="portfolio"] .sectionContent > header {
@@ -36,9 +66,29 @@
   inset: auto;
 }
 
+.section[id="portfolio"] [data-mobile-home-title] {
+  position: relative;
+  top: -40px;
+}
+
 .section[id="portfolio"] :global(.card-slider-mobile) {
   flex: none;
-  height: 36rem;
+  height: max(44rem, calc(100svh - 13rem));
+}
+
+@media (max-width: 767px) {
+  .section[id="portfolio"] :global(.card-slider-mobile .sticky-cards .card) {
+    height: min(80%, 36rem);
+  }
+
+  .section[id="portfolio"] :global(.card-slider-mobile .slider-card-media) {
+    flex: 1 1 0;
+    min-height: 16rem;
+  }
+
+  .section[id="portfolio"] :global(.card-slider-mobile .slider-card-media img) {
+    object-fit: contain;
+  }
 }
 
 .fixedUi > header {
@@ -50,4 +100,45 @@
     transform: none;
     transition: none;
   }
+}
+
+/* Shared mobile homepage typography and section introduction spacing. */
+.content {
+  --mobile-home-heading-gap: 12px;
+  --mobile-home-content-gap: 24px;
+}
+
+.content [data-mobile-home-title] {
+  margin: 0;
+  padding: 0;
+}
+
+.content [data-mobile-home-description] {
+  margin: 0;
+}
+
+.section[id="portfolio"] .sectionContent {
+  gap: var(--mobile-home-content-gap);
+}
+
+.section[id="portfolio"] .sectionContent > header {
+  gap: var(--mobile-home-heading-gap);
+}
+
+.section[id="contact"] [data-mobile-home-description] {
+  margin-top: var(--mobile-home-heading-gap);
+}
+
+.section[id="contact"] [data-mobile-home-description] + ul {
+  margin-top: var(--mobile-home-content-gap);
+}
+
+.content [data-mobile-home-title],
+.content [data-mobile-home-description] {
+  align-self: center;
+  text-align: center;
+}
+
+:global(html[lang="fa"]) .section[id="about"] [data-mobile-home-title] {
+  max-width: none;
 }

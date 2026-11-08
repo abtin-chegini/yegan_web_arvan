@@ -24,12 +24,12 @@ export function AboutSectionMobile() {
 	return (
 		<div className="flex w-full items-center justify-center">
 			<div
-				className="mx-auto flex w-full max-w-[28rem] shrink-0 flex-col gap-5 py-2 text-start">
-				<h2 className="fullpage-reveal mx-auto w-full shrink-0 max-w-[20rem] text-center font-serif text-[clamp(2rem,8.8vw,2.65rem)] leading-[1.12] font-medium tracking-[-0.02em] text-[var(--section-about-fg)]">
-					{t("valuesTitle")}
+				className="mx-auto flex w-full max-w-[28rem] shrink-0 flex-col gap-[var(--mobile-home-content-gap,24px)] py-0 text-start">
+				<h2 data-mobile-home-title className="mobile-section-title fullpage-reveal mx-auto w-full shrink-0 max-w-[20rem] text-center font-serif tracking-[-0.02em] text-[var(--section-about-fg)]">
+					{t("valuesTitleMobile")}
 				</h2>
 
-				<div className="fullpage-reveal flex w-full shrink-0 flex-col gap-2.5">
+				<div className="fullpage-reveal flex w-full shrink-0 flex-col gap-3">
 					{aboutFeatures.map((feature, index) => {
 						const isOpen = activeCardId === feature.id;
 						const panelId = `${reactId}-${feature.id}-panel`;
@@ -42,7 +42,7 @@ export function AboutSectionMobile() {
 								size="sm"
 								className="gap-0 rounded-2xl border border-[var(--section-about-fg)]/15 bg-[var(--section-about-card)] py-0 shadow-none ring-0"
 							>
-								<CardContent className="px-3 py-0">
+								<CardContent className="px-4 py-0">
 									<button
 										type="button"
 										id={triggerId}
@@ -53,21 +53,21 @@ export function AboutSectionMobile() {
 										onKeyDown={(event) => {
 											if (event.key === " ") event.stopPropagation();
 										}}
-										className="flex w-full items-center gap-2.5 rounded-xl py-2.5 text-start focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--section-about-fg)]"
+										className="flex w-full min-h-[90px] items-center gap-3 rounded-xl py-[1px] text-start focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--section-about-fg)]"
 									>
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img
 											src={feature.mobileIcon ?? feature.icon}
 											alt=""
-											width={56}
-											height={56}
-											className="size-[52px] shrink-0 object-contain object-center min-[375px]:size-14"
+											width={64}
+											height={64}
+											className="size-14 shrink-0 object-contain object-center min-[375px]:size-16"
 										/>
 										<span className="min-w-0 flex-1">
-											<span id={titleId} className="block font-serif text-[1.25rem] leading-[1.2] font-medium tracking-[-0.01em] text-[var(--section-about-fg)] min-[375px]:text-[1.4rem]">
+											<span id={titleId} className="mobile-card-title block font-serif tracking-[-0.01em] text-[var(--section-about-fg)]">
 												{t(`features${index}title`)}
 											</span>
-											<span className="mt-1 block font-sans text-[0.8125rem] font-normal leading-[1.4] text-[var(--section-about-muted)] min-[375px]:text-[0.9375rem]">
+											<span className="mobile-card-description mt-1 block overflow-hidden text-ellipsis font-sans text-[var(--section-about-muted)]" style={{whiteSpace: "nowrap", overflowWrap: "normal"}}>
 												{t(`features${index}shortDescription`)}
 											</span>
 										</span>
@@ -94,7 +94,7 @@ export function AboutSectionMobile() {
 										transition={{ duration: reduceMotion ? 0 : 0.25, ease: ACCORDION_EASE }}
 										className="overflow-hidden"
 									>
-										<p className="border-t border-[var(--section-about-fg)]/10 pt-2.5 pb-2.5 font-sans text-sm min-[375px]:text-[0.9375rem] font-normal leading-[1.45] text-[var(--section-about-muted)]">
+										<p className="mobile-card-description border-t border-[var(--section-about-fg)]/10 pt-3 pb-4 font-sans text-[var(--section-about-muted)]">
 											{t(`features${index}detail`)}
 										</p>
 									</motion.div>

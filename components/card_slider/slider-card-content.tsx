@@ -33,15 +33,15 @@ export function SliderCardContent({
   return (
     <div className={cn("slider-card-content", className)}>
       <div className={cn("col slider-card-copy", copyClassName)}>
-        <h2>{title}</h2>
-        {kicker ? <p className="slider-card-kicker">{kicker}</p> : null}
+        <h2 className="mobile-card-title">{title}</h2>
+        {kicker ? <p className="slider-card-kicker mobile-card-meta">{kicker}</p> : null}
         {description ? (
-          <p className="slider-card-description">{description}</p>
+          <p className="slider-card-description mobile-card-description">{description}</p>
         ) : null}
         {href ? (
           <Link
             href={href}
-            className="slider-card-cta"
+            className="slider-card-cta mobile-button-text"
             data-no-section-swipe
           >
             {t("viewCaseStudy")}

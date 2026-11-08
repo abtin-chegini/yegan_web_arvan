@@ -239,7 +239,7 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
                 data-mobile-page-section
                 data-active={index === activeIndex}
                 aria-label={slide.label}
-                className={cn(styles.section, "relative flex w-full flex-col justify-center px-5 pt-20 pb-12 sm:px-10 sm:pt-24 sm:pb-14")}
+                className={cn(styles.section, "relative flex w-full flex-col justify-start px-5 sm:px-10")}
                 style={{ color: slide.foreground, ["--section-muted" as string]: slide.muted }}
               >
                 {slide.background && <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">{(slide.id === "footer" || slide.id === "contact") && slide.background}</div>}

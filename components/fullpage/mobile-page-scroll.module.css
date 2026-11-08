@@ -2,26 +2,33 @@
 .page { position: relative; width: 100%; }
 .content { width: 100%; }
 .section {
-  min-height: 0;
-  padding-block: 1.5rem;
+  min-height: 100svh;
+  padding-block: 64px;
 }
+
+/* One shared gap, without stacking padding from adjacent sections. */
+.section + .section {
+  margin-top: 64px;
+}
+
 .section:first-child {
-  padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+  padding-top: calc(64px + env(safe-area-inset-top, 0px));
 }
+
 .section:last-child {
-  padding-bottom: calc(2rem + var(--mobile-bottom-navigation-height));
+  padding-bottom: calc(64px + var(--mobile-bottom-navigation-height));
 }
 .sectionContent {
   position: relative;
   z-index: 10;
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 0;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.sectionContent > :global(.h-full) { height: auto; flex: 1; }
+.sectionContent > :global(.h-full) { height: auto; flex: none; }
 .fixedUi > header { padding-top: env(safe-area-inset-top, 0px); }
 
 /* Content that previously scrolled inside a locked slide now joins the page. */
@@ -53,7 +60,7 @@
    needs a definite frame now that the section itself has natural height. */
 .content :global(.bas) {
   height: auto;
-  min-height: 0;
+  min-height: calc(100svh - 8rem);
   overflow: visible;
 }
 .content :global(.bas__carousel) {
@@ -76,7 +83,7 @@
 /* The GSAP arc uses absolute slides and measures its canvas. Preserve that
    canvas while allowing the surrounding section to grow independently. */
 .content :global(.tech-stack-slider--mobile) {
-  height: 34rem;
+  height: max(34rem, calc(100svh - 8rem));
   flex: none;
 }
 

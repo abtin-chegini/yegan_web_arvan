@@ -176,9 +176,9 @@ export function CardSliderMobile() {
             aria-label={tooltips("previousCard")}
           >
             {isRtl ? <ChevronRight strokeWidth={1.75} /> : <ChevronLeft strokeWidth={1.75} />}
-            <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("previousCard")}</span>
+            <span className={`${arrowStyles.tooltip} mobile-card-meta`} data-tooltip aria-hidden="true">{tooltips("previousCard")}</span>
           </button>
-          <span ref={titleRef} className="card-slider-nav-title">
+          <span ref={titleRef} className="card-slider-nav-title mobile-card-title">
             {sliderCards[0]?.title}
           </span>
           <button
@@ -188,7 +188,7 @@ export function CardSliderMobile() {
             aria-label={tooltips("nextCard")}
           >
             {isRtl ? <ChevronLeft strokeWidth={1.75} /> : <ChevronRight strokeWidth={1.75} />}
-            <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("nextCard")}</span>
+            <span className={`${arrowStyles.tooltip} mobile-card-meta`} data-tooltip aria-hidden="true">{tooltips("nextCard")}</span>
           </button>
         </div>
       </section>

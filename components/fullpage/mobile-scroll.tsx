@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLocale } from "next-intl";
 import { Children, useCallback, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 import { BackToTop } from "@/components/back-to-top";
@@ -18,6 +19,7 @@ type MobileScrollProps = { children: ReactNode; sections: Section[] };
 
 /** Mounted only by the homepage's existing <768px responsive branch. */
 export function MobileScroll({ children, sections }: MobileScrollProps) {
+  const locale = useLocale();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const smootherRef = useRef<ScrollSmoother | null>(null);
@@ -193,7 +195,7 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
         <BackToTop activeIndex={activeIndex} />
       </div>
       <div ref={wrapperRef} data-mobile-smooth-wrapper>
-        <div ref={contentRef} className={styles.content}>
+        <div ref={contentRef} id="mobile-homepage-typography" className={styles.content}>
           {Children.toArray(children).map((child, index) => {
             const section = sections[index];
             return (
@@ -203,11 +205,35 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
                 data-mobile-section
                 data-active={index === activeIndex}
                 aria-label={section.label}
-                className={cn(styles.section, "relative flex w-full flex-col justify-center px-5 pt-20 sm:px-10 sm:pt-24")}
+                className={cn(styles.section, "relative flex w-full flex-col justify-start px-5 sm:px-10")}
                 style={{ color: section.foreground, ["--section-muted" as string]: section.muted }}
               >
                 <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">
-                  {section.id === "contact" && <SectionBackground section={section} />}
+                  {section.id === "home" && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src="/image/sec1_HOMEPAGE_360_XS_FA.jpg"
+                      alt=""
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  )}
+                  {section.id === "contact" && (
+                    locale === "en" || locale === "fa" ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={locale === "fa"
+                          ? "/image/SEC7_HOMEPAGE_360_XS_FA.jpg"
+                          : "/image/SEC7_HOMEPAGE_360_XS_EN.jpg"}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover object-center"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : <SectionBackground section={section} />
+                  )}
                 </div>
                 <div className={styles.sectionContent}>{child}</div>
               </section>

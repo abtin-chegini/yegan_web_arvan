@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@animate-ui/react": "^2.4.2",
     "@base-ui/react": "^1.6.0",
     "@gsap/react": "^2.1.2",
     "class-variance-authority": "^0.7.1",

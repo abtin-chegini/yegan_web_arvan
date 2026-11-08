@@ -1,0 +1,139 @@
+/* Tailwind v4 companion: semantic roles override legacy text utilities only
+   inside the mobile homepage. Alignment and geometry stay in components. */
+@media (max-width: 767px) {
+  #mobile-homepage-typography {
+    --mobile-hero-title-weight: 400;
+    --mobile-hero-role-weight: 400;
+    --mobile-section-title-weight: 500;
+    --mobile-section-description-weight: 400;
+    --mobile-card-title-weight: 500;
+    --mobile-card-description-weight: 400;
+    --mobile-card-meta-weight: 400;
+    --mobile-button-text-weight: 600;
+    --mobile-hero-role-line-height: 1.6;
+    --mobile-card-meta-line-height: 1.6;
+    --mobile-button-text-line-height: 1.6;
+  }
+
+  #mobile-homepage-typography:lang(en) {
+    --mobile-hero-title-size: 36px;
+    --mobile-hero-role-size: 16px;
+    --mobile-section-title-size: 28px;
+    --mobile-section-description-size: 15px;
+    --mobile-card-title-size: 18px;
+    --mobile-card-description-size: 14px;
+    --mobile-card-meta-size: 12px;
+    --mobile-button-text-size: 14px;
+    --mobile-hero-title-line-height: 1.15;
+    --mobile-section-title-line-height: 1.25;
+    --mobile-section-description-line-height: 1.6;
+    --mobile-card-title-line-height: 1.35;
+    --mobile-card-description-line-height: 1.6;
+  }
+
+  #mobile-homepage-typography:lang(fa) {
+    /* Match the desktop heading face; body roles retain regular Yekan. */
+    --mobile-hero-title-weight: 500;
+    --mobile-hero-title-size: 34px;
+    --mobile-hero-role-size: 16px;
+    --mobile-section-title-size: 26px;
+    --mobile-section-description-size: 15px;
+    --mobile-card-title-size: 18px;
+    --mobile-card-description-size: 14px;
+    --mobile-card-meta-size: 13px;
+    --mobile-button-text-size: 14px;
+    --mobile-hero-title-line-height: 1.4;
+    --mobile-section-title-line-height: 1.5;
+    --mobile-section-description-line-height: 1.9;
+    --mobile-card-title-line-height: 1.6;
+    --mobile-card-description-line-height: 1.85;
+    --mobile-hero-role-line-height: 1.9;
+    --mobile-card-meta-line-height: 1.85;
+    --mobile-button-text-line-height: 1.85;
+  }
+
+  /* Reuse the desktop font stacks for both locales and all mobile text roles. */
+  html #mobile-homepage-typography :is(
+    .mobile-hero-title, .mobile-section-title, .mobile-card-title
+  ) {
+    font-family: var(--font-baskervville);
+  }
+
+  html #mobile-homepage-typography :is(
+    .mobile-hero-role, .mobile-section-description, .mobile-card-description,
+    .mobile-card-meta, .mobile-button-text
+  ) {
+    font-family: var(--font-manrope);
+  }
+
+  /* The homepage ID gives these rules priority over existing global selectors
+     without !important or affecting shared cards on other routes. */
+  html #mobile-homepage-typography .mobile-hero-title {
+    font-size: var(--mobile-hero-title-size);
+    font-weight: var(--mobile-hero-title-weight);
+    line-height: var(--mobile-hero-title-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-hero-role {
+    font-size: var(--mobile-hero-role-size);
+    font-weight: var(--mobile-hero-role-weight);
+    line-height: var(--mobile-hero-role-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-section-title {
+    font-size: var(--mobile-section-title-size);
+    font-weight: var(--mobile-section-title-weight);
+    line-height: var(--mobile-section-title-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-section-description {
+    font-size: var(--mobile-section-description-size);
+    font-weight: var(--mobile-section-description-weight);
+    line-height: var(--mobile-section-description-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-card-title {
+    font-size: var(--mobile-card-title-size);
+    font-weight: var(--mobile-card-title-weight);
+    line-height: var(--mobile-card-title-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-card-description {
+    font-size: var(--mobile-card-description-size);
+    font-weight: var(--mobile-card-description-weight);
+    line-height: var(--mobile-card-description-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-card-meta {
+    font-size: var(--mobile-card-meta-size);
+    font-weight: var(--mobile-card-meta-weight);
+    line-height: var(--mobile-card-meta-line-height);
+  }
+
+  html #mobile-homepage-typography .mobile-button-text {
+    font-size: var(--mobile-button-text-size);
+    font-weight: var(--mobile-button-text-weight);
+    line-height: var(--mobile-button-text-line-height);
+  }
+
+  html #mobile-homepage-typography :is(
+    .mobile-hero-title, .mobile-hero-role,
+    .mobile-section-title, .mobile-section-description,
+    .mobile-card-title:not(.card-slider-nav-title), .mobile-card-description
+  ) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 374px) {
+  #mobile-homepage-typography:lang(en) {
+    --mobile-hero-title-size: 32px;
+    --mobile-section-title-size: 26px;
+  }
+
+  #mobile-homepage-typography:lang(fa) {
+    --mobile-hero-title-size: 30px;
+    --mobile-section-title-size: 24px;
+  }
+}

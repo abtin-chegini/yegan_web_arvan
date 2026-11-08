@@ -11,10 +11,10 @@ export function ContactSectionMobile() {
   return (
     <div ref={rootRef} className="mx-auto flex h-full w-full flex-col items-center justify-center text-center">
       <div className="flex w-full flex-col items-center">
-        <h2 className="font-serif text-[1.85rem] font-medium leading-[1.18] tracking-[-0.02em] text-[var(--section-contact-fg)]">
+        <h2 data-mobile-home-title className="mobile-section-title font-serif tracking-[-0.02em] text-[var(--section-contact-fg)]">
           {t("title")}
         </h2>
-        <p className="mt-3 w-full max-w-sm text-balance font-sans text-[0.92rem] font-normal leading-[1.9] text-[#c0965a]">
+        <p data-mobile-home-description className="mobile-section-description mt-3 w-full max-w-sm text-balance font-sans text-[#c0965a]">
           {t("description")}
         </p>
 

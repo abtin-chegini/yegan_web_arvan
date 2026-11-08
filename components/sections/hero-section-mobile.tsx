@@ -88,13 +88,13 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
     <>
       <div
         ref={rootRef}
-        className="hero-caption hero-caption-mobile relative w-full items-start text-start"
+        className="hero-caption hero-caption-mobile"
         style={{ opacity: introReady ? undefined : 0 }}
       >
-        <h1 ref={titleRef} className="hero-caption-title">
+        <h1 ref={titleRef} className="hero-caption-title mobile-hero-title">
           {t("name")}
         </h1>
-        <p ref={subtitleRef} className="hero-caption-subtitle">
+        <p ref={subtitleRef} className="hero-caption-subtitle mobile-hero-role">
           {t("developer")}
           <br />
           {t("designer")}

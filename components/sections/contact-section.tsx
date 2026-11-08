@@ -69,10 +69,10 @@ export function ContactLinks() {
               </picture>
             </span>
             <span className="min-w-0 flex-1 font-sans">
-              <span data-contact-write className={`${styles.typed} block text-sm font-medium leading-6`}>
+              <span data-contact-write className={`${styles.typed} mobile-button-text block text-sm font-medium leading-6`}>
                 {t(row.label)}
               </span>
-              <span className="mt-1 block text-[0.85rem] leading-6 text-[var(--section-contact-muted)] sm:text-base">
+              <span className="mobile-card-meta mt-1 block text-[0.85rem] leading-6 text-[var(--section-contact-muted)] sm:text-base">
                 <bdi data-contact-write dir="ltr" className={`${styles.typed} ${styles.value} tabular-nums`}>{row.value}</bdi>
               </span>
             </span>

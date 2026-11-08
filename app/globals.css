@@ -900,21 +900,8 @@ p .line {
   justify-content: flex-start;
 }
 
-.card-slider-mobile .slider-card-copy h2 {
-  font-size: 1.35rem;
-  line-height: 1.15;
-}
-
 html[lang="fa"] .card-slider .card .slider-card-copy h2 {
   font-size: clamp(1.5rem, 2.5vw, 2.4rem);
-}
-
-html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
-  font-size: 1.35rem;
-}
-
-.card-slider-mobile .slider-card-kicker {
-  font-size: 0.72rem;
 }
 
 .card-slider-mobile .slider-card-description {
@@ -923,8 +910,6 @@ html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  font-size: 0.76rem;
-  line-height: 1.45;
 }
 
 .card-slider-mobile .slider-card-cta {
@@ -932,7 +917,6 @@ html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
   margin-top: 1rem;
   padding: 0.4rem 1.1rem;
   border-radius: 0.55rem;
-  font-size: 0.82rem;
   letter-spacing: 0.005em;
 }
 .card-slider-nav-title {
@@ -1067,10 +1051,6 @@ html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
 }
 
 @media (max-width: 767px) {
-  .hero-scroll-hint {
-    display: none;
-  }
-
   #about picture {
     display: none;
   }
@@ -2977,4 +2957,23 @@ html[lang="fa"] .third-section-responsive .folder-tab-number {
 
 .tech-stack-slider--mobile .tech-stack-slider__slide--active[data-tech="zustand"] .tech-stack-slider__details {
   margin-top: 0;
+}
+
+/* Keep the fade attached to the viewport in both smooth and native scrolling.
+   The header's controls sit above it and remain fully visible. */
+@media (max-width: 767px) {
+  [data-mobile-header]::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: calc(84px + env(safe-area-inset-top, 0px));
+    background: linear-gradient(
+      to bottom,
+      #fcf6ef calc(24px + env(safe-area-inset-top, 0px)),
+      transparent
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
 }

@@ -2,14 +2,14 @@
 
 import {useLocale, useTranslations} from "next-intl";
 
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
 	AnimatePresence,
 	motion,
 	useReducedMotion,
 	type PanInfo,
 } from "motion/react";
-import { useCallback, useId, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { processServices } from "@/components/sections/process-section";
 import { cn } from "@/lib/utils";
@@ -48,21 +48,16 @@ export function ProcessSectionMobile() {
 
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [direction, setDirection] = useState(0);
-	const [isExpanded, setIsExpanded] = useState(false);
 	const reduceMotion = useReducedMotion();
-	const reactId = useId();
 	const lastIndex = services.length - 1;
 	const canPrev = activeIndex > 0;
 	const canNext = activeIndex < lastIndex;
 	const service = services[activeIndex]!;
-	const panelId = `${reactId}-process-detail`;
-	const triggerId = `${reactId}-process-read-more`;
-	const extraDetail = t("focusAreas", {areas: service.items.map((item) => item.label).join("، ")});
+
 
 	const goTo = useCallback(
 		(next: number, dir: number) => {
 			if (next < 0 || next > lastIndex || next === activeIndex) return;
-			setIsExpanded(false);
 			setDirection(isPersian ? -dir : dir);
 			setActiveIndex(next);
 		},
@@ -85,13 +80,13 @@ export function ProcessSectionMobile() {
 	};
 
 	return (
-		<div className="flex h-full min-h-0 w-full flex-col justify-center gap-4">
-			<aside className="fullpage-reveal flex shrink-0 flex-col gap-1.5">
-				<h2 className={`font-serif ${isPersian ? "text-[1.7rem] whitespace-nowrap" : "text-[1.7rem]"} leading-[1.08] font-medium tracking-[-0.02em] text-[var(--section-process-fg)]`}>
+		<div className="flex h-full min-h-0 w-full flex-col justify-center gap-[var(--mobile-home-content-gap,24px)]">
+			<aside className="fullpage-reveal flex shrink-0 flex-col items-center gap-[var(--mobile-home-heading-gap,12px)] text-center">
+				<h2 data-mobile-home-title className="mobile-section-title font-serif tracking-[-0.02em] text-[var(--section-process-fg)]">
 					{t("processTitle")}
 				</h2>
-				<p className={`font-sans text-[0.8rem] font-normal leading-relaxed text-[var(--section-process-muted)] ${isPersian ? "mt-6" : ""}`}>
-					{t("processIntro")}
+				<p data-mobile-home-description className="mobile-section-description font-sans text-[var(--section-process-muted)]">
+					{t("processIntroMobile")}
 				</p>
 			</aside>
 
@@ -102,10 +97,10 @@ export function ProcessSectionMobile() {
 							"w-full rounded-2xl",
 							"border border-[var(--section-process-fg)]/[0.1]",
 							"bg-[var(--section-process-card)]/70",
-							"px-3.5 pt-4 pb-4",
+							"px-4 py-5",
 						)}
 					>
-						<div className="relative mb-3 w-full overflow-hidden">
+						<div className="relative mx-auto mb-4 w-full max-w-[13.5rem] overflow-hidden">
 							<AnimatePresence initial={false} custom={direction} mode="wait">
 								<motion.div
 									key={service.title}
@@ -129,7 +124,7 @@ export function ProcessSectionMobile() {
 									onDragEnd={onDragEnd}
 									className="flex cursor-grab flex-col items-center touch-pan-y active:cursor-grabbing"
 								>
-									<div className="flex h-[8.25rem] w-full items-center justify-center bg-transparent">
+									<div className="flex h-[7.5rem] w-full items-center justify-center bg-transparent">
 										{/* eslint-disable-next-line @next/next/no-img-element */}
 										<img
 											src={service.mobileIcon}
@@ -145,7 +140,7 @@ export function ProcessSectionMobile() {
 							</AnimatePresence>
 						</div>
 
-						{/* Title + description + read more */}
+						{/* Desktop-style description and service details */}
 						<AnimatePresence initial={false} mode="wait">
 							<motion.div
 								key={`${service.title}-copy`}
@@ -159,83 +154,26 @@ export function ProcessSectionMobile() {
 								}
 								className="mx-auto flex w-full max-w-[18.5rem] flex-col items-center text-center"
 							>
-								<h3 className="font-serif text-[1.35rem] leading-[1.15] font-medium tracking-[-0.01em] text-[var(--section-process-fg)]">
+								<h3 className="mobile-card-title font-serif tracking-[-0.01em] text-[var(--section-process-fg)]">
 									{service.title}
 								</h3>
 
-								<p
-									className={cn(
-										"mt-2 font-sans text-[0.8rem] font-normal leading-[1.5] text-[var(--section-process-muted)]",
-										!isExpanded && "line-clamp-3",
-									)}
-								>
-									{service.description}
-								</p>
-
-								<AnimatePresence initial={false}>
-									{isExpanded ? (
-										<motion.div
-											id={panelId}
-											role="region"
-											aria-labelledby={triggerId}
-											key={`${service.title}-extra`}
-											initial={
-												reduceMotion
-													? { height: "auto", opacity: 1 }
-													: { height: 0, opacity: 0, y: -4 }
-											}
-											animate={
-												reduceMotion
-													? { height: "auto", opacity: 1 }
-													: { height: "auto", opacity: 1, y: 0 }
-											}
-											exit={
-												reduceMotion
-													? { height: 0, opacity: 0 }
-													: { height: 0, opacity: 0, y: -4 }
-											}
-											transition={
-												reduceMotion
-													? { duration: 0 }
-													: { duration: 0.36, ease: SLIDE_EASE }
-											}
-											className="overflow-hidden"
-										>
-											<p className="pt-2 font-sans text-[0.78rem] font-normal leading-[1.5] text-[var(--section-process-muted)]">
-												{extraDetail}
-											</p>
-										</motion.div>
-									) : null}
-								</AnimatePresence>
-
-								<button
-									type="button"
-									id={triggerId}
-									aria-expanded={isExpanded}
-									aria-controls={panelId}
-									onClick={() => setIsExpanded((open) => !open)}
-									className={cn(
-										"mt-2.5 inline-flex flex-col items-center gap-0.5",
-										"font-sans text-[0.72rem] font-medium tracking-[0.02em]",
-										"text-[var(--section-process-fg)]",
-										"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--section-process-fg)]",
-									)}
-								>
-									<span>{isExpanded ? t("readLess") : t("readMore")}</span>
-									<motion.span
-										aria-hidden
-										animate={{ rotate: isExpanded ? 180 : 0 }}
-										initial={false}
-										transition={
-											reduceMotion
-												? { duration: 0 }
-												: { duration: 0.32, ease: SLIDE_EASE }
-										}
-										className="flex"
-									>
-										<ChevronDown className="size-3.5 stroke-[1.75] opacity-80" />
-									</motion.span>
-								</button>
+                                <p className="mobile-card-description mt-2 font-sans text-[var(--section-process-muted)]">
+                                    {service.description}
+                                </p>
+                                <div className="my-4 flex w-full items-center gap-2 py-1">
+                                    <span className="h-px flex-1 bg-[var(--section-process-fg)]/15" />
+                                    <span aria-hidden className="size-1.5 rotate-45 border border-[var(--section-process-fg)]/25 bg-[var(--section-process-fg)]/10" />
+                                    <span className="h-px flex-1 bg-[var(--section-process-fg)]/15" />
+                                </div>
+                                <ul className="flex w-full flex-col gap-2.5 text-start">
+                                    {service.items.map(({ label, Icon }) => (
+                                        <li key={label} className="mobile-card-meta flex items-center gap-2.5 font-sans text-[var(--section-process-fg)]">
+                                            <Icon aria-hidden className="size-3.5 shrink-0 stroke-[1.5] text-[var(--section-process-muted)]" />
+                                            <span>{label}</span>
+                                        </li>
+                                    ))}
+                                </ul>
 							</motion.div>
 						</AnimatePresence>
 					</div>

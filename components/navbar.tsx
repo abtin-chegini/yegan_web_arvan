@@ -62,6 +62,7 @@ export function Navbar({
     <>
       {/* Mobile navigation */}
       <header
+        data-mobile-header
         className="pointer-events-none fixed inset-x-0 top-0 z-60 md:hidden"
         style={{ color: foreground }}
       >
