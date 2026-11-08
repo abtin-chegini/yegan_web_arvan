@@ -7,6 +7,7 @@ import { useCallback, useLayoutEffect, useRef, useState, type ReactNode } from "
 
 import { BackToTop } from "@/components/back-to-top";
 import { FullpageContext } from "@/components/fullpage/fullpage-context";
+import { MobileFooterBackground } from "@/components/sections/mobile-footer-background";
 import { Navbar } from "@/components/navbar";
 import type { SectionId } from "@/lib/sections";
 import { cn } from "@/lib/utils";
@@ -242,7 +243,7 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
                 className={cn(styles.section, "relative flex w-full flex-col justify-start px-5 sm:px-10")}
                 style={{ color: slide.foreground, ["--section-muted" as string]: slide.muted }}
               >
-                {slide.background && <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]">{(slide.id === "footer" || slide.id === "contact") && slide.background}</div>}
+                {(slide.id === "footer" || slide.id === "contact") && <div className="absolute inset-0 z-0 overflow-hidden bg-[#FCF6EF]"><MobileFooterBackground /></div>}
                 <div className={styles.sectionContent}>{slide.content}</div>
               </section>
             ))}

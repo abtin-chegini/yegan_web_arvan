@@ -33,7 +33,7 @@ function CaseStudySectionContent({
 
   if (content) {
     if (sectionIndex === 0) {
-      return <CaseStudyOverview content={{
+      return <CaseStudyOverview mobileDescription={locale === "fa" && study.slug === "bilit4u" ? t("mobileDescription") : undefined} content={{
         ...content.overview,
         title: t("title"),
         description: t("description"),

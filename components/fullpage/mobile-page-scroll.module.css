@@ -1,5 +1,23 @@
 /* These overrides are scoped to the non-homepage mobile container only. */
 .page { position: relative; width: 100%; }
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] {
+  margin-top: 20px;
+}
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] h1 {
+  font-size: 34px;
+  line-height: 1.4;
+}
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.case-overview-mobile-description) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+@media (max-width: 374px) {
+  :global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] h1 {
+    font-size: 30px;
+  }
+}
 .content { width: 100%; }
 .section {
   min-height: 100svh;
@@ -29,6 +47,22 @@
   justify-content: flex-start;
 }
 .sectionContent > :global(.h-full) { height: auto; flex: none; }
+.section:is([id="footer"], [id="contact"]) .sectionContent {
+  padding-top: 60px;
+}
+
+.section :global([data-mobile-footer]) [data-mobile-home-title] {
+  margin: 0;
+  padding: 0;
+}
+
+.section :global([data-mobile-footer]) [data-mobile-home-description] {
+  margin: 12px 0 0;
+}
+
+.section :global([data-mobile-footer]) [data-mobile-home-description] + ul {
+  margin-top: 24px;
+}
 .fixedUi > header { padding-top: env(safe-area-inset-top, 0px); }
 
 /* Content that previously scrolled inside a locked slide now joins the page. */

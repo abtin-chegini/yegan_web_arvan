@@ -30,6 +30,11 @@
   padding-top: 0;
 }
 
+/* Trim the unused space below the slider without resizing its cards. */
+:global(#mobile-homepage-typography) .section[id="portfolio"] {
+  margin-bottom: -160px;
+}
+
 .section:first-child {
   padding-top: calc(64px + env(safe-area-inset-top, 0px));
 }
@@ -64,11 +69,7 @@
 .section[id="portfolio"] .sectionContent > header {
   position: relative;
   inset: auto;
-}
-
-.section[id="portfolio"] [data-mobile-home-title] {
-  position: relative;
-  top: -40px;
+  margin-top: -40px;
 }
 
 .section[id="portfolio"] :global(.card-slider-mobile) {
@@ -79,6 +80,12 @@
 @media (max-width: 767px) {
   .section[id="portfolio"] :global(.card-slider-mobile .sticky-cards .card) {
     height: min(80%, 36rem);
+    top: min(40%, 18rem);
+  }
+
+  .section[id="portfolio"] :global(.card-slider-mobile .card-slider-nav) {
+    top: calc(min(80%, 36rem) + 16px);
+    bottom: auto;
   }
 
   .section[id="portfolio"] :global(.card-slider-mobile .slider-card-media) {
@@ -118,7 +125,7 @@
 }
 
 .section[id="portfolio"] .sectionContent {
-  gap: var(--mobile-home-content-gap);
+  gap: 10px;
 }
 
 .section[id="portfolio"] .sectionContent > header {
@@ -127,6 +134,10 @@
 
 .section[id="contact"] [data-mobile-home-description] {
   margin-top: var(--mobile-home-heading-gap);
+}
+
+.section[id="contact"] .sectionContent {
+  padding-top: 60px;
 }
 
 .section[id="contact"] [data-mobile-home-description] + ul {
