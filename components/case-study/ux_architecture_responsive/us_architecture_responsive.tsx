@@ -60,7 +60,7 @@ export default function UxArchitectureResponsive({
     <section className="third-section-responsive" data-no-section-swipe>
       <header className="ux-arch-header">
         <h2 className="ux-arch-title">{content.title ?? "UX Architecture"}</h2>
-        <p className="ux-arch-intro">{content.intro}</p>
+        <p className="ux-arch-intro">{content.mobileIntro ?? content.intro}</p>
       </header>
 
       <div className="folders">

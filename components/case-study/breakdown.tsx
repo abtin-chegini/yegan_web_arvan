@@ -511,9 +511,10 @@ function MobileImagePins({
 
 type CaseStudyBreakdownProps = {
   content: CaseStudyBreakdownContent;
+  mobileDescription?: string;
 };
 
-export function CaseStudyBreakdown({ content }: CaseStudyBreakdownProps) {
+export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBreakdownProps) {
   const t = useTranslations("CaseStudies");
   const locale = useLocale();
   const productImage = content.productImage;
@@ -643,6 +644,7 @@ export function CaseStudyBreakdown({ content }: CaseStudyBreakdownProps) {
         <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.1] font-medium tracking-[-0.02em]">
           {t("challengesTitle")}
         </h2>
+        {mobileDescription && <p className="case-challenges-mobile-description mt-3 font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/85 md:hidden" dir="rtl">{mobileDescription}</p>}
       </header>
 
       {/* Mobile / tablet — compact expandable challenges (no scroll) */}

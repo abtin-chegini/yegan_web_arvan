@@ -72,6 +72,7 @@ export type CaseStudyUxItem = {
 };
 
 export type CaseStudyUxContent = {
+  mobileIntro?: string;
   mobileTabTitles?: Record<string, string>;
   title?: string;
   intro: string;
@@ -96,6 +97,7 @@ export type CaseStudyTechSlide = {
 
 export type CaseStudyTechContent = {
   heading: string;
+  mobileDescription?: string;
   slides: CaseStudyTechSlide[];
 };
 

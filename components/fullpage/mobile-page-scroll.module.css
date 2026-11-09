@@ -1,20 +1,20 @@
 /* These overrides are scoped to the non-homepage mobile container only. */
 .page { position: relative; width: 100%; }
-:global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] {
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) [data-case-overview-heading] {
   margin-top: 20px;
 }
-:global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] h1 {
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) [data-case-overview-heading] h1 {
   font-size: 34px;
   line-height: 1.4;
 }
-:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.case-overview-mobile-description) {
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.case-overview-mobile-description) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
 @media (max-width: 374px) {
-  :global(html[lang="fa"]) .page[data-case-study="bilit4u"] [data-case-overview-heading] h1 {
+  :global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) [data-case-overview-heading] h1 {
     font-size: 30px;
   }
 }
@@ -119,6 +119,161 @@
 .content :global(.tech-stack-slider--mobile) {
   height: max(34rem, calc(100svh - 8rem));
   flex: none;
+}
+
+/* Persian Bilit4u and Tealnex introductions follow the homepage's 64px section rhythm and 12/24px
+   heading/content gaps. Natural heights avoid adding empty viewport space. */
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) {
+  --background: #FCF6EF;
+  background-color: var(--background);
+  --mobile-home-heading-gap: 12px;
+  --mobile-home-content-gap: 24px;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .content {
+  background-color: var(--background);
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] .section,
+:global(html[lang="fa"]) .page[data-case-study="tealnex"] .section:is([id="overview"], [id="challenge"], [id="approach"], [id="design"]) {
+  min-height: 0;
+  padding-block: 0;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .section:first-child {
+  padding-top: calc(64px + env(safe-area-inset-top, 0px));
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .section:last-child {
+  padding-bottom: calc(64px + var(--mobile-bottom-navigation-height));
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .sectionContent > :global(.h-full) {
+  min-height: 0;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .sectionContent > div > header,
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.ux-arch-header) {
+  padding: 0;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .sectionContent > div > header > p,
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.ux-arch-intro) {
+  margin-top: var(--mobile-home-heading-gap);
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.case-challenges-mobile-description) {
+  font-size: clamp(12px, 3.5vw, 15px);
+  white-space: nowrap;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) .section[id="challenge"] header + div,
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.process-mobile-timeline) {
+  margin-top: var(--mobile-home-content-gap);
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.bas) {
+  min-height: 0;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.bas__mobile-description) {
+  white-space: pre-line;
+  font-size: clamp(12px, 3.5vw, 15px);
+  line-height: 1.9;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.bas__controls--captioned) {
+  width: min(calc(100% - 2.5rem), 22rem);
+  margin-inline: auto;
+  margin-top: var(--mobile-home-content-gap);
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.bas__controls--captioned .card-slider-nav-title) {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+:global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"]) :global(.bas__controls--captioned .card-slider-nav-btn) {
+  flex-shrink: 0;
+}
+
+/* Tealnex uses concise two-line introductions on mobile only. */
+:global(html[lang="fa"]) .page[data-case-study="tealnex"] .section[id="challenge"] button[aria-controls] {
+  direction: rtl;
+  text-align: right;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="tealnex"] :global(.case-overview-mobile-description),
+:global(html[lang="fa"]) .page[data-case-study="tealnex"] :global(.case-process-mobile-description) {
+  display: block;
+  white-space: pre-line;
+  font-size: clamp(12px, 3.5vw, 15px);
+  line-height: 1.9;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.third-section-responsive) {
+  gap: var(--mobile-home-content-gap);
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.ux-arch-intro) {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  text-wrap: pretty;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.folder:last-child) {
+  margin-bottom: 0;
+}
+
+/* Keep UX as a full screen; Frontend follows its measured cards and controls
+   so unused canvas space cannot push the footer away. */
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] .section[id="development"] {
+  min-height: 100svh;
+  margin-top: 0;
+  padding-top: 64px;
+  padding-bottom: var(--mobile-bottom-navigation-height);
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] .section[id="outcome"] {
+  margin-top: 0;
+  padding-top: 64px;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.tech-stack-slider--mobile) {
+  --tech-stack-heading-gap: 24px;
+  height: calc(var(--tech-stack-cards-bottom, 24rem) + var(--mobile-home-content-gap) + 44px);
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.tech-stack-slider__header) {
+  width: 100%;
+  padding-inline: 0;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.tech-stack-slider__intro) {
+  margin: var(--mobile-home-heading-gap) 0 0;
+  font-size: clamp(11px, 3.2vw, 15px);
+  line-height: 1.9;
+  color: rgb(29 53 87 / 0.85);
+  white-space: nowrap;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] :global(.tech-stack-slider__nav) {
+  top: calc(var(--tech-stack-cards-bottom, 24rem) + var(--mobile-home-content-gap));
+  bottom: auto;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] .section[id="footer"] {
+  min-height: 100svh;
+  margin-top: 64px;
+  padding-top: 0;
+}
+
+:global(html[lang="fa"]) .page[data-case-study="bilit4u"] .section[id="footer"] .sectionContent {
+  flex: 1 0 auto;
+  justify-content: flex-start;
+  padding-top: 130px;
 }
 
 @media (prefers-reduced-motion: reduce) {

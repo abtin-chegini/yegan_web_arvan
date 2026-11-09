@@ -665,7 +665,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
         <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : "max-w-md")}>
           {mobileDescription ? (
             <>
-              <span className="md:hidden">{mobileDescription}</span>
+              <span className="case-process-mobile-description md:hidden">{mobileDescription}</span>
               <span className="hidden md:inline">{locale === "fa" ? t("processDescription") : INTRO}</span>
             </>
           ) : (

@@ -12,6 +12,7 @@ export type StackSliderSlide = {
   /** Optional square crop for small viewports */
   imageMobile?: string | null;
   alt?: string;
+  caption?: string;
 };
 
 export type BeforeAfterSliderProps = {
@@ -23,6 +24,7 @@ export type BeforeAfterSliderProps = {
   stackSize?: number;
   title?: string;
   description?: string;
+  mobileDescription?: string;
   centerHeader?: boolean;
 };
 
@@ -90,10 +92,13 @@ export default function BeforeAfterSlider({
   stackSize = DEFAULT_STACK_SIZE,
   title,
   description,
+  mobileDescription,
   centerHeader = false,
 }: BeforeAfterSliderProps) {
   const tooltips = useTranslations("Tooltips");
   const locale = useLocale();
+  const isRtl = locale === "fa";
+  const hasCaptions = slides.some((slide) => slide.caption);
   const formatNumber = (number: number) => new Intl.NumberFormat(locale, {
     minimumIntegerDigits: 2,
     useGrouping: false,
@@ -117,6 +122,12 @@ export default function BeforeAfterSlider({
     const mq = window.matchMedia(MOBILE_MEDIA);
     const visibleCount = Math.min(stackSize, slides.length);
     const backOffset = visibleCount - 1;
+    // In the mobile 3D stack, the last DOM card is nearest the viewer.
+    // Keep the caption's active slide on that card as the stack rotates.
+    const slideAtPosition = (position: number) => {
+      const offset = hasCaptions && mq.matches ? backOffset : 0;
+      return slides[(frontSlideIndex + position - offset + slides.length) % slides.length];
+    };
 
     let frontSlideIndex = 0;
     let isSliderAnimating = false;
@@ -174,7 +185,7 @@ export default function BeforeAfterSlider({
       isSliderAnimating = false;
 
       for (let i = 0; i < visibleCount; i += 1) {
-        const data = slides[(frontSlideIndex + i) % slides.length];
+        const data = slideAtPosition(i);
         track.appendChild(createSlide(data));
       }
       placeStack();
@@ -189,8 +200,7 @@ export default function BeforeAfterSlider({
       const nextIndex = (frontSlideIndex + 1) % slides.length;
       syncIndex(nextIndex);
 
-      const newBackIndex = (frontSlideIndex + backOffset) % slides.length;
-      const nextSlideData = slides[newBackIndex];
+      const nextSlideData = slideAtPosition(backOffset);
       const newSlide = createSlide(nextSlideData);
 
       track!.appendChild(newSlide);
@@ -233,7 +243,7 @@ export default function BeforeAfterSlider({
         (frontSlideIndex - 1 + slides.length) % slides.length;
       syncIndex(prevIndex);
 
-      const prevSlideData = slides[frontSlideIndex];
+      const prevSlideData = slideAtPosition(0);
       const newSlide = createSlide(prevSlideData);
 
       track!.insertBefore(newSlide, track!.firstChild);
@@ -317,7 +327,7 @@ export default function BeforeAfterSlider({
       getSlides().forEach((slide) => gsap.killTweensOf(slide));
       track.innerHTML = "";
     };
-  }, [slides, stackSize]);
+  }, [slides, stackSize, hasCaptions]);
 
   const goPrev = useCallback(() => apiRef.current?.goPrev(), []);
   const goNext = useCallback(() => apiRef.current?.goNext(), []);
@@ -335,7 +345,10 @@ export default function BeforeAfterSlider({
         <header className={`bas__header${centerHeader ? " bas__header--center" : ""}`}>
           {title ? <h2 className="bas__title">{title}</h2> : null}
           {description ? (
-            <p className="bas__description">{description}</p>
+            <p className="bas__description">{mobileDescription ? <>
+              <span className="hidden md:inline">{description}</span>
+              <span className="bas__mobile-description md:hidden">{mobileDescription}</span>
+            </> : description}</p>
           ) : null}
         </header>
       ) : null}
@@ -391,22 +404,29 @@ export default function BeforeAfterSlider({
       </div>
 
       {/* Mobile / tablet text controls — hidden on desktop */}
-      <div className="bas__controls">
+      <div className={`bas__controls${hasCaptions ? " bas__controls--captioned" : ""}`}>
         <button
           type="button"
-          className="bas__btn"
+          className={hasCaptions ? "card-slider-nav-btn" : "bas__btn"}
           aria-label={tooltips("previousSlide")}
           onClick={goPrev}
         >
-          {prevLabel}
+          {hasCaptions ? <>
+            {isRtl ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("previousSlide")}</span>
+          </> : prevLabel}
         </button>
+        {hasCaptions && <span className="card-slider-nav-title" aria-live="polite" aria-atomic="true">{slides[activeIndex]?.caption}</span>}
         <button
           type="button"
-          className="bas__btn"
+          className={hasCaptions ? "card-slider-nav-btn" : "bas__btn"}
           aria-label={tooltips("nextSlide")}
           onClick={goNext}
         >
-          {nextLabel}
+          {hasCaptions ? <>
+            {isRtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            <span className={arrowStyles.tooltip} data-tooltip aria-hidden="true">{tooltips("nextSlide")}</span>
+          </> : nextLabel}
         </button>
       </div>
     </div>

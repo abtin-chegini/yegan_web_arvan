@@ -51,17 +51,21 @@ function MetaCardIcon({
 
 type CaseStudyOverviewProps = {
   content: CaseStudyOverviewContent;
+  mobileTitle?: string;
   mobileDescription?: string;
 };
 
-export function CaseStudyOverview({ content, mobileDescription }: CaseStudyOverviewProps) {
+export function CaseStudyOverview({ content, mobileTitle, mobileDescription }: CaseStudyOverviewProps) {
   const [selectedCard, setSelectedCard] = useState<CaseStudyMetaCard | null>(null);
   const reduceMotion = useReducedMotion();
   return (
     <div className="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-6 text-center sm:gap-8 lg:gap-10">
       <header data-case-overview-heading className="fullpage-reveal flex w-full max-w-3xl flex-col items-center gap-3 sm:gap-4 lg:gap-5">
         <h1 className="font-serif text-[clamp(1.7rem,4.2vw,3.15rem)] leading-[1.15] font-medium tracking-[-0.02em] text-[#1d3557]">
-          {content.title}
+          {mobileTitle ? <>
+            <span className="hidden md:inline">{content.title}</span>
+            <span className="md:hidden">{mobileTitle}</span>
+          </> : content.title}
         </h1>
         <p className="max-w-2xl font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/88 sm:text-[0.95rem] lg:text-[1.05rem] lg:leading-[1.7]">
           {mobileDescription ? <>

@@ -87,8 +87,15 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
     let windowWidth = slider.clientWidth || window.innerWidth;
     let windowHeight = slider.clientHeight || window.innerHeight;
     let windowCenterX = windowWidth / 2;
-    // Sit the arc a bit lower so the heading has room above
-    let arcBaselineY = windowHeight * (isMobile ? 0.5 : 0.52);
+    const getArcBaseline = () => {
+      const headingGap = getComputedStyle(slider).getPropertyValue("--tech-stack-heading-gap");
+      const header = slider.querySelector<HTMLElement>(".tech-stack-slider__header");
+      if (isMobile && headingGap && header) {
+        return header.offsetHeight + parseFloat(headingGap) + slideHeight / 2 + centerLift;
+      }
+      return windowHeight * (isMobile ? 0.5 : 0.52);
+    };
+    let arcBaselineY = getArcBaseline();
 
     let scrollTarget = 0;
     let scrollCurrent = 0;
@@ -137,10 +144,14 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
     function layoutSlides(scrollOffset: number) {
       let closestIndex = 0;
       let closestDist = Infinity;
+      let cardsBottom = 0;
       const distances: number[] = [];
 
       slideParts.forEach(({ slideEl }, i) => {
         const transform = computeSlideTransform(i, scrollOffset);
+        if (transform.x + transform.width > 0 && transform.x < windowWidth) {
+          cardsBottom = Math.max(cardsBottom, transform.y + transform.height);
+        }
         distances[i] = transform.distanceFromCenter;
         if (transform.distanceFromCenter < closestDist) {
           closestDist = transform.distanceFromCenter;
@@ -154,6 +165,10 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
           zIndex: transform.zIndex,
         });
       });
+
+      if (isMobile && content.mobileDescription) {
+        slider!.style.setProperty("--tech-stack-cards-bottom", `${cardsBottom}px`);
+      }
 
       slideParts.forEach(({ slideEl, desc }, i) => {
         const isSelected = i === closestIndex;
@@ -192,7 +207,7 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
       windowWidth = slider.clientWidth || window.innerWidth;
       windowHeight = slider.clientHeight || window.innerHeight;
       windowCenterX = windowWidth / 2;
-      arcBaselineY = windowHeight * (isMobile ? 0.5 : 0.52);
+      arcBaselineY = getArcBaseline();
       layoutSlides(scrollCurrent);
     };
 
@@ -214,9 +229,10 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
       disposed = true;
       cancelAnimationFrame(rafId);
       scrollApiRef.current = null;
+      slider.style.removeProperty("--tech-stack-cards-bottom");
       window.removeEventListener("resize", onResize);
     };
-  }, [slideCount, titlesKey, variant, isRtl]);
+  }, [slideCount, titlesKey, variant, isRtl, content.mobileDescription]);
 
   const goPrev = useCallback(() => {
     scrollApiRef.current?.goPrev();
@@ -238,6 +254,9 @@ export function TechStack({ content, variant = "desktop" }: TechStackProps) {
     >
       <header className="tech-stack-slider__header">
         <h2 className="tech-stack-slider__heading">{content.heading}</h2>
+        {variant === "mobile" && content.mobileDescription && (
+          <p className="tech-stack-slider__intro">{content.mobileDescription}</p>
+        )}
       </header>
 
       {content.slides.map((slide, index) => (

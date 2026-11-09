@@ -4,6 +4,7 @@ import {useLocale, useTranslations} from "next-intl";
 
 import type { CaseStudy } from "@/lib/case-studies";
 import { getCaseStudyContent } from "@/lib/case-study-content";
+import { useMobileViewport } from "@/lib/use-mobile-viewport";
 import BeforeAfterSlider from "@/components/case-study/BeforeAfterSlider";
 import { ANNOTATIONS, CaseStudyBreakdown } from "@/components/case-study/breakdown";
 import { CaseStudyOverview } from "@/components/case-study/overview";
@@ -26,14 +27,18 @@ function CaseStudySectionContent({
   sectionIndex,
 }: CaseStudySectionContentProps) {
   const locale = useLocale();
+  const isMobile = useMobileViewport();
   const images = useTranslations("Images");
   const t = useTranslations(`CaseStudies.projects.${study.slug}`);
   const section = study.sections[sectionIndex];
   const content = getCaseStudyContent(study.slug);
+  const isBilit4uFa = locale === "fa" && study.slug === "bilit4u";
+  const isTealnexFa = locale === "fa" && study.slug === "tealnex";
+  const hasMobileIntro = isBilit4uFa || isTealnexFa;
 
   if (content) {
     if (sectionIndex === 0) {
-      return <CaseStudyOverview mobileDescription={locale === "fa" && study.slug === "bilit4u" ? t("mobileDescription") : undefined} content={{
+      return <CaseStudyOverview mobileTitle={hasMobileIntro ? t("mobileTitle") : undefined} mobileDescription={hasMobileIntro ? t("mobileDescription") : undefined} content={{
         ...content.overview,
         title: t("title"),
         description: t("description"),
@@ -81,17 +86,20 @@ function CaseStudySectionContent({
       }} />;
     }
     if (sectionIndex === 1) {
-      return <CaseStudyBreakdown content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
+      return <CaseStudyBreakdown mobileDescription={hasMobileIntro ? t("challengesMobileDescription") : undefined} content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
     }
-    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u"} mobileDescription={study.slug === "tealtile" && locale === "fa" ? t("processMobileDescription") : undefined} />;
+    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u" || isTealnexFa} mobileDescription={locale === "fa" && ["tealtile", "tealnex"].includes(study.slug) ? t("processMobileDescription") : undefined} />;
     if (sectionIndex === 3) {
+      const slideOrder = isBilit4uFa && isMobile ? [0, 2, 3, 1] : content.design.slides.map((_, index) => index);
       return (
         <BeforeAfterSlider
+          mobileDescription={hasMobileIntro ? t("design.mobileDescription") : undefined}
           centerHeader={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug)}
-          slides={content.design.slides.map((slide, index) => ({
-            image: slide.image,
-            imageMobile: slide.imageMobile ?? undefined,
-            alt: images(`projects.${study.slug}.design.${index}`),
+          slides={slideOrder.map((slideIndex, index) => ({
+            image: content.design.slides[slideIndex].image,
+            imageMobile: content.design.slides[slideIndex].imageMobile ?? undefined,
+            caption: hasMobileIntro ? t(`design.captions.${index}`) : undefined,
+            alt: images(`projects.${study.slug}.design.${slideIndex}`),
           }))}
           title={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug) ? t("design.title") : content.design.title}
           description={locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug) ? t("design.description") : content.design.description}
@@ -102,7 +110,7 @@ function CaseStudySectionContent({
       const localizeUx = locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug);
       return <CaseStudyUxArchitecture content={{
         ...content.uxArchitecture,
-        ...(locale === "fa" && study.slug === "bilit4u" ? {mobileTabTitles: Object.fromEntries(["search", "results", "seats"].map((id) => [id, t(`uxArchitecture.items.${id}.mobileTitle`)]))} : {}),
+        ...(isBilit4uFa ? {mobileIntro: t("uxArchitecture.mobileIntro"), mobileTabTitles: Object.fromEntries(["search", "results", "seats"].map((id) => [id, t(`uxArchitecture.items.${id}.mobileTitle`)]))} : {}),
         ...(localizeUx ? {title: t("uxArchitecture.title"), intro: t("uxArchitecture.intro")} : {}),
         items: content.uxArchitecture.items.map((item, index) => ({
           ...item,
@@ -118,6 +126,7 @@ function CaseStudySectionContent({
       return <CaseStudyTechStack studySlug={study.slug} content={study.slug === "bilit4u" ? {
         ...content.techStack,
         heading: locale === "fa" ? t("techArchitecture.heading") : content.techStack.heading,
+        mobileDescription: isBilit4uFa ? t("techArchitecture.mobileDescription") : undefined,
         slides: content.techStack.slides.map((slide) => {
           const reasonIds = slide.id === "tanstack" ? ["apis", "caching", "filtering"]
             : slide.id === "tailwind" ? ["development", "responsive", "consistency"]
