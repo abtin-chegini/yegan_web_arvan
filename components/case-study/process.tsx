@@ -110,7 +110,7 @@ function timelineNumber(number: string, locale: string) {
     : number;
 }
 
-function useSectionActive(ref: React.RefObject<HTMLElement | null>) {
+function useSectionActive(ref: React.RefObject<HTMLElement | null>, persistOnMobile = false) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -118,7 +118,9 @@ function useSectionActive(ref: React.RefObject<HTMLElement | null>) {
     if (!section) return;
 
     const sync = () => {
-      setActive(section.getAttribute("data-active") === "true");
+      const isActive = section.getAttribute("data-active") === "true";
+      const keepVisible = persistOnMobile && window.matchMedia("(max-width: 767px)").matches;
+      setActive((previous) => isActive || (keepVisible && previous));
     };
     sync();
 
@@ -128,7 +130,7 @@ function useSectionActive(ref: React.RefObject<HTMLElement | null>) {
       attributeFilter: ["data-active"],
     });
     return () => observer.disconnect();
-  }, [ref]);
+  }, [ref, persistOnMobile]);
 
   return active;
 }
@@ -648,7 +650,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
   const mounted = useSyncExternalStore(subscribeToMount, getMountedSnapshot, getServerMountedSnapshot);
   const preferReducedMotion = useReducedMotion();
   const reduceMotion = mounted ? preferReducedMotion : false;
-  const active = useSectionActive(sectionRef);
+  const active = useSectionActive(sectionRef, locale === "fa");
   const progress = useTimelineProgress(Boolean(mounted && active));
 
 

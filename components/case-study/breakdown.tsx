@@ -619,7 +619,9 @@ export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBrea
     if (!section) return;
 
     const sync = () => {
-      setActive(section.getAttribute("data-active") === "true");
+      const isActive = section.getAttribute("data-active") === "true";
+      const keepVisible = locale === "fa" && window.matchMedia("(max-width: 767px)").matches;
+      setActive((previous) => isActive || (keepVisible && previous));
     };
 
     sync();
@@ -629,7 +631,7 @@ export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBrea
       attributeFilter: ["data-active"],
     });
     return () => observer.disconnect();
-  }, []);
+  }, [locale]);
 
   const showMotion = active && !reduceMotion;
 

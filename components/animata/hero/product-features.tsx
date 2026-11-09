@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 export type ProductFeature = {
   id: string;
   title: string;
-  category?: string;
   imageUrl: string | null;
   imageAlt?: string;
 };
@@ -72,9 +71,9 @@ function FeatureCard({
       whileTap={reduceMotion ? undefined : { scale: 0.98 }}
       style={{ scale: reduceMotion ? 1 : scale }}
       className={cn(
-        "relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-[#1d3557]/12 bg-[#E8E0D4] text-start",
-        "shadow-[0_8px_24px_rgba(29,53,87,0.12)] transition-shadow hover:shadow-xl",
-        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1d3557]",
+        "relative flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-black/10 bg-[#F6F1EB] text-start text-black",
+        "shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow hover:shadow-xl",
+        "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black",
       )}
     >
       {feature.imageUrl && (
@@ -88,14 +87,9 @@ function FeatureCard({
           draggable={false}
         />
       )}
-      <div className="relative z-10 flex h-full w-full flex-col gap-2 bg-linear-to-t from-[#1d3557]/55 from-15% to-transparent p-2 sm:p-3">
-        {feature.category && (
-          <span className="w-fit rounded-xl bg-[#1d3557]/80 px-2 py-1 font-sans text-xs font-medium leading-4 text-white">
-            {feature.category}
-          </span>
-        )}
+      <div className="relative z-10 flex h-full w-full flex-col p-2 sm:p-3">
         <div className="flex-1" />
-        <h3 className="rounded-xl bg-[#1d3557]/65 px-1.5 py-2 text-center font-serif text-[clamp(0.75rem,3.2vw,1rem)] leading-normal font-medium text-white backdrop-blur-sm">
+        <h3 className="rounded-xl bg-[#F6F1EB] px-1.5 py-2 text-center font-serif text-[clamp(0.625rem,2.8vw,0.75rem)] leading-[1.45] font-medium text-black">
           {feature.title}
         </h3>
       </div>
@@ -107,7 +101,7 @@ function FeatureCard({
 /** The three product cards, without the demo heading, copy, or call to action. */
 export default function ProductFeatures({ features, onFeatureClick, className }: ProductFeaturesProps) {
   return (
-    <div dir="ltr" className={cn("relative mx-auto flex w-full max-w-xl flex-nowrap justify-center px-3 pt-6 pb-10", className)}>
+    <div dir="ltr" className={cn("relative mx-auto flex w-full max-w-xl flex-nowrap justify-center px-3 pt-6 pb-3", className)}>
       {features.slice(0, 3).map((feature, index) => (
         <FeatureCard key={feature.id} feature={feature} index={index} onClick={() => onFeatureClick(feature.id)} />
       ))}

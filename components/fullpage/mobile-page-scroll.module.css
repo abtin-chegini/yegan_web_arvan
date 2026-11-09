@@ -227,13 +227,13 @@
   margin-bottom: 0;
 }
 
-/* Keep UX as a full screen; Frontend follows its measured cards and controls
-   so unused canvas space cannot push the footer away. */
+/* Follow the UX cards' natural height so the next heading does not sit below
+   an empty viewport. Both architecture sections share the 64px title spacing. */
 :global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) .section[id="development"] {
-  min-height: 100svh;
+  min-height: 0;
   margin-top: 0;
   padding-top: 64px;
-  padding-bottom: var(--mobile-bottom-navigation-height);
+  padding-bottom: 0;
 }
 
 :global(html[lang="fa"]) .page:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) .section[id="outcome"] {

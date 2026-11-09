@@ -73,7 +73,6 @@ export default function UxArchitectureResponsive({
           features={folders.map((folder) => ({
             id: folder.id,
             title: folder.tabTitle ?? folder.name,
-            category: new Intl.NumberFormat(locale, { useGrouping: false }).format(Number(folder.index)),
             imageUrl: folder.image,
             imageAlt: folder.imageAlt,
           }))}
