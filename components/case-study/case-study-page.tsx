@@ -34,7 +34,8 @@ function CaseStudySectionContent({
   const content = getCaseStudyContent(study.slug);
   const isBilit4uFa = locale === "fa" && study.slug === "bilit4u";
   const isTealnexFa = locale === "fa" && study.slug === "tealnex";
-  const hasMobileIntro = isBilit4uFa || isTealnexFa;
+  const isTealtileFa = locale === "fa" && study.slug === "tealtile";
+  const hasMobileIntro = isBilit4uFa || isTealnexFa || isTealtileFa;
 
   if (content) {
     if (sectionIndex === 0) {
@@ -88,7 +89,7 @@ function CaseStudySectionContent({
     if (sectionIndex === 1) {
       return <CaseStudyBreakdown mobileDescription={hasMobileIntro ? t("challengesMobileDescription") : undefined} content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
     }
-    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u" || isTealnexFa} mobileDescription={locale === "fa" && ["tealtile", "tealnex"].includes(study.slug) ? t("processMobileDescription") : undefined} />;
+    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u" || isTealnexFa || isTealtileFa} mobileDescription={locale === "fa" && ["tealtile", "tealnex"].includes(study.slug) ? t("processMobileDescription") : undefined} />;
     if (sectionIndex === 3) {
       const slideOrder = isBilit4uFa && isMobile ? [0, 2, 3, 1] : content.design.slides.map((_, index) => index);
       return (
@@ -110,7 +111,7 @@ function CaseStudySectionContent({
       const localizeUx = locale === "fa" && ["bilit4u", "tealtile", "tealnex"].includes(study.slug);
       return <CaseStudyUxArchitecture content={{
         ...content.uxArchitecture,
-        ...(isBilit4uFa ? {mobileIntro: t("uxArchitecture.mobileIntro"), mobileTabTitles: Object.fromEntries(["search", "results", "seats"].map((id) => [id, t(`uxArchitecture.items.${id}.mobileTitle`)]))} : {}),
+        ...(hasMobileIntro ? {mobileLayout: "product-cards" as const, mobileIntro: t("uxArchitecture.mobileIntro"), mobileTabTitles: Object.fromEntries(["search", "results", "seats"].map((id) => [id, t(`uxArchitecture.items.${id}.mobileTitle`)]))} : {}),
         ...(localizeUx ? {title: t("uxArchitecture.title"), intro: t("uxArchitecture.intro")} : {}),
         items: content.uxArchitecture.items.map((item, index) => ({
           ...item,
@@ -149,6 +150,10 @@ function CaseStudySectionContent({
         }),
       } : study.slug === "tealnex" ? {
         ...content.techStack,
+        ...(isTealnexFa ? {
+          ...(isMobile ? {heading: t("techArchitecture.heading")} : {}),
+          mobileDescription: t("techArchitecture.mobileDescription"),
+        } : {}),
         slides: content.techStack.slides.map((slide) => {
           const reasonIds = slide.id === "tailwind"
             ? ["responsive", "consistency", "efficiency", "maintainability", "optimization"]
@@ -169,6 +174,10 @@ function CaseStudySectionContent({
         }),
       } : study.slug === "tealtile" ? {
         ...content.techStack,
+        ...(isTealtileFa ? {
+          ...(isMobile ? {heading: t("techArchitecture.heading")} : {}),
+          mobileDescription: t("techArchitecture.mobileDescription"),
+        } : {}),
         slides: content.techStack.slides.map((slide) => {
           const reasonIds = slide.id === "dexie"
             ? ["storage", "persistence", "offline", "structured", "integration"]

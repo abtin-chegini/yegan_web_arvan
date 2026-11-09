@@ -1,8 +1,10 @@
 "use client";
 
 import {useLocale, useTranslations} from 'next-intl';
-import {useId} from 'react';
-import {Link, usePathname, useRouter} from '@/i18n/navigation';
+import {useCallback, useId} from 'react';
+import {usePathname, useRouter} from '@/i18n/navigation';
+import {AnimatedThemeToggler} from '@/components/ui/animated-theme-toggler';
+import {setLocaleTransitionTarget} from '@/lib/locale-transition';
 import {
   Combobox,
   ComboboxContent,
@@ -22,6 +24,36 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
   const target = locale === 'en' ? 'fa' : 'en';
 
   const tooltip = t(target === 'fa' ? 'persian' : 'english');
+
+  const changeDesktopLanguage = useCallback(async () => {
+    const suffix = window.location.search + window.location.hash;
+    setLocaleTransitionTarget(target);
+    try {
+      await new Promise<void>((resolve) => {
+        let finished = false;
+        const finish = () => {
+          if (finished) return;
+          finished = true;
+          observer.disconnect();
+          window.clearTimeout(timeout);
+          resolve();
+        };
+        const observer = new MutationObserver(() => {
+          if (document.documentElement.lang === target) finish();
+        });
+        observer.observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
+        // Release the snapshot even if a route fails or takes unusually long.
+        const timeout = window.setTimeout(finish, 5000);
+        router.push(pathname + suffix, {locale: target, scroll: false});
+      });
+      await Promise.race([
+        document.fonts.ready,
+        new Promise<void>((resolve) => window.setTimeout(resolve, 750)),
+      ]);
+    } finally {
+      setLocaleTransitionTarget(null);
+    }
+  }, [pathname, router, target]);
 
   if (!desktop) {
     return (
@@ -72,10 +104,10 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
 
   return (
     <span className={styles.languageControl}>
-    <Link
-      href={pathname}
-      locale={target}
-      hrefLang={target}
+    <AnimatedThemeToggler
+      onToggleAction={changeDesktopLanguage}
+      onMouseEnter={() => router.prefetch(pathname, {locale: target})}
+      onFocus={() => router.prefetch(pathname, {locale: target})}
       lang={target}
       aria-describedby={tooltipId}
       aria-label={target === 'fa' ? 'تغییر زبان به فارسی' : 'Switch to English'}
@@ -83,7 +115,7 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={target === 'fa' ? '/farsi_icon.png' : '/EN_icon.png'} alt="" width={26} height={26} className={styles.languageIcon} />
-    </Link>
+    </AnimatedThemeToggler>
     <span id={tooltipId} role="tooltip" lang={target} dir={target === "fa" ? "rtl" : "ltr"} className={styles.languageTooltip}>{tooltip}</span>
     </span>
   );

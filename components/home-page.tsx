@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useLocale } from "next-intl";
+import { getLocaleTransitionTarget } from "@/lib/locale-transition";
 
 import { MobileScroll } from "@/components/fullpage/mobile-scroll";
 import { FullpageScroll } from "@/components/fullpage/fullpage-scroll";
@@ -32,8 +33,8 @@ export function HomePage() {
   const locale = useLocale();
   const { section: footerSection } = useSiteFooter();
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
-  const [showPreloader, setShowPreloader] = useState(true);
-  const [introReady, setIntroReady] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(() => getLocaleTransitionTarget() !== locale);
+  const [introReady, setIntroReady] = useState(() => getLocaleTransitionTarget() === locale);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 767px)");

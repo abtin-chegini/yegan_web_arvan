@@ -4,9 +4,12 @@ import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
 
 import Dialog from "@/components/ui/smoothui/dialog";
+import ProductFeatures from "@/components/animata/hero/product-features";
 import type { CaseStudyUxContent } from "@/lib/case-study-content";
 
 type FolderItem = {
+  id: string;
+  image: string | null;
   index: string;
   name: string;
   tabTitle?: string;
@@ -31,6 +34,8 @@ export default function UxArchitectureResponsive({
   const folders = useMemo<FolderItem[]>(
     () =>
       content.items.slice(0, 3).map((item, index) => ({
+        id: item.id,
+        image: item.imageDesktop ?? item.image,
         index: String(index + 1).padStart(2, "0"),
         tabTitle: content.mobileTabTitles?.[item.id],
         name: content.title ? item.title : SHORT_NAMES[index] ?? item.title,
@@ -63,13 +68,28 @@ export default function UxArchitectureResponsive({
         <p className="ux-arch-intro">{content.mobileIntro ?? content.intro}</p>
       </header>
 
-      <div className="folders">
+      {content.mobileLayout === "product-cards" ? (
+        <ProductFeatures
+          features={folders.map((folder) => ({
+            id: folder.id,
+            title: folder.tabTitle ?? folder.name,
+            category: new Intl.NumberFormat(locale, { useGrouping: false }).format(Number(folder.index)),
+            imageUrl: folder.image,
+            imageAlt: folder.imageAlt,
+          }))}
+          onFeatureClick={(id) => {
+            const folder = folders.find((item) => item.id === id);
+            if (folder) handleFolderClick(folder);
+          }}
+        />
+      ) : <div className="folders">
         <div className="row">
           {folders.map((folder) => (
             <button
               type="button"
               className={`folder ${folder.variant}`}
               key={folder.index}
+              aria-label={folder.uxTitle}
               onClick={() => handleFolderClick(folder)}
             >
               <div className="folder-wrapper">
@@ -81,13 +101,13 @@ export default function UxArchitectureResponsive({
                 </div>
 
                 <div className="folder-name">
-                  {!folder.tabTitle && <h1>{folder.name}</h1>}
+                  {!content.hideMobileFolderTitles && !folder.tabTitle && <h1>{folder.name}</h1>}
                 </div>
               </div>
             </button>
           ))}
         </div>
-      </div>
+      </div>}
 
       <Dialog
         open={dialogOpen}

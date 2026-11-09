@@ -72,7 +72,9 @@ export type CaseStudyUxItem = {
 };
 
 export type CaseStudyUxContent = {
+  mobileLayout?: "product-cards";
   mobileIntro?: string;
+  hideMobileFolderTitles?: boolean;
   mobileTabTitles?: Record<string, string>;
   title?: string;
   intro: string;
