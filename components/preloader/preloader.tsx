@@ -10,7 +10,7 @@ CustomEase.create("hop", "0.9, 0, 0.1, 1");
 CustomEase.create("glide", "0.8, 0, 0.2, 1");
 
 const LOGO_SRC =
-  "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.svg?updatedAt=1792670046410";
+  "https://cdn.yeganehheshmat.com/yeganehheshmat_logo.svg";
 
 const BACKDROP_TOP = ["01", "02", "03", "04", "05", "06"];
 const BACKDROP_BOTTOM = ["07", "08", "09", "10", "11", "12"];
@@ -145,7 +145,7 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
           <picture>
             <source
               media="(min-width: 768px)"
-              srcSet="https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo2.png"
+              srcSet="https://cdn.yeganehheshmat.com/yeganehheshmat_logo2.png"
             />
             <img id="pbc-logo" src={LOGO_SRC} alt="" />
           </picture>

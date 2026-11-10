@@ -291,7 +291,7 @@
   transform-origin: center;
 }
 
-.tech-stack-slider .tech-stack-slider__logo:is([data-tech="threejs"], [data-tech="pdfjs"]) {
+.tech-stack-slider:not(.tech-stack-slider--mobile) .tech-stack-slider__logo:is([data-tech="threejs"], [data-tech="pdfjs"]) {
   transform: scale(2);
   transform-origin: center;
 }

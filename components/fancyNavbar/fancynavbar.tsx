@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { type SectionId } from "@/lib/sections";
 
 const LOGO_SRC =
-  "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.svg?updatedAt=1792670046410";
+  "https://cdn.yeganehheshmat.com/yeganehheshmat_logo.svg";
 const MENU_BG_BASE = "https://cdn.yeganehheshmat.com/backgrounds/En/Menu";
 const MENU_BACKGROUNDS = [
   {minWidth: 1920, filename: "menu_1920_HD_FULL_EN.jpg"},

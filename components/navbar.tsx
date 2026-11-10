@@ -13,7 +13,7 @@ import { isNavRouteId, NAV_ROUTES } from "@/lib/nav-routes";
 import { sections, type SectionId } from "@/lib/sections";
 
 const LOGO_SRC =
-  "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.png";
+  "https://cdn.yeganehheshmat.com/yeganehheshmat_logo.png";
 
 export type NavbarProps = {
   /** Override section navigation for non-routed section ids */

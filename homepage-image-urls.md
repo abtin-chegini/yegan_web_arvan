@@ -96,12 +96,12 @@ Source audit covering desktop and mobile backgrounds, icons, portfolio cards, pr
 
 ## Preloader
 
-- image: https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.svg?updatedAt=1792670046410
-- image: https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo2.png
+- image: https://cdn.yeganehheshmat.com/yeganehheshmat_logo.svg
+- image: https://cdn.yeganehheshmat.com/yeganehheshmat_logo2.png
 
 ## Navigation
 
-- image: https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.png
+- image: https://cdn.yeganehheshmat.com/yeganehheshmat_logo.png
 - image: https://ik.imagekit.io/s7yz964lq/assets/background_menu.jpg?tr=w-800,q-80
 - image: https://ik.imagekit.io/s7yz964lq/assets/MENU.jpg
 
