@@ -62,6 +62,11 @@ export function AboutSectionMobile() {
 											width={64}
 											height={64}
 											className="size-14 shrink-0 object-contain object-center min-[375px]:size-16"
+											onError={({currentTarget}) => {
+												const filename = (feature.mobileIcon ?? feature.icon).split("/").pop();
+												const fallback = `/homepage/${filename}`;
+												if (currentTarget.getAttribute("src") !== fallback) currentTarget.src = fallback;
+											}}
 										/>
 										<span className="min-w-0 flex-1">
 											<span id={titleId} className="mobile-card-title block font-serif tracking-[-0.01em] text-[var(--section-about-fg)]">

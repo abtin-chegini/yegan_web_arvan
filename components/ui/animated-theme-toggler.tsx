@@ -269,17 +269,20 @@ export const AnimatedThemeToggler = ({
       viewportHeight
     )
 
-    const root = document.documentElement
-    root.dataset.magicuiThemeVt = "active"
-    root.style.setProperty(
-      "--magicui-theme-toggle-vt-duration",
-      `${duration}ms`
-    )
-    // Pin the collapsed clip-path via CSS so Firefox does not paint the new
-    // theme unclipped between snapshot and the ready.then() JS animation.
-    root.style.setProperty("--magicui-theme-vt-clip-from", clipPath[0])
+    const prepareSnapshot = () => {
+      const root = document.documentElement
+      root.dataset.magicuiThemeVt = "active"
+      root.style.setProperty(
+        "--magicui-theme-toggle-vt-duration",
+        `${duration}ms`
+      )
+      // Keep the new snapshot collapsed until its reveal animation starts.
+      root.style.setProperty("--magicui-theme-vt-clip-from", clipPath[0])
+    }
+    prepareSnapshot()
     const cleanup = () => {
       isTransitioningRef.current = false
+      const root = document.documentElement
       delete root.dataset.magicuiThemeVt
       root.style.removeProperty("--magicui-theme-toggle-vt-duration")
       root.style.removeProperty("--magicui-theme-vt-clip-from")
@@ -287,9 +290,16 @@ export const AnimatedThemeToggler = ({
     }
 
     isTransitioningRef.current = true
-    const transition = document.startViewTransition(() => {
-      if (onToggleAction) return onToggleAction()
-      flushSync(applyTheme)
+    const transition = document.startViewTransition(async () => {
+      if (onToggleAction) {
+        await onToggleAction()
+        // A locale layout remount replaces <html>, including its temporary
+        // styles. Restore clipping and stacking on the current root before
+        // the browser captures the new page.
+        prepareSnapshot()
+      } else {
+        flushSync(applyTheme)
+      }
     })
     if (typeof transition?.finished?.finally === "function") {
       transition.finished.finally(cleanup).catch(() => {})

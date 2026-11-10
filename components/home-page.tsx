@@ -33,8 +33,9 @@ export function HomePage() {
   const locale = useLocale();
   const { section: footerSection } = useSiteFooter();
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
-  const [showPreloader, setShowPreloader] = useState(() => getLocaleTransitionTarget() !== locale);
-  const [introReady, setIntroReady] = useState(() => getLocaleTransitionTarget() === locale);
+  const [isLocaleTransition] = useState(() => getLocaleTransitionTarget() === locale);
+  const [showPreloader, setShowPreloader] = useState(!isLocaleTransition);
+  const [introReady, setIntroReady] = useState(isLocaleTransition);
 
   useEffect(() => {
     const query = window.matchMedia("(max-width: 767px)");
@@ -159,7 +160,7 @@ export function HomePage() {
         {isMobile === true ? (
           <HeroSectionMobile introReady={introReady} />
         ) : (
-          <HeroSection introReady={introReady} />
+          <HeroSection introReady={introReady} animateIntro={!isLocaleTransition} />
         )}
         {isMobile === true ? <AboutSectionMobile /> : <AboutSection />}
         {isMobile === true ? <ProcessSectionMobile /> : <ProcessSection />}

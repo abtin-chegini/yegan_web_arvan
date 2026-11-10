@@ -105,6 +105,7 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
   return (
     <span className={styles.languageControl}>
     <AnimatedThemeToggler
+      duration={650}
       onToggleAction={changeDesktopLanguage}
       onMouseEnter={() => router.prefetch(pathname, {locale: target})}
       onFocus={() => router.prefetch(pathname, {locale: target})}

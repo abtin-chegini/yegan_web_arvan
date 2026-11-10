@@ -13,9 +13,10 @@ CustomEase.create("hero-glide", "0.8, 0, 0.2, 1");
 
 type HeroSectionProps = {
   introReady?: boolean;
+  animateIntro?: boolean;
 };
 
-export function HeroSection({ introReady = false }: HeroSectionProps) {
+export function HeroSection({ introReady = false, animateIntro = true }: HeroSectionProps) {
   const t = useTranslations("Hero");
   const locale = useLocale();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -23,7 +24,8 @@ export function HeroSection({ introReady = false }: HeroSectionProps) {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (!introReady) return;
+    // Locale reveals capture the complete title rather than its entrance fade.
+    if (!introReady || !animateIntro) return;
 
     const root = rootRef.current;
     const title = titleRef.current;
@@ -81,7 +83,7 @@ export function HeroSection({ introReady = false }: HeroSectionProps) {
 
     });
     return () => media.revert();
-  }, [introReady, locale]);
+  }, [introReady, locale, animateIntro]);
 
   return (
     <div
