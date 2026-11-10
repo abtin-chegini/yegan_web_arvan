@@ -59,6 +59,10 @@ HTML loads.
 
 ## Media
 
+Only the site logo, favicon, fonts, FA/EN language icons, and SVG strokes are
+served locally. All other images load directly from their CDN URLs, without
+local image fallbacks or copies in `public/`.
+
 CDN images and videos are fetched by the browser independently of page generation.
 `next/image` uses `lib/imagekit-loader.ts` to request resized ImageKit images
 directly from the CDN, preserving existing URL query parameters. Existing

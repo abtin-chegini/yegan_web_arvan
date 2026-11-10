@@ -1,7 +1,6 @@
 "use client";
 
 import {useLocale, useTranslations} from "next-intl";
-import {useState} from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -80,25 +79,19 @@ export function AboutFeatureIcon({
   mobile?: boolean;
   className?: string;
 }) {
-  const [useLocalAsset, setUseLocalAsset] = useState(false);
-  const source = (url: string) => useLocalAsset
-    ? `/homepage/${url.split("/").pop()}`
-    : url;
-
   return (
     <picture className="shrink-0" data-home-about-icon={feature.id}>
       {!mobile && <>
-        <source media="(min-width: 1024px)" srcSet={source(feature.icon)} />
-        <source media="(min-width: 768px)" srcSet={source(feature.tabletIcon)} />
+        <source media="(min-width: 1024px)" srcSet={feature.icon} />
+        <source media="(min-width: 768px)" srcSet={feature.tabletIcon} />
       </>}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={source(feature.mobileIcon ?? feature.icon)}
+        src={feature.mobileIcon ?? feature.icon}
         alt=""
         width={mobile ? 64 : 56}
         height={mobile ? 64 : 56}
         className={className}
-        onError={() => setUseLocalAsset(true)}
       />
     </picture>
   );

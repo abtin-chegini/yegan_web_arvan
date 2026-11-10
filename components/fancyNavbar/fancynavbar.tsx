@@ -139,9 +139,8 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
   const t = useTranslations("Nav");
   const images = useTranslations("Images");
   const [expanded, setExpanded] = useState(false);
-  const [useLocalMenuBackground, setUseLocalMenuBackground] = useState(false);
   const menuBackgroundSource = (filename: string) =>
-    `${useLocalMenuBackground ? "/images/menu" : MENU_BG_BASE}/${encodeURIComponent(filename)}`;
+    `${MENU_BG_BASE}/${encodeURIComponent(filename)}`;
   const rootRef = useRef<HTMLDivElement>(null);
   const onNavigateRef = useRef(onNavigate);
   useLayoutEffect(() => {
@@ -163,11 +162,6 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
   useLayoutEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-
-    const background = root.querySelector<HTMLImageElement>(".menu-bg-image");
-    if (background?.complete && background.naturalWidth === 0) {
-      setUseLocalMenuBackground(true);
-    }
 
     const navToggle = root.querySelector<HTMLElement>("[data-menu-toggle]");
     const menu = root.querySelector<HTMLElement>(".menu");
@@ -380,7 +374,6 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
                 src={menuBackgroundSource("menu_768_TABLET_MD_EN.jpg")}
                 alt=""
                 className="menu-bg-image"
-                onError={() => setUseLocalMenuBackground(true)}
               />
             </picture>
           </div>

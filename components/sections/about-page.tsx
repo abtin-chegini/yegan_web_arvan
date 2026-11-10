@@ -10,10 +10,10 @@ import { SitePageScroll } from "@/components/site-page/site-page-scroll";
 import { sections, type Section } from "@/lib/sections";
 import styles from "./about-page.module.css";
 
-const ASSETS = "https://ik.imagekit.io/s7yz964lq/assets/about";
+const ASSETS = "https://cdn.yeganehheshmat.com/aboutme";
 const aboutSection: Section = {
   ...sections.find((section) => section.id === "about")!,
-  image: `${ASSETS}/aboutme_background.jpg`,
+  image: "https://ik.imagekit.io/s7yz964lq/assets/about/aboutme_background.jpg",
   images: undefined,
   contentInset: "default",
   objectPosition: "center",
@@ -105,7 +105,7 @@ export function AboutPageView() {
         <main className={styles.layout}>
           <div className={styles.portrait}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${ASSETS}/Yeganeh%20Heshmat%20Profile_11zon.png`} alt={images("portrait")} width={600} height={660} fetchPriority="high" />
+            <img src={`${ASSETS}/aboutme_Yeganeh_Heshmat_Profile_11.png`} alt={images("portrait")} width={600} height={660} fetchPriority="high" />
           </div>
           <div className={styles.content}>
             <header className={styles.intro}>

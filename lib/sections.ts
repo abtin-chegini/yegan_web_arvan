@@ -12,7 +12,7 @@ export type SectionId = z.infer<typeof sectionIdSchema>;
 
 const CDN = "https://ik.imagekit.io/s7yz964lq/assets/SectionBackgrounds";
 
-const imageSourceSchema = z.union([z.url(), z.string().regex(/^\/images\/[^\s]+$/)]);
+const imageSourceSchema = z.url();
 
 /** Art-directed breakpoints — one image per viewport width */
 export const responsiveImageSchema = z.object({
@@ -139,23 +139,6 @@ const ALL_SIZES: SizeToken[] = [
   "XS_360",
 ];
 
-/** SEC1 home — supplied artwork at each viewport width (640 uses the 390 image). */
-const HOME_IMAGES = responsiveImageSchema.parse({
-  fullHd:
-    "/images/FULL_HD_1920_HOMEPAGE_sec1.jpg",
-  "2xl":
-    "/images/2XL_1536_HOMEPAGE_sec1.jpg",
-  desktopWide:
-    "/images/DESKTOP_STANDARD_1440_HOMEPAGE_sec1.jpg",
-  xl: "/images/XL_DESKTOP_1280_HOMEPAGE_sec1.jpg",
-  lg: "/images/LG_LAPTOP_1024_HOMEPAGE_sec1.jpg",
-  md: "/images/MD_TABLET_768_HOMEPAGE_sec1.jpg",
-  sm: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Hero/MOBILE_STANDARD_390_HOMEPAGE_sec1.jpg?updatedAt=1792657240786",
-  mobile:
-    "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Hero/MOBILE_STANDARD_390_HOMEPAGE_sec1.jpg?updatedAt=1792657240786",
-  xs: "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/Hero/XS_360_HOMEPAGE_sec1.jpg?updatedAt=1792657240898",
-});
-
 const HOME_EN_CDN = "https://cdn.yeganehheshmat.com/backgrounds/En/Homepage";
 const HOME_FA_CDN = "https://cdn.yeganehheshmat.com/backgrounds/fa/Homepage";
 
@@ -184,6 +167,8 @@ export const HOME_IMAGES_EN = responsiveImageSchema.parse({
   mobile: `${HOME_EN_CDN}/sec1_HOMEPAGE_390_STANDARD_MOBILE_EN.jpg`,
   xs: `${HOME_EN_CDN}/sec1_HOMEPAGE_360_XS_EN.jpg`,
 });
+
+const HOME_IMAGES = HOME_IMAGES_EN;
 
 /** SEC2 Brand Value — replace tablet/desktop artwork; preserve mobile fallbacks. */
 const ABOUT_IMAGES = responsiveImageSchema.parse({

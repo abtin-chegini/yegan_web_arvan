@@ -8,9 +8,6 @@
 /fonts/*
   Cache-Control: public, max-age=604800, must-revalidate
 
-/image/*
-  Cache-Control: public, max-age=86400, must-revalidate
-
 /stroke_svg/*
   Cache-Control: public, max-age=86400, must-revalidate
 
@@ -48,19 +45,4 @@
   Cache-Control: public, max-age=86400, must-revalidate
 
 /yeganeh_logo.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/next.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/vercel.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/window.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/file.svg
-  Cache-Control: public, max-age=86400, must-revalidate
-
-/globe.svg
   Cache-Control: public, max-age=86400, must-revalidate

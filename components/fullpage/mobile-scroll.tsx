@@ -210,7 +210,7 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
                   {section.id === "home" && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src="/image/sec1_HOMEPAGE_360_XS_FA.jpg"
+                      src="https://cdn.yeganehheshmat.com/backgrounds/responsive_mobile/sec1_HOMEPAGE_360_XS_FA.jpg"
                       alt=""
                       className="absolute inset-0 h-full w-full object-cover object-center"
                       loading="eager"
