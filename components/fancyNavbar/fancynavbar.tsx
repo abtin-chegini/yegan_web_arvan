@@ -15,7 +15,15 @@ import { type SectionId } from "@/lib/sections";
 
 const LOGO_SRC =
   "https://ik.imagekit.io/s7yz964lq/backgrounds/HomePage/yeganehheshmat_logo.svg?updatedAt=1792670046410";
-const MENU_BG_SRC = "https://ik.imagekit.io/s7yz964lq/assets/MENU.jpg";
+const MENU_BG_BASE = "https://cdn.yeganehheshmat.com/backgrounds/En/Menu";
+const MENU_BACKGROUNDS = [
+  {minWidth: 1920, filename: "menu_1920_HD_FULL_EN.jpg"},
+  {minWidth: 1536, filename: "menu_1536_2XL_EN.jpg"},
+  {minWidth: 1440, filename: "menu_1440_STANDARD_DESKTOP_EN.jpg"},
+  {minWidth: 1280, filename: "menu_1280_DESKTOP_XL_EN .jpg"},
+  {minWidth: 1024, filename: "menu_1024_LAPTOP_LG_EN.jpg"},
+  {minWidth: 768, filename: "menu_768_TABLET_MD_EN.jpg"},
+];
 
 function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -131,6 +139,9 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
   const t = useTranslations("Nav");
   const images = useTranslations("Images");
   const [expanded, setExpanded] = useState(false);
+  const [useLocalMenuBackground, setUseLocalMenuBackground] = useState(false);
+  const menuBackgroundSource = (filename: string) =>
+    `${useLocalMenuBackground ? "/images/menu" : MENU_BG_BASE}/${encodeURIComponent(filename)}`;
   const rootRef = useRef<HTMLDivElement>(null);
   const onNavigateRef = useRef(onNavigate);
   useLayoutEffect(() => {
@@ -152,6 +163,11 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
   useLayoutEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+
+    const background = root.querySelector<HTMLImageElement>(".menu-bg-image");
+    if (background?.complete && background.naturalWidth === 0) {
+      setUseLocalMenuBackground(true);
+    }
 
     const navToggle = root.querySelector<HTMLElement>("[data-menu-toggle]");
     const menu = root.querySelector<HTMLElement>(".menu");
@@ -351,12 +367,22 @@ function FancyNavbar({ onNavigate, activeId }: FancyNavbarProps) {
 
         <div className="menu" id="desktop-primary-nav" inert={!expanded}>
           <div className="menu-bg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={MENU_BG_SRC}
-              alt=""
-              className="menu-bg-image"
-            />
+            <picture className="block h-full w-full">
+              {MENU_BACKGROUNDS.map(({minWidth, filename}) => (
+                <source
+                  key={minWidth}
+                  media={`(min-width: ${minWidth}px)`}
+                  srcSet={menuBackgroundSource(filename)}
+                />
+              ))}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={menuBackgroundSource("menu_768_TABLET_MD_EN.jpg")}
+                alt=""
+                className="menu-bg-image"
+                onError={() => setUseLocalMenuBackground(true)}
+              />
+            </picture>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

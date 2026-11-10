@@ -41,7 +41,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             : section.id === "approach"
               ? { ...section, images: CASE_STUDY_SEC3_IMAGES_EN }
               : section.id === "design"
-                ? { ...section, images: CASE_STUDY_SEC4_IMAGES_EN }
+                ? {
+                    ...section,
+                    images: CASE_STUDY_SEC4_IMAGES_EN,
+                    desktopImages: CASE_STUDY_SEC4_IMAGES_EN,
+                  }
                 : section.id === "development" && CASE_STUDY_SEC5_IMAGES_EN[slug]
                   ? { ...section, images: CASE_STUDY_SEC5_IMAGES_EN[slug] }
                   : section.id === "outcome"
@@ -66,6 +70,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   ? {
                       ...section,
                       images: CASE_STUDY_SEC4_IMAGES_FA,
+                      desktopImages: CASE_STUDY_SEC4_IMAGES_EN,
                       objectFit: "cover" as const,
                       backgroundScale: 1,
                     }
