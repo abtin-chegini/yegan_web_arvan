@@ -112,17 +112,17 @@ export function AboutSection() {
         </p>
       </div>
 
-      <div dir={isPersian ? "rtl" : "ltr"} className={isPersian ? "fullpage-reveal grid w-fit max-w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4" : "fullpage-reveal grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5 lg:grid-cols-4"}>
+      <div dir={isPersian ? "rtl" : "ltr"} className={isPersian ? "fullpage-reveal grid w-fit max-w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4" : "fullpage-reveal grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5 lg:w-fit lg:max-w-full lg:grid-cols-4 lg:gap-3"}>
         {aboutFeatures.map((feature, index) => (
           <Card
             key={feature.icon}
             size="sm"
             className="border border-[var(--section-about-fg)]/[0.08] bg-[var(--section-about-card)] py-0 shadow-none ring-0"
           >
-            <CardContent className={isPersian ? "flex items-center gap-2.5 px-3.5 py-2.5 text-start" : "flex items-center gap-3 px-3 py-3 text-start"}>
+            <CardContent className={isPersian ? "flex items-center gap-2.5 px-3.5 py-2.5 text-start" : "flex items-center gap-3 px-3 py-3 text-start lg:gap-2.5 lg:px-3.5 lg:py-2.5"}>
               <AboutFeatureIcon
                 feature={feature}
-                className={isPersian ? "size-11 object-contain sm:size-12" : "size-12 object-contain sm:size-14"}
+                className={isPersian ? "size-11 object-contain sm:size-12" : "size-12 object-contain sm:size-14 lg:size-12"}
               />
               <p className="font-sans text-[0.75rem] font-normal leading-snug text-[var(--section-about-fg)] sm:text-[0.8rem]">
                 {t(`features${index}label`)}

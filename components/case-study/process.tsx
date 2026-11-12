@@ -547,7 +547,7 @@ function MobileTimelineStep({
               variants={mobileDescVariants}
             >
               <span className="process-description-full">{localizedItem.description}</span>
-              {locale === "fa" && <span className="process-description-short">{t(`${item.number}.mobileDescription`)}</span>}
+              {t.has(`${item.number}.mobileDescription`) && <span className="process-description-short">{t(`${item.number}.mobileDescription`)}</span>}
             </motion.p>
           </div>
         </div>
@@ -650,7 +650,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
   const mounted = useSyncExternalStore(subscribeToMount, getMountedSnapshot, getServerMountedSnapshot);
   const preferReducedMotion = useReducedMotion();
   const reduceMotion = mounted ? preferReducedMotion : false;
-  const active = useSectionActive(sectionRef, locale === "fa");
+  const active = useSectionActive(sectionRef, locale === "fa" || compactMobile);
   const progress = useTimelineProgress(Boolean(mounted && active));
 
 
@@ -660,11 +660,11 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
       className="relative mx-auto flex h-full w-full max-w-[96rem] flex-col"
       style={{ color: NAVY }}
     >
-      <header className={cn("shrink-0 pt-1 md:pt-2", locale === "fa" ? "mx-auto w-full max-w-4xl text-center" : "max-w-xl text-start")}>
+      <header className={cn("shrink-0 pt-1 md:pt-2", locale === "fa" ? "mx-auto w-full max-w-4xl text-center" : compactMobile ? "mx-auto w-full max-w-4xl text-center md:mx-0 md:max-w-xl md:text-start" : "max-w-xl text-start")}>
         <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.1] font-medium tracking-[-0.02em]">
           {locale === "fa" ? t("processTitle") : "The Process"}
         </h2>
-        <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : "max-w-md")}>
+        <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : compactMobile ? "mx-auto max-w-3xl text-pretty md:mx-0 md:max-w-md" : "max-w-md")}>
           {mobileDescription ? (
             <>
               <span className="case-process-mobile-description md:hidden">{mobileDescription}</span>
@@ -673,7 +673,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
           ) : (
             <>
               <span className="process-description-full">{locale === "fa" ? t("processDescription") : INTRO}</span>
-              {locale === "fa" && <span className="process-description-short">{t("processMobileDescription")}</span>}
+              {t.has("processMobileDescription") && <span className="process-description-short">{t("processMobileDescription")}</span>}
             </>
           )}
         </p>
@@ -682,7 +682,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
       {/* xs / sm — vertical timeline (md+ hidden) */}
       <div
         className="process-mobile-timeline mt-5 min-h-0 flex-1 overflow-y-auto overscroll-contain pe-1 md:hidden"
-        data-no-section-swipe={compactMobile && locale === "fa" ? undefined : true}
+        data-no-section-swipe={compactMobile ? undefined : true}
       >
         <MobileTimeline
           active={Boolean(mounted && active)}

@@ -31,6 +31,8 @@ type MobilePageScrollProps = {
 
 /** Shared mobile scroll owner for routed pages; the working homepage stays separate. */
 export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
+  const compactCaseStudy = studySlug !== undefined &&
+    ["bilit4u", "tealnex", "tealtile"].includes(studySlug);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const smootherRef = useRef<ScrollSmoother | null>(null);
@@ -226,7 +228,7 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
 
   return (
     <FullpageContext.Provider value={{ activeIndex, goTo, goToId, setScrollPaused }}>
-      <div className={styles.page} data-case-study={studySlug}>
+      <div className={cn(styles.page, compactCaseStudy && styles.compactCaseStudy)} data-case-study={studySlug}>
         <div className={styles.fixedUi}>
           <Navbar activeId={slides[activeIndex]?.navId} foreground={slides[activeIndex]?.foreground} />
           <BackToTop activeIndex={activeIndex} />

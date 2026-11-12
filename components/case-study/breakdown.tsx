@@ -620,7 +620,7 @@ export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBrea
 
     const sync = () => {
       const isActive = section.getAttribute("data-active") === "true";
-      const keepVisible = locale === "fa" && window.matchMedia("(max-width: 767px)").matches;
+      const keepVisible = (locale === "fa" || Boolean(mobileDescription)) && window.matchMedia("(max-width: 767px)").matches;
       setActive((previous) => isActive || (keepVisible && previous));
     };
 
@@ -631,7 +631,7 @@ export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBrea
       attributeFilter: ["data-active"],
     });
     return () => observer.disconnect();
-  }, [locale]);
+  }, [locale, mobileDescription]);
 
   const showMotion = active && !reduceMotion;
 
@@ -642,11 +642,11 @@ export function CaseStudyBreakdown({ content, mobileDescription }: CaseStudyBrea
       className="relative mx-auto flex h-full w-full max-w-[96rem] flex-col"
       style={{ color: TITLE }}
     >
-      <header className={cn("shrink-0 pt-1 md:pt-2", locale === "fa" ? "w-full text-center" : "max-w-xl text-left")}>
+      <header className={cn("shrink-0 pt-1 md:pt-2", locale === "fa" ? "w-full text-center" : mobileDescription ? "w-full text-center md:max-w-xl md:text-left" : "max-w-xl text-left")}>
         <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.1] font-medium tracking-[-0.02em]">
           {t("challengesTitle")}
         </h2>
-        {mobileDescription && <p className="case-challenges-mobile-description mt-3 font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/85 md:hidden" dir="rtl">{mobileDescription}</p>}
+        {mobileDescription && <p className="case-challenges-mobile-description mt-3 font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/85 md:hidden" dir={locale === "fa" ? "rtl" : "ltr"}>{mobileDescription}</p>}
       </header>
 
       {/* Mobile / tablet — compact expandable challenges (no scroll) */}

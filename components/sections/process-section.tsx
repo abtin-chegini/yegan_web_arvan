@@ -107,8 +107,8 @@ export function ProcessSection() {
  const isPersian = useLocale() === "fa";
  const services = processServices.map((service, index) => ({
    ...service,
-   title: t(`service${index}title`),
-   description: t(`service${index}description`),
+   title: t(isPersian ? `service${index}title` : `service${index}titleDesktop`),
+   description: t(isPersian ? `service${index}description` : `service${index}descriptionDesktop`),
    shortDescription: t(`service${index}shortDescription`),
    items: service.items.map((item, itemIndex) => ({...item, label: t(`serviceItem${index * 4 + itemIndex}`)}))
  }));
@@ -116,7 +116,7 @@ export function ProcessSection() {
   return (
     <div className="flex h-full min-h-0 w-full flex-col justify-center">
       <div className="relative grid w-full items-start gap-8 lg:left-[100px] lg:grid-cols-[minmax(14rem,0.7fr)_minmax(0,1.55fr)] lg:gap-x-32">
-        <div className="fullpage-reveal grid grid-cols-1 gap-5 sm:grid-cols-3 sm:items-start sm:gap-4 lg:order-2 lg:w-[calc(100%+90px)] lg:gap-5">
+        <div className={cn("fullpage-reveal grid grid-cols-1 gap-5 sm:grid-cols-3 sm:items-start sm:gap-4 lg:order-2 lg:w-[calc(100%+90px)] lg:gap-5", !isPersian && "relative lg:-left-9")}>
           {services.map((service, index) => (
             <Card
               key={service.title}

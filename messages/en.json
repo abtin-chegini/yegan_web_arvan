@@ -56,45 +56,48 @@
     "tealnexTitle": "Tealnex",
     "tealnexKicker": "B2C Architecture & Renovation / Company",
     "tealnexDescription": "Designed the UX/UI, defined the interaction design and micro-interactions, and delivered the front-end implementation.",
+    "tealnexDescriptionDesktop": "A website for a Canadian architecture and renovation company. I designed the UX/UI and its micro-interactions, then built the front-end myself.",
     "tealtileTitle": "TealTile",
     "tealtileKicker": "B2C Tile Retail & Installation / Shop",
     "tealtileDescription": "My role covered the full digital experience, from website design and UX/UI design to front-end implementation.",
+    "tealtileDescriptionDesktop": "A website for a Canadian tile store that also handles installation. I took care of the whole digital side: website design, UX/UI, and the front-end build, starting from a blank page.",
     "bilit4uTitle": "Bilit4U",
     "bilit4uKicker": "B2B & B2C Tourism / Booking Platform",
     "bilit4uDescription": "I designed and built the front end of a ticket booking platform — from UX/UI and interaction design through to a clear, responsive reservation flow.",
+    "bilit4uDescriptionDesktop": "I take a human-centered approach that turns messy, complex problems into clear products, from the first strategy conversation to the final line of front-end code.",
     "viewCaseStudy": "View Case Study"
   },
   "Home": {
-    "aboutTitle": "I create digital experiences where clarity, design, and execution come together.",
-    "aboutIntro": "I’m a Product Designer and Front-End Developer with over 5 years of experience turning ideas into scalable digital products. I work at the intersection of business, design, and engineering, helping teams shape product strategy, understand users, define clear experiences, and bring refined interfaces to life through front-end implementation. My work goes beyond visuals. I focus on building products that are user-centered, business-driven, technically feasible, and ready for real-world execution.",
+    "aboutTitle": "I design and build digital products that are clear, useful, and ready to ship.",
+    "aboutIntro": "Hi, I’m Yeganeh Heshmat, a Product Designer and Front-End Developer with more than five years of experience taking ideas from rough concept to real, working products. I like working where business goals, design, and code meet. Usually that means getting involved early to shape the product direction, talking to users to understand what they actually need, and then designing the experience and building the interface myself. I care about how a product looks, but I care more about whether it makes sense for the people using it, supports the business, and can really be built and shipped.",
     "motto": "Elegant ideas, beautifully built",
     "valuesTitle": "Guided by what truly matters",
     "valuesTitleMobile": "Guided by what truly matters",
     "readMore": "Read More",
     "readLess": "Read Less",
     "processTitle": "What I Do",
-    "processIntro": "I work across strategy, design, and development — helping teams move from early ideas to refined digital products with clarity and care.",
-    "processIntroMobile": "Building lasting products, from design onward",
+    "processIntro": "I work across strategy, design, and code, so the products I build solve real problems and keep working long after launch.",
+    "processIntroMobile": "Strategy, design, and code for products that solve real problems and last.",
     "skillsTitle": "My Approach",
-    "skillsIntro": "A thoughtful, human-centered process that turns complexity into clear, scalable digital products — from strategy and design to front-end implementation.",
+    "skillsIntro": "I take a human-centered approach that turns messy, complex problems into clear products, from the first strategy conversation to the final line of front-end code.",
     "workTitle": "SELECTED WORK",
     "workIntro": "Digital experiences, thoughtfully built.",
-    "features0label": "Focused on scalable digital products",
-    "features0title": "Authenticity",
-    "features0shortDescription": "Honest work built on real connections.",
-    "features0detail": "Authenticity means staying true to my values, being transparent in my work, and building genuine relationships. I believe that real impact comes from honesty, openness, and a deep respect for the people I work with.",
-    "features1label": "Focused on scalable digital products",
-    "features1title": "Growth",
-    "features1shortDescription": "Always learning, growing, and moving forward.",
-    "features1detail": "Growth is a continuous practice of learning, refining craft, and adapting with intention. I stay curious, welcome feedback, and turn challenges into clearer, stronger product decisions.",
-    "features2label": "Focused on scalable digital products",
-    "features2title": "Impact",
-    "features2shortDescription": "Creating real value through thoughtful design.",
-    "features2detail": "Impact means designing experiences that help people move with clarity and confidence. I focus on outcomes that serve users, support business goals, and hold up in real-world use.",
-    "features3label": "Focused on scalable digital products",
-    "features3title": "Balance",
-    "features3shortDescription": "Making space for work and life.",
-    "features3detail": "Balance keeps creativity and craft sustainable. I work with focus and care, while protecting the space needed for clear thinking, thoughtful collaboration, and long-term quality.",
+    "features0label": "Frontend Development",
+    "features0title": "Frontend Development",
+    "features0shortDescription": "From design to code.",
+    "features0detail": "I turn designs into clear, responsive interfaces that are ready to ship.",
+    "features1label": "Built to Grow",
+    "features1title": "Built to Grow",
+    "features1shortDescription": "Ready for what’s next.",
+    "features1detail": "I give products a clear structure that can adapt as users and business needs grow.",
+    "features2label": "Reliable by Design",
+    "features2title": "Reliable by Design",
+    "features2shortDescription": "Clear and consistent.",
+    "features2detail": "I design consistent interactions and clear flows that people can rely on in everyday use.",
+    "features3label": "User-Centered Design",
+    "features3title": "User-Centered Design",
+    "features3shortDescription": "Built around real needs.",
+    "features3detail": "I listen to users and shape intuitive experiences that make everyday tasks easier.",
     "approach0title": "Understand",
     "approach0description": "I start by listening carefully — uncovering goals, constraints, and what truly matters.",
     "approach1title": "Define",
@@ -106,14 +109,20 @@
     "approach4title": "Deliver",
     "approach4description": "I refine until it feels right — polished, purposeful, and ready to land.",
     "service0title": "Product Strategy",
-    "service0description": "I partner on discovery and strategy to align business goals, understand the market landscape, and define the right path forward.",
-    "service0shortDescription": "Aligning business goals with the right product path forward.",
-    "service1title": "Experience Design",
-    "service1description": "I design intuitive experiences that are grounded in user needs, structured with clarity, and built to scale across complex digital products.",
-    "service1shortDescription": "Intuitive experiences grounded in user needs and clarity.",
-    "service2title": "Development",
-    "service2description": "I collaborate closely with engineering to ensure smooth handoff, front-end alignment, and successful product implementation.",
-    "service2shortDescription": "Smooth handoff, front-end alignment, and successful implementation.",
+    "service0titleDesktop": "Product Strategy",
+    "service0descriptionDesktop": "I get involved early to define what’s worth building. We explore markets, users, and business goals, then agree on a direction before design starts.",
+    "service0description": "I align user needs, market insights, and business goals to define what to build before design starts.",
+    "service0shortDescription": "A clear direction before design.",
+    "service1title": "UX & UI Design",
+    "service1titleDesktop": "UX & UI Design",
+    "service1descriptionDesktop": "I design clear, easy-to-use experiences around real user needs, with structure that keeps them consistent as the product grows.",
+    "service1description": "I design clear, intuitive experiences around user needs that stay consistent as products grow.",
+    "service1shortDescription": "Intuitive design that grows.",
+    "service2title": "Frontend Development",
+    "service2titleDesktop": "Frontend Development",
+    "service2descriptionDesktop": "I build interfaces and collaborate with engineers, ensuring shipped products match the design without handoff surprises.",
+    "service2description": "I build interfaces with engineers so the final product matches the design.",
+    "service2shortDescription": "Built to match the design.",
     "serviceItem0": "Product discovery",
     "serviceItem1": "Business alignment",
     "serviceItem2": "Competitive analysis",
@@ -186,8 +195,51 @@
   },
   "CaseStudies": {
     "challengesTitle": "Challenges",
+    "processMobileDescription": "From research and booking flows to frontend development and mobile refinement.",
+    "processSteps": {
+      "01": { "mobileDescription": "Understand user needs through competitor research." },
+      "02": { "mobileDescription": "Map a simple, connected booking journey." },
+      "03": { "mobileDescription": "Design interactions and visual feedback." },
+      "04": { "mobileDescription": "Simplify search and seat selection." },
+      "05": { "mobileDescription": "Build the interface and animations." },
+      "06": { "mobileDescription": "Refine booking across screen sizes." }
+    },
     "projects": {
       "bilit4u": {
+        "mobileTitle": "A Clearer Ticket Booking Experience",
+        "mobileDescription": "Designing and building a simple, seamless experience for booking bus tickets online.",
+        "challengesMobileDescription": "A simpler journey from search to booking",
+        "design": {
+          "mobileDescription": "From wireframes to final screens,\nI made ticket booking simpler and smoother.",
+          "captions": {
+            "0": "Homepage",
+            "1": "Ticket Selection",
+            "2": "Seat Selection",
+            "3": "Top Cities"
+          }
+        },
+        "uxArchitecture": {
+          "title": "UX Architecture",
+          "intro": "I connected search, seat selection, and payment in a simple booking journey, with clear information across mobile and desktop.",
+          "mobileIntro": "I connected search, seat selection, and payment in simple steps to keep ticket booking clear.",
+          "items": {
+            "search": {
+              "title": "Unified Search Experience",
+              "mobileTitle": "Trip Search",
+              "description": "The journey starts on the homepage with a service, route, and date. Bilingual city search and smart suggestions help users find their trip faster."
+            },
+            "results": {
+              "title": "Results, Filters & Trip Selection",
+              "mobileTitle": "Search Results",
+              "description": "I designed results for easy comparison by departure time, amenities, and price. Filters help users find the right ticket and continue to booking."
+            },
+            "seats": {
+              "title": "Interactive Seat Selection & Booking",
+              "mobileTitle": "Seat Selection",
+              "description": "I designed and built a seat map showing availability and gender restrictions, then kept passenger details, payment, and the booking receipt simple to follow."
+            }
+          }
+        },
         "scopeDialog": {
           "title": "Scope of Work",
           "items": {
@@ -241,6 +293,7 @@
           }
         },
         "techArchitecture": {
+          "mobileDescription": "Tools for fast, seamless ticket booking",
           "tailwind": {
             "description": "Builds a consistent, responsive UI with flexible styling across the entire booking process.",
             "detailsTitle": "Why I Chose Tailwind CSS for This Project",
@@ -398,7 +451,74 @@
         }
       },
       "tealnex": {
+        "mobileTitle": "A Clearer Architecture Experience",
+        "mobileDescription": "Designing and building an architecture website,\nfor exploring services and projects.",
+        "challengesMobileDescription": "Clear architecture services and projects",
+        "processMobileDescription": "From research and page structure,\nto a clearer journey and frontend build.",
+        "design": {
+          "mobileDescription": "From early layouts to final screens,\nI refined the structure and interactions.",
+          "captions": {
+            "0": "Service Overview",
+            "1": "Before & After",
+            "2": "Architecture Services",
+            "3": "Contact Us"
+          }
+        },
+        "uxArchitecture": {
+          "title": "Tealnex UX Architecture",
+          "intro": "I connected the company introduction, projects, and services in a clear journey, making information easy to find and enquiries simple to send.",
+          "mobileIntro": "From company details to services and projects,\nI made browsing and enquiries simpler.",
+          "items": {
+            "search": {
+              "title": "Before & After Project Comparisons",
+              "mobileTitle": "Compare Projects",
+              "description": "I grouped projects by space so visitors could find relevant examples, then designed an interactive before-and-after slider to show renovation changes clearly."
+            },
+            "results": {
+              "title": "Services & Consultation Requests",
+              "mobileTitle": "Choose Services",
+              "description": "I designed four service cards with short descriptions and booking options, plus a consultation section to help visitors choose the right support for their project."
+            },
+            "seats": {
+              "title": "Contact & Direct Enquiries",
+              "mobileTitle": "Get in Touch",
+              "description": "I made phone, email, and Instagram easy to find, and designed a form for sending project enquiries directly to the company’s email."
+            }
+          }
+        },
+        "roleDialog": {
+          "items": {
+            "ux": "UX design and page structure for presenting products and services",
+            "ui": "Modern, interactive UI design aligned with Tealnex’s visual identity",
+            "animation": "Design and development of animations and scroll interactions",
+            "comparison": "Interactive before-and-after image comparisons",
+            "preview": "Image uploads and 3D space previews",
+            "search": "Service search across Toronto neighbourhoods and responsive UI refinement"
+          }
+        },
+        "industryDialog": {
+          "items": {
+            "digital": "Digital tools for space design and renovation",
+            "interiors": "Residential and commercial interior design and renovation",
+            "preview": "3D design and previews of space transformations",
+            "renovation": "Building renovation and improvement services",
+            "comparison": "Before-and-after renovation project comparisons",
+            "local": "Local design and renovation services across Toronto"
+          }
+        },
+        "scopeDialog": {
+          "items": {
+            "website": "Website design and development for architecture and renovation services",
+            "pages": "Service, project, and portfolio page structure",
+            "animation": "Interactive animations and scroll effects",
+            "comparison": "Before-and-after renovation comparison sliders",
+            "preview": "Image uploads and 3D space previews",
+            "search": "Toronto neighbourhood service search and responsive interfaces"
+          }
+        },
         "techArchitecture": {
+          "heading": "Frontend Architecture",
+          "mobileDescription": "Tools for a fast, seamless experience",
           "nextjs": {
             "reasons": {
               "scalability": {
@@ -560,7 +680,73 @@
         }
       },
       "tealtile": {
+        "mobileTitle": "A Clearer Tile Shopping Experience",
+        "mobileDescription": "Designing and building a tile shopping experience,\nfrom product selection to installation booking.",
+        "challengesMobileDescription": "Simpler tile selection, shopping, and installation",
+        "processMobileDescription": "From user needs and page structure,\nto a clearer shopping journey and frontend build.",
+        "design": {
+          "mobileDescription": "From wireframes to final screens,\nI refined tile search and shopping.",
+          "captions": {
+            "0": "Homepage",
+            "1": "Choose a Space",
+            "2": "Shop & Install",
+            "3": "Tile Services"
+          }
+        },
+        "uxArchitecture": {
+          "title": "TealTile UX Architecture",
+          "intro": "I designed a connected tile shopping journey around real home renovation needs, from estimating quantities and choosing products to booking an installer and adding an address.",
+          "mobileIntro": "From choosing tiles to booking an installer,\nI designed a simple, connected shopping journey.",
+          "items": {
+            "search": {
+              "title": "Tile Selection & Area Calculation",
+              "mobileTitle": "Choose Tiles",
+              "description": "I simplified entering room dimensions and estimating tile quantities, helping customers choose accurately without manual calculations."
+            },
+            "results": {
+              "title": "Installer Selection & Scheduling",
+              "mobileTitle": "Book an Installer",
+              "description": "I made installer details, estimated job duration, and available dates easy to compare, with a calendar for booking a suitable installation time."
+            },
+            "seats": {
+              "title": "Address Entry & Map Location",
+              "mobileTitle": "Add an Address",
+              "description": "I designed manual address entry and map selection to make the project location easy to provide and accurate for the installer’s visit."
+            }
+          }
+        },
+        "roleDialog": {
+          "items": {
+            "discovery": "Tile discovery by style, colour, material, and use",
+            "search": "Product search, filtering, and comparisons across stores",
+            "preview": "Tile previews in the customer’s own space",
+            "installation": "Installer selection and installation service booking",
+            "responsive": "Responsive UI and UX design across screen sizes",
+            "interaction": "Interactive components, animations, and frontend performance refinement"
+          }
+        },
+        "industryDialog": {
+          "items": {
+            "discovery": "Interior product discovery, search, and comparison",
+            "suppliers": "Products from multiple stores and suppliers",
+            "preview": "Tile previews in real spaces",
+            "installers": "Connecting customers with tile installation specialists",
+            "services": "Tile and ceramic selection, purchasing, and installation"
+          }
+        },
+        "scopeDialog": {
+          "items": {
+            "platform": "Design and development of an online tile shopping platform",
+            "pages": "Product, category, and store pages",
+            "search": "Product search, filtering, and comparison",
+            "preview": "Tile previews in real spaces",
+            "installation": "Installer selection, service requests, and installation booking",
+            "responsive": "Responsive interfaces for desktop, tablet, and mobile"
+          }
+        },
         "techArchitecture": {
+          "heading": "Frontend Architecture",
+          "mobileDescription": "Tools for fast, seamless tile shopping",
           "dexie": {
             "description": "Stores and manages local data to preserve shopping cart information and user selections across sessions",
             "reasons": {

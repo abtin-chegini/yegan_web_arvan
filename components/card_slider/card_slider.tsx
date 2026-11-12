@@ -25,7 +25,11 @@ function CardSliderDesktop() {
       ...card,
       title: work(`${["bilit4u", "tealnex", "tealtile"][index]}Title`),
       kicker: work(`${["bilit4u", "tealnex", "tealtile"][index]}Kicker`),
-      description: work(`${["bilit4u", "tealnex", "tealtile"][index]}Description`),
+      description: work(
+        work.has(`${["bilit4u", "tealnex", "tealtile"][index]}DescriptionDesktop`)
+          ? `${["bilit4u", "tealnex", "tealtile"][index]}DescriptionDesktop`
+          : `${["bilit4u", "tealnex", "tealtile"][index]}Description`
+      ),
     })
   ), [work]);
   const stickyRef = useRef<HTMLElement>(null);
