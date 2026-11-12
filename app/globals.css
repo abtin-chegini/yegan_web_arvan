@@ -5,6 +5,25 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* English desktop case-study headings share the centered section layout. */
+@media (min-width: 768px) {
+  html[lang="en"] [data-case-study]:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) :is(#overview, #challenge, #approach, #design, #development, #outcome) header {
+    text-align: center;
+  }
+
+  html[lang="en"] [data-case-study]:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) :is(#challenge, #approach, #design) header {
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+  }
+
+  html[lang="en"] [data-case-study]:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) :is(#overview, #challenge, #approach, #design, #development, #outcome) header > p {
+    max-width: 48rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
 :root {
   --mobile-bottom-navigation-height: calc(80px + env(safe-area-inset-bottom, 0px));
 }

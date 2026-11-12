@@ -643,7 +643,7 @@ const subscribeToMount = () => () => {};
 const getMountedSnapshot = () => true;
 const getServerMountedSnapshot = () => false;
 
-export function CaseStudyProcess({ compactMobile = false, mobileDescription }: { compactMobile?: boolean; mobileDescription?: string }) {
+export function CaseStudyProcess({ compactMobile = false, mobileDescription, desktopDescription }: { compactMobile?: boolean; mobileDescription?: string; desktopDescription?: string }) {
   const locale = useLocale();
   const t = useTranslations("CaseStudies");
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -668,11 +668,11 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription }: {
           {mobileDescription ? (
             <>
               <span className="case-process-mobile-description md:hidden">{mobileDescription}</span>
-              <span className="hidden md:inline">{locale === "fa" ? t("processDescription") : INTRO}</span>
+              <span className="hidden md:inline">{desktopDescription ?? (locale === "fa" ? t("processDescription") : INTRO)}</span>
             </>
           ) : (
             <>
-              <span className="process-description-full">{locale === "fa" ? t("processDescription") : INTRO}</span>
+              <span className="process-description-full">{desktopDescription ?? (locale === "fa" ? t("processDescription") : INTRO)}</span>
               {t.has("processMobileDescription") && <span className="process-description-short">{t("processMobileDescription")}</span>}
             </>
           )}

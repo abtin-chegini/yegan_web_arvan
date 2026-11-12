@@ -37,7 +37,7 @@ function CaseStudySectionContent({
 
   if (content) {
     if (sectionIndex === 0) {
-      return <CaseStudyOverview mobileTitle={hasMobileIntro ? t("mobileTitle") : undefined} mobileDescription={hasMobileIntro ? t("mobileDescription") : undefined} content={{
+      return <CaseStudyOverview leftAlignDialog={locale === "en" && ["tealnex", "tealtile"].includes(study.slug)} mobileTitle={hasMobileIntro ? t("mobileTitle") : undefined} mobileDescription={hasMobileIntro ? t("mobileDescription") : undefined} content={{
         ...content.overview,
         title: t("title"),
         description: t("description"),
@@ -46,19 +46,19 @@ function CaseStudySectionContent({
           dialogItems: ["ux", "ui", "wireframes", "interaction", "development", "responsive"].map((id) => ({
             title: t(`roleDialog.items.${id}.title`), body: t(`roleDialog.items.${id}.body`),
           })),
-        } : study.slug === "tealnex" && hasMobileIntro && card.id === "role" ? {
+        } : study.slug === "tealnex" && card.id === "role" ? {
           dialogItems: ["ux", "ui", "animation", "comparison", "preview", "search"].map((id) => ({
             body: t(`roleDialog.items.${id}`),
           })),
-        } : study.slug === "tealtile" && hasMobileIntro && card.id === "role" ? {
+        } : study.slug === "tealtile" && card.id === "role" ? {
           dialogItems: ["discovery", "search", "preview", "installation", "responsive", "interaction"].map((id) => ({
             body: t(`roleDialog.items.${id}`),
           })),
-        } : study.slug === "tealnex" && hasMobileIntro && card.id === "industry" ? {
+        } : study.slug === "tealnex" && card.id === "industry" ? {
           dialogItems: ["digital", "interiors", "preview", "renovation", "comparison", "local"].map((id) => ({
             body: t(`industryDialog.items.${id}`),
           })),
-        } : study.slug === "tealtile" && hasMobileIntro && card.id === "industry" ? {
+        } : study.slug === "tealtile" && card.id === "industry" ? {
           dialogDescription: t("meta.industry.body"),
           dialogItems: ["discovery", "suppliers", "preview", "installers", "services"].map((id) => ({
             body: t(`industryDialog.items.${id}`),
@@ -68,11 +68,11 @@ function CaseStudySectionContent({
           dialogItems: ["bus", "flight", "train", "hotel", "taxi", "tour"].map((id) => ({
             body: t(`industryDialog.items.${id}`),
           })),
-        } : study.slug === "tealnex" && hasMobileIntro && card.id === "scope" ? {
+        } : study.slug === "tealnex" && card.id === "scope" ? {
           dialogItems: ["website", "pages", "animation", "comparison", "preview", "search"].map((id) => ({
             body: t(`scopeDialog.items.${id}`),
           })),
-        } : study.slug === "tealtile" && hasMobileIntro && card.id === "scope" ? {
+        } : study.slug === "tealtile" && card.id === "scope" ? {
           dialogItems: ["platform", "pages", "search", "preview", "installation", "responsive"].map((id) => ({
             body: t(`scopeDialog.items.${id}`),
           })),
@@ -85,9 +85,10 @@ function CaseStudySectionContent({
       }} />;
     }
     if (sectionIndex === 1) {
-      return <CaseStudyBreakdown mobileDescription={hasMobileIntro ? t("challengesMobileDescription") : undefined} content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`challenges.${challenge.id}.title`), description: t(`challenges.${challenge.id}.description`)}))}} />;
+      const challengeKey = locale === "en" && !isMobile && t.has("challengesDesktop") ? "challengesDesktop" : "challenges";
+      return <CaseStudyBreakdown desktopDescription={locale === "en" ? t("challengesMobileDescription") : undefined} mobileDescription={hasMobileIntro ? t("challengesMobileDescription") : undefined} content={{...content.breakdown, productImageAlt: images(`projects.${study.slug}.product`), challenges: (content.breakdown.challenges ?? ANNOTATIONS).map((challenge) => ({...challenge, title: t(`${challengeKey}.${challenge.id}.title`), description: t(`${challengeKey}.${challenge.id}.description`)}))}} />;
     }
-    if (sectionIndex === 2) return <CaseStudyProcess compactMobile={study.slug === "bilit4u" || hasMobileIntro} mobileDescription={hasMobileIntro && ["tealtile", "tealnex"].includes(study.slug) ? t("processMobileDescription") : undefined} />;
+    if (sectionIndex === 2) return <CaseStudyProcess desktopDescription={locale === "en" && t.has("processDesktopDescription") ? t("processDesktopDescription") : undefined} compactMobile={study.slug === "bilit4u" || hasMobileIntro} mobileDescription={hasMobileIntro && ["tealtile", "tealnex"].includes(study.slug) ? t("processMobileDescription") : undefined} />;
     if (sectionIndex === 3) {
       const slideOrder = study.slug === "bilit4u" && isMobile ? [0, 2, 3, 1] : content.design.slides.map((_, index) => index);
       return (

@@ -207,6 +207,7 @@
     "projects": {
       "bilit4u": {
         "mobileTitle": "A Clearer Ticket Booking Experience",
+        "processDesktopDescription": "I started with competitor research and mapped the booking journey to understand where users needed more clarity. From there, I refined wireframes, designed search and seat-selection interactions, and built the frontend. Throughout the process, I tested layouts and feedback across screen sizes to keep the journey from finding a trip to completing a reservation clear and consistent.",
         "mobileDescription": "Designing and building a simple, seamless experience for booking bus tickets online.",
         "challengesMobileDescription": "A simpler journey from search to booking",
         "design": {
@@ -452,6 +453,7 @@
       },
       "tealnex": {
         "mobileTitle": "A Clearer Architecture Experience",
+        "processDesktopDescription": "I explored architecture and renovation websites, then shaped a clear structure for Tealnex’s services, projects, and enquiries. I developed the wireframes and visual design alongside interactions such as before-and-after comparisons and space previews. During the frontend build, I refined animations, navigation, and responsive layouts so visitors could explore the work and find the right service with confidence.",
         "mobileDescription": "Designing and building an architecture website,\nfor exploring services and projects.",
         "challengesMobileDescription": "Clear architecture services and projects",
         "processMobileDescription": "From research and page structure,\nto a clearer journey and frontend build.",
@@ -488,32 +490,32 @@
         },
         "roleDialog": {
           "items": {
-            "ux": "UX design and page structure for presenting products and services",
-            "ui": "Modern, interactive UI design aligned with Tealnex’s visual identity",
-            "animation": "Design and development of animations and scroll interactions",
-            "comparison": "Interactive before-and-after image comparisons",
-            "preview": "Image uploads and 3D space previews",
-            "search": "Service search across Toronto neighbourhoods and responsive UI refinement"
+            "ux": "Designed the user experience and page structure for presenting digital products and services.",
+            "ui": "Designed a modern, interactive user interface aligned with TealNex’s visual identity.",
+            "animation": "Designed and implemented dynamic animations and scroll-based interactions.",
+            "comparison": "Developed an interactive slider for comparing before-and-after images.",
+            "preview": "Designed and implemented image uploads that turn a space into a 3D preview.",
+            "search": "Developed service search by Toronto neighbourhood and optimized the interface for mobile and desktop."
           }
         },
         "industryDialog": {
           "items": {
-            "digital": "Digital tools for space design and renovation",
-            "interiors": "Residential and commercial interior design and renovation",
-            "preview": "3D design and previews of space transformations",
-            "renovation": "Building renovation and improvement services",
-            "comparison": "Before-and-after renovation project comparisons",
-            "local": "Local design and renovation services across Toronto"
+            "digital": "Digital services and innovative solutions for space design and renovation.",
+            "interiors": "Interior design and renovation for residential and commercial spaces.",
+            "preview": "3D design services and previews of proposed changes to a space.",
+            "renovation": "Building renovation and improvement services.",
+            "comparison": "Presentation and comparison of renovation projects before and after completion.",
+            "local": "Local design and renovation services across Toronto neighbourhoods."
           }
         },
         "scopeDialog": {
           "items": {
-            "website": "Website design and development for architecture and renovation services",
-            "pages": "Service, project, and portfolio page structure",
-            "animation": "Interactive animations and scroll effects",
-            "comparison": "Before-and-after renovation comparison sliders",
-            "preview": "Image uploads and 3D space previews",
-            "search": "Toronto neighbourhood service search and responsive interfaces"
+            "website": "Designed and developed a website presenting architectural design, renovation, and building improvement services.",
+            "pages": "Designed the structure of service, project, and completed-work portfolio pages.",
+            "animation": "Designed and implemented interactive animations and scroll-based visual effects.",
+            "comparison": "Developed an interactive slider for comparing spaces before and after renovation.",
+            "preview": "Designed and implemented the image upload process and 3D space previews.",
+            "search": "Developed service search across Toronto areas and designed a responsive interface."
           }
         },
         "techArchitecture": {
@@ -677,10 +679,29 @@
             "title": "A Consistent Responsive Experience",
             "description": "Adapting large architectural imagery, navigation and content across screen sizes while preserving readability and a refined brand experience."
           }
+        },
+        "challengesDesktop": {
+          "services": {
+            "title": "Designing a Dynamic Frontend Experience",
+            "description": "I implemented scroll-based animations and dynamic interactions to make architectural projects more engaging. I balanced visual appeal with a simple user experience, keeping content accessible without distraction or unnecessary complexity."
+          },
+          "projects": {
+            "title": "Interactive Before-and-After Comparisons",
+            "description": "I built an interactive comparison slider so visitors could see changes to renovated spaces directly. It makes details clearer and lets users compare images without switching between them."
+          },
+          "enquiries": {
+            "title": "Turning Interior Photos into 3D Models",
+            "description": "I designed a simple flow for uploading a room photo and viewing its 3D model. Clear processing steps and feedback keep users informed about the current status and what to do next."
+          },
+          "responsive": {
+            "title": "Finding Services by Toronto Neighbourhood",
+            "description": "I designed location-based search to help visitors find services across Toronto neighbourhoods, making local options easier to access and relevant services faster to find."
+          }
         }
       },
       "tealtile": {
         "mobileTitle": "A Clearer Tile Shopping Experience",
+        "processDesktopDescription": "I began by understanding how customers choose tiles and plan installation, then mapped a connected journey from product discovery to booking an installer. I worked through wireframes, interface design, and interactions for search, filtering, and room previews. I then built and refined the frontend across screen sizes, keeping product comparisons, installation requests, and address entry clear and easy to follow.",
         "mobileDescription": "Designing and building a tile shopping experience,\nfrom product selection to installation booking.",
         "challengesMobileDescription": "Simpler tile selection, shopping, and installation",
         "processMobileDescription": "From user needs and page structure,\nto a clearer shopping journey and frontend build.",
@@ -717,31 +738,31 @@
         },
         "roleDialog": {
           "items": {
-            "discovery": "Tile discovery by style, colour, material, and use",
-            "search": "Product search, filtering, and comparisons across stores",
-            "preview": "Tile previews in the customer’s own space",
-            "installation": "Installer selection and installation service booking",
-            "responsive": "Responsive UI and UX design across screen sizes",
-            "interaction": "Interactive components, animations, and frontend performance refinement"
+            "discovery": "Designed tile search and discovery by style, colour, material, and use.",
+            "search": "Designed and implemented product search, filtering, and comparisons across different stores.",
+            "preview": "Designed and developed semi-3D tile previews in the customer’s own space.",
+            "installation": "Designed the installer selection experience and implemented installation service booking.",
+            "responsive": "Designed and developed a responsive interface focused on visual interactions and user experience.",
+            "interaction": "Implemented interactive components and animations, and optimized frontend performance."
           }
         },
         "industryDialog": {
           "items": {
-            "discovery": "Interior product discovery, search, and comparison",
-            "suppliers": "Products from multiple stores and suppliers",
-            "preview": "Tile previews in real spaces",
-            "installers": "Connecting customers with tile installation specialists",
-            "services": "Tile and ceramic selection, purchasing, and installation"
+            "discovery": "Search, discovery, and comparison of interior decoration products.",
+            "suppliers": "Presentation and recommendations of products from different stores and suppliers.",
+            "preview": "Semi-3D tile previews in real spaces.",
+            "installers": "Connecting customers with tile installers and installation specialists.",
+            "services": "Tile and ceramic selection, purchasing, and installation services."
           }
         },
         "scopeDialog": {
           "items": {
-            "platform": "Design and development of an online tile shopping platform",
-            "pages": "Product, category, and store pages",
-            "search": "Product search, filtering, and comparison",
-            "preview": "Tile previews in real spaces",
-            "installation": "Installer selection, service requests, and installation booking",
-            "responsive": "Responsive interfaces for desktop, tablet, and mobile"
+            "platform": "Designed and developed an online platform for finding and purchasing tiles and ceramics.",
+            "pages": "Designed and implemented product, category, and store pages.",
+            "search": "Developed product search, filtering, and comparison.",
+            "preview": "Designed and implemented tile previews in real spaces.",
+            "installation": "Designed installer selection, service requests, and installation booking.",
+            "responsive": "Designed and developed responsive interfaces for desktop, tablet, and mobile."
           }
         },
         "techArchitecture": {
@@ -930,7 +951,7 @@
           },
           "industry": {
             "title": "Industry",
-            "body": "Tile Retail · Installation · Home Improvement"
+            "body": "Online retail of tiles, ceramics, and building materials"
           },
           "platform": {
             "title": "Platform",
@@ -957,6 +978,24 @@
           "responsive": {
             "title": "A Consistent Responsive Experience",
             "description": "Adapting image-rich collections, product details and service enquiries across screen sizes while keeping the experience clear and easy to navigate."
+          }
+        },
+        "challengesDesktop": {
+          "discovery": {
+            "title": "Showcasing Partner Sellers’ Products",
+            "description": "I designed a marketplace-style structure for TealTile and partner sellers’ products, clearly identifying each product’s source and providing a link to the seller’s website."
+          },
+          "planning": {
+            "title": "Product Search and Filters",
+            "description": "I designed search and filtering by colour, material, dimensions, and other attributes, making TealTile and partner sellers’ products easier to find in one connected experience."
+          },
+          "installation": {
+            "title": "Semi-3D Tile Previews in Real Spaces",
+            "description": "I designed a semi-3D preview that lets customers upload a room photo and view tile designs on walls or floors, helping them compare options and choose confidently before purchasing."
+          },
+          "responsive": {
+            "title": "Connecting with Installers and Booking Installation",
+            "description": "I designed a connected shopping and installation journey where customers can review and compare installers and request installation bookings without leaving the website."
           }
         }
       }

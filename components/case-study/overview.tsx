@@ -53,9 +53,10 @@ type CaseStudyOverviewProps = {
   content: CaseStudyOverviewContent;
   mobileTitle?: string;
   mobileDescription?: string;
+  leftAlignDialog?: boolean;
 };
 
-export function CaseStudyOverview({ content, mobileTitle, mobileDescription }: CaseStudyOverviewProps) {
+export function CaseStudyOverview({ content, mobileTitle, mobileDescription, leftAlignDialog = false }: CaseStudyOverviewProps) {
   const [selectedCard, setSelectedCard] = useState<CaseStudyMetaCard | null>(null);
   const reduceMotion = useReducedMotion();
   return (
@@ -118,7 +119,7 @@ export function CaseStudyOverview({ content, mobileTitle, mobileDescription }: C
         open={selectedCard !== null}
         onOpenChange={(open) => { if (!open) setSelectedCard(null); }}
         title={selectedCard?.dialogTitle ?? selectedCard?.title}
-        className="max-h-[80dvh] overflow-y-auto text-[#1d3557] sm:max-w-2xl"
+        className={cn("max-h-[80dvh] overflow-y-auto text-[#1d3557] sm:max-w-2xl", leftAlignDialog && "text-left [&_[data-slot=dialog-header]]:text-left")}
       >
         {selectedCard && (
           <motion.div
