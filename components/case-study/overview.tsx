@@ -68,7 +68,7 @@ export function CaseStudyOverview({ content, mobileTitle, mobileDescription, lef
             <span className="md:hidden">{mobileTitle}</span>
           </> : content.title}
         </h1>
-        <p className="max-w-2xl font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/88 sm:text-[0.95rem] lg:text-[1.05rem] lg:leading-[1.7]">
+        <p data-section-caption className="max-w-2xl font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/88 sm:text-[0.95rem] lg:text-[1.05rem] lg:leading-[1.7]">
           {mobileDescription ? <>
             <span className="hidden md:inline">{content.description}</span>
             <span className="case-overview-mobile-description md:hidden">{mobileDescription}</span>

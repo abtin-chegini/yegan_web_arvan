@@ -45,7 +45,7 @@ export function SkillsSection() {
         <h2 className="font-serif text-[clamp(2.1rem,4vw,3.25rem)] font-medium leading-[1.15] tracking-[-0.02em] text-[#1d3557]">
           {t("skillsTitle")}
         </h2>
-        <p className="max-w-2xl font-sans text-[0.98rem] font-normal leading-[1.7] text-(--section-muted) md:text-lg">
+        <p data-section-caption className="max-w-2xl font-sans text-[0.98rem] font-normal leading-[1.7] text-(--section-muted) md:text-lg">
           {t("skillsIntro")}
         </p>
       </header>

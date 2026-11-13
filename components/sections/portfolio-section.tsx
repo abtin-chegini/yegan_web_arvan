@@ -11,7 +11,7 @@ export function PortfolioSection() {
         <h2 data-mobile-home-title className="mobile-section-title font-serif md:text-[clamp(1.55rem,2.8vw,2.55rem)] md:leading-[1.05] md:font-medium tracking-[-0.02em] text-[var(--section-portfolio-fg)]">
           {t("workTitle")}
         </h2>
-        <p data-mobile-home-description className="mobile-section-description font-sans md:text-[0.9rem] md:font-normal md:leading-relaxed text-[var(--section-portfolio-muted)]">
+        <p data-section-caption data-mobile-home-description className="mobile-section-description font-sans md:text-[0.9rem] md:font-normal md:leading-relaxed text-[var(--section-portfolio-muted)]">
           {t("workIntro")}
         </p>
       </header>

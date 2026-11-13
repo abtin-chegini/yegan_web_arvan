@@ -134,7 +134,7 @@ function CaseStudySectionContent({
             : slide.id === "dexie" ? ["history", "filters", "storage"]
             : slide.id === "zustand" ? ["state", "booking", "performance"]
             : slide.id === "lottie" ? ["animations", "onboarding", "forms"]
-            : slide.id === "nextjs" && locale === "fa" ? ["scalability", "seo", "ecosystem"] : null;
+            : slide.id === "nextjs" ? ["scalability", "seo", "ecosystem"] : null;
           if (!reasonIds) return slide;
           const prefix = `techArchitecture.${slide.id}`;
           return {

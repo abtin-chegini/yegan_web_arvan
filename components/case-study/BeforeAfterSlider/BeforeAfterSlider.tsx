@@ -345,7 +345,7 @@ export default function BeforeAfterSlider({
         <header className={`bas__header${centerHeader ? " bas__header--center" : ""}`}>
           {title ? <h2 className="bas__title">{title}</h2> : null}
           {description ? (
-            <p className="bas__description">{mobileDescription ? <>
+            <p data-section-caption className="bas__description">{mobileDescription ? <>
               <span className="hidden md:inline">{description}</span>
               <span className="bas__mobile-description md:hidden">{mobileDescription}</span>
             </> : description}</p>

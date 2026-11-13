@@ -186,7 +186,7 @@ export function ProcessSection() {
           <h2 className={`font-serif ${isPersian ? "text-[clamp(1.8rem,3vw,2.6rem)] whitespace-nowrap" : "text-[clamp(2.4rem,4vw,3.75rem)]"} leading-[1.05] font-medium tracking-[-0.02em] text-[var(--section-process-fg)]`}>
             {t("processTitle")}
           </h2>
-          <p className={`max-w-sm font-sans text-[0.9rem] font-normal leading-relaxed text-[var(--section-process-muted)] ${isPersian ? "mt-6" : ""}`}>
+          <p data-section-caption className={`max-w-sm font-sans text-[0.9rem] font-normal leading-relaxed text-[var(--section-process-muted)] ${isPersian ? "mt-6" : ""}`}>
             {t("processIntro")}
           </p>
         </aside>

@@ -5,6 +5,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Shared size for English desktop captions directly below section titles.
+   Cards and the first two homepage sections retain their existing typography. */
+@media (min-width: 768px) {
+  html[lang="en"] {
+    --section-caption-size: 1.125rem;
+    --section-caption-line-height: 1.6;
+  }
+
+  html[lang="en"] [data-section-caption] {
+    font-size: var(--section-caption-size);
+    line-height: var(--section-caption-line-height);
+  }
+}
+
 /* English desktop case-study headings share the centered section layout. */
 @media (min-width: 768px) {
   html[lang="en"] [data-case-study]:is([data-case-study="bilit4u"], [data-case-study="tealnex"], [data-case-study="tealtile"]) :is(#overview, #challenge, #approach, #design, #development, #outcome) header {

@@ -295,6 +295,24 @@
         },
         "techArchitecture": {
           "mobileDescription": "Tools for fast, seamless ticket booking",
+          "nextjs": {
+            "description": "Powers the booking app with App Router, fast page loads, and SEO-ready search flows across every step of the journey.",
+            "detailsTitle": "Why I Chose Next.js for This Project",
+            "reasons": {
+              "scalability": {
+                "title": "Scalability",
+                "body": "The component-based structure and organized routing simplify product development and maintenance, providing a foundation for adding services such as flights, trains, and hotels."
+              },
+              "seo": {
+                "title": "SEO Optimization",
+                "body": "Server-side rendering and metadata management make content accessible to search engines and allow each page to have its own title and description. These capabilities help improve the indexability of public pages."
+              },
+              "ecosystem": {
+                "title": "Rich Ecosystem",
+                "body": "The large React and Next.js developer communities, along with a wide range of libraries, documentation, and tools, make it easier to choose suitable solutions while reducing development time and implementation complexity."
+              }
+            }
+          },
           "tailwind": {
             "description": "Builds a consistent, responsive UI with flexible styling across the entire booking process.",
             "detailsTitle": "Why I Chose Tailwind CSS for This Project",

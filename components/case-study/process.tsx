@@ -664,7 +664,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription, des
         <h2 className="font-serif text-[clamp(2rem,4.2vw,3.25rem)] leading-[1.1] font-medium tracking-[-0.02em]">
           {locale === "fa" ? t("processTitle") : "The Process"}
         </h2>
-        <p className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : compactMobile ? "mx-auto max-w-3xl text-pretty md:mx-0 md:max-w-md" : "max-w-md")}>
+        <p data-section-caption className={cn("mt-3 font-sans text-[0.85rem] leading-relaxed text-[#0B2A5B]/85 sm:text-[0.92rem] sm:leading-[1.65]", locale === "fa" ? "mx-auto max-w-3xl text-pretty" : compactMobile ? "mx-auto max-w-3xl text-pretty md:mx-0 md:max-w-md" : "max-w-md")}>
           {mobileDescription ? (
             <>
               <span className="case-process-mobile-description md:hidden">{mobileDescription}</span>

@@ -648,7 +648,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
           {t("challengesTitle")}
         </h2>
         {mobileDescription && <p className="case-challenges-mobile-description mt-3 font-sans text-[0.85rem] leading-relaxed text-[#1d3557]/85 md:hidden" dir={locale === "fa" ? "rtl" : "ltr"}>{mobileDescription}</p>}
-        {desktopDescription && <p className="mt-3 hidden font-sans text-[0.92rem] leading-relaxed text-[#1d3557]/85 md:block">{desktopDescription}</p>}
+        {desktopDescription && <p data-section-caption className="mt-3 hidden font-sans text-[0.92rem] leading-relaxed text-[#1d3557]/85 md:block">{desktopDescription}</p>}
       </header>
 
       {/* Mobile / tablet — compact expandable challenges (no scroll) */}

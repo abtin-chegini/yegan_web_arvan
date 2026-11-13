@@ -37,7 +37,7 @@ export function ContactSection() {
         <h2 className="font-serif text-[clamp(2.1rem,4.2vw,3.4rem)] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--section-contact-fg)]">
           {t("title")}
         </h2>
-        <p className="mt-4 w-full max-w-3xl text-balance font-sans text-[1.02rem] font-normal leading-[1.9] text-[#c0965a] md:text-lg">
+        <p data-section-caption className="mt-4 w-full max-w-3xl text-balance font-sans text-[1.02rem] font-normal leading-[1.9] text-[#c0965a] md:text-lg">
           {t("description")}
         </p>
 

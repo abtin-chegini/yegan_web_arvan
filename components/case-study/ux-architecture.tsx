@@ -211,6 +211,7 @@ function CaseStudyUxArchitectureDesktop({
           {content.title ?? "UX Architecture"}
         </motion.h2>
         <motion.p
+          data-section-caption
           variants={introVariants}
           className={cn(
             "mx-auto mt-3 font-sans text-[0.8rem] leading-relaxed text-[#1d3557]/88 sm:mt-4 sm:text-[0.9rem] sm:leading-[1.7]",
