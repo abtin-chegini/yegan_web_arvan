@@ -24,44 +24,38 @@ const education = [
   { image: "university_master.svg", title: "Master’s degree", subtitle: "Postgraduate education" },
 ];
 type Experience = {
+  id: "bilit4u" | "payaneh" | "tealtile" | "tealnex";
   image: string;
-  name: string;
-  role: string;
-  type?: string;
-  dates?: string;
-  contributions?: string[];
-  skills?: string[];
-  href?: string;
+  href: string;
 };
 
-// Draft experience content; replace the mock entries when final copy is ready.
+type ExperienceContent = {
+  name: string;
+  role: string;
+  type: string;
+  dates: string;
+  contributions: string[];
+  skills: string[];
+};
+
 const experience: Experience[] = [
-  {
-    image: "bilit4u_job.svg", name: "Bilit4U",
-    role: "Product Design Manager & Frontend Developer",
-    type: "Full-time", dates: "2024 – 2026",
-    contributions: [
-      "Led UX strategy and product design from concept to handoff",
-      "Designed and built responsive front-end experiences",
-      "Created scalable design patterns and reusable components",
-    ],
-    skills: ["UX Strategy", "UI Design", "Frontend Development"],
-    href: "/projects/bilit4u",
-  },
-  { image: "payaneh_job.svg", name: "Payaneh", role: "Product Designer", type: "Full-time", dates: "2022 \u2013 2024", contributions: ["Mapped booking journeys and simplified complex reservation flows", "Designed responsive interfaces and interactive prototypes", "Collaborated with developers to bring designs into production"], skills: ["User Research", "Interaction Design", "Prototyping"], href: "/portfolio" },
-  { image: "tealtile_job.svg", name: "Tealtile", role: "UI Designer & Frontend Developer", type: "Contract", dates: "2021 \u2013 2022", contributions: ["Designed a clear product browsing experience for a tile brand", "Built responsive pages with a focus on visual consistency", "Created reusable interface components and design guidelines"], skills: ["UI Design", "Responsive Design", "Frontend Development"], href: "/portfolio" },
-  { image: "tealnex_job.svg", name: "Tealnex", role: "Product Designer & Developer", type: "Contract", dates: "2020 \u2013 2021", contributions: ["Translated business goals into clear website journeys", "Developed polished interfaces across desktop and mobile", "Refined page layouts and interactions through iterative feedback"], skills: ["UX Design", "Visual Design", "Web Development"], href: "/portfolio" },
+  { id: "bilit4u", image: "bilit4u_job.svg", href: "/projects/bilit4u" },
+  // Payaneh has no case study yet; keep its link on the portfolio overview.
+  { id: "payaneh", image: "payaneh_job.svg", href: "/portfolio" },
+  { id: "tealtile", image: "tealtile_job.svg", href: "/projects/tealtile" },
+  { id: "tealnex", image: "tealnex_job.svg", href: "/projects/tealnex" },
 ];
 
 function ExperienceCard({ company }: { company: Experience }) {
   const t = useTranslations("About");
+  const content = t.raw(`companies.${company.id}`) as ExperienceContent;
   return (
     <Dialog>
-      <DialogTrigger className={styles.jobCard} aria-label={`View work experience at ${company.name}`}>
+      <DialogTrigger className={styles.jobCard} aria-label={t("viewExperience", { company: content.name })}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={`${ASSETS}/${company.image}`} alt="" width={56} height={56} />
-        <span className={styles.companyName}>{company.name}</span>
-        {company.type && <span className={styles.employmentType}>{company.type}</span>}
+        <span className={styles.companyName}>{content.name}</span>
+        <span className={styles.employmentType}>{content.type}</span>
         <ChevronRight className={styles.cardArrow} size={17} aria-hidden="true" />
       </DialogTrigger>
       <DialogPortal>
@@ -70,22 +64,22 @@ function ExperienceCard({ company }: { company: Experience }) {
           <div className={styles.dialogCompany}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={`${ASSETS}/${company.image}`} alt="" width={72} height={72} />
-            <span>{company.name}</span>
-            {company.type && <span className={styles.employmentType}>{company.type}</span>}
-            <DialogClose className={styles.dialogClose} aria-label="Close work experience"><X size={20} /></DialogClose>
+            <span>{content.name}</span>
+            <span className={styles.employmentType}>{content.type}</span>
+            <DialogClose className={styles.dialogClose} aria-label={t("closeExperience")}><X size={20} /></DialogClose>
           </div>
-          <DialogTitle className={styles.experienceTitle}>{company.role}</DialogTitle>
+          <DialogTitle className={styles.experienceTitle}>{content.role}</DialogTitle>
           <DialogDescription className={styles.experienceDates}>
-            {company.dates ? `${company.dates} · ${company.name}` : `Work experience at ${company.name}`}
+            <bdi>{content.dates}</bdi> · {content.name}
           </DialogDescription>
-          {company.contributions && (
-            <section className={styles.contributions} aria-label="Responsibilities">
-              <h3>{t("responsibilities")}</h3>
-              <ul>{company.contributions.map((item) => <li key={item}>{item}</li>)}</ul>
-            </section>
-          )}
-          {company.skills && <ul className={styles.skillTags} aria-label="Skills">{company.skills.map((skill) => <li key={skill}>{skill}</li>)}</ul>}
-          {company.href && <Link href={company.href} className={styles.selectedWork}>{t("work")} <ArrowUpRight size={19} aria-hidden="true" /></Link>}
+          <section className={styles.contributions} aria-label={t("responsibilities")}>
+            <h3>{t("responsibilities")}</h3>
+            <ul>{content.contributions.map((item) => <li key={item}>{item}</li>)}</ul>
+          </section>
+          <ul className={styles.skillTags} aria-label={t("skills")}>
+            {content.skills.map((skill) => <li key={skill}>{skill}</li>)}
+          </ul>
+          <Link href={company.href} className={styles.selectedWork}>{t("work")} <ArrowUpRight size={19} aria-hidden="true" /></Link>
         </DialogPrimitive.Popup>
       </DialogPortal>
     </Dialog>

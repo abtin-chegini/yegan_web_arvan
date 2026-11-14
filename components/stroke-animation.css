@@ -1,0 +1,121 @@
+/* Copy alongside StrokeAnimation.tsx. Imported by the component.
+   Requires gsap and lenis. Font is inherited from your project. */
+@import "lenis/dist/lenis.css";
+
+.spotlight,
+.spotlight * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.spotlight {
+  color: var(--base-300, #0f0f0f);
+}
+
+.spotlight h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.075rem;
+}
+
+.spotlight p {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.spotlight {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  overflow: hidden;
+}
+
+.spotlight .row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.spotlight .row .col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Colored placeholders need their own height in place of image content. */
+.spotlight .img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.spotlight .row:nth-child(1) .img,
+.spotlight .row:nth-child(4) .img {
+  width: 50%;
+}
+
+.spotlight .card {
+  width: 75%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--base-200, #deded5);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.spotlight .svg-path {
+  position: absolute;
+  top: 25svh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 100%;
+  z-index: -1;
+}
+
+.spotlight .svg-path svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1000px) {
+  .spotlight h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+  }
+
+  .spotlight p {
+    font-size: 1rem;
+  }
+
+  .spotlight {
+    gap: 5rem;
+  }
+
+  .spotlight .row {
+    flex-direction: column;
+  }
+
+  .spotlight .row:nth-child(1) .img,
+  .spotlight .row:nth-child(4) .img {
+    width: 100%;
+  }
+
+  .spotlight .card {
+    width: 100%;
+  }
+
+  .spotlight .svg-path {
+    top: 15svh;
+    width: 275%;
+  }
+}

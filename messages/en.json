@@ -50,7 +50,76 @@
     "Bachelor’s degree": "Bachelor’s degree",
     "Master’s degree": "Master’s degree",
     "Undergraduate education": "Undergraduate education",
-    "Postgraduate education": "Postgraduate education"
+    "Postgraduate education": "Postgraduate education",
+    "viewExperience": "View work experience at {company}",
+    "closeExperience": "Close work experience",
+    "skills": "Skills",
+    "companies": {
+      "bilit4u": {
+        "name": "Bilit4U",
+        "role": "Product Design Manager & Frontend Developer",
+        "type": "Full-time",
+        "dates": "2024 – 2026",
+        "contributions": [
+          "Led UX strategy and product design from concept to handoff",
+          "Designed and built responsive front-end experiences",
+          "Created scalable design patterns and reusable components"
+        ],
+        "skills": [
+          "UX Strategy",
+          "UI Design",
+          "Frontend Development"
+        ]
+      },
+      "payaneh": {
+        "name": "Payaneh",
+        "role": "Product Designer",
+        "type": "Full-time",
+        "dates": "2022 – 2024",
+        "contributions": [
+          "Mapped booking journeys and simplified complex reservation flows",
+          "Designed responsive interfaces and interactive prototypes",
+          "Collaborated with developers to bring designs into production"
+        ],
+        "skills": [
+          "User Research",
+          "Interaction Design",
+          "Prototyping"
+        ]
+      },
+      "tealtile": {
+        "name": "Tealtile",
+        "role": "UI Designer & Frontend Developer",
+        "type": "Contract",
+        "dates": "2021 – 2022",
+        "contributions": [
+          "Designed a clear product browsing experience for a tile brand",
+          "Built responsive pages with a focus on visual consistency",
+          "Created reusable interface components and design guidelines"
+        ],
+        "skills": [
+          "UI Design",
+          "Responsive Design",
+          "Frontend Development"
+        ]
+      },
+      "tealnex": {
+        "name": "Tealnex",
+        "role": "Product Designer & Developer",
+        "type": "Contract",
+        "dates": "2020 – 2021",
+        "contributions": [
+          "Translated business goals into clear website journeys",
+          "Developed polished interfaces across desktop and mobile",
+          "Refined page layouts and interactions through iterative feedback"
+        ],
+        "skills": [
+          "UX Design",
+          "Visual Design",
+          "Web Development"
+        ]
+      }
+    }
   },
   "SelectedWork": {
     "tealnexTitle": "Tealnex",

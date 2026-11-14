@@ -103,7 +103,7 @@
 .jobCard {
   width: 100%;
   color: #233f63;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   border-color: #ebe1d6;
   transition: background-color 180ms ease, border-color 180ms ease;
@@ -119,7 +119,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   border-radius: 1rem;
   padding: 0.55rem 0.8rem;
   background: #e6f2ff;
@@ -128,8 +128,9 @@
   font-size: 0.7rem;
   line-height: 1.3;
 }
-.cardArrow { flex-shrink: 0; color: #6b8198; margin-left: auto; }
-.employmentType + .cardArrow { margin-left: 0; }
+.cardArrow { flex-shrink: 0; color: #6b8198; margin-inline-start: auto; }
+.employmentType + .cardArrow { margin-inline-start: 0; }
+.jobCard:dir(rtl) .cardArrow { transform: rotate(180deg); }
 .experienceOverlay { z-index: 150; background: rgb(35 48 66 / 23%); backdrop-filter: blur(5px); }
 .experienceDialog {
   position: fixed;
@@ -162,7 +163,7 @@
   width: 36px;
   height: 36px;
   flex-shrink: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   border: 0;
   border-radius: 50%;
   background: transparent;
@@ -174,9 +175,10 @@
 .experienceDates { margin: 0; color: #596f89; font-size: 1.1rem; line-height: 1.6; }
 .contributions { border-top: 1px solid #cadff2; margin-top: 1.35rem; padding-top: 1.5rem; }
 .contributions h3 { margin: 0 0 1rem; font-size: 1.65rem; font-weight: 400; }
-.contributions ul { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.3rem; color: #425c7b; font-size: 1.1rem; line-height: 1.6; }
-.contributions li { padding-left: 0.4rem; }
+.contributions ul { display: grid; gap: 0.8rem; margin: 0; padding-inline-start: 1.3rem; color: #425c7b; font-size: 1.1rem; line-height: 1.6; }
+.contributions li { padding-inline-start: 0.4rem; }
 .contributions li::marker { color: #b2d3f6; }
+.experienceDialog:dir(rtl) { font-family: var(--font-sans); text-align: start; }
 .skillTags { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; margin: 1.75rem 0; padding: 0; }
 .skillTags li { padding: 0.6rem 1rem; border-radius: 2rem; background: #e6f2ff; font-size: 0.95rem; }
 .selectedWork { display: inline-flex; align-items: center; gap: 0.4rem; padding-bottom: 0.35rem; border-bottom: 1px solid currentColor; color: #225e9c; font-size: 1.15rem; text-decoration: none; }
