@@ -1,0 +1,392 @@
+{
+  "@context": "https://schema.org",
+  "shared": {
+    "website": {
+      "@type": "WebSite",
+      "@id": "https://yeganehheshmat.com/#website",
+      "url": "https://yeganehheshmat.com/",
+      "name": "Yeganeh Heshmat",
+      "inLanguage": [
+        "en",
+        "fa"
+      ],
+      "publisher": {
+        "@id": "https://yeganehheshmat.com/#person"
+      }
+    },
+    "person": {
+      "@type": "Person",
+      "@id": "https://yeganehheshmat.com/#person",
+      "url": "https://yeganehheshmat.com/",
+      "image": "https://cdn.yeganehheshmat.com/aboutme/aboutme_Yeganeh_Heshmat_Profile_11.png",
+      "email": "Yeganeh.Heshmat@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/yeganeh-heshmat-784300229"
+      ]
+    }
+  },
+  "locales": {
+    "en": {
+      "person": {
+        "name": "Yeganeh Heshmat",
+        "jobTitle": "Front-End Developer & Product Designer",
+        "description": "I’m a creative and detail-oriented professional with a passion for building meaningful digital experiences. I enjoy turning ideas into user-friendly solutions and constantly seek to learn, grow, and make a positive impact through my work."
+      },
+      "pages": {
+        "home": {
+          "nodes": [
+            {
+              "@type": "WebPage",
+              "@id": "https://yeganehheshmat.com/en/#webpage",
+              "url": "https://yeganehheshmat.com/en/",
+              "name": "Yeganeh Heshmat | Product Designer & Front-End Developer",
+              "description": "Explore Yeganeh Heshmat’s portfolio of product design, UX/UI design, and front-end development, featuring responsive websites and detailed project case studies.",
+              "inLanguage": "en",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            }
+          ]
+        },
+        "portfolio": {
+          "nodes": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://yeganehheshmat.com/en/portfolio/#webpage",
+              "url": "https://yeganehheshmat.com/en/portfolio/",
+              "name": "Portfolio",
+              "description": "Explore Yeganeh Heshmat’s portfolio of product design, UX/UI design, and front-end development, featuring responsive websites and detailed project case studies.",
+              "inLanguage": "en",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/en/portfolio/#projects"
+              }
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://yeganehheshmat.com/en/portfolio/#projects",
+              "numberOfItems": 3,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/en/projects/bilit4u/#creativework"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/en/projects/tealnex/#creativework"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/en/projects/tealtile/#creativework"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/en/projects/bilit4u/#creativework",
+              "url": "https://yeganehheshmat.com/en/projects/bilit4u/",
+              "name": "Bilit4U",
+              "description": "I designed and built the front end of a ticket booking platform — from UX/UI and interaction design through to a clear, responsive reservation flow.",
+              "inLanguage": "en",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_bilit4u.png"
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/en/projects/tealnex/#creativework",
+              "url": "https://yeganehheshmat.com/en/projects/tealnex/",
+              "name": "Tealnex",
+              "description": "Designed the UX/UI, defined the interaction design and micro-interactions, and delivered the front-end implementation.",
+              "inLanguage": "en",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_tealnex.png"
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/en/projects/tealtile/#creativework",
+              "url": "https://yeganehheshmat.com/en/projects/tealtile/",
+              "name": "TealTile",
+              "description": "My role covered the full digital experience, from website design and UX/UI design to front-end implementation.",
+              "inLanguage": "en",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_tealtile.png"
+            }
+          ]
+        },
+        "about": {
+          "person": {
+            "hasCredential": [
+              {
+                "@id": "https://yeganehheshmat.com/#bachelors-degree"
+              },
+              {
+                "@id": "https://yeganehheshmat.com/#masters-degree"
+              }
+            ]
+          },
+          "nodes": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://yeganehheshmat.com/en/about/#webpage",
+              "url": "https://yeganehheshmat.com/en/about/",
+              "name": "About Me",
+              "description": "I’m a creative and detail-oriented professional with a passion for building meaningful digital experiences. I enjoy turning ideas into user-friendly solutions and constantly seek to learn, grow, and make a positive impact through my work.",
+              "inLanguage": "en",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "@id": "https://yeganehheshmat.com/#bachelors-degree",
+              "name": "Bachelor’s degree",
+              "credentialCategory": "Bachelor’s degree",
+              "inLanguage": "en"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "@id": "https://yeganehheshmat.com/#masters-degree",
+              "name": "Master’s degree",
+              "credentialCategory": "Master’s degree",
+              "inLanguage": "en"
+            }
+          ]
+        },
+        "contact": {
+          "nodes": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://yeganehheshmat.com/en/contact/#webpage",
+              "url": "https://yeganehheshmat.com/en/contact/",
+              "name": "Contact Me",
+              "description": "Let’s turn complex ideas into clear, scalable digital experiences.",
+              "inLanguage": "en",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "fa": {
+      "person": {
+        "name": "یگانه حشمت",
+        "jobTitle": "توسعه‌دهنده فرانت‌اند و طراح محصول",
+        "description": "من فردی خلاق و دقیق هستم که به ساخت تجربه‌های دیجیتال معنادار علاقه دارم. از تبدیل ایده‌ها به راهکارهای کاربرپسند لذت می‌برم و همواره در پی یادگیری، رشد و ایجاد تأثیر مثبت از طریق کارم هستم."
+      },
+      "pages": {
+        "home": {
+          "nodes": [
+            {
+              "@type": "WebPage",
+              "@id": "https://yeganehheshmat.com/fa/#webpage",
+              "url": "https://yeganehheshmat.com/fa/",
+              "name": "یگانه حشمت | طراح UI/UX و توسعه‌دهنده فرانت‌اند",
+              "description": "یگانه حشمت، طراح محصول و UI/UX و توسعه‌دهنده فرانت‌اند. بیش از ۵ سال سابقه در تبدیل ایده به محصول دیجیتال ساده، کاربردی و قابل‌رشد.",
+              "inLanguage": "fa",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            }
+          ]
+        },
+        "portfolio": {
+          "nodes": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://yeganehheshmat.com/fa/portfolio/#webpage",
+              "url": "https://yeganehheshmat.com/fa/portfolio/",
+              "name": "نمونه‌کارها",
+              "description": "یگانه حشمت، طراح محصول و UI/UX و توسعه‌دهنده فرانت‌اند. بیش از ۵ سال سابقه در تبدیل ایده به محصول دیجیتال ساده، کاربردی و قابل‌رشد.",
+              "inLanguage": "fa",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/fa/portfolio/#projects"
+              }
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://yeganehheshmat.com/fa/portfolio/#projects",
+              "numberOfItems": 3,
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/fa/projects/bilit4u/#creativework"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/fa/projects/tealnex/#creativework"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://yeganehheshmat.com/fa/projects/tealtile/#creativework"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/fa/projects/bilit4u/#creativework",
+              "url": "https://yeganehheshmat.com/fa/projects/bilit4u/",
+              "name": "پروژه Bilit4u",
+              "description": "در طراحی و توسعه سامانه رزرو بلیط یک شرکت گردشگری ایرانی، از ایده‌پردازی تا انتشار فاز خرید بلیط اتوبوس حضور داشتم. طراحی رابط کاربری و توسعه فرانت‌اند را با تمرکز بر تجربه‌ای ساده، روان و سازگار با تمام صفحه‌نمایش‌ها انجام دادم.",
+              "inLanguage": "fa",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_bilit4u.png"
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/fa/projects/tealnex/#creativework",
+              "url": "https://yeganehheshmat.com/fa/projects/tealnex/",
+              "name": "پروژه tealnex",
+              "description": "وب‌سایت یک شرکت ارائه انواع خدمات معماری و بازسازی در کانادا است. تجربه و رابط کاربری و تعامل‌های ریز را طراحی کردم و سپس متناسب با آن فاز توسعه را انجام دادم.",
+              "inLanguage": "fa",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_tealnex.png"
+            },
+            {
+              "@type": "CreativeWork",
+              "@id": "https://yeganehheshmat.com/fa/projects/tealtile/#creativework",
+              "url": "https://yeganehheshmat.com/fa/projects/tealtile/",
+              "name": "پروژه tealtile",
+              "description": "وب‌سایت یک کسب و کار در حوزه واردات، فروش و نصب انواع کاشی در کانادا است. کار را از یک صفحه‌ی خالی شروع کردم و کل بخش دیجیتال را پیش بردم: از طراحی وب‌سایت و تجربه و رابط کاربری تا پیاده‌سازی فرانت‌اند.",
+              "inLanguage": "fa",
+              "creator": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "image": "https://cdn.yeganehheshmat.com/portfolio/card_front_tealtile.png"
+            }
+          ]
+        },
+        "about": {
+          "person": {
+            "hasCredential": [
+              {
+                "@id": "https://yeganehheshmat.com/#bachelors-degree"
+              },
+              {
+                "@id": "https://yeganehheshmat.com/#masters-degree"
+              }
+            ]
+          },
+          "nodes": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://yeganehheshmat.com/fa/about/#webpage",
+              "url": "https://yeganehheshmat.com/fa/about/",
+              "name": "درباره من",
+              "description": "من فردی خلاق و دقیق هستم که به ساخت تجربه‌های دیجیتال معنادار علاقه دارم. از تبدیل ایده‌ها به راهکارهای کاربرپسند لذت می‌برم و همواره در پی یادگیری، رشد و ایجاد تأثیر مثبت از طریق کارم هستم.",
+              "inLanguage": "fa",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "@id": "https://yeganehheshmat.com/#bachelors-degree",
+              "name": "کارشناسی",
+              "credentialCategory": "کارشناسی",
+              "inLanguage": "fa"
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "@id": "https://yeganehheshmat.com/#masters-degree",
+              "name": "کارشناسی ارشد",
+              "credentialCategory": "کارشناسی ارشد",
+              "inLanguage": "fa"
+            }
+          ]
+        },
+        "contact": {
+          "nodes": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://yeganehheshmat.com/fa/contact/#webpage",
+              "url": "https://yeganehheshmat.com/fa/contact/",
+              "name": "تماس با من",
+              "description": "با طراحی هوشمندانه و توسعه‌ی حرفه‌ای، ایده‌هایتان را به تجربه‌ای ماندگار تبدیل می‌کنم.",
+              "inLanguage": "fa",
+              "isPartOf": {
+                "@id": "https://yeganehheshmat.com/#website"
+              },
+              "about": {
+                "@id": "https://yeganehheshmat.com/#person"
+              },
+              "mainEntity": {
+                "@id": "https://yeganehheshmat.com/#person"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

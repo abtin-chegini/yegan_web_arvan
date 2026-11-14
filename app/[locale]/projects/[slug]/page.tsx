@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import {setRequestLocale} from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -23,6 +24,12 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getAllCaseStudySlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { locale, slug } = await params;
+  if (!getCaseStudy(slug)) notFound();
+  return pageMetadata(locale, `projects/${slug}`);
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
