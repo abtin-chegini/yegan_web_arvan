@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { SITE_URL, languageAlternates } from "@/lib/seo";
+import { routing } from "@/i18n/routing";
 
-// The root remains the existing static redirect to /en/.
+// Keep the static redirect aligned with the site's default language.
 export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/`, languages: languageAlternates() },
   openGraph: { type: "website", title: "Yeganeh Heshmat", url: `${SITE_URL}/` },
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function RootPage() {
   return (
-    <html lang="en" dir="ltr">
+    <html lang={routing.defaultLocale} dir={routing.defaultLocale === "fa" ? "rtl" : "ltr"}>
       <head>
-        <meta httpEquiv="refresh" content="0;url=/en/" />
+        <meta httpEquiv="refresh" content={`0;url=/${routing.defaultLocale}/`} />
         <title>Yeganeh Heshmat</title>
       </head>
       <body />

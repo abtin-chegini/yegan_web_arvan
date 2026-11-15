@@ -1,16 +1,12 @@
 "use client";
 
 import gsap from "gsap";
-import CustomEase from "gsap/CustomEase";
 import { useEffect, useRef } from "react";
-
-gsap.registerPlugin(CustomEase);
-
-CustomEase.create("hop", "0.9, 0, 0.1, 1");
-CustomEase.create("glide", "0.8, 0, 0.2, 1");
 
 const LOGO_SRC =
   "https://cdn.yeganehheshmat.com/yeganehheshmat_logo.svg";
+const TRACK_LENGTH = 2 * Math.PI * 155;
+const PROGRESS_LENGTH = 2 * Math.PI * 150;
 
 const BACKDROP_TOP = ["01", "02", "03", "04", "05", "06"];
 const BACKDROP_BOTTOM = ["07", "08", "09", "10", "11", "12"];
@@ -29,35 +25,29 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
     const root = rootRef.current;
     if (!root) return;
 
-    let introTl: gsap.core.Timeline | null = null;
+    let progressTween: gsap.core.Tween | null = null;
     let exitTl: gsap.core.Timeline | null = null;
+    let disposed = false;
+    let finishing = false;
+    let readinessTimer: number | undefined;
 
-    const q = gsap.utils.selector(root);
-    const preloaderBtn = q(".preloader-btn-container")[0] as
-      | HTMLElement
-      | undefined;
-    const btnOutlineTrack = root.querySelector(
-      ".stroke-track",
-    ) as SVGCircleElement | null;
+    const logo = root.querySelector<HTMLImageElement>("#pbc-logo");
     const btnOutlineProgress = root.querySelector(
       ".stroke-progress",
     ) as SVGCircleElement | null;
 
-    if (!preloaderBtn || !btnOutlineTrack || !btnOutlineProgress) return;
+    if (!btnOutlineProgress) return;
 
-    const svgPathLength = btnOutlineTrack.getTotalLength();
-
-    gsap.set(preloaderBtn, {
-      xPercent: -50,
-      yPercent: -50,
-      left: "50%",
-      top: "50%",
-      scale: 1,
+    // Use the circle's real length so pixel rounding cannot hide the fill.
+    gsap.set(btnOutlineProgress, {
+      strokeDasharray: PROGRESS_LENGTH,
+      strokeDashoffset: PROGRESS_LENGTH,
     });
-
-    gsap.set([btnOutlineTrack, btnOutlineProgress], {
-      strokeDasharray: svgPathLength,
-      strokeDashoffset: svgPathLength,
+    progressTween = gsap.to(btnOutlineProgress, {
+      strokeDashoffset: PROGRESS_LENGTH * 0.1,
+      duration: 1.5,
+      ease: "power1.out",
+      autoRound: false,
     });
 
     const playExit = () => {
@@ -70,53 +60,42 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
         },
       });
 
-      exitTl.to(q(".preloader, .preloader-backdrop"), {
+      exitTl.to(root, {
         opacity: 0,
-        duration: 1.4,
+        duration: 0.3,
         ease: "power2.out",
       });
     };
 
-    introTl = gsap.timeline({ delay: 0.6 });
-
-    introTl
-      .to(
-        btnOutlineTrack,
-        {
-          strokeDashoffset: 0,
-          duration: 2,
-          ease: "hop",
-        },
-        0,
-      )
-      .to(
-        q(".pbc-svg-stroke svg"),
-        {
-          rotation: 270,
-          duration: 2,
-          ease: "hop",
-        },
-        0,
-      );
-
-    const progressStops = [0.2, 0.25, 0.85, 1].map((base, i) => {
-      if (i === 3) return 1;
-      return base + (Math.random() - 0.5) * 0.1;
-    });
-
-    progressStops.forEach((stop, i) => {
-      introTl!.to(btnOutlineProgress, {
-        strokeDashoffset: svgPathLength - svgPathLength * stop,
-        duration: 0.75,
-        ease: "glide",
-        delay: i === 0 ? 0.3 : 0.3 + Math.random() * 0.2,
+    const finish = () => {
+      if (disposed || finishing) return;
+      finishing = true;
+      window.clearTimeout(readinessTimer);
+      progressTween?.kill();
+      progressTween = gsap.to(btnOutlineProgress, {
+        strokeDashoffset: 0,
+        duration: 0.4,
+        ease: "power1.inOut",
+        autoRound: false,
+        onComplete: playExit,
       });
-    });
+    };
 
-    introTl.add(playExit);
+    // Wait only for the first screen, after the responsive layout has mounted.
+    // Slow third-party assets must not keep an otherwise usable page covered.
+    readinessTimer = window.setTimeout(finish, 2000);
+    const readinessFrame = window.requestAnimationFrame(() => {
+      const heroImage = document.querySelector<HTMLImageElement>("#home img");
+      const images = [logo, heroImage].filter((image): image is HTMLImageElement => image !== null);
+      const ready = images.map((image) => image.decode().catch(() => {}));
+      void Promise.all([...ready, document.fonts.ready]).then(finish);
+    });
 
     return () => {
-      introTl?.kill();
+      disposed = true;
+      window.clearTimeout(readinessTimer);
+      window.cancelAnimationFrame(readinessFrame);
+      progressTween?.kill();
       exitTl?.kill();
     };
   }, [onRevealStart, onComplete]);
@@ -147,13 +126,14 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
               media="(min-width: 768px)"
               srcSet="https://cdn.yeganehheshmat.com/yeganehheshmat_logo2.png"
             />
-            <img id="pbc-logo" src={LOGO_SRC} alt="" />
+            <img id="pbc-logo" src={LOGO_SRC} alt="" width={224} height={224} loading="eager" fetchPriority="high" decoding="async" />
           </picture>
           <div className="pbc-svg-stroke">
             <svg
               viewBox="0 0 320 320"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              style={{ transform: "rotate(-90deg)" }}
               aria-hidden
             >
               <circle
@@ -161,6 +141,8 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
                 cx="160"
                 cy="160"
                 r="155"
+                strokeDasharray={TRACK_LENGTH}
+                strokeDashoffset={0}
                 stroke="#d4c8b8"
                 strokeWidth="2"
               />
@@ -169,6 +151,8 @@ export function Preloader({ onRevealStart, onComplete }: PreloaderProps) {
                 cx="160"
                 cy="160"
                 r="150"
+                strokeDasharray={PROGRESS_LENGTH}
+                strokeDashoffset={PROGRESS_LENGTH}
                 stroke="#1d3557"
                 strokeWidth="2"
               />

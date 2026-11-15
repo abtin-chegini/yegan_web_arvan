@@ -1,5 +1,12 @@
 /* These overrides are scoped to the non-homepage mobile container only. */
 .page { position: relative; width: 100%; }
+.page.aboutPage {
+  --background: #FCF6EF;
+  background-color: var(--background);
+}
+.page.aboutPage .content {
+  background-color: var(--background);
+}
 .page.compactCaseStudy [data-case-overview-heading] {
   margin-top: 20px;
 }

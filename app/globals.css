@@ -306,6 +306,7 @@ p .line {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 20rem;
   height: 20rem;
   padding: 0;
@@ -672,6 +673,40 @@ p .line {
   }
 }
 
+/* MD/LG menu only: the first grid column follows the locale's direction. */
+@media (min-width: 768px) and (width < 1280px) {
+  .fancy-navbar .menu-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr;
+    align-content: center;
+  }
+
+  .fancy-navbar .menu-col-info {
+    grid-column: 2;
+    grid-row: 1;
+    padding-inline: 0;
+  }
+
+  .fancy-navbar .menu-col-links {
+    grid-column: 1;
+    grid-row: 1;
+    padding-inline: 0;
+    align-items: center;
+  }
+
+  .fancy-navbar .menu-link-block {
+    align-items: center;
+  }
+
+  .fancy-navbar .menu-split {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* Card slider — button-driven GSAP stack */
 .card-slider {
   height: 100%;
@@ -1033,6 +1068,118 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
     .card-slider:not(.card-slider-mobile) .card-slider-nav {
       top: calc(50% - 25px + 37.5% + 30px);
     }
+  }
+}
+
+/* Tablet Selected Work: reserve separate space for the heading, stack and controls. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .selected-work-heading {
+    position: static;
+    flex: 0 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  .selected-work-heading + .card-slider {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+  }
+
+  .selected-work-heading + .card-slider .sticky-cards {
+    --tablet-controls-space: 5rem;
+  }
+
+  .selected-work-heading + .card-slider .sticky-cards .card {
+    /* The two rear cards extend another 10% below the front card. */
+    top: calc((100% - var(--tablet-controls-space)) / 2.2);
+    width: calc(100% - 2rem);
+    height: calc((100% - var(--tablet-controls-space)) / 1.1);
+    flex-direction: row;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 2.4vw, 2rem);
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-copy {
+    flex: 0 1 42%;
+    min-width: 0;
+    min-height: 0;
+    width: auto;
+    height: 100%;
+    padding: 0;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-media {
+    flex: 1 1 58%;
+    min-height: 0;
+    width: auto;
+    height: 100%;
+  }
+
+  .selected-work-heading + .card-slider .slider-card-cta {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 0.65rem 1.1rem;
+    text-align: center;
+  }
+
+  .selected-work-heading + .card-slider .card-slider-nav {
+    top: auto;
+    bottom: 0;
+    z-index: 50;
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) and (orientation: portrait) {
+  .selected-work-heading + .card-slider .sticky-cards .card {
+    flex-direction: column;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-copy {
+    order: 1;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-media {
+    flex: 1 1 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .selected-work-heading + .card-slider .slider-card-cta {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) and (max-height: 740px) {
+  .selected-work-heading {
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .selected-work-heading + .card-slider .sticky-cards {
+    --tablet-controls-space: 4.5rem;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-copy {
+    gap: 0.35rem;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-copy h2 {
+    font-size: 1.6rem;
+  }
+
+  .selected-work-heading + .card-slider .card .slider-card-kicker,
+  .selected-work-heading + .card-slider .card .slider-card-description {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .selected-work-heading + .card-slider .slider-card-cta {
+    padding-block: 0.5rem;
+    font-size: 0.9rem;
   }
 }
 

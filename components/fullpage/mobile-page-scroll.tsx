@@ -228,7 +228,7 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
 
   return (
     <FullpageContext.Provider value={{ activeIndex, goTo, goToId, setScrollPaused }}>
-      <div className={cn(styles.page, compactCaseStudy && styles.compactCaseStudy)} data-case-study={studySlug}>
+      <div className={cn(styles.page, compactCaseStudy && styles.compactCaseStudy, slides[0]?.id === "about" && styles.aboutPage)} data-case-study={studySlug}>
         <div className={styles.fixedUi}>
           <Navbar activeId={slides[activeIndex]?.navId} foreground={slides[activeIndex]?.foreground} />
           <BackToTop activeIndex={activeIndex} />

@@ -12,7 +12,7 @@ npm run dev
 
 English pages live under `/en/` and Persian pages under `/fa/`, for example
 `/en/about/`, `/fa/about/`, and `/fa/projects/bilit4u/`. The root `/` redirects
-to `/en/`. Both locale trees are generated during static export; no middleware
+to `/fa/` by default. Both locale trees are generated during static export; no middleware
 or server is required. Persian pages use `lang="fa"` and `dir="rtl"`.
 
 Routes share components in `app/[locale]/`. Add translated interface copy to
