@@ -21,8 +21,8 @@ export const contactRows: {
   },
   {
     label: "Email Address",
-    value: "Yeganeh.Heshmat@gmail.com",
-    href: "mailto:Yeganeh.Heshmat@gmail.com",
+    value: "yeganehheshmat@gmail.com",
+    href: "mailto:yeganehheshmat@gmail.com",
     icon: "https://cdn.yeganehheshmat.com/icons/social/email_icon.svg",
     mobileIcon: "https://cdn.yeganehheshmat.com/icons/social/email_icon.png",
   },

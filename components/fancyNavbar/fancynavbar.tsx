@@ -54,8 +54,8 @@ const menuLinks: { label: string; id: SectionId }[] = [
 const contactItems = [
   {
     icon: Mail,
-    label: "hello@yeganehheshmat.com",
-    href: "mailto:hello@yeganehheshmat.com",
+    label: "yeganehheshmat@gmail.com",
+    href: "mailto:yeganehheshmat@gmail.com",
   },
   {
     icon: MapPin,
