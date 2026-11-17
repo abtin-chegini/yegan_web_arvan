@@ -87,7 +87,7 @@ function ExperienceCard({ company }: { company: Experience }) {
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
-  return <h2 className={styles.sectionHeading}><span aria-hidden="true" className={styles.sprig}>❧</span>{children}</h2>;
+  return <h2 className={styles.sectionHeading}>{children}</h2>;
 }
 
 export function AboutPageView() {
