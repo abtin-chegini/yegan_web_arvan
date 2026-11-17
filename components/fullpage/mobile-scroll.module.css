@@ -132,18 +132,6 @@
   gap: var(--mobile-home-heading-gap);
 }
 
-.section[id="contact"] [data-mobile-home-description] {
-  margin-top: var(--mobile-home-heading-gap);
-}
-
-.section[id="contact"] .sectionContent {
-  padding-top: 60px;
-}
-
-.section[id="contact"] [data-mobile-home-description] + ul {
-  margin-top: var(--mobile-home-content-gap);
-}
-
 .content [data-mobile-home-title],
 .content [data-mobile-home-description] {
   align-self: center;

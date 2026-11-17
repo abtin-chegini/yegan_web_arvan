@@ -1,9 +1,9 @@
 "use client";
 
 import {useLocale, useTranslations} from 'next-intl';
-import {useCallback, useId} from 'react';
+import {useCallback, useId, useRef} from 'react';
 import {usePathname, useRouter} from '@/i18n/navigation';
-import {AnimatedThemeToggler} from '@/components/ui/animated-theme-toggler';
+import {AnimatedThemeToggler, useAnimatedThemeTransition} from '@/components/ui/animated-theme-toggler';
 import {setLocaleTransitionTarget} from '@/lib/locale-transition';
 import {
   Combobox,
@@ -22,10 +22,11 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
   const pathname = usePathname();
   const router = useRouter();
   const target = locale === 'en' ? 'fa' : 'en';
+  const pendingMobileSelection = useRef(false);
 
   const tooltip = t(target === 'fa' ? 'persian' : 'english');
 
-  const changeDesktopLanguage = useCallback(async () => {
+  const changeLanguage = useCallback(async () => {
     const suffix = window.location.search + window.location.hash;
     setLocaleTransitionTarget(target);
     try {
@@ -44,7 +45,11 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
         observer.observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
         // Release the snapshot even if a route fails or takes unusually long.
         const timeout = window.setTimeout(finish, 5000);
-        router.push(pathname + suffix, {locale: target, scroll: false});
+        if (desktop) {
+          router.push(pathname + suffix, {locale: target, scroll: false});
+        } else {
+          router.replace(pathname + suffix, {locale: target, scroll: false});
+        }
       });
       await Promise.race([
         document.fonts.ready,
@@ -53,7 +58,12 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
     } finally {
       setLocaleTransitionTarget(null);
     }
-  }, [pathname, router, target]);
+  }, [desktop, pathname, router, target]);
+
+  const {buttonRef: mobileTriggerRef, toggleTheme: animateMobileLanguage} = useAnimatedThemeTransition({
+    duration: 650,
+    onToggleAction: changeLanguage,
+  });
 
   if (!desktop) {
     return (
@@ -61,15 +71,24 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
         <Combobox
           items={['fa', 'en']}
           value={locale}
+          onOpenChangeComplete={(open) => {
+            if (open || !pendingMobileSelection.current) return;
+            pendingMobileSelection.current = false;
+            // Capture only after the popup and its closing animation are gone.
+            requestAnimationFrame(() => animateMobileLanguage());
+          }}
+          onOpenChange={(open) => {
+            if (open) router.prefetch(pathname, {locale: target});
+          }}
           itemToStringLabel={(value) => languageNames(value === 'fa' ? 'persian' : 'english')}
           onValueChange={(nextLocale) => {
             if (nextLocale !== 'en' && nextLocale !== 'fa') return;
             if (nextLocale === locale) return;
-            const suffix = window.location.search + window.location.hash;
-            router.replace(pathname + suffix, {locale: nextLocale});
+            pendingMobileSelection.current = true;
           }}
         >
           <ComboboxTrigger
+            ref={mobileTriggerRef}
             aria-label={`${t("language")}: ${languageNames(locale === 'fa' ? 'persian' : 'english')}`}
             dir="ltr"
             className={`${styles.button} ${styles.languageSelect}`}
@@ -106,7 +125,7 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
     <span className={styles.languageControl}>
     <AnimatedThemeToggler
       duration={650}
-      onToggleAction={changeDesktopLanguage}
+      onToggleAction={changeLanguage}
       onMouseEnter={() => router.prefetch(pathname, {locale: target})}
       onFocus={() => router.prefetch(pathname, {locale: target})}
       lang={target}

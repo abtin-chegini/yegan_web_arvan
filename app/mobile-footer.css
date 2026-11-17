@@ -1,0 +1,78 @@
+/* A single composition for every mobile footer, in both languages. */
+@media (max-width: 767px) {
+  html section[data-mobile-footer-section]:last-child {
+    min-height: 100svh;
+    margin-bottom: 0;
+    padding: calc(clamp(96px, 16.5svh, 140px) + env(safe-area-inset-top, 0px))
+      max(14px, env(safe-area-inset-right, 0px))
+      calc(var(--mobile-bottom-navigation-height) + clamp(210px, 56vw, 320px))
+      max(14px, env(safe-area-inset-left, 0px));
+    background: #fcf6ef;
+    isolation: isolate;
+  }
+
+  html [data-mobile-footer-section] > div:last-child {
+    flex: 0 0 auto;
+    padding-top: 0;
+  }
+
+  html :is(#mobile-homepage-typography [data-mobile-footer], [data-mobile-footer]) {
+    --mobile-section-title-size: clamp(26px, 7.1vw, 32px);
+    --mobile-section-title-weight: 500;
+    --mobile-section-title-line-height: 1.4;
+    --mobile-section-description-size: clamp(14px, 3.8vw, 16px);
+    --mobile-section-description-line-height: 1.6;
+    --mobile-card-meta-size: clamp(11px, 3.2vw, 13px);
+    --mobile-card-meta-line-height: 1.6;
+    --mobile-button-text-size: 14px;
+    --mobile-button-text-line-height: 1.6;
+    max-width: 420px;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  html [data-mobile-footer] [data-mobile-home-title] {
+    width: 100%;
+    max-width: 340px;
+    min-height: 2lh;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  html [data-mobile-footer] [data-mobile-home-description] {
+    width: 100%;
+    max-width: 340px;
+    min-height: 3lh;
+    margin: 12px 0 0;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  html [data-mobile-footer] ul {
+    width: 100%;
+    max-width: none;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    /* Keep the screenshot's icon/text/arrow positions in both locales. */
+    direction: ltr;
+    text-align: left;
+  }
+
+  html [data-mobile-footer] [data-contact-link] {
+    min-height: 88px;
+    gap: clamp(14px, 4.5vw, 24px);
+    padding-block: 16px;
+  }
+
+  html [data-mobile-footer] [data-contact-icon] {
+    width: 28px;
+  }
+
+  html [data-mobile-footer] [data-contact-value] bdi {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+}

@@ -240,6 +240,7 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
                 key={slide.id}
                 id={slide.id}
                 data-mobile-page-section
+                data-mobile-footer-section={slide.id === "footer" || slide.id === "contact" ? "" : undefined}
                 data-active={index === activeIndex}
                 aria-label={slide.label}
                 className={cn(styles.section, "relative flex w-full flex-col justify-start px-5 sm:px-10")}

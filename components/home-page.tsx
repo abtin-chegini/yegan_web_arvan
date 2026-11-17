@@ -32,8 +32,12 @@ import {
 export function HomePage() {
   const locale = useLocale();
   const { section: footerSection } = useSiteFooter();
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const [isLocaleTransition] = useState(() => getLocaleTransitionTarget() === locale);
+  const [isMobile, setIsMobile] = useState<boolean | null>(() =>
+    isLocaleTransition && typeof window !== "undefined"
+      ? window.matchMedia("(max-width: 767px)").matches
+      : null,
+  );
   const [showPreloader, setShowPreloader] = useState(!isLocaleTransition);
   const [introReady, setIntroReady] = useState(isLocaleTransition);
 
@@ -158,7 +162,7 @@ export function HomePage() {
 
       <ScrollContainer sections={visibleSections}>
         {isMobile === true ? (
-          <HeroSectionMobile introReady={introReady} />
+          <HeroSectionMobile introReady={introReady} animateIntro={!isLocaleTransition} />
         ) : (
           <HeroSection introReady={introReady} animateIntro={!isLocaleTransition} />
         )}

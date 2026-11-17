@@ -201,6 +201,7 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
                 key={section.id}
                 id={section.id}
                 data-mobile-section
+                data-mobile-footer-section={section.id === "contact" ? "" : undefined}
                 data-active={index === activeIndex}
                 aria-label={section.label}
                 className={cn(styles.section, "relative flex w-full flex-col justify-start px-5 sm:px-10")}

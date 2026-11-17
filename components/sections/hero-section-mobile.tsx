@@ -14,9 +14,10 @@ CustomEase.create("hero-glide-mobile", "0.8, 0, 0.2, 1");
 
 type HeroSectionMobileProps = {
   introReady?: boolean;
+  animateIntro?: boolean;
 };
 
-export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps) {
+export function HeroSectionMobile({ introReady = false, animateIntro = true }: HeroSectionMobileProps) {
   const t = useTranslations("Hero");
   const locale = useLocale();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -24,7 +25,8 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
   const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    if (!introReady) return;
+    // Match desktop: the locale reveal captures the complete, stationary title.
+    if (!introReady || !animateIntro) return;
 
     const root = rootRef.current;
     const title = titleRef.current;
@@ -82,7 +84,7 @@ export function HeroSectionMobile({ introReady = false }: HeroSectionMobileProps
 
     });
     return () => media.revert();
-  }, [introReady, locale]);
+  }, [introReady, locale, animateIntro]);
 
   return (
     <>

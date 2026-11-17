@@ -54,22 +54,6 @@
   justify-content: flex-start;
 }
 .sectionContent > :global(.h-full) { height: auto; flex: none; }
-.section:is([id="footer"], [id="contact"]) .sectionContent {
-  padding-top: 60px;
-}
-
-.section :global([data-mobile-footer]) [data-mobile-home-title] {
-  margin: 0;
-  padding: 0;
-}
-
-.section :global([data-mobile-footer]) [data-mobile-home-description] {
-  margin: 12px 0 0;
-}
-
-.section :global([data-mobile-footer]) [data-mobile-home-description] + ul {
-  margin-top: 24px;
-}
 .fixedUi > header { padding-top: env(safe-area-inset-top, 0px); }
 
 /* Content that previously scrolled inside a locked slide now joins the page. */
@@ -275,18 +259,6 @@
 .page:is([data-case-study="tealnex"], [data-case-study="tealtile"]) :global(.ux-arch-intro) {
   white-space: pre-line;
   font-size: clamp(12px, 3.5vw, 15px);
-}
-
-.page[data-case-study="bilit4u"] .section[id="footer"] {
-  min-height: 100svh;
-  margin-top: 64px;
-  padding-top: 0;
-}
-
-.page[data-case-study="bilit4u"] .section[id="footer"] .sectionContent {
-  flex: 1 0 auto;
-  justify-content: flex-start;
-  padding-top: 130px;
 }
 
 @media (prefers-reduced-motion: reduce) {

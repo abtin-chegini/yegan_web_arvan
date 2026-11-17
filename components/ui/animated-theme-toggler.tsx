@@ -152,17 +152,18 @@ function getThemeTransitionClipPaths(
   }
 }
 
-export const AnimatedThemeToggler = ({
-  className,
+// Share the reveal with controls whose interaction is not a button click,
+// such as selecting a language from the mobile dropdown.
+export function useAnimatedThemeTransition({
   duration = 400,
   variant,
   fromCenter = false,
   theme,
   onThemeChange,
   onToggleAction,
-  children,
-  ...props
-}: AnimatedThemeTogglerProps) => {
+}: Pick<AnimatedThemeTogglerProps,
+  "duration" | "variant" | "fromCenter" | "theme" | "onThemeChange" | "onToggleAction"
+>) {
   const shape = variant ?? "circle"
   const isControlled = theme !== undefined
   const [internalIsDark, setInternalIsDark] = useState(false)
@@ -337,6 +338,24 @@ export const AnimatedThemeToggler = ({
     onToggleAction,
     cancelAnim,
   ])
+
+  return {buttonRef, toggleTheme, isDark}
+}
+
+export const AnimatedThemeToggler = ({
+  className,
+  duration,
+  variant,
+  fromCenter,
+  theme,
+  onThemeChange,
+  onToggleAction,
+  children,
+  ...props
+}: AnimatedThemeTogglerProps) => {
+  const {buttonRef, toggleTheme, isDark} = useAnimatedThemeTransition({
+    duration, variant, fromCenter, theme, onThemeChange, onToggleAction,
+  })
 
   return (
     <button

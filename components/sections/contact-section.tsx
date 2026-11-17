@@ -60,6 +60,7 @@ export function ContactLinks() {
             target={row.href.startsWith("http") ? "_blank" : undefined}
             rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
             className={styles.link}
+            data-contact-link
           >
             <span data-contact-icon className={styles.icon} aria-hidden="true">
               <picture>
@@ -72,7 +73,7 @@ export function ContactLinks() {
               <span data-contact-write className={`${styles.typed} mobile-button-text block text-sm font-medium leading-6`}>
                 {t(row.label)}
               </span>
-              <span className="mobile-card-meta mt-1 block text-[0.85rem] leading-6 text-[var(--section-contact-muted)] sm:text-base">
+              <span data-contact-value className="mobile-card-meta mt-1 block text-[0.85rem] leading-6 text-[var(--section-contact-muted)] sm:text-base">
                 <bdi data-contact-write dir="ltr" className={`${styles.typed} ${styles.value} tabular-nums`}>{row.value}</bdi>
               </span>
             </span>
