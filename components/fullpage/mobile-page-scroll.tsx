@@ -124,7 +124,8 @@ export function MobilePageScroll({ slides, studySlug }: MobilePageScrollProps) {
           trigger: element,
           start: "top 85%",
           end: "bottom 15%",
-          toggleClass: { targets: element, className: activeClass },
+          once: true,
+          onEnter: () => element.classList.add(activeClass),
         }),
         ScrollTrigger.create({
           trigger: element,

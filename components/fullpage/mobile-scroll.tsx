@@ -92,7 +92,8 @@ export function MobileScroll({ children, sections }: MobileScrollProps) {
           trigger: element,
           start: "top 85%",
           end: "bottom 15%",
-          toggleClass: { targets: element, className: "fullpage-section-active" },
+          once: true,
+          onEnter: () => element.classList.add("fullpage-section-active"),
         }),
         ScrollTrigger.create({
           trigger: element,

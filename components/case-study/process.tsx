@@ -110,7 +110,7 @@ function timelineNumber(number: string, locale: string) {
     : number;
 }
 
-function useSectionActive(ref: React.RefObject<HTMLElement | null>, persistOnMobile = false) {
+function useSectionActive(ref: React.RefObject<HTMLElement | null>) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ function useSectionActive(ref: React.RefObject<HTMLElement | null>, persistOnMob
 
     const sync = () => {
       const isActive = section.getAttribute("data-active") === "true";
-      const keepVisible = persistOnMobile && window.matchMedia("(max-width: 767px)").matches;
+      const keepVisible = window.matchMedia("(max-width: 767px)").matches;
       setActive((previous) => isActive || (keepVisible && previous));
     };
     sync();
@@ -130,7 +130,7 @@ function useSectionActive(ref: React.RefObject<HTMLElement | null>, persistOnMob
       attributeFilter: ["data-active"],
     });
     return () => observer.disconnect();
-  }, [ref, persistOnMobile]);
+  }, [ref]);
 
   return active;
 }
@@ -650,7 +650,7 @@ export function CaseStudyProcess({ compactMobile = false, mobileDescription, des
   const mounted = useSyncExternalStore(subscribeToMount, getMountedSnapshot, getServerMountedSnapshot);
   const preferReducedMotion = useReducedMotion();
   const reduceMotion = mounted ? preferReducedMotion : false;
-  const active = useSectionActive(sectionRef, locale === "fa" || compactMobile);
+  const active = useSectionActive(sectionRef);
   const progress = useTimelineProgress(Boolean(mounted && active));
 
 

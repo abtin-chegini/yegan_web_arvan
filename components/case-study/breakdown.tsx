@@ -594,7 +594,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
 
     const sync = () => {
       const isActive = section.getAttribute("data-active") === "true";
-      const keepVisible = (locale === "fa" || Boolean(mobileDescription)) && window.matchMedia("(max-width: 767px)").matches;
+      const keepVisible = window.matchMedia("(max-width: 767px)").matches;
       setActive((previous) => isActive || (keepVisible && previous));
     };
 
@@ -605,7 +605,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
       attributeFilter: ["data-active"],
     });
     return () => observer.disconnect();
-  }, [locale, mobileDescription]);
+  }, []);
 
   const showMotion = active && !reduceMotion;
 
