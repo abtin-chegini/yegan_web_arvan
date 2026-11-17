@@ -213,17 +213,6 @@
   --smooth-1000: oklch(0.22 0 0);
 }
 
-@media (max-width: 767px) {
-  :root {
-    --background: transparent;
-  }
-
-  .card-slider-mobile .sticky-cards .card:is(#card-1, #card-2, #card-3),
-  .portfolio-cards-mobile .stroke-hover-card__panel {
-    background-color: transparent;
-  }
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
