@@ -308,23 +308,6 @@ function MobileAnnotationList({
   const instant = Boolean(reduceMotion);
   const listId = useId();
   const [openId, setOpenId] = useState<string | null>(null);
-  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const clearCloseTimeout = useCallback(() => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-  }, []);
-
-  const scheduleClose = useCallback(() => {
-    clearCloseTimeout();
-    closeTimeoutRef.current = setTimeout(() => {
-      setOpenId(null);
-    }, 180);
-  }, [clearCloseTimeout]);
-
-  useEffect(() => clearCloseTimeout, [clearCloseTimeout]);
 
   const [wasOpen, setWasOpen] = useState(open);
   if (open !== wasOpen) {
@@ -336,7 +319,6 @@ function MobileAnnotationList({
     <ul
       dir={locale === "fa" ? "rtl" : "ltr"}
       className="mt-3 flex w-full flex-col gap-1 sm:mt-4"
-      onPointerLeave={scheduleClose}
     >
       {annotations.map((annotation, index) => {
         const isOpen = openId === annotation.id;
@@ -357,10 +339,6 @@ function MobileAnnotationList({
               delay: instant ? 0 : 0.1 + index * 0.05,
               ease: [0.22, 1, 0.36, 1],
             }}
-            onPointerEnter={() => {
-              clearCloseTimeout();
-              setOpenId(annotation.id);
-            }}
           >
             <button
               type="button"
@@ -372,14 +350,9 @@ function MobileAnnotationList({
                 isOpen ? "bg-[#111D4A]/04" : "bg-transparent",
               )}
               onClick={() => {
-                clearCloseTimeout();
                 setOpenId((current) =>
                   current === annotation.id ? null : annotation.id,
                 );
-              }}
-              onFocus={() => {
-                clearCloseTimeout();
-                setOpenId(annotation.id);
               }}
             >
               <motion.span

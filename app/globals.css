@@ -916,20 +916,30 @@ p .line {
 }
 
 @media (max-width: 767px) {
+  /* Lift the owning section too: a child's z-index cannot escape its parent. */
+  section:is([data-mobile-section], [data-mobile-page-section]):has(button:is(:hover, :focus-visible) [data-tooltip]) {
+    z-index: 30;
+  }
+
   /* Animated mobile cards use z-index 40; keep controls and tips above them. */
   .card-slider-mobile .card-slider-nav {
-    z-index: 50;
+    z-index: 200;
   }
 
   .card-slider-mobile .card-slider-nav-btn [data-tooltip],
   .tech-stack-slider--mobile .tech-stack-slider__nav-btn [data-tooltip] {
-    z-index: 1;
+    z-index: 100;
+    /* Grow inward from the outside button in both LTR and RTL layouts. */
+    left: auto;
+    right: auto;
+    inset-inline-end: 0;
+    white-space: nowrap;
   }
 
   .card-slider-mobile .card-slider-nav-btn:first-child [data-tooltip],
   .tech-stack-slider--mobile .tech-stack-slider__nav-btn:first-child [data-tooltip] {
-    left: 0;
-    right: auto;
+    inset-inline-start: 0;
+    inset-inline-end: auto;
   }
 }
 
