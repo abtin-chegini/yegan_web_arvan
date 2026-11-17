@@ -56,9 +56,13 @@
     margin: 8px 0 0;
     padding: 0;
     list-style: none;
-    /* Keep the screenshot's icon/text/arrow positions in both locales. */
     direction: ltr;
     text-align: left;
+  }
+
+  html[lang="fa"] [data-mobile-footer] ul {
+    direction: rtl;
+    text-align: right;
   }
 
   html [data-mobile-footer] [data-contact-link] {

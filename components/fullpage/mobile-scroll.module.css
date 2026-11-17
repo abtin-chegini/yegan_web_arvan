@@ -13,6 +13,11 @@
   margin-top: 64px;
 }
 
+/* The contact/footer section already includes its own introduction spacing. */
+.section + .section[data-mobile-footer-section] {
+  margin-top: 0;
+}
+
 /* Start the second section's title at the end of the hero artwork. */
 .section[id="home"] + .section[id="about"] {
   margin-top: 0;

@@ -1,0 +1,30 @@
+@media (max-width: 767px) {
+  html :is([data-slot="dialog-overlay"], [data-slot="alert-dialog-overlay"]) {
+    z-index: 150;
+  }
+
+  /* Portaled dialogs scroll independently above the fixed mobile navigation. */
+  html :is([role="dialog"], [role="alertdialog"]) {
+    top: calc((100dvh + env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 2);
+    z-index: 151;
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 32px);
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-padding-block: 16px;
+  }
+
+  html :is([role="dialog"], [role="alertdialog"])::-webkit-scrollbar {
+    display: block;
+    width: 5px;
+  }
+
+  html :is([role="dialog"], [role="alertdialog"])::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgb(29 53 87 / 28%);
+  }
+}

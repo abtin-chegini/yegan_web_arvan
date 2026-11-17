@@ -36,6 +36,17 @@
   margin-top: 64px;
 }
 
+/* The footer supplies its own top spacing; leave no exposed page strip. */
+.section + .section[data-mobile-footer-section] {
+  margin-top: 0;
+}
+
+/* Keep the portfolio's final edge at its content, without an empty tail. */
+.section[id="portfolio"] {
+  min-height: 0;
+  padding-bottom: 0;
+}
+
 .section:first-child {
   padding-top: calc(64px + env(safe-area-inset-top, 0px));
 }
@@ -125,7 +136,7 @@
   background-color: var(--background);
 }
 
-.page[data-case-study="bilit4u"] .section,
+.page[data-case-study="bilit4u"] .section:not([data-mobile-footer-section]),
 .page.compactCaseStudy .section:is([id="overview"], [id="challenge"], [id="approach"], [id="design"], [id="outcome"]) {
   min-height: 0;
   padding-block: 0;
@@ -133,10 +144,6 @@
 
 .page.compactCaseStudy .section:first-child {
   padding-top: calc(64px + env(safe-area-inset-top, 0px));
-}
-
-.page.compactCaseStudy .section:last-child {
-  padding-bottom: calc(64px + var(--mobile-bottom-navigation-height));
 }
 
 .page.compactCaseStudy .sectionContent > :global(.h-full) {

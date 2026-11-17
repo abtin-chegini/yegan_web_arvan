@@ -4,6 +4,7 @@ import { Baskervville, Geist_Mono, Manrope } from "next/font/google";
 import "../globals.css";
 import "../mobile-home-typography.css";
 import "../mobile-footer.css";
+import "../mobile-dialogs.css";
 import {NextIntlClientProvider, hasLocale} from "next-intl";
 import {getMessages, getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
