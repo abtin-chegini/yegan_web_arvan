@@ -7,6 +7,7 @@ import StrokeHoverCard from "@/components/stroke_hover/stroke_hover";
 
 export type CardProps = {
 	id: string;
+	dir?: "ltr" | "rtl";
 	/** Shown before flip (card back art) */
 	frontImage: string;
 	/** Shown after flip — stroke-hover face */
@@ -31,6 +32,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 	(
 		{
 			id,
+			dir,
 			frontImage,
 			backImage,
 			title,
@@ -60,6 +62,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 			<div
 				className="portfolio-card"
 				id={id}
+				dir={dir}
 				ref={ref}
 				role="link"
 				tabIndex={0}

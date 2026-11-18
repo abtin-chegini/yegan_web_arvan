@@ -3,8 +3,8 @@
     z-index: 150;
   }
 
-  /* Portaled dialogs scroll independently above the fixed mobile navigation. */
-  html :is([role="dialog"], [role="alertdialog"]) {
+  /* Scope modal layout to dialogs; combobox popups also use role="dialog". */
+  html :is([data-slot="dialog-content"], [data-slot="alert-dialog-content"]) {
     top: calc((100dvh + env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) / 2);
     z-index: 151;
     max-height: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - 32px);
@@ -18,12 +18,12 @@
     scroll-padding-block: 16px;
   }
 
-  html :is([role="dialog"], [role="alertdialog"])::-webkit-scrollbar {
+  html :is([data-slot="dialog-content"], [data-slot="alert-dialog-content"])::-webkit-scrollbar {
     display: block;
     width: 5px;
   }
 
-  html :is([role="dialog"], [role="alertdialog"])::-webkit-scrollbar-thumb {
+  html :is([data-slot="dialog-content"], [data-slot="alert-dialog-content"])::-webkit-scrollbar-thumb {
     border-radius: 999px;
     background: rgb(29 53 87 / 28%);
   }

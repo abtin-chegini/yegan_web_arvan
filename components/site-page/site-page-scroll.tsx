@@ -39,6 +39,8 @@ type SitePageScrollProps = {
   showPageIndicator?: boolean;
   /** Animated mouse scroll cue on the main slide (default false) */
   showScrollHint?: boolean;
+  /** Let a main slide own its layout directly on the section element. */
+  mainLayoutClassName?: string;
 };
 
 export function SitePageScroll(props: SitePageScrollProps) {
@@ -82,6 +84,7 @@ function DesktopSitePageScroll({
   showMainBackground = true,
   showPageIndicator = true,
   showScrollHint = false,
+  mainLayoutClassName,
 }: SitePageScrollProps) {
   const { section: contactSection } = useSiteFooter();
   const router = useRouter();
@@ -257,7 +260,10 @@ function DesktopSitePageScroll({
             aria-label={slide.label}
             data-active={index === activeIndex}
             className={cn(
-              "relative flex h-dvh w-full flex-col justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-14 md:pt-28 lg:pt-32",
+              "relative h-dvh w-full overflow-hidden",
+              index === 0 && mainLayoutClassName
+                ? mainLayoutClassName
+                : "flex flex-col justify-center pt-20 pb-12 sm:pt-24 sm:pb-14 md:pt-28 lg:pt-32",
               slide.section.contentInset === "art-left" &&
                 "px-5 md:pl-[min(34vw,22rem)] md:pr-10 lg:pl-[min(32vw,24rem)] lg:pr-14 xl:pl-[min(30vw,26rem)]",
               slide.section.contentInset === "art-right" &&
@@ -281,9 +287,11 @@ function DesktopSitePageScroll({
                 />
               </div>
             ) : null}
-            <div className="relative z-10 flex h-full w-full min-h-0 flex-col">
-              {slide.content}
-            </div>
+            {index === 0 && mainLayoutClassName ? slide.content : (
+              <div className="relative z-10 flex h-full w-full min-h-0 flex-col">
+                {slide.content}
+              </div>
+            )}
           </section>
         ))}
       </div>

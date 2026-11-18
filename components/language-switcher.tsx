@@ -103,13 +103,15 @@ export function LanguageSwitcher({desktop = false}: {desktop?: boolean}) {
             />
           </ComboboxTrigger>
           <ComboboxContent
+            anchor={mobileTriggerRef}
+            positionMethod="fixed"
             side="bottom"
             align="end"
             collisionAvoidance={{side: 'none', align: 'shift', fallbackAxisSide: 'none'}}
             positionerClassName="z-[110]"
             dir={locale === 'fa' ? 'rtl' : 'ltr'}
             lang={locale}
-            className="min-w-32 border border-[#ebe1d6] bg-[#fcf6ef] text-[#233f63] motion-reduce:animate-none"
+            className="w-32 min-w-32 border border-[#ebe1d6] bg-[#fcf6ef] text-[#233f63] motion-reduce:animate-none"
           >
             <ComboboxList>
               <ComboboxItem value="en" className="min-h-11">{languageNames('english')}</ComboboxItem>

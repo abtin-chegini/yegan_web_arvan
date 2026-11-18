@@ -91,13 +91,14 @@ function ComboboxContent({
   align = "start",
   alignOffset = 0,
   anchor,
+  positionMethod,
   collisionAvoidance,
   positionerClassName,
   ...props
 }: ComboboxPrimitive.Popup.Props &
   Pick<
     ComboboxPrimitive.Positioner.Props,
-    "side" | "align" | "sideOffset" | "alignOffset" | "anchor" | "collisionAvoidance"
+    "side" | "align" | "sideOffset" | "alignOffset" | "anchor" | "positionMethod" | "collisionAvoidance"
   > & { positionerClassName?: string }) {
   return (
     <ComboboxPrimitive.Portal>
@@ -107,6 +108,7 @@ function ComboboxContent({
         align={align}
         alignOffset={alignOffset}
         anchor={anchor}
+        positionMethod={positionMethod}
         collisionAvoidance={collisionAvoidance}
         className={cn("isolate z-50", positionerClassName)}
       >

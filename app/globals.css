@@ -39,7 +39,7 @@
 }
 
 :root {
-  --mobile-bottom-navigation-height: calc(80px + env(safe-area-inset-bottom, 0px));
+  --mobile-bottom-navigation-height: calc(68px + env(safe-area-inset-bottom, 0px));
 }
 
 @theme inline {
@@ -2221,26 +2221,38 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
 /* ── Portfolio flip-cards page
    Scoped under .portfolio-cards so it does not collide with
    .card-slider / .sticky-cards / generic .card / .container styles. */
-.portfolio-cards {
-  position: relative;
-  width: 100%;
-  height: 100%;
+@media (min-width: 768px) {
+  section.portfolio-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 1rem;
+    /* Space for the fixed navbar above and the scroll cue below. */
+    padding-block: 5rem 3.5rem;
+  }
 }
 
-.portfolio-cards section.cards {
+.portfolio-cards {
   position: relative;
-  width: 100%;
-  height: 100%;
-  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(1rem, 3dvh, 2rem) 5%;
+  container-type: size;
+  /* Preserve the left-to-right artwork order in both locales. */
+  direction: ltr;
 }
 
 .portfolio-cards .portfolio-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(280px, 72vw);
-  height: min(420px, 58vh);
+  position: relative;
+  /* At 2:3, include the ±12deg rotation and the full 10% upward float.
+     The symmetric envelope keeps every animation frame inside the grid row. */
+  --card-height-envelope: calc(1.8 * cos(12deg) + sin(12deg));
+  width: min(280px, 27cqw, calc(100cqh / var(--card-height-envelope)));
+  aspect-ratio: 2 / 3;
+  container-type: inline-size;
   perspective: 1200px;
   cursor: pointer;
 }
@@ -2252,10 +2264,24 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
   transform: translate(-50%, -50%);
   text-align: center;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: min(1rem, 5.7143cqw);
   font-weight: 500;
   line-height: 1.4;
   color: var(--section-portfolio-fg);
+}
+
+.portfolio-cards .stroke-hover-card__content {
+  padding: 7.1429cqw;
+}
+
+.portfolio-cards .stroke-hover-card__title {
+  margin-bottom: 5.7143cqw;
+  font-size: min(2rem, 11.4286cqw);
+}
+
+.portfolio-cards .stroke-hover-card__link {
+  padding: 3.1429cqw 7.7143cqw;
+  font-size: min(0.95rem, 5.4286cqw);
 }
 
 .portfolio-cards .portfolio-card-wrapper {
