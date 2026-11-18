@@ -1,0 +1,52 @@
+/* Keep the existing mobile and tablet composition below xl. */
+@media (min-width: 1280px) {
+  .root {
+    height: auto;
+    flex: 0 0 auto;
+  }
+
+  .composition {
+    flex: 0 0 auto;
+    grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr) minmax(14rem, 1fr);
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+    margin-top: clamp(1.5rem, 3dvh, 2.5rem);
+    align-items: stretch;
+  }
+
+  .column {
+    height: auto;
+    min-width: 0;
+    gap: clamp(1.5rem, 3dvh, 2.5rem);
+    padding-block: 0;
+  }
+
+  .annotation {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    overflow-wrap: break-word;
+  }
+
+  .annotation h3 {
+    font-size: clamp(1.05rem, 1.1vw, 1.25rem);
+  }
+
+  .annotation p {
+    font-size: clamp(0.8rem, 0.8vw, 0.95rem);
+    line-height: 1.65;
+  }
+
+  .imageWrap {
+    height: auto;
+    min-width: 0;
+  }
+
+  .image {
+    /* Both dimensions remain auto so the measured box matches the bitmap,
+       even when the viewport-height constraint limits the image. */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(64dvh, 44rem);
+  }
+}

@@ -8,6 +8,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
   type ReactNode,
 } from "react";
 
@@ -22,6 +23,7 @@ import { SiteFooter as FooterSection, useSiteFooter } from "@/components/site-fo
 import { cn } from "@/lib/utils";
 import type { CaseStudySection } from "@/lib/case-studies";
 import { NAV_ROUTES } from "@/lib/nav-routes";
+import styles from "./case-study-scroll.module.css";
 
 
 type CaseStudyScrollProps = {
@@ -119,6 +121,15 @@ function DesktopCaseStudyScroll({
       activeIndexRef.current = clamped;
       setActiveIndex(clamped);
 
+      if (window.matchMedia("(min-width: 1280px)").matches) {
+        const root = rootRef.current;
+        const section = root?.querySelectorAll<HTMLElement>("[data-case-study-track] > section")[clamped];
+        if (root && section) {
+          root.focus({ preventScroll: true });
+          root.scrollTo({ top: section.offsetTop, behavior });
+        }
+      }
+
       window.setTimeout(() => {
         locked.current = false;
         setIsAnimating(false);
@@ -137,6 +148,8 @@ function DesktopCaseStudyScroll({
   useEffect(() => {
     if (window.matchMedia("(max-width: 767px)").matches) return;
 
+    const nativeScroll = window.matchMedia("(min-width: 1280px)");
+
     const isInteractiveTarget = (target: EventTarget | null) => {
       if (!(target instanceof Element)) return false;
       return Boolean(
@@ -147,12 +160,17 @@ function DesktopCaseStudyScroll({
     };
 
     const onWheel = (event: WheelEvent) => {
+      // Let the browser scroll the full content of an oversized Challenges
+      // slide before continuing to the next section.
+      if (nativeScroll.matches && sections[activeIndexRef.current]?.id === "challenge") return;
       event.preventDefault();
       if (Math.abs(event.deltaY) < WHEEL_THRESHOLD) return;
       goTo(activeIndexRef.current + (event.deltaY > 0 ? 1 : -1));
     };
 
     const onKeyDown = (event: KeyboardEvent) => {
+      if (nativeScroll.matches && isInteractiveTarget(event.target)) return;
+      if (nativeScroll.matches && sections[activeIndexRef.current]?.id === "challenge") return;
       if (["ArrowDown", "PageDown", " "].includes(event.key)) {
         event.preventDefault();
         goTo(activeIndexRef.current + 1);
@@ -170,6 +188,7 @@ function DesktopCaseStudyScroll({
     };
 
     const onTouchMove = (event: TouchEvent) => {
+      if (nativeScroll.matches) return;
       if (event.touches.length !== 1) return;
       const dx = touchStartX.current - (event.touches[0]?.clientX ?? 0);
       const dy = touchStartY.current - (event.touches[0]?.clientY ?? 0);
@@ -179,6 +198,7 @@ function DesktopCaseStudyScroll({
     };
 
     const onTouchEnd = (event: TouchEvent) => {
+      if (nativeScroll.matches) return;
       if (isInteractiveTarget(event.target)) return;
       const endX = event.changedTouches[0]?.clientX ?? 0;
       const endY = event.changedTouches[0]?.clientY ?? 0;
@@ -191,6 +211,25 @@ function DesktopCaseStudyScroll({
 
     const root = rootRef.current;
 
+    const syncActiveSection = () => {
+      if (!nativeScroll.matches || !root || locked.current) return;
+      const elements = Array.from(root.querySelectorAll<HTMLElement>("[data-case-study-track] > section"));
+      const next = elements.findIndex((section) => section.offsetTop + section.offsetHeight > root.scrollTop + 1);
+      if (next < 0 || next === activeIndexRef.current) return;
+      activeIndexRef.current = next;
+      setActiveIndex(next);
+    };
+
+    const syncScrollMode = () => {
+      if (!root) return;
+      const section = root.querySelectorAll<HTMLElement>("[data-case-study-track] > section")[activeIndexRef.current];
+      root.scrollTo({ top: nativeScroll.matches ? section?.offsetTop ?? 0 : 0, behavior: "instant" });
+    };
+
+    nativeScroll.addEventListener("change", syncScrollMode);
+    root?.addEventListener("scroll", syncActiveSection, { passive: true });
+    syncScrollMode();
+
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("keydown", onKeyDown);
     root?.addEventListener("touchstart", onTouchStart, { passive: true });
@@ -198,13 +237,15 @@ function DesktopCaseStudyScroll({
     root?.addEventListener("touchend", onTouchEnd, { passive: true });
 
     return () => {
+      nativeScroll.removeEventListener("change", syncScrollMode);
+      root?.removeEventListener("scroll", syncActiveSection);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("keydown", onKeyDown);
       root?.removeEventListener("touchstart", onTouchStart);
       root?.removeEventListener("touchmove", onTouchMove);
       root?.removeEventListener("touchend", onTouchEnd);
     };
-  }, [goTo]);
+  }, [goTo, sections]);
 
   const goHome = useCallback(() => {
     router.push(NAV_ROUTES.home);
@@ -220,8 +261,9 @@ function DesktopCaseStudyScroll({
   return (
     <div
       ref={rootRef}
+      tabIndex={-1}
       data-case-study={studySlug}
-      className="relative h-dvh w-full overflow-hidden touch-pan-y"
+      className={cn("relative h-dvh w-full overflow-hidden touch-pan-y", styles.root)}
     >
       <BackToTop activeIndex={activeIndex} onBackToTop={goTo} scrollRoot={rootRef} />
       <Navbar
@@ -231,11 +273,12 @@ function DesktopCaseStudyScroll({
       />
 
       <div
-        className="h-full w-full transition-transform ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform"
+        data-case-study-track
+        className={cn("h-full w-full transition-transform ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform", styles.track)}
         style={{
-          transform: `translate3d(0, -${activeIndex * 100}%, 0)`,
+          "--case-study-offset": `-${activeIndex * 100}%`,
           transitionDuration: `${transitionMs}ms`,
-        }}
+        } as CSSProperties}
       >
         {slides.map((child, index) => {
           const isFooter = index === footerIndex;
@@ -249,6 +292,8 @@ function DesktopCaseStudyScroll({
               data-active={index === activeIndex}
               className={cn(
                 "relative flex h-dvh w-full flex-col justify-center overflow-hidden px-5 pt-20 pb-12 sm:px-10 sm:pt-24 sm:pb-14",
+                styles.section,
+                section?.id === "challenge" && styles.challenge,
                 isFooter && "lg:px-16 md:pt-28 lg:pt-32",
                 index === activeIndex &&
                   !isAnimating &&
@@ -278,7 +323,7 @@ function DesktopCaseStudyScroll({
                   />
                 )}
               </div>
-              <div className="relative z-10 flex h-full w-full min-h-0 flex-col">
+              <div className={cn("relative z-10 flex h-full w-full min-h-0 flex-col", styles.content)}>
                 {child}
               </div>
             </section>

@@ -19,6 +19,7 @@ import {
   type CaseStudyChallenge,
 } from "@/lib/case-study-content";
 import { cn } from "@/lib/utils";
+import styles from "./breakdown.module.css";
 
 const ACCENT = "#C99140";
 const TITLE = "#111D4A";
@@ -128,7 +129,7 @@ const MARKER_INNER_R = 1.75;
 const LINE_END_GAP = 6;
 const ELBOW_CLEARANCE = MARKER_OUTER_R + LINE_END_GAP + 10;
 
-function buildSteppedPath(start: Point, target: Point, side: "left" | "right") {
+function buildSteppedPath(start: Point, target: Point, side: "left" | "right", gutterX?: number) {
   const gap = Math.abs(target.x - start.x);
   let elbowX =
     side === "left"
@@ -145,6 +146,9 @@ function buildSteppedPath(start: Point, target: Point, side: "left" | "right") {
     elbowX = Math.min(elbowX, start.x - 12);
   }
 
+  // On desktop, run the vertical segment through the measured column gutter.
+  // This keeps the connector outside the description and the product image.
+  elbowX = gutterX ?? elbowX;
   const approachesFromLeft = elbowX <= target.x;
   const endX =
     target.x +
@@ -167,6 +171,7 @@ function AnnotationBlock({
   index,
   reduceMotion,
   className,
+  onAnimationComplete,
 }: {
   annotation: Annotation;
   connectorRef: (el: HTMLSpanElement | null) => void;
@@ -175,6 +180,7 @@ function AnnotationBlock({
   index: number;
   reduceMotion: boolean | null;
   className?: string;
+  onAnimationComplete: () => void;
 }) {
   const isRight = align === "right";
   const delay = 0.12 + index * 0.08;
@@ -182,11 +188,14 @@ function AnnotationBlock({
 
   return (
     <motion.article
+      data-challenge-annotation={annotation.id}
       className={cn(
         "relative max-w-[15.5rem] xl:max-w-[16.5rem]",
         isRight ? "text-left" : "ml-auto text-right",
+        styles.annotation,
         className,
       )}
+      onAnimationComplete={onAnimationComplete}
       initial={false}
       animate={
         open
@@ -249,6 +258,7 @@ function AnnotationBlock({
         </motion.span>
         <motion.span
           ref={connectorRef}
+          onAnimationComplete={onAnimationComplete}
           className={cn(
             "block h-px w-5 shrink-0 xl:w-6",
             isRight ? "origin-right" : "origin-left",
@@ -545,7 +555,18 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
           y: target.y,
         };
 
-      const { path, length } = buildSteppedPath(start, target, annotation.side);
+      const imageEdge = annotation.side === "left" ? imageRect.left : imageRect.right;
+      const sideAnnotations = annotations.filter((item) => item.side === annotation.side);
+      const ordinal = sideAnnotations.findIndex((item) => item.id === annotation.id);
+      // Ordered lanes keep neighboring elbows separate even when longer copy
+      // makes several connectors travel vertically through the same gutter.
+      const lane = (target.y >= start.y ? ordinal + 1 : sideAnnotations.length - ordinal)
+        / (sideAnnotations.length + 1);
+      const edgeX = imageEdge - rootRect.left;
+      const gutterX = window.matchMedia("(min-width: 1280px)").matches
+        ? edgeX + (start.x - edgeX) * lane
+        : undefined;
+      const { path, length } = buildSteppedPath(start, target, annotation.side, gutterX);
       return { id: annotation.id, path, length, target };
     });
 
@@ -556,15 +577,6 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
     if (!isDesktop || !imageReady) return;
     measure();
   }, [isDesktop, imageReady, measure]);
-
-  useEffect(() => {
-    if (!active || !isDesktop) return;
-    const id = window.requestAnimationFrame(() => {
-      measure();
-      window.setTimeout(measure, 80);
-    });
-    return () => window.cancelAnimationFrame(id);
-  }, [active, isDesktop, measure]);
 
   useEffect(() => {
     if (!isDesktop) return;
@@ -580,9 +592,16 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
     observer.observe(root);
     if (image) observer.observe(image);
     if (imageWrapRef.current) observer.observe(imageWrapRef.current);
+    root.querySelectorAll("[data-challenge-annotation]").forEach((element) => observer.observe(element));
+
+    let disposed = false;
+    void document.fonts.ready.then(() => {
+      if (!disposed) measure();
+    });
 
     window.addEventListener("resize", measure);
     return () => {
+      disposed = true;
       observer.disconnect();
       window.removeEventListener("resize", measure);
     };
@@ -594,7 +613,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
 
     const sync = () => {
       const isActive = section.getAttribute("data-active") === "true";
-      const keepVisible = window.matchMedia("(max-width: 767px)").matches;
+      const keepVisible = window.matchMedia("(max-width: 767px), (min-width: 1280px)").matches;
       setActive((previous) => isActive || (keepVisible && previous));
     };
 
@@ -613,7 +632,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
     <div
       ref={rootRef}
       dir="ltr"
-      className="relative mx-auto flex h-full w-full max-w-[96rem] flex-col"
+      className={cn("relative mx-auto flex h-full w-full max-w-[96rem] flex-col", styles.root)}
       style={{ color: TITLE }}
     >
       <header className={cn("shrink-0 pt-1 md:pt-2", locale === "fa" ? "w-full text-center" : mobileDescription ? "w-full text-center md:max-w-xl md:text-left" : "max-w-xl text-left")}>
@@ -663,9 +682,9 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
       </div>
 
       {/* Desktop annotated layout */}
-      <div className="mt-2 hidden min-h-0 flex-1 items-center md:mt-3 md:grid md:grid-cols-[minmax(10rem,0.85fr)_minmax(0,2.7fr)_minmax(10rem,0.85fr)] md:gap-2 lg:gap-4 xl:gap-6">
+      <div className={cn("mt-2 hidden min-h-0 flex-1 items-center md:mt-3 md:grid md:grid-cols-[minmax(10rem,0.85fr)_minmax(0,2.7fr)_minmax(10rem,0.85fr)] md:gap-2 lg:gap-4 xl:gap-6", styles.composition)}>
         <motion.div
-          className="flex h-full flex-col justify-between gap-6 py-2 lg:gap-8 lg:py-4 xl:py-5"
+          className={cn("flex h-full flex-col justify-between gap-6 py-2 lg:gap-8 lg:py-4 xl:py-5", styles.column)}
           initial={false}
         >
           {leftAnnotations.map((annotation, index) => (
@@ -676,6 +695,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
               open={showMotion || Boolean(reduceMotion)}
               index={index}
               reduceMotion={reduceMotion}
+              onAnimationComplete={measure}
               connectorRef={(el) => {
                 startRefs.current[annotation.id] = el;
               }}
@@ -685,7 +705,8 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
 
         <motion.div
           ref={imageWrapRef}
-          className="relative flex h-full items-center justify-center self-stretch"
+          className={cn("relative flex h-full items-center justify-center self-stretch", styles.imageWrap)}
+          onAnimationComplete={measure}
           initial={false}
           animate={
             showMotion
@@ -700,7 +721,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
               ref={imageRef}
               src={productImage}
               alt={imageAlt}
-              className="h-auto max-h-[min(78dvh,52rem)] w-full object-contain drop-shadow-[0_18px_40px_rgba(17,29,74,0.08)]"
+              className={cn("h-auto max-h-[min(78dvh,52rem)] w-full object-contain drop-shadow-[0_18px_40px_rgba(17,29,74,0.08)]", styles.image)}
               loading="eager"
               decoding="async"
               onLoad={() => {
@@ -718,7 +739,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
         </motion.div>
 
         <motion.div
-          className="flex h-full flex-col justify-between gap-6 py-2 lg:gap-8 lg:py-4 xl:py-5"
+          className={cn("flex h-full flex-col justify-between gap-6 py-2 lg:gap-8 lg:py-4 xl:py-5", styles.column)}
           initial={false}
         >
           {rightAnnotations.map((annotation, index) => (
@@ -729,6 +750,7 @@ export function CaseStudyBreakdown({ content, mobileDescription, desktopDescript
               open={showMotion || Boolean(reduceMotion)}
               index={index}
               reduceMotion={reduceMotion}
+              onAnimationComplete={measure}
               connectorRef={(el) => {
                 startRefs.current[annotation.id] = el;
               }}
