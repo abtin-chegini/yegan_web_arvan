@@ -57,11 +57,14 @@ export function CardSliderMobile() {
 
     const applyProgress = (progress: number) => {
       const activeIndex = Math.min(
-        Math.floor(progress / segmentSize),
+        Math.floor(progress / segmentSize + 1e-6),
         totalCards - 1,
       );
-      const segProgress =
-        (progress - activeIndex * segmentSize) / segmentSize;
+      const segProgress = gsap.utils.clamp(
+        0,
+        1,
+        (progress - activeIndex * segmentSize) / segmentSize,
+      );
 
       titleEl.textContent = activeTitle(progress);
 

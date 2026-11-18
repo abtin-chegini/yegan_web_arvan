@@ -738,7 +738,8 @@ p .line {
   transform-origin: center bottom;
   will-change: transform;
 }
-.slider-card-content {
+.slider-card-content,
+.slider-card-body {
   display: contents;
 }
 .card .slider-card-copy {
@@ -815,7 +816,7 @@ p .line {
 .card .slider-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 .card#card-1 {
@@ -964,7 +965,7 @@ p .line {
 .card-slider-mobile .slider-card-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -978,7 +979,7 @@ p .line {
   justify-content: flex-start;
 }
 
-html[lang="fa"] .card-slider .card .slider-card-copy h2 {
+html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
   font-size: clamp(1.5rem, 2.5vw, 2.4rem);
 }
 
@@ -1011,19 +1012,140 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
   color: #1d3557;
 }
 
-/* Desktop card slider only */
+/* Selected Work: heading, content-sized card stack and controls have their own rows. */
 @media (min-width: 768px) {
+  section#portfolio:has(.selected-work-heading) {
+    padding-block: 5rem 3rem;
+  }
+
+  .selected-work-heading {
+    position: static;
+    flex: 0 0 auto;
+    margin-bottom: 1rem;
+  }
+
+  .selected-work-heading + .card-slider {
+    flex: 1 1 0;
+    min-height: 0;
+    height: auto;
+  }
+
   .card-slider:not(.card-slider-mobile) .sticky-cards {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    perspective: none;
+  }
+
+  .card-stack {
+    /* The two rear cards extend 10% below the front card in the GSAP stack. */
+    --stack-shadow-space: 1rem;
+    --stack-card-limit: calc((100% - 2 * var(--stack-shadow-space)) / 1.1);
+    position: relative;
+    min-height: 0;
+    overflow: hidden;
+    perspective: 850px;
     cursor: grab;
-    touch-action: none;
+    touch-action: pan-y pinch-zoom;
   }
 
   .card-slider:not(.card-slider-mobile) .sticky-cards .card {
-    top: calc(50% - 25px);
+    top: calc(var(--stack-shadow-space) + var(--stack-card-limit) / 2);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+    justify-content: normal;
+    gap: 0;
+    width: 65%;
+    height: auto;
+    /* Retain the deck's visual proportions while letting longer copy grow it. */
+    min-height: min(max(22rem, 60%), var(--stack-card-limit));
+    max-height: var(--stack-card-limit);
+    padding: clamp(1rem, 2vw, 1.5rem);
     cursor: grab;
-    touch-action: none;
-    user-select: none;
-    -webkit-user-select: none;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .card-slider:not(.card-slider-mobile) .slider-card-content {
+    display: grid;
+    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .card-slider:not(.card-slider-mobile) .card .slider-card-copy {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 1rem;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding: 0;
+    text-align: start;
+  }
+
+  .card-slider:not(.card-slider-mobile) .slider-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    cursor: auto;
+    touch-action: pan-y pinch-zoom;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .card-slider:not(.card-slider-mobile) .slider-card-body > * {
+    flex-shrink: 0;
+  }
+
+  .card-slider:not(.card-slider-mobile) .card .slider-card-copy h2 {
+    font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .card-slider:not(.card-slider-mobile) .card .slider-card-kicker {
+    font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+    line-height: 1.6;
+  }
+
+  .card-slider:not(.card-slider-mobile) .card .slider-card-description {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .card-slider:not(.card-slider-mobile) .slider-card-cta {
+    display: inline-flex;
+    justify-self: start;
+    max-width: 100%;
+    min-height: 44px;
+    margin: 0;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .card-slider:not(.card-slider-mobile) .card .slider-card-media {
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    contain: size;
+  }
+
+  .card-slider:not(.card-slider-mobile) .slider-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .card-slider:not(.card-slider-mobile) .sticky-cards .card img,
@@ -1037,20 +1159,14 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
     cursor: grabbing;
   }
 
-  .card-slider:not(.card-slider-mobile) .slider-card-cta {
-    display: inline-flex;
-    cursor: pointer;
-    user-select: auto;
-  }
-
-  /* Sit under the card stack: card center + half height (60%) + gap */
   .card-slider:not(.card-slider-mobile) .card-slider-nav {
-    top: calc(50% - 25px + 30% + 70px);
-    right: auto;
-    left: 50%;
-    bottom: auto;
-    width: min(calc(100% - 4rem), 22rem);
-    transform: translateX(-50%);
+    position: relative;
+    inset: auto;
+    z-index: 50;
+    width: min(calc(100% - 2rem), 22rem);
+    min-height: 52px;
+    margin-inline: auto;
+    transform: none;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -1063,133 +1179,21 @@ html[lang="fa"] .card-slider .card .slider-card-copy h2 {
     flex-shrink: 0;
   }
 }
-@media (max-width: 1000px) {
-  .sticky-cards .card {
-    width: calc(100% - 4rem);
-    height: 75%;
-    flex-direction: column;
-  }
-  .sticky-cards .card .col {
-    width: 100%;
-  }
 
-  /* Cards are 75% tall here — keep nav under the stack + 20px */
-  @media (min-width: 768px) {
-    .card-slider:not(.card-slider-mobile) .card-slider-nav {
-      top: calc(50% - 25px + 37.5% + 30px);
-    }
-  }
-}
-
-/* Tablet Selected Work: reserve separate space for the heading, stack and controls. */
 @media (min-width: 768px) and (max-width: 1279px) {
-  .selected-work-heading {
-    position: static;
-    flex: 0 0 auto;
-    margin-bottom: 1rem;
-  }
-
-  .selected-work-heading + .card-slider {
-    flex: 1 1 0;
-    min-height: 0;
-    height: auto;
-  }
-
-  .selected-work-heading + .card-slider .sticky-cards {
-    --tablet-controls-space: 5rem;
-  }
-
-  .selected-work-heading + .card-slider .sticky-cards .card {
-    /* The two rear cards extend another 10% below the front card. */
-    top: calc((100% - var(--tablet-controls-space)) / 2.2);
+  .card-slider:not(.card-slider-mobile) .sticky-cards .card {
     width: calc(100% - 2rem);
-    height: calc((100% - var(--tablet-controls-space)) / 1.1);
-    flex-direction: row;
-    gap: 1.25rem;
-    padding: clamp(1.25rem, 2.4vw, 2rem);
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-copy {
-    flex: 0 1 42%;
-    min-width: 0;
-    min-height: 0;
-    width: auto;
-    height: 100%;
-    padding: 0;
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-media {
-    flex: 1 1 58%;
-    min-height: 0;
-    width: auto;
-    height: 100%;
-  }
-
-  .selected-work-heading + .card-slider .slider-card-cta {
-    flex-shrink: 0;
-    margin-top: auto;
-    padding: 0.65rem 1.1rem;
-    text-align: center;
-  }
-
-  .selected-work-heading + .card-slider .card-slider-nav {
-    top: auto;
-    bottom: 0;
-    z-index: 50;
-    min-height: 52px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) and (orientation: portrait) {
-  .selected-work-heading + .card-slider .sticky-cards .card {
-    flex-direction: column;
+  .card-slider:not(.card-slider-mobile) .slider-card-content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(12rem, 1fr) auto;
   }
 
-  .selected-work-heading + .card-slider .card .slider-card-copy {
-    order: 1;
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-media {
-    flex: 1 1 0;
-    width: 100%;
-    height: auto;
-  }
-
-  .selected-work-heading + .card-slider .slider-card-cta {
-    margin-top: 0.5rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1279px) and (max-height: 740px) {
-  .selected-work-heading {
-    gap: 0.35rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .selected-work-heading + .card-slider .sticky-cards {
-    --tablet-controls-space: 4.5rem;
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-copy {
-    gap: 0.35rem;
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-copy h2 {
-    font-size: 1.6rem;
-  }
-
-  .selected-work-heading + .card-slider .card .slider-card-kicker,
-  .selected-work-heading + .card-slider .card .slider-card-description {
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .selected-work-heading + .card-slider .slider-card-cta {
-    padding-block: 0.5rem;
-    font-size: 0.9rem;
+  .card-slider:not(.card-slider-mobile) .card .slider-card-media {
+    order: -1;
   }
 }
 

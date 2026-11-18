@@ -33,11 +33,13 @@ export function SliderCardContent({
   return (
     <div className={cn("slider-card-content", className)}>
       <div className={cn("col slider-card-copy", copyClassName)}>
-        <h2 className="mobile-card-title">{title}</h2>
-        {kicker ? <p className="slider-card-kicker mobile-card-meta">{kicker}</p> : null}
-        {description ? (
-          <p className="slider-card-description mobile-card-description">{description}</p>
-        ) : null}
+        <div className="slider-card-body" data-page-scroll tabIndex={0}>
+          <h2 className="mobile-card-title">{title}</h2>
+          {kicker ? <p className="slider-card-kicker mobile-card-meta">{kicker}</p> : null}
+          {description ? (
+            <p className="slider-card-description mobile-card-description">{description}</p>
+          ) : null}
+        </div>
         {href ? (
           <Link
             href={href}

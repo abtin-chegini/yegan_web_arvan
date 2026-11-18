@@ -165,7 +165,7 @@ function CardSliderDesktop() {
       const target = event.target as HTMLElement | null;
       if (!target) return;
       // Keep nav + case-study links interactive (don't start a drag)
-      if (target.closest(".card-slider-nav, a, button, .slider-card-cta")) {
+      if (target.closest(".card-slider-nav, a, button, .slider-card-cta, [data-page-scroll]")) {
         return;
       }
 
@@ -269,18 +269,20 @@ function CardSliderDesktop() {
   return (
     <div className="card-slider h-full overflow-hidden">
       <section className="sticky-cards" ref={stickyRef}>
-        {sliderCards.map((card) => (
-          <div className="card" id={card.id} key={card.id}>
-            <SliderCardContent
-              title={card.title}
-              kicker={card.kicker}
-              description={card.description}
-              image={card.image}
-              alt={images(`projects.${card.href.split("/").pop()}.preview`)}
-              href={card.href}
-            />
-          </div>
-        ))}
+        <div className="card-stack">
+          {sliderCards.map((card) => (
+            <div className="card" id={card.id} key={card.id}>
+              <SliderCardContent
+                title={card.title}
+                kicker={card.kicker}
+                description={card.description}
+                image={card.image}
+                alt={images(`projects.${card.href.split("/").pop()}.preview`)}
+                href={card.href}
+              />
+            </div>
+          ))}
+        </div>
 
         <div className="card-slider-nav" aria-label="Card stack controls">
           <button

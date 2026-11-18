@@ -97,6 +97,13 @@ export function FullpageScroll({
 
     const onWheel = (event: WheelEvent) => {
       if (isFormFieldFocused()) return;
+      const scroller = event.target instanceof Element
+        ? event.target.closest<HTMLElement>("[data-page-scroll]")
+        : null;
+      if (scroller && (
+        (event.deltaY > 0 && scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 2) ||
+        (event.deltaY < 0 && scroller.scrollTop > 2)
+      )) return;
       event.preventDefault();
       if (Math.abs(event.deltaY) < WHEEL_THRESHOLD) return;
       goTo(activeIndexRef.current + (event.deltaY > 0 ? 1 : -1));
@@ -104,6 +111,19 @@ export function FullpageScroll({
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (isFormFieldFocused()) return;
+      const scroller = event.target instanceof Element
+        ? event.target.closest<HTMLElement>("[data-page-scroll]")
+        : null;
+      const down = ["ArrowDown", "PageDown", " "].includes(event.key);
+      const up = ["ArrowUp", "PageUp"].includes(event.key);
+      if (scroller && (
+        (down && scroller.scrollTop + scroller.clientHeight < scroller.scrollHeight - 2) ||
+        (up && scroller.scrollTop > 2)
+      )) {
+        event.preventDefault();
+        scroller.scrollBy({ top: (down ? 1 : -1) * (event.key.startsWith("Arrow") ? 40 : scroller.clientHeight * 0.8) });
+        return;
+      }
       if (["ArrowDown", "PageDown", " "].includes(event.key)) {
         event.preventDefault();
         goTo(activeIndexRef.current + 1);
@@ -126,7 +146,7 @@ export function FullpageScroll({
       if (!(target instanceof Element)) return false;
       return Boolean(
         target.closest(
-          "button, a, input, textarea, select, [data-no-section-swipe]",
+          "button, a, input, textarea, select, [data-no-section-swipe], [data-page-scroll]",
         ),
       );
     };
@@ -139,6 +159,10 @@ export function FullpageScroll({
 
     const onTouchMove = (event: TouchEvent) => {
       if (event.touches.length !== 1) return;
+      const scroller = event.target instanceof Element
+        ? event.target.closest<HTMLElement>("[data-page-scroll]")
+        : null;
+      if (scroller && scroller.scrollHeight > scroller.clientHeight + 2) return;
       const dx = touchStartX.current - (event.touches[0]?.clientX ?? 0);
       const dy = touchStartY.current - (event.touches[0]?.clientY ?? 0);
       if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx) * 1.2) {
