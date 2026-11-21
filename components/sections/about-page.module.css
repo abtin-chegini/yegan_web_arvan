@@ -170,7 +170,7 @@
 }
 .dialogClose:hover { background: #f0e9e0; }
 .experienceTitle { margin: 1.8rem 0 0.85rem; font-size: clamp(1.45rem, 3vw, 2rem); line-height: 1.35; font-weight: 400; }
-.experienceDates { margin: 0; color: #596f89; font-size: 1.1rem; line-height: 1.6; }
+.experienceCompany { margin: 0; color: #596f89; font-size: 1.1rem; line-height: 1.6; }
 .contributions { border-top: 1px solid #cadff2; margin-top: 1.35rem; padding-top: 1.5rem; }
 .contributions h3 { margin: 0 0 1rem; font-size: 1.65rem; font-weight: 400; }
 .contributions ul { display: grid; gap: 0.8rem; margin: 0; padding-inline-start: 1.3rem; color: #425c7b; font-size: 1.1rem; line-height: 1.6; }

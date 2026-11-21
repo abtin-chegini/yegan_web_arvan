@@ -1389,40 +1389,10 @@ html[lang="fa"] .card-slider-mobile .card .slider-card-copy h2 {
   }
 }
 
-/* Reveal motion when a section becomes active */
+/* Section content stays visible throughout full-page scrolling. */
 .fullpage-reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.fullpage-section-active .fullpage-reveal,
-.case-study-section-active .fullpage-reveal {
   opacity: 1;
-  transform: translateY(0);
-}
-
-.fullpage-section-active .fullpage-reveal:nth-child(1),
-.case-study-section-active .fullpage-reveal:nth-child(1) {
-  transition-delay: 80ms;
-}
-.fullpage-section-active .fullpage-reveal:nth-child(2),
-.case-study-section-active .fullpage-reveal:nth-child(2) {
-  transition-delay: 160ms;
-}
-.fullpage-section-active .fullpage-reveal:nth-child(3),
-.case-study-section-active .fullpage-reveal:nth-child(3) {
-  transition-delay: 240ms;
-}
-.fullpage-section-active .fullpage-reveal:nth-child(4),
-.case-study-section-active .fullpage-reveal:nth-child(4) {
-  transition-delay: 320ms;
-}
-.fullpage-section-active .fullpage-reveal:nth-child(5),
-.case-study-section-active .fullpage-reveal:nth-child(5) {
-  transition-delay: 400ms;
+  transform: none;
 }
 
 /* ── Before / After stack slider (Bilit4U Design section) ──

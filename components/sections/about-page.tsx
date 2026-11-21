@@ -33,7 +33,6 @@ type ExperienceContent = {
   name: string;
   role: string;
   type: string;
-  dates: string;
   contributions: string[];
   skills: string[];
 };
@@ -69,8 +68,8 @@ function ExperienceCard({ company }: { company: Experience }) {
             <DialogClose className={styles.dialogClose} aria-label={t("closeExperience")}><X size={20} /></DialogClose>
           </div>
           <DialogTitle className={styles.experienceTitle}>{content.role}</DialogTitle>
-          <DialogDescription className={styles.experienceDates}>
-            <bdi>{content.dates}</bdi> · {content.name}
+          <DialogDescription className={styles.experienceCompany}>
+            {content.name}
           </DialogDescription>
           <section className={styles.contributions} aria-label={t("responsibilities")}>
             <h3>{t("responsibilities")}</h3>

@@ -157,7 +157,7 @@ export const HOME_IMAGES_FA = responsiveImageSchema.parse({
 
 /** SEC1 English artwork at the supplied viewport widths. */
 export const HOME_IMAGES_EN = responsiveImageSchema.parse({
-  fullHd: `${HOME_EN_CDN}/sec1_HOMEPAGE_360_XS_EN.jpg`,
+  fullHd: `${HOME_EN_CDN}/sec1_HOMEPAGE_1920_HD_FULL_EN.jpg`,
   "2xl": `${HOME_EN_CDN}/sec1_HOMEPAGE_1536_2XL_EN.jpg`,
   desktopWide: `${HOME_EN_CDN}/sec1_HOMEPAGE_1440_STANDARD_DESKTOP_EN.jpg`,
   xl: `${HOME_EN_CDN}/sec1_HOMEPAGE_1280_DESKTOP_XL_EN.jpg`,

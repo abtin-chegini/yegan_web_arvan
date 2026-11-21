@@ -3,7 +3,6 @@
 import {useTranslations} from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 import styles from "./contact-links.module.css";
-import { useContactAnimation } from "./use-contact-animation";
 
 export const contactRows: {
   label: string;
@@ -29,10 +28,9 @@ export const contactRows: {
 ];
 
 export function ContactSection() {
-  const rootRef = useContactAnimation();
   const t = useTranslations("Contact");
   return (
-    <div ref={rootRef} className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center text-center">
+    <div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center text-center">
       <div className="flex w-full flex-col items-center">
         <h2 className="font-serif text-[clamp(2.1rem,4.2vw,3.4rem)] font-medium leading-[1.15] tracking-[-0.02em] text-[var(--section-contact-fg)]">
           {t("title")}

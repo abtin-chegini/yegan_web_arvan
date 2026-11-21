@@ -43,19 +43,8 @@ function FeatureCard({
     <motion.div
       className="relative aspect-[3/4] w-1/3 shrink-0"
       style={{ zIndex }}
-      initial={reduceMotion ? settled : {
-        x: `${side * 100}%`,
-        y: "11.71875%",
-        opacity: 0,
-        rotate: 0,
-        scale: side === 0 ? 1 : 0.9,
-      }}
-      whileInView={settled}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={reduceMotion ? { duration: 0 } : {
-        type: "spring",
-        delay: [0.8, 0.4, 0.6][index],
-      }}
+      initial={false}
+      animate={settled}
     >
     <motion.button
       type="button"
